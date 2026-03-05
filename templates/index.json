@@ -434,6 +434,7 @@
         "benefit_JADtT8": {
           "type": "benefit",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469001_468de2a6-791b-4ac5-b0be-66421311fdd9.png",
             "icon_preset": "no",
             "title": "No Added Sugar",
             "text": "Formulated with zero added sugar and no artificial sweeteners."
@@ -442,6 +443,7 @@
         "benefit_WhEtRk": {
           "type": "benefit",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469002_eb6c227f-c9a3-425d-b971-530ab93583d4.webp",
             "icon_preset": "check",
             "title": "Vegan & Non-GMO",
             "text": "Clean ingredients you can trust — vegan, gluten-free, and Non-GMO certified."
@@ -458,6 +460,7 @@
         "benefit_qVBH6L": {
           "type": "benefit",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469000_ab2e3c68-fbaf-4430-88ea-cce1a1364272.png",
             "icon_preset": "check",
             "title": "No Artificial Dyes",
             "text": "No dyes, no junk. Just clean, effective hydration in every pop or drop."
@@ -494,7 +497,7 @@
         "mobile_item_align": "center",
         "grid_gap": 36,
         "grid_gap_h": 40,
-        "icon_size": 56,
+        "icon_size": 62,
         "item_title_size": 28,
         "item_text_size": 17,
         "product_image": "shopify://shop_images/Screen_Shot_2025-11-05_at_12.29.00_PM_53563067-f5c4-47b2-ae5e-f20ab2bab606.png",
@@ -505,7 +508,7 @@
         "btn_mt": 40,
         "heading_color": "#ffffff",
         "text_color": "#ffffffcc",
-        "icon_border_color": "#61c2f480",
+        "icon_border_color": "#263d87",
         "icon_bg_color": "#61c2f414",
         "btn_bg_color": "#ffffff",
         "btn_text_color": "#334fb4",
