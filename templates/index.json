@@ -243,7 +243,7 @@
         "card_gap": 16,
         "columns_mobile": "1",
         "card_title_size": 25,
-        "card_title_size_mobile": 19,
+        "card_title_size_mobile": 30,
         "card_btn_size": 14,
         "card_btn_size_mobile": 17,
         "quick_add": "standard",
