@@ -58,6 +58,7 @@
         "mini_feature_UypLpU": {
           "type": "mini_feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469001_468de2a6-791b-4ac5-b0be-66421311fdd9.webp",
             "icon_preset": "no-sugar",
             "label": "No Added Sugar"
           }
@@ -65,6 +66,7 @@
         "mini_feature_Tk3aBy": {
           "type": "mini_feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469002_772b2162-c976-4130-a55d-1cc949c5adb5.webp",
             "icon_preset": "leaf",
             "label": "Vegan Formula"
           }
@@ -72,6 +74,7 @@
         "mini_feature_PeQfUk": {
           "type": "mini_feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_1980468999_4b2e6798-1608-4e85-97e5-3082a93133ff.webp",
             "icon_preset": "check",
             "label": "Non-GMO Certified"
           }
