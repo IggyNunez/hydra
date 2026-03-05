@@ -723,13 +723,13 @@
         "overlay_color": "#000000",
         "overlay_opacity": 40,
         "heading_color": "#ffffff",
-        "table_bg": "#61c2f4",
+        "table_bg": "#d175b5",
         "divider_color": "#ececec",
         "feature_color": "#1a1a1a",
         "check_color": "#263d87",
         "cross_color": "#d28d8d",
         "vs_pill_color": "#333333",
-        "btn_bg": "#d28db5",
+        "btn_bg": "#61c2f4",
         "btn_text_color": "#ffffff",
         "guarantee_color": "#ffffffbf"
       }
