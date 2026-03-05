@@ -489,6 +489,7 @@
         "ingredient_HJDaJC": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/sea_minerals.png",
             "name": "Sea Minerals",
             "badge": "Full spectrum electrolytes",
             "description": "Sourced from pristine sea water, our sea mineral blend delivers a complete profile of electrolytes your body actually uses."
@@ -497,6 +498,7 @@
         "ingredient_Ymi6JR": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Sodium_Mineral.png",
             "name": "Sodium",
             "badge": "Hydration & muscle function",
             "description": "The primary electrolyte lost in sweat. Sodium drives fluid balance and keeps muscles firing at full capacity."
@@ -505,6 +507,7 @@
         "ingredient_pmPaML": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Potasium.png",
             "name": "Potassium",
             "badge": "Reduces cramps",
             "description": "Works alongside sodium to maintain cellular hydration, reduce muscle cramps, and support nerve signaling."
@@ -513,6 +516,7 @@
         "ingredient_N4BHMa": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/magensium.png",
             "name": "Magnesium",
             "badge": "Energy & recovery",
             "description": "Essential for energy production and muscle recovery. Most people don't get enough from diet alone."
@@ -521,6 +525,7 @@
         "ingredient_4EeCTz": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/vitmain-c.png",
             "name": "Vitamin C",
             "badge": "Immune support",
             "description": "Added antioxidant protection to support your immune system and help your body recover faster."
