@@ -1,0 +1,288 @@
+.ingredients-grid {
+  background-color: var(--ing-bg, #5B2D8E);
+  padding: 80px 0 90px;
+}
+
+.ingredients-grid__container {
+  max-width: 1346px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* ── Top row: heading left + cards right ── */
+.ingredients-grid__layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0 60px;
+  align-items: start;
+}
+
+.ingredients-grid__heading-wrap {
+  padding-top: 12px;
+}
+
+.ingredients-grid__heading {
+  margin: 0;
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(28px, 2.8vw, 44px);
+  line-height: 1.15;
+  color: var(--ing-heading-color, #fff);
+}
+
+/* ── Cards grid ── */
+.ingredients-grid__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* odd card count: last card in its own row left-aligned */
+.ingredients-grid__cards .ingredient-card:last-child:nth-child(odd) {
+  grid-column: 1;
+}
+
+/* ── Single card ── */
+.ingredient-card {
+  background-color: var(--ing-card-bg, rgba(255,255,255,0.08));
+  border-radius: 12px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0 18px;
+  align-items: start;
+}
+
+.ingredient-card__image-wrap {
+  width: 110px;
+  height: 110px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+.ingredient-card__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ingredient-card__image-wrap--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ingredient-card__image-wrap--placeholder svg {
+  width: 40px;
+  height: 40px;
+  opacity: 0.3;
+}
+
+.ingredient-card__body {}
+
+.ingredient-card__name {
+  margin: 0 0 10px;
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(16px, 1.4vw, 22px);
+  line-height: 1.2;
+  color: var(--ing-heading-color, #fff);
+}
+
+.ingredient-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--ing-badge-bg, rgba(255,255,255,0.15));
+  border-radius: 100px;
+  padding: 5px 12px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--ing-badge-text, #fff);
+  letter-spacing: 0.02em;
+}
+
+.ingredient-card__badge-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.ingredient-card__badge-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ingredient-card__desc {
+  margin: 0;
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.6;
+  color: var(--ing-text-color, rgba(255,255,255,0.8));
+}
+
+/* ── Taste card (bottom banner) ── */
+.ingredients-grid__taste {
+  margin-top: 32px;
+  /* aligns under the cards column */
+  margin-left: calc(280px + 60px);
+}
+
+.taste-card {
+  background-color: var(--ing-taste-bg, rgba(255,255,255,0.12));
+  border-radius: 14px;
+  padding: 28px 28px 0;
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  gap: 0 24px;
+  align-items: end;
+  overflow: hidden;
+}
+
+.taste-card__left {
+  padding-bottom: 28px;
+}
+
+.taste-card__icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 10px;
+  color: var(--ing-heading-color, #fff);
+}
+
+.taste-card__icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.taste-card__title {
+  margin: 0 0 10px;
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(18px, 1.5vw, 24px);
+  line-height: 1.2;
+  color: var(--ing-heading-color, #fff);
+}
+
+.taste-card__desc {
+  margin: 0;
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.6;
+  color: var(--ing-text-color, rgba(255,255,255,0.75));
+}
+
+.taste-card__image-wrap {
+  align-self: end;
+}
+
+.taste-card__image-wrap img {
+  display: block;
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  object-position: center bottom;
+  border-radius: 8px 8px 0 0;
+}
+
+.taste-card__pro-tip {
+  background-color: var(--ing-protip-bg, rgba(255,255,255,0.9));
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 28px;
+  align-self: center;
+}
+
+.taste-card__pro-tip-label {
+  display: inline-block;
+  background-color: var(--ing-protip-label-bg, #3D1A6E);
+  color: #fff;
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.taste-card__pro-tip-text {
+  margin: 0;
+  font-size: clamp(13px, 0.9vw, 14px);
+  line-height: 1.6;
+  color: var(--ing-protip-text, #2d1a56);
+}
+
+/* ── Mobile ── */
+@media (max-width: 1024px) {
+  .ingredients-grid__container {
+    padding: 0 28px;
+  }
+
+  .ingredients-grid__layout {
+    grid-template-columns: 1fr;
+    gap: 32px 0;
+  }
+
+  .ingredients-grid__taste {
+    margin-left: 0;
+  }
+
+  .taste-card {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .taste-card__image-wrap {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .ingredients-grid {
+    padding: 50px 0 60px;
+  }
+
+  .ingredients-grid__cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ingredients-grid__cards .ingredient-card:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  .ingredient-card {
+    grid-template-columns: 90px 1fr;
+    gap: 0 14px;
+  }
+
+  .ingredient-card__image-wrap {
+    width: 90px;
+    height: 90px;
+  }
+
+  .taste-card {
+    grid-template-columns: 1fr;
+    padding: 24px 20px 0;
+  }
+
+  .taste-card__pro-tip {
+    margin-bottom: 0;
+    margin-top: 16px;
+    border-radius: 10px;
+  }
+
+  .taste-card__left {
+    padding-bottom: 0;
+  }
+}

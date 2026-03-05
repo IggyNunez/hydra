@@ -1,0 +1,325 @@
+{{ 'ingredients-grid.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    --ing-bg: {{ section.settings.bg_color }};
+    --ing-heading-color: {{ section.settings.heading_color }};
+    --ing-text-color: {{ section.settings.text_color }};
+    --ing-card-bg: {{ section.settings.card_bg_color }};
+    --ing-badge-bg: {{ section.settings.badge_bg_color }};
+    --ing-badge-text: {{ section.settings.badge_text_color }};
+    --ing-taste-bg: {{ section.settings.taste_bg_color }};
+    --ing-protip-bg: {{ section.settings.protip_bg_color }};
+    --ing-protip-label-bg: {{ section.settings.protip_label_bg }};
+    --ing-protip-text: {{ section.settings.protip_text_color }};
+  }
+{% endstyle %}
+
+{%- liquid
+  assign ingredient_blocks = section.blocks | where: 'type', 'ingredient'
+-%}
+
+<section class="ingredients-grid{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  <div class="ingredients-grid__container">
+
+    <div class="ingredients-grid__layout">
+
+      {%- comment -%} Sticky heading left {%- endcomment -%}
+      <div class="ingredients-grid__heading-wrap">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ingredients-grid__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Ingredient cards grid {%- endcomment -%}
+      <div class="ingredients-grid__cards">
+        {%- for block in ingredient_blocks -%}
+          <div class="ingredient-card" {{ block.shopify_attributes }}>
+
+            <div class="ingredient-card__image-wrap{% if block.settings.image == blank %} ingredient-card__image-wrap--placeholder{% endif %}">
+              {%- if block.settings.image != blank -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 220 }}"
+                  alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
+                  width="110"
+                  height="110"
+                  loading="lazy"
+                >
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+
+            <div class="ingredient-card__body">
+              {%- if block.settings.name != blank -%}
+                <h3 class="ingredient-card__name">{{ block.settings.name }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.badge != blank -%}
+                <div class="ingredient-card__badge">
+                  <span class="ingredient-card__badge-icon">
+                    <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 7l3.5 3.5L12 3"/>
+                    </svg>
+                  </span>
+                  {{ block.settings.badge }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.description != blank -%}
+                <p class="ingredient-card__desc">{{ block.settings.description }}</p>
+              {%- endif -%}
+            </div>
+
+          </div>
+        {%- endfor -%}
+      </div>
+
+    </div>
+
+    {%- comment -%} Taste banner {%- endcomment -%}
+    {%- assign show_taste = false -%}
+    {%- if section.settings.taste_title != blank or section.settings.taste_desc != blank or section.settings.protip_text != blank -%}
+      {%- assign show_taste = true -%}
+    {%- endif -%}
+
+    {%- if show_taste -%}
+      <div class="ingredients-grid__taste">
+        <div class="taste-card">
+
+          <div class="taste-card__left">
+            {%- if section.settings.taste_title != blank -%}
+              <div class="taste-card__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17 8h1a4 4 0 0 1 0 8h-1" stroke-linecap="round"/>
+                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 2v3M10 2v3M14 2v3" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="taste-card__title">{{ section.settings.taste_title }}</h3>
+            {%- endif -%}
+            {%- if section.settings.taste_desc != blank -%}
+              <p class="taste-card__desc">{{ section.settings.taste_desc }}</p>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.taste_image != blank -%}
+            <div class="taste-card__image-wrap">
+              <img
+                src="{{ section.settings.taste_image | image_url: width: 400 }}"
+                alt="{{ section.settings.taste_image.alt | default: 'Product' | escape }}"
+                loading="lazy"
+              >
+            </div>
+          {%- else -%}
+            <div class="taste-card__image-wrap"></div>
+          {%- endif -%}
+
+          {%- if section.settings.protip_text != blank -%}
+            <div class="taste-card__pro-tip">
+              {%- if section.settings.protip_label != blank -%}
+                <span class="taste-card__pro-tip-label">{{ section.settings.protip_label }}</span>
+              {%- endif -%}
+              <p class="taste-card__pro-tip-text">{{ section.settings.protip_text }}</p>
+            </div>
+          {%- endif -%}
+
+        </div>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients Grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "Carefully-Selected Ingredients:"
+    },
+    {
+      "type": "header",
+      "content": "Taste banner"
+    },
+    {
+      "type": "text",
+      "id": "taste_title",
+      "label": "Taste title",
+      "default": "What does it taste like?"
+    },
+    {
+      "type": "textarea",
+      "id": "taste_desc",
+      "label": "Taste description",
+      "default": "Our customers describe it as a rich, cozy chocolate. Not too sweet and no weird aftertaste."
+    },
+    {
+      "type": "image_picker",
+      "id": "taste_image",
+      "label": "Taste image (mug / product shot)"
+    },
+    {
+      "type": "text",
+      "id": "protip_label",
+      "label": "Pro tip label",
+      "default": "Pro Tip:"
+    },
+    {
+      "type": "textarea",
+      "id": "protip_text",
+      "label": "Pro tip text",
+      "default": "Many customers like to add cinnamon, vanilla, or peppermint. Your order includes a collection of simple, sleep-friendly recipes to try."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#5B2D8E"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color",
+      "default": "#ffffffcc"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card background",
+      "default": "#ffffff14"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Badge background",
+      "default": "#ffffff26"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "taste_bg_color",
+      "label": "Taste banner background",
+      "default": "#ffffff1f"
+    },
+    {
+      "type": "color",
+      "id": "protip_bg_color",
+      "label": "Pro tip box background",
+      "default": "#ffffffe6"
+    },
+    {
+      "type": "color",
+      "id": "protip_label_bg",
+      "label": "Pro tip label background",
+      "default": "#3D1A6E"
+    },
+    {
+      "type": "color",
+      "id": "protip_text_color",
+      "label": "Pro tip text color",
+      "default": "#2d1a56"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Ingredient image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Ingredient Name"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge label",
+          "default": "Key benefit"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Describe what this ingredient does and why it's included."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Grid",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Tart Cherry",
+            "badge": "Natural melatonin boost",
+            "description": "Supports natural melatonin production, helping you fall asleep faster and stay asleep longer without synthetic hormones."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Magnesium Glycinate",
+            "badge": "Promotes lower stress",
+            "description": "Targets stress, anxiety, and inflammation, helping you unlock the deepest, most restorative phases of sleep every night."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Theobroma Cacao",
+            "badge": "Euphoric relaxation state",
+            "description": "Premium cocoa that promotes euphoric relaxation and blissful sleep that leaves you feeling fully refreshed."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Fermented L-Theanine",
+            "badge": "Calms racing thoughts",
+            "description": "Pulls the plug on a racing mind and mental overwhelm, creating perfect conditions for natural sleep."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "GABA",
+            "badge": "Quiets mental chatter",
+            "description": "Your brain's natural \"off switch\". This neurotransmitter helps quiet mental chatter and ease you into sleep."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
