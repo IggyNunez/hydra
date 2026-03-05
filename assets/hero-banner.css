@@ -94,6 +94,7 @@
   font-weight: var(--hb-heading-weight, var(--font-weight-black));
   color: var(--hb-heading-color, var(--color-blue));
   line-height: 1.1;
+  letter-spacing: var(--hb-heading-ls, -0.02em);
   margin: 0 0 var(--hb-heading-mb, 9px);
   text-transform: uppercase;
 }

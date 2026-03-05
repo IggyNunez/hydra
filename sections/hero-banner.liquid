@@ -9,6 +9,7 @@
     --hb-desc-size: {{ section.settings.desc_size }}px;
     --hb-desc-color: {{ section.settings.desc_color }};
     --hb-btn-size: {{ section.settings.btn_font_size }}px;
+    --hb-heading-ls: {{ section.settings.heading_letter_spacing | divided_by: 100.0 }}em;
   }
 {% endstyle %}
 
@@ -323,6 +324,13 @@
       "id": "heading_size",
       "label": "Heading font size (px)",
       "min": 20, "max": 100, "step": 2, "default": 64
+    },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "label": "Heading letter spacing",
+      "min": -10, "max": 50, "step": 1, "default": -2,
+      "info": "Values in hundredths of an em (e.g. -2 = -0.02em)"
     },
     {
       "type": "select",
