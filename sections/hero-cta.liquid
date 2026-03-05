@@ -29,6 +29,7 @@
     --hc-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
     --hc-heading-weight: {{ section.settings.heading_weight }};
     --hc-heading-mb: {{ section.settings.heading_margin_bottom }}px;
+    --hc-heading-ls: {{ section.settings.heading_letter_spacing | divided_by: 100.0 }}em;
     --hc-desc-size: {{ section.settings.desc_size }}px;
     --hc-desc-mb: {{ section.settings.desc_margin_bottom }}px;
     --hc-desc-max-width: {{ section.settings.desc_max_width }}px;
@@ -385,6 +386,13 @@
       "min": 20, "max": 70, "step": 2, "default": 36
     },
     {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "label": "Heading letter spacing",
+      "min": -10, "max": 50, "step": 1, "default": -2,
+      "info": "Values in hundredths of an em (e.g. -2 = -0.02em)"
+    },
+    {
       "type": "select",
       "id": "heading_weight",
       "label": "Heading font weight",
@@ -490,7 +498,7 @@
       "type": "range",
       "id": "btn_size",
       "label": "Button font size (px)",
-      "min": 10, "max": 24, "step": 1, "default": 15
+      "min": 10, "max": 50, "step": 1, "default": 15
     },
     {
       "type": "range",

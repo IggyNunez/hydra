@@ -124,6 +124,7 @@
   font-weight: var(--hc-heading-weight, 700);
   font-size: var(--hc-heading-size, clamp(32px, 4vw, 64px));
   line-height: 1.1;
+  letter-spacing: var(--hc-heading-ls, -0.02em);
   color: var(--hc-heading-color, #fff);
 }
 
