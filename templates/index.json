@@ -555,7 +555,7 @@
         "img_size": 108,
         "img_radius": 8,
         "card_inner_gap": 18,
-        "card_name_size": 20,
+        "card_name_size": 32,
         "card_name_mb": 10,
         "badge_size": 12,
         "badge_mb": 12,
