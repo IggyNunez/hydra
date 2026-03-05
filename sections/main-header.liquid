@@ -1,0 +1,346 @@
+{{ 'main-header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'main-header.js' | asset_url }}" defer="defer"></script>
+
+<main-header>
+  <section class="main-header" data-main-header>
+    <div class="main-header__container">
+      <div class="main-header__wrapper">
+        <div class="main-header__grid d-flex">
+          <div class="main-header__logo">
+            {% if template contains 'index' %}
+              <h1>
+                <a href="{{ shop.url }}">
+                  {% if section.settings.logo != blank %}
+                    <img src="{{ section.settings.logo | image_url }}" alt="{{ section.settings.logo.alt }}" data-height="{{ section.settings.logo.height }}" width="{{ section.settings.logo.width }}" class="main-header__logo-img">
+                  {% else %}
+                    {{ shop.name }}  
+                  {% endif %}
+                </a>
+              </h1>
+            {% else %}
+              <div class="h1">
+                <a href="{{ shop.url }}">
+                  {% if section.settings.logo != blank %}
+                    <img src="{{ section.settings.logo | image_url }}" alt="{{ section.settings.logo.alt }}" height="{{ section.settings.logo.height }}" width="{{ section.settings.logo.width }}" class="main-header__logo-img">
+                  {% else %}
+                    {{ shop.name }}  
+                  {% endif %}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+          <div class="main-header__menu">
+            <nav class="main-header__nav">
+              {% if section.settings.select_menu != blank %}
+                <ul class="main-header__nav-list">
+                  {% for link in section.settings.select_menu.links %}
+                    <li class="main-header__nav-item{% if link.links != blank %} main-header__nav-has-child{% endif %}"{% if link.links != blank %} data-has-child {% endif %}>
+                      <a href="{{ link.url }}" class="main-header__nav-link" {% if link.links != blank %} data-has-child-link{% endif %}>
+                        <span class="main-header__nav-link-text">
+                          {{ link.title }}
+                        </span>
+                        {% if link.links != blank %}
+                          <span class="main-header__nav-link-icon">
+                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M11.2568 4.82928L7.73876 8.34736C7.32328 8.76284 6.64341 8.76284 6.22793 8.34736L2.70984 4.82928" stroke="#27272A" stroke-width="1.61875" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </span>
+                        {% endif %}
+                      </a>
+                      {% if link.links != blank %}
+                        <div class="main-header__mega-menu">
+                          <ul class="main-header__nav-list main-header__nav-list--submenu">
+                            <li class="main-header__nav-item main-header__nav-item--sub main-header__nav-item--back">
+                              <button class="main-header__nav-link main-header__nav-link--sub" data-back-btn>
+                                <span class="main-header__nav-link-icon">
+                                  <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.2568 4.82928L7.73876 8.34736C7.32328 8.76284 6.64341 8.76284 6.22793 8.34736L2.70984 4.82928" stroke="#27272A" stroke-width="1.61875" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                </span>
+                                <span class="main-header__nav-link-text">
+                                  {{ link.title }}
+                                </span>
+                                </button>
+                            </li>
+                            {% for child_link in link.links %}
+                              <li class="main-header__nav-item main-header__nav-item--sub">
+                                <a href="{{ child_link.url }}" class="main-header__nav-link main-header__nav-link--sub{% if child_link.links != blank %} main-header__nav-link--sub-2{% endif %}">{{ child_link.title }}</a>
+                                {% if child_link.links != blank %}
+                                  <ul class="main-header__nav-item main-header__nav-item--sub main-header__nav-item--sub--2">
+                                    {% for grand_ChildLink in child_link.links %}
+                                      <li class="main-header__nav-item main-header__nav-item--sub">
+                                        <a href="{{ grand_ChildLink.url }}" class="main-header__nav-link main-header__nav-link--sub{% if grand_ChildLink.url contains 'products' %} main-header__nav-link--product{% endif %}">
+                                          {% if grand_ChildLink.url contains 'products'  %}
+                                            {% assign product_path = grand_ChildLink.url %}
+                                            {% assign product_handle = product_path | split: '/' | last %}
+                                            {% assign product = all_products[product_handle] %}
+                                            <span class="main-header__nav-link-img">
+                                              <img src="{{ product.featured_image | image_url }}" alt="{{ product.featured_image.alt }}">
+                                            </span>
+                                            <span class="main-header__nav-link-text">
+                                              {{ grand_ChildLink.title }}
+                                            </span>
+                                          {% else %}
+                                            {{ grand_ChildLink.title }}
+                                          {% endif %}
+                                        </a>
+                                      </li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </nav>  
+          </div>
+          <div class="main-header__icons">
+            {% if section.settings.show_search %}
+              <div class="main-header__icon main-header__icon--search">
+                <a href="{{ routes.search_url }}">
+                  <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.353155 22.9935L6.19607 17.1495C2.555 12.5956 3.29527 5.95293 7.84902 2.31188C12.404 -1.32918 19.0467 -0.588913 22.6878 3.96483C26.3288 8.51877 25.5885 15.1625 21.0348 18.8025C17.18 21.8843 11.7061 21.8843 7.85107 18.8025L2.00711 24.6464C1.55584 25.109 0.815708 25.1183 0.353102 24.667C-0.109505 24.2157 -0.11874 23.4756 0.332544 23.013C0.339739 23.0058 0.345907 22.9986 0.353102 22.9924L0.353155 22.9935ZM22.6014 10.5879C22.6014 6.06583 18.9356 2.4003 14.4137 2.4003C9.89161 2.4003 6.22607 6.06609 6.22607 10.5879C6.22607 15.1098 9.89187 18.7756 14.4137 18.7756C18.9337 18.7694 22.5964 15.1069 22.6014 10.5879Z" fill="#27272A"/>
+                  </svg>
+                </a>
+              </div>
+            {% endif %}
+            {% if shop.customer_accounts_enabled and section.settings.show_account %}
+              <div class="main-header__icon main-header__icon--account">
+                
+              </div>
+            {% endif %}
+            <div class="main-header__icon main-header__icon--cart">
+              <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+                {% if cart == empty %}
+                  <span class="svg-wrapper">
+                    <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20.1272 5.80421C19.4326 5.82642 18.7392 5.87787 18.0489 5.95843C17.9351 5.96878 17.9351 5.97085 17.9382 5.88391C17.9724 5.31254 17.9471 4.73916 17.8626 4.17303C17.7801 3.65094 17.6037 3.14811 17.342 2.68883C17.0582 2.17895 16.6682 1.73598 16.1983 1.38989C15.6807 1.00632 15.0999 0.716285 14.4823 0.532903C13.7754 0.320934 13.045 0.197514 12.3077 0.165474C11.4974 0.118196 10.6843 0.17384 9.88789 0.331076C9.03815 0.492537 8.27017 0.843406 7.68332 1.34125C7.21037 1.74777 6.84224 2.26217 6.61001 2.84098C6.34465 3.5223 6.17064 4.23576 6.09251 4.96275C6.0242 5.47715 5.9828 5.99258 5.96831 6.51009C5.96831 6.54735 5.94761 6.55356 5.9031 6.55149C5.72197 6.54424 5.54188 6.5401 5.36179 6.53079C4.98919 6.51216 4.61555 6.49974 4.24501 6.46041C3.72854 6.40348 3.21414 6.33414 2.69353 6.29377C2.26167 6.2535 1.82621 6.27863 1.40184 6.36829C0.88951 6.46351 0.456876 6.7233 0.213648 7.08038C0.0666767 7.31843 -0.00577404 7.57925 0.00147103 7.84111C0.00561107 8.05122 0.0242413 8.26029 0.0573616 8.46936C0.209416 9.77345 0.413128 11.071 0.668018 12.3589C0.825339 13.1517 1.02303 13.9373 1.28385 14.7146C1.65335 15.8842 2.22674 17.0092 2.98955 18.0608C3.3549 18.5628 3.79478 19.0296 4.30194 19.4529C5.25001 20.253 6.56861 20.7404 7.9783 20.8119C8.4751 20.8408 8.97398 20.8512 9.47182 20.8491C10.0974 20.8474 10.7227 20.8284 11.3473 20.7922C11.9941 20.7549 13.822 20.7032 14.4616 20.6162C15.7907 20.4474 17.0879 20.0848 18.3118 19.5398C19.2568 19.1155 20.0817 18.5514 20.7358 17.8797C21.2443 17.3491 21.6544 16.7323 21.9468 16.0581C22.4032 15.0406 22.4612 14.7332 22.6454 13.662C22.7934 12.7988 22.9414 11.7783 22.9414 10.9296C22.9414 10.3552 22.9414 9.63582 22.9435 9.23941C22.9414 8.91856 22.9197 8.52008 22.9414 8.19922C22.9787 7.82455 23.0553 7.12695 22.9414 6.76056C22.7789 6.212 22.2852 6.16336 21.597 5.9636C21.1187 5.83393 20.6232 5.7798 20.1283 5.80317L20.1272 5.80421ZM8.04247 5.06521C8.0818 4.76299 8.13044 4.4618 8.19875 4.16165C8.28983 3.69796 8.46579 3.24566 8.7204 2.81924C9.0516 2.26965 9.7078 1.87324 10.4841 1.75318C11.1643 1.63412 11.8578 1.60974 12.5448 1.68073C13.0619 1.72564 13.5704 1.84162 14.0559 2.02539C14.7348 2.2976 15.2658 2.74575 15.5535 3.28914C15.7585 3.65967 15.8878 4.05194 15.9386 4.45249C16.0047 5.00095 16.0165 5.55461 15.9738 6.1054C15.9706 6.15094 15.951 6.16439 15.8961 6.16957C15.0536 6.24616 14.2091 6.31861 13.3645 6.37657C12.0817 6.46262 10.7974 6.52266 9.51218 6.55666C9.00916 6.57012 8.50512 6.57219 8.00107 6.5784C7.93897 6.5784 7.91826 6.56908 7.92137 6.51837C7.94207 6.03191 7.9783 5.54856 8.04247 5.06521Z" fill="#27272A"/>
+                    </svg>
+                  </span>
+                {% else %}
+                  <span class="svg-wrapper">
+                    <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20.1272 5.80421C19.4326 5.82642 18.7392 5.87787 18.0489 5.95843C17.9351 5.96878 17.9351 5.97085 17.9382 5.88391C17.9724 5.31254 17.9471 4.73916 17.8626 4.17303C17.7801 3.65094 17.6037 3.14811 17.342 2.68883C17.0582 2.17895 16.6682 1.73598 16.1983 1.38989C15.6807 1.00632 15.0999 0.716285 14.4823 0.532903C13.7754 0.320934 13.045 0.197514 12.3077 0.165474C11.4974 0.118196 10.6843 0.17384 9.88789 0.331076C9.03815 0.492537 8.27017 0.843406 7.68332 1.34125C7.21037 1.74777 6.84224 2.26217 6.61001 2.84098C6.34465 3.5223 6.17064 4.23576 6.09251 4.96275C6.0242 5.47715 5.9828 5.99258 5.96831 6.51009C5.96831 6.54735 5.94761 6.55356 5.9031 6.55149C5.72197 6.54424 5.54188 6.5401 5.36179 6.53079C4.98919 6.51216 4.61555 6.49974 4.24501 6.46041C3.72854 6.40348 3.21414 6.33414 2.69353 6.29377C2.26167 6.2535 1.82621 6.27863 1.40184 6.36829C0.88951 6.46351 0.456876 6.7233 0.213648 7.08038C0.0666767 7.31843 -0.00577404 7.57925 0.00147103 7.84111C0.00561107 8.05122 0.0242413 8.26029 0.0573616 8.46936C0.209416 9.77345 0.413128 11.071 0.668018 12.3589C0.825339 13.1517 1.02303 13.9373 1.28385 14.7146C1.65335 15.8842 2.22674 17.0092 2.98955 18.0608C3.3549 18.5628 3.79478 19.0296 4.30194 19.4529C5.25001 20.253 6.56861 20.7404 7.9783 20.8119C8.4751 20.8408 8.97398 20.8512 9.47182 20.8491C10.0974 20.8474 10.7227 20.8284 11.3473 20.7922C11.9941 20.7549 13.822 20.7032 14.4616 20.6162C15.7907 20.4474 17.0879 20.0848 18.3118 19.5398C19.2568 19.1155 20.0817 18.5514 20.7358 17.8797C21.2443 17.3491 21.6544 16.7323 21.9468 16.0581C22.4032 15.0406 22.4612 14.7332 22.6454 13.662C22.7934 12.7988 22.9414 11.7783 22.9414 10.9296C22.9414 10.3552 22.9414 9.63582 22.9435 9.23941C22.9414 8.91856 22.9197 8.52008 22.9414 8.19922C22.9787 7.82455 23.0553 7.12695 22.9414 6.76056C22.7789 6.212 22.2852 6.16336 21.597 5.9636C21.1187 5.83393 20.6232 5.7798 20.1283 5.80317L20.1272 5.80421ZM8.04247 5.06521C8.0818 4.76299 8.13044 4.4618 8.19875 4.16165C8.28983 3.69796 8.46579 3.24566 8.7204 2.81924C9.0516 2.26965 9.7078 1.87324 10.4841 1.75318C11.1643 1.63412 11.8578 1.60974 12.5448 1.68073C13.0619 1.72564 13.5704 1.84162 14.0559 2.02539C14.7348 2.2976 15.2658 2.74575 15.5535 3.28914C15.7585 3.65967 15.8878 4.05194 15.9386 4.45249C16.0047 5.00095 16.0165 5.55461 15.9738 6.1054C15.9706 6.15094 15.951 6.16439 15.8961 6.16957C15.0536 6.24616 14.2091 6.31861 13.3645 6.37657C12.0817 6.46262 10.7974 6.52266 9.51218 6.55666C9.00916 6.57012 8.50512 6.57219 8.00107 6.5784C7.93897 6.5784 7.91826 6.56908 7.92137 6.51837C7.94207 6.03191 7.9783 5.54856 8.04247 5.06521Z" fill="#27272A"/>
+                    </svg>
+                  </span>
+                {% endif %}
+                <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+                <div class="cart-count-bubble">
+                  {%- if cart.item_count < 100 -%}
+                    <span aria-hidden="true">{{ cart.item_count }}</span>
+                  {%- endif -%}
+                  <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                </div>
+              </a>
+            </div>
+            <div class="main-header__icon main-header__icon--humberger">
+              <button class="btn btn__humberger" data-humbergur>
+                <svg width="25px" height="25px" class="icon icon-hamburger" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon--open">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12ZM13 18C13 17.4477 13.4477 17 14 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H14C13.4477 19 13 18.5523 13 18Z" fill="#000000"></path>
+                </svg>
+                <svg height="25px" width="25px" class="icon--close" xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main-header>
+
+{%- if settings.cart_type == "notification" -%}
+  {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
+{%- endif -%}
+
+{% javascript %}
+  class StickyHeader extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      this.header = document.querySelector('.section-header');
+      this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
+      this.headerBounds = {};
+
+      this.setHeaderHeight();
+
+      window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
+
+      if (this.headerIsAlwaysSticky) {
+        this.header.classList.add('shopify-section-header-sticky');
+      };
+
+      this.currentScrollTop = 0;
+      this.preventReveal = false;
+      this.predictiveSearch = this.querySelector('predictive-search');
+
+      this.onScrollHandler = this.onScroll.bind(this);
+      this.hideHeaderOnScrollUp = () => this.preventReveal = true;
+
+      this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+      window.addEventListener('scroll', this.onScrollHandler, false);
+
+      this.createObserver();
+    }
+
+    setHeaderHeight() {
+      document.documentElement.style.setProperty('--header-height', `${this.header.offsetHeight}px`);
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+      window.removeEventListener('scroll', this.onScrollHandler);
+    }
+
+    createObserver() {
+      let observer = new IntersectionObserver((entries, observer) => {
+        this.headerBounds = entries[0].intersectionRect;
+        observer.disconnect();
+      });
+
+      observer.observe(this.header);
+    }
+
+    onScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
+
+      if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        this.header.classList.add('scrolled-past-header');
+        if (this.preventHide) return;
+        requestAnimationFrame(this.hide.bind(this));
+      } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        this.header.classList.add('scrolled-past-header');
+        if (!this.preventReveal) {
+          requestAnimationFrame(this.reveal.bind(this));
+        } else {
+          window.clearTimeout(this.isScrolling);
+
+          this.isScrolling = setTimeout(() => {
+            this.preventReveal = false;
+          }, 66);
+
+          requestAnimationFrame(this.hide.bind(this));
+        }
+      } else if (scrollTop <= this.headerBounds.top) {
+        this.header.classList.remove('scrolled-past-header');
+        requestAnimationFrame(this.reset.bind(this));
+      }
+
+      this.currentScrollTop = scrollTop;
+    }
+
+    hide() {
+      if (this.headerIsAlwaysSticky) return;
+      this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
+      this.closeMenuDisclosure();
+      this.closeSearchModal();
+    }
+
+    reveal() {
+      if (this.headerIsAlwaysSticky) return;
+      this.header.classList.add('shopify-section-header-sticky', 'animate');
+      this.header.classList.remove('shopify-section-header-hidden');
+    }
+
+    reset() {
+      if (this.headerIsAlwaysSticky) return;
+      this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate');
+    }
+
+    closeMenuDisclosure() {
+      this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
+      this.disclosures.forEach(disclosure => disclosure.close());
+    }
+
+    closeSearchModal() {
+      this.searchModal = this.searchModal || this.header.querySelector('details-modal');
+      this.searchModal.close(false);
+    }
+  }
+
+  customElements.define('sticky-header', StickyHeader);
+{% endjavascript %}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if section.settings.logo %}
+      "logo": {{ section.settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Main Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Logo",
+        "id": "logo"
+      },
+      {
+        "type": "link_list",
+        "label": "Select Menu",
+        "id": "select_menu"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Search",
+        "id": "show_search",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Account",
+        "id": "show_account",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "Main Header"
+      }
+    ]
+  }
+{% endschema %}  

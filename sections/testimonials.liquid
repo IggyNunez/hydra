@@ -1,0 +1,129 @@
+{{ 'testimonials.css' | asset_url | stylesheet_tag }}
+
+<testimonials-slider>
+  <section class="testimonials">
+    <div class="testimonials__container">
+      <div class="testimonials__content">
+        {% if section.settings.subtitle %}
+          <p class="testimonials__subtitle">{{ section.settings.subtitle }}</p>
+        {% endif %}
+        {% if section.settings.heading %}
+          <h2 class="testimonials__title">{{ section.settings.heading }}</h2>
+        {% endif %}
+      </div>
+      {% if section.blocks.size > 0 %}
+        <div class="testimonials__slider">
+          <div class="swiper testimonials__swiper" data-testimonials-swiper>
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+                <div class="swiper-slide">
+                  <div class="testimonials__slide">
+                    {% if block.settings.slide_img %}
+                      <div class="testimonials__slide-media">
+                        {% if block.settings.badge_text != blank %}
+                          <p class="testimonials__slide-img-name testimonials__badge">
+                            {{ block.settings.badge_text }}
+                          </p>
+                        {% endif %}
+                        <img src="{{ block.settings.slide_img | image_url }}" alt="{{ block.settings.slide_img.alt }}">
+                      </div>
+                    {% endif %}
+                    {% if block.settings.title != blank or block.settings.review != blank %}
+                      <div class="testimonials__slide-desc">
+                        <div class="testimonials__slide-icon">
+                          <svg width="97" height="21" viewBox="0 0 97 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.55801 3.53581L11.3877 7.27963L15.413 7.87076C15.7508 7.92706 16.0323 8.15225 16.1449 8.49004C16.2575 8.79968 16.173 9.16562 15.9197 9.39081L12.9922 12.2902L13.6959 16.3999C13.7522 16.7377 13.6115 17.0755 13.33 17.2725C13.0485 17.4977 12.6826 17.4977 12.3729 17.357L8.76984 15.4147L5.13861 17.357C4.85712 17.4977 4.49119 17.4977 4.20969 17.2725C3.9282 17.0755 3.78746 16.7377 3.84376 16.3999L4.51933 12.2902L1.59184 9.39081C1.36664 9.16562 1.2822 8.79968 1.36664 8.49004C1.47924 8.15225 1.76073 7.92706 2.09852 7.87076L6.15198 7.27963L7.95351 3.53581C8.09426 3.22617 8.4039 3.02913 8.76984 3.02913C9.10762 3.02913 9.41726 3.22617 9.55801 3.53581Z" fill="#EB8532"/>
+                            <path d="M29.375 3.53557L31.2047 7.27939L35.23 7.87052C35.5677 7.92682 35.8492 8.15201 35.9618 8.4898C36.0744 8.79944 35.99 9.16537 35.7366 9.39057L32.8091 12.2899L33.5129 16.3997C33.5692 16.7375 33.4284 17.0752 33.1469 17.2723C32.8654 17.4975 32.4995 17.4975 32.1899 17.3567L28.5868 15.4145L24.9556 17.3567C24.6741 17.4975 24.3081 17.4975 24.0267 17.2723C23.7452 17.0752 23.6044 16.7375 23.6607 16.3997L24.3363 12.2899L21.4088 9.39057C21.1836 9.16537 21.0992 8.79944 21.1836 8.4898C21.2962 8.15201 21.5777 7.92682 21.9155 7.87052L25.9689 7.27939L27.7705 3.53557C27.9112 3.22593 28.2209 3.02889 28.5868 3.02889C28.9246 3.02889 29.2342 3.22593 29.375 3.53557Z" fill="#EB8532"/>
+                            <path d="M49.192 3.53557L51.0217 7.27939L55.047 7.87052C55.3848 7.92682 55.6663 8.15201 55.7789 8.4898C55.8914 8.79944 55.807 9.16537 55.5537 9.39057L52.6262 12.2899L53.3299 16.3997C53.3862 16.7375 53.2454 17.0752 52.964 17.2723C52.6825 17.4975 52.3165 17.4975 52.0069 17.3567L48.4038 15.4145L44.7726 17.3567C44.4911 17.4975 44.1252 17.4975 43.8437 17.2723C43.5622 17.0752 43.4214 16.7375 43.4777 16.3997L44.1533 12.2899L41.2258 9.39057C41.0006 9.16537 40.9162 8.79944 41.0006 8.4898C41.1132 8.15201 41.3947 7.92682 41.7325 7.87052L45.7859 7.27939L47.5875 3.53557C47.7282 3.22593 48.0379 3.02889 48.4038 3.02889C48.7416 3.02889 49.0512 3.22593 49.192 3.53557Z" fill="#EB8532"/>
+                            <path d="M69.0087 3.53557L70.8384 7.27939L74.8637 7.87052C75.2015 7.92682 75.483 8.15201 75.5956 8.4898C75.7082 8.79944 75.6237 9.16537 75.3704 9.39057L72.4429 12.2899L73.1466 16.3997C73.2029 16.7375 73.0622 17.0752 72.7807 17.2723C72.4992 17.4975 72.1332 17.4975 71.8236 17.3567L68.2205 15.4145L64.5893 17.3567C64.3078 17.4975 63.9419 17.4975 63.6604 17.2723C63.3789 17.0752 63.2381 16.7375 63.2944 16.3997L63.97 12.2899L61.0425 9.39057C60.8173 9.16537 60.7329 8.79944 60.8173 8.4898C60.9299 8.15201 61.2114 7.92682 61.5492 7.87052L65.6027 7.27939L67.4042 3.53557C67.5449 3.22593 67.8546 3.02889 68.2205 3.02889C68.5583 3.02889 68.8679 3.22593 69.0087 3.53557Z" fill="#EB8532"/>
+                            <path d="M88.8256 3.53557L90.6553 7.27939L94.6806 7.87052C95.0184 7.92682 95.2999 8.15201 95.4125 8.4898C95.5251 8.79944 95.4407 9.16537 95.1873 9.39057L92.2598 12.2899L92.9636 16.3997C93.0199 16.7375 92.8791 17.0752 92.5976 17.2723C92.3161 17.4975 91.9502 17.4975 91.6406 17.3567L88.0375 15.4145L84.4063 17.3567C84.1248 17.4975 83.7588 17.4975 83.4773 17.2723C83.1958 17.0752 83.0551 16.7375 83.1114 16.3997L83.787 12.2899L80.8595 9.39057C80.6343 9.16537 80.5498 8.79944 80.6343 8.4898C80.7469 8.15201 81.0284 7.92682 81.3662 7.87052L85.4196 7.27939L87.2212 3.53557C87.3619 3.22593 87.6715 3.02889 88.0375 3.02889C88.3753 3.02889 88.6849 3.22593 88.8256 3.53557Z" fill="#EB8532"/>
+                          </svg>
+                        </div>
+                        {% if block.settings.review != blank %}
+                          <p class="testimonials__slide-text">
+                            {{ block.settings.review }}
+                          </p>
+                        {% endif %}
+                        {% if block.settings.title %}
+                          <p class="testimonials__slide-name testimonials__badge">
+                            {{ block.settings.title }}
+                          </p>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      <div class="testimonials__cta">
+        {% if section.settings.btn_label %}
+          <a class="subscribe-banner__btn btn btn--secondary" href="{{ section.settings.btn_link }}">{{ section.settings.btn_label }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+</testimonials-slider>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "settings": [  
+      {
+        "type": "text",
+        "label": "Subtitle",
+        "id": "subtitle"
+      },    
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "heading"
+      },
+      {
+        "type": "text",
+        "label": "Button Label",
+        "id": "btn_label"
+      },
+      {
+        "type": "url",
+        "label": "Button URL",
+        "id": "btn_link"
+      }  
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "label": "Review Image",
+            "id": "slide_img"
+          },
+          {
+            "type": "text",
+            "label": "Image Badge Text",
+            "id": "badge_text"
+          },
+          {
+            "type": "text",
+            "label": "Name",
+            "id": "title"
+          },
+          {
+            "type": "textarea",
+            "label": "Review Text",
+            "id": "review"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials"
+      }
+    ]
+  }
+  {% endschema %}

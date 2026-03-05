@@ -1,0 +1,255 @@
+
+.hero-banner {
+  background-color: var(--color-sky-blue);
+  padding-top: 110px;
+  padding-bottom: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+} 
+
+/* Banner height variants */
+.hero-banner--adapt {
+  min-height: auto;
+}
+
+/* When adapt is selected and image exists, use aspect ratio */
+.hero-banner--adapt.hero-banner__has-bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-banner--small {
+  min-height: 400px;
+}
+
+.hero-banner--medium {
+  min-height: 600px;
+}
+
+.hero-banner--large {
+  min-height: 800px;
+}
+
+@media (max-width: 767px) {
+  .hero-banner--small {
+    min-height: 300px;
+  }
+  
+  .hero-banner--medium {
+    min-height: 450px;
+  }
+  
+  .hero-banner--large {
+    min-height: 600px;
+  }
+}
+
+.hero-banner p,
+.hero-banner h1 {
+  margin: 0;
+}
+
+.hero-banner__container {
+  max-width: 1346px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.hero-banner__grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.hero-banner__content {
+  flex: 0 0 calc(40% - 10px);
+}
+
+
+.hero-banner__message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.hero-banner__message-text {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-small);
+  font-weight: var(--font-weight-regular);
+  line-height: 25.6px;
+  color: var(--color-off-black);
+  margin-bottom: 10px;
+}
+
+.hero-banner__heading {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-heading-1);
+  font-weight: var(--font-weight-black);
+  color: var(--color-blue);
+  line-height: 96px;
+  margin: 0 0 9px;
+  text-transform: uppercase;
+}
+
+.hero-banner__desc {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-extra-small);
+  font-weight: var(--font-weight-regular);
+  line-height: 21px;
+  color: var(--color-off-black);
+}
+
+.hero-banner__blocks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  max-width: 385px;
+  width: 100%;
+  margin: 16px 0 30px;
+}
+
+.hero-banner__block {
+  flex: 0 0 calc(25% - 10px);
+} 
+
+.hero-banner__buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.hero-banner__block-img {
+  max-width: 70px;
+  width: 100%;
+  height: auto;
+}
+
+/* Image aspect ratio container for adapt mode */
+.hero-banner__image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.hero-banner__image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .hero-banner__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-banner__heading {
+    line-height: 1;
+  }
+
+  .hero-banner__content {
+    flex: 0 0 auto;
+    max-width: calc(50% - 10px);
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .hero-banner__content {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero-banner__grid {
+    gap: 40px;
+  }
+
+  .hero-banner__message {
+    justify-content: center;
+  }
+
+  .hero-banner__heading, 
+  .hero-banner__desc {
+    text-align: center;
+  }
+
+  .hero-banner__blocks {
+    margin: 16px auto;
+  }  
+
+  .hero-banner__buttons {
+    justify-content: center;
+  }
+
+  .hero-banner {
+    padding-top: 120px;
+    padding-bottom: 40px;
+  } 
+
+  .hero-banner__block-img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-banner__message {
+    flex-direction: column;
+  }
+}
+
+/* ensure section is a stacking context */
+.hero-banner {
+  position: relative; /* required */
+  overflow: hidden;
+}
+
+/* overlay ABOVE the background image but BELOW page content */
+.hero-banner__overlay {
+  position: absolute;
+  inset: 0;                 /* top:0; right:0; bottom:0; left:0 */
+  z-index: 0;               /* < container so content is not darkened */
+  pointer-events: none;     /* allow clicks through to buttons/links */
+}
+
+/* content should be above overlay */
+.hero-banner__container {
+  position: relative;
+  z-index: 1;               /* > overlay so text and images are unaffected */
+}
+
+
+/* content background box (sits above overlay and below any absolutely-positioned media) */
+.hero-banner__content-bg {
+  display: block;
+  position: relative;    /* creates stacking context above overlay (.hero-banner__container has z-index:1) */
+  z-index: 2;            /* ensure content box + its children appear above overlay */
+  box-sizing: border-box;
+}
+
+/* small responsive tweaks so padding doesn't overflow on small screens */
+@media (max-width: 767px) {
+  .hero-banner__content-bg {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* Mobile background image */
+.hero-banner__bg-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hero-banner--has-mobile-bg .hero-banner__bg-mobile {
+    display: block;
+  }
+}

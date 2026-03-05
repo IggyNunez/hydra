@@ -1,0 +1,493 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_GX8z7B": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_data_wx9XHq": {
+          "type": "custom_data",
+          "settings": {
+            "title": "",
+            "text": "{{ product.metafields.custom.benefits | metafield_tag }}",
+            "text_empty": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "appstle_bundles_appstle_volume_discount_bundle_6tMDPW": {
+          "type": "shopify://apps/appstle-bundles/blocks/appstle-volume-discount-bundle/8909921b-2d24-4d68-9b12-9d045d3dcb0a",
+          "settings": {}
+        },
+        "appstle_subscription_appstle_subscription_product_page_widget_eFWM94": {
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "enable_quantity_selector": true,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "custom_text_blocks_PhBb4K": {
+          "type": "custom_text_blocks",
+          "settings": {
+            "block_one_text": "Free Shipping over 50$",
+            "block_two_text": "",
+            "background_color": "#f5f8f1",
+            "text_color": "#47483b"
+          }
+        },
+        "payment_icons_UY97iN": {
+          "type": "payment_icons",
+          "settings": {}
+        },
+        "collapsble_description_7dCfGV": {
+          "type": "collapsble_description",
+          "settings": {
+            "heading": "Description",
+            "open_default": true
+          }
+        },
+        "custom_collapsible_ytqnw6": {
+          "type": "custom_collapsible",
+          "settings": {
+            "heading": "Shipping Policy",
+            "content": "<p>All sales will ship by July 2025. </p>",
+            "page": "",
+            "open_default": false
+          }
+        },
+        "custom_collapsible_htUUjQ": {
+          "type": "custom_collapsible",
+          "settings": {
+            "heading": "Returns Info",
+            "content": "<p>All sales final. </p>",
+            "page": "",
+            "open_default": false
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "judge_me_reviews_preview_badge_GX8z7B",
+        "price",
+        "custom_data_wx9XHq",
+        "variant_picker",
+        "quantity_selector",
+        "appstle_bundles_appstle_volume_discount_bundle_6tMDPW",
+        "appstle_subscription_appstle_subscription_product_page_widget_eFWM94",
+        "buy_buttons",
+        "custom_text_blocks_PhBb4K",
+        "payment_icons_UY97iN",
+        "collapsble_description_7dCfGV",
+        "custom_collapsible_ytqnw6",
+        "custom_collapsible_htUUjQ"
+      ],
+      "settings": {
+        "border_radius": 26,
+        "mob_border_radius": 26,
+        "enable_top_breadcrumbs": true,
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "small",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 56
+      }
+    },
+    "product_breakdown_tGNryW": {
+      "type": "product-breakdown",
+      "blocks": {
+        "column_n6iL3d": {
+          "type": "column",
+          "settings": {
+            "image_top": true,
+            "image_second": false,
+            "icon": "shopify://shop_images/Group_1980469000.webp",
+            "heading": "No dyes",
+            "text": "Our vibrant hues come straight from real fruit, not synthetic dyes. Hydra Pops are made clean and natural, the way hydration should be."
+          }
+        },
+        "column_tF8yD3": {
+          "type": "column",
+          "settings": {
+            "image_top": true,
+            "image_second": false,
+            "icon": "shopify://shop_images/Group_1980469001.webp",
+            "heading": "No added sugars or Artificial sweeteners",
+            "text": "Hydra Pops get their sweetness from real fruit, not refined sugar or fake substitutes. No spikes, no crashes, no bloat. Just clean, steady hydration that feels as good as it tastes."
+          }
+        },
+        "column_ghw4DG": {
+          "type": "column",
+          "settings": {
+            "image_top": true,
+            "image_second": false,
+            "icon": "shopify://shop_images/Group_1980468999.webp",
+            "heading": "Soy, gluten and dairy free",
+            "text": "Hydra Pops are made without common allergens or fillers, just clean, functional hydration that’s easy on your gut and good for every body."
+          }
+        },
+        "column_FqKG8x": {
+          "type": "column",
+          "settings": {
+            "image_top": true,
+            "image_second": false,
+            "icon": "shopify://shop_images/Group_1980469002.webp",
+            "heading": "PREMIUM ELECTROLYTES",
+            "text": "Each Hydra Pop is powered by sea minerals in ionic form, potassium, magnesium, sodium, and chloride, crafted for optimal absorption and balance. Real function, real hydration, every time."
+          }
+        },
+        "review_card_VbbM69": {
+          "type": "review_card",
+          "settings": {
+            "review_image": "shopify://shop_images/IMG_4945.jpg",
+            "stars_icon": "shopify://shop_images/Group_1980468509.svg",
+            "review_text": "Pack the pops on all my hikes. I don't freeze them but they are so easy to throw in my bag and just sip it when I need it.",
+            "card_color_scheme": "scheme-1",
+            "author_name": "Emily J.",
+            "verified_text": "Verified Buyer"
+          }
+        },
+        "review_card_frC8id": {
+          "type": "review_card",
+          "settings": {
+            "review_image": "shopify://shop_images/IMG_2380.heic",
+            "stars_icon": "shopify://shop_images/Group_1980468509.svg",
+            "review_text": "These save me every beach day. The kids get a pop and I have a drink and all starts well ends well.",
+            "card_color_scheme": "scheme-1",
+            "author_name": "Karen D.",
+            "verified_text": "Verified Buyer"
+          }
+        }
+      },
+      "block_order": [
+        "column_n6iL3d",
+        "column_tF8yD3",
+        "column_ghw4DG",
+        "column_FqKG8x",
+        "review_card_VbbM69",
+        "review_card_frC8id"
+      ],
+      "settings": {
+        "top_image": "shopify://shop_images/Hydra_Logo_White_Blue_Background_8.png",
+        "section_bg": "rgba(0,0,0,0)",
+        "color_scheme": "scheme-2",
+        "image_bg": "shopify://shop_images/3_1.jpg",
+        "image_bg_mobile": "shopify://shop_images/3_copy_3a69636c-5a5d-4ef3-bbea-4decaed9b9d4.jpg",
+        "heading": "",
+        "image_override": "shopify://shop_images/Hydra_Logo_White_Blue_Background_8.png",
+        "button_label": "Order Yours Today",
+        "button_link": "shopify://products/hydra-pops-apple-2",
+        "bottom_text": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "marquee_slider_kEUnWm": {
+      "type": "marquee-slider",
+      "blocks": {
+        "slide_7FHEi4": {
+          "type": "slide",
+          "settings": {
+            "title": "No added sugars",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_gxtA7N": {
+          "type": "slide",
+          "settings": {
+            "title": "no artificial sweeteners",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_wcwpFG": {
+          "type": "slide",
+          "settings": {
+            "title": "NO DYES",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_Xn7QqC": {
+          "type": "slide",
+          "settings": {
+            "title": "GLUTEN FREE",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_gRi7qA": {
+          "type": "slide",
+          "settings": {
+            "title": "VEGAN",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_nDEtcy": {
+          "type": "slide",
+          "settings": {
+            "title": "30 CALORIES or less",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_Kwjhz9": {
+          "type": "slide",
+          "settings": {
+            "title": "over 200 mg of electrolytes",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_79XGKH": {
+          "type": "slide",
+          "settings": {
+            "title": "NON-GMO",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_7FHEi4",
+        "slide_gxtA7N",
+        "slide_wcwpFG",
+        "slide_Xn7QqC",
+        "slide_gRi7qA",
+        "slide_nDEtcy",
+        "slide_Kwjhz9",
+        "slide_79XGKH"
+      ],
+      "settings": {
+        "slider_speed": 3000,
+        "disable_max_width": true,
+        "enable_custom_colors": true,
+        "bg_color": "#242833",
+        "text_color": "#ffffff"
+      }
+    },
+    "multicolumn_7FAKFx": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_6EdAaE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/1copy.jpg",
+            "title": "Electrolytes",
+            "text": "<p>Hydration isn’t just about drinking water, it’s about absorbing it. Hydra’s sea-mineral electrolyte blend, magnesium, potassium, sodium, and chloride, helps your body retain fluids, power muscle function, and sustain energy so you can feel your best.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qDkCQC": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/3_1.jpg",
+            "title": "Fruit Juice",
+            "text": "<p>Hydra Pops are made with real fruit juice for a crisp, refreshing taste, never artificial. Just clean, real flavor that makes hydration something you actually look forward to.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PcGn6L": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10_copy_1.jpg",
+            "title": "Water",
+            "text": "<p>Not all water is created equal. At Hydra, our water goes through a multi step purification process, including filtration and UV treatment, to ensure it’s free from harmful contaminants.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_6EdAaE",
+        "column_qDkCQC",
+        "column_PcGn6L"
+      ],
+      "settings": {
+        "title": "Powerhouse Ingredients",
+        "heading_size": "h0",
+        "description": "<p>Purified water, clinically backed electrolytes, and real fruit juices</p>",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "enable_cards_radius": true,
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Order Yours Today",
+        "bottom_text": "",
+        "button_link": "shopify://collections/all",
+        "color_scheme": "",
+        "enable_custom_color": true,
+        "text_color": "#000000",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_jEhVUU": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_ThcGzk": {
+          "type": "heading",
+          "settings": {
+            "heading": "You need clean, effective hydration that fits your lifestyle",
+            "heading_size": "h0"
+          }
+        },
+        "text_HCtqWE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>That's where Hydra comes in. We've created pure, science backed electrolytes with no<br/>added sugar and no artificial junk. Just what your body actually needs.</p><p><br/>Here are a few ways how Hydra transforms your hydration:</p><p><br/>1. After your workout: Recover faster with clean electrolytes<br/>2. Under the hot sun: Cool off and rehydrate naturally<br/>3. During long, demanding days: Power through with sustained energy</p><p><br/>The result? Effortless, refreshing hydration that actually makes you feel better, not<br/>worse.</p><p><br/>Ready to experience hydration that works with your body? Try Hydra and feel the<br/>difference clean electrolytes make in your daily performance.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_JzXPDK": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ThcGzk",
+        "text_HCtqWE",
+        "button_JzXPDK"
+      ],
+      "settings": {
+        "enable_custom_padding_mobile": true,
+        "mobile_padding": "20px 0px 20px",
+        "image_border_radius": 13,
+        "image": "shopify://shop_images/9_copy_1.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-e6e186e5-e84b-45ef-84ba-951c6ec217d4",
+        "color_scheme": "scheme-e6e186e5-e84b-45ef-84ba-951c6ec217d4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1737097653810224b9": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_4cqFpy": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "no_reviews",
+            "max_width": 1200,
+            "show_shop_reviews": true,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_4cqFpy"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "YOU MAY ALSO LIKE",
+        "heading_size": "h2",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_learn_more": false,
+        "learn_btn_text": "Learn More",
+        "learn_btn_link": "",
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "175952410047ff4b89": {
+      "type": "apps",
+      "blocks": {
+        "klaviyo_reviews_product_reviews_bkrheY": {
+          "type": "shopify://apps/klaviyo-reviews/blocks/product-reviews/db20e365-d984-4ac4-9655-e1588d951ca9",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "klaviyo_reviews_product_reviews_bkrheY"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "17715275111f7e01fd": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_breakdown_tGNryW",
+    "marquee_slider_kEUnWm",
+    "multicolumn_7FAKFx",
+    "image_with_text_jEhVUU",
+    "1737097653810224b9",
+    "related-products",
+    "175952410047ff4b89",
+    "17715275111f7e01fd"
+  ]
+}

@@ -1,0 +1,66 @@
+.subscribe-banner {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.subscribe-banner__container {
+  max-width: 1346px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.subscribe-banner__grid {
+  padding: 66px 68px 65px 66px;
+  background-size: cover;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.subscribe-banner__heading {
+  margin: 0 0 12px;
+  color: var(--color-white);
+  line-height: 0.9;
+  font-size: var(--font-heading-2);
+  font-weight: var(--font-weight-black);
+  font-family: var(--font-family-secondary);
+  text-transform: uppercase;
+}
+
+.subscribe-banner__desc {
+  font-size: var(--font-extra-small);
+  font-weight: var(--font-weight-regular);
+  line-height: 21px;
+  font-family: var(--font-family-primary);
+  color: var(--color-white);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .subscribe-banner__grid {
+    padding: 66px 30px;
+  }
+
+  .subscribe-banner__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  } 
+}
+
+@media (max-width: 767px) {
+  .subscribe-banner__grid {
+    padding: 40px 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .subscribe-banner__desc br {
+    display: none;
+  }
+}

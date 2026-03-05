@@ -1,0 +1,51 @@
+{{ 'product-list.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+<section class="pdp-list">
+  <div class="pdp-list__container">
+    <div class="pdp-list_content">
+      {% if section.settings.subtitle != blank %}
+        <p class="pdp-list_subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="pdp-list_title">{{ section.settings.title }}</h2>
+      {% endif %}
+    </div>
+    {% if section.settings.collection != blank %}
+      <div class="pdp-list__grid">
+        {% for product in section.settings.collection.products %}
+          {% render 'card-product', card_product: product, quick_add: 'standard' %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product List",
+  "settings": [
+    {
+      "type": "collection",
+      "label": "Select Collection",
+      "id": "collection"
+    },
+    {
+      "type": "text",
+      "label": "Subtitle",
+      "id": "subtitle"
+    },
+    {
+      "type": "text",
+      "label": "Title",
+      "id": "title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product List"
+    }
+  ]
+}
+{% endschema %}

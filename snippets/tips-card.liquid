@@ -1,0 +1,23 @@
+<article class="tip__card">
+  <a href="{{ article.url }}" class="tip__card-link"></a>
+  <div class="tip__card-media">
+    <img class="tip__card-img" src="{{ article.image | image_url }}" alt="{{ article.image.alt }}">
+  </div>
+  <div class="tip__card-content">
+    <p class="tip__card-author">
+      Hydra Pops
+    </p>
+    <h6 class="tip__card-title">{{ article.title }}</h6>
+    <div class="tip__card-cta">
+      <span class="tip__card-icon">
+        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17.5" cy="17.5" r="17" stroke="#2B2B2B"/>
+          <path d="M21.8633 17.918L19.207 15.2812C19.0312 15.0859 18.7383 15.0859 18.5625 15.2812C18.3672 15.457 18.3672 15.75 18.5625 15.9258L20.418 17.7812H12.4688C12.2148 17.7812 12 17.9961 12 18.25C12 18.5234 12.2148 18.7188 12.4688 18.7188L20.418 18.7383L18.5625 20.5938C18.3672 20.7695 18.3672 21.0625 18.5625 21.2383C18.7383 21.4336 19.0312 21.4336 19.207 21.2383L21.8633 18.582C22.0586 18.4062 22.0586 18.1133 21.8633 17.918Z" fill="#2B2B2B"/>
+        </svg>        
+      </span>
+      <span class="tip__card-time">
+        6 min read
+      </span>
+    </div>
+  </div>
+</article>

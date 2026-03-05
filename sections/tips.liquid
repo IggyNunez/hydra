@@ -1,0 +1,39 @@
+{{ 'tips.css' | asset_url | stylesheet_tag }}
+
+<section class="tips">
+  <div class="tips__container">
+    {% if section.settings.heading != blank %}
+      <h2 class="tips__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.blog != blank %}
+      <div class="tips__grid">
+        {% for article in section.settings.blog.articles reversed %}
+          {% render 'tips-card', article: article %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Tips",
+    "settings": [  
+      {
+        "type": "blog",
+        "label": "Select Blog",
+        "id": "blog"
+      } ,   
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "heading"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Tips"
+      }
+    ]
+  }
+{% endschema %}

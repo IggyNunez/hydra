@@ -1,0 +1,16 @@
+<article class="formula__card">
+  <a class="formula__card-link" href="{{ article.url }}"></a>
+  <div class="formula__media">
+    <img class="formula__img" src="{{ article.image | image_url }}" alt="{{ article.image.alt }}">
+  </div>
+  <div class="formula__card-content">
+    <h6 class="formula__card-title">{{ article.title }}</h6>
+    <p class="formula__card-desc">
+      {% if article.excerpt != blank %}
+        {{ article.excerpt | truncatewords: 30 | remove: '<p>' | remove: '</p>' }}
+      {% else %}
+        {{ article.content | truncatewords: 30 | strip_html }}
+      {% endif %}
+    </p>
+  </div>
+</article>

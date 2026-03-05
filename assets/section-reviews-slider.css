@@ -1,0 +1,147 @@
+.reviews-slider-section {
+  position: relative;
+  overflow: hidden;
+}
+.reviews-slider-section .header-wr {
+  margin-bottom: 3.5rem;
+}
+.reviews-slider-section .header-wr .heading {
+  margin: 0;
+  text-transform: uppercase;
+}
+.reviews-slider-section .header-wr .desc {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  margin: 0;
+  font-family: 'Poppins';
+  color: rgba(var(--color-foreground), 1);
+}
+.reviews-slider-section .swiper {
+  overflow: visible;
+}
+.reviews-slider-section .swiper-wrapper {
+  align-items: center;
+  margin-inline-start: -2%;
+  min-height: 600px;
+}
+.reviews-slider-section .swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reviews-slider-section .swiper-slide.center-slide {
+}
+.review-slide {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.review-video-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.review-video-wrapper video,
+.review-video-wrapper img {
+  width: 100%;
+  height: 100%;
+  height: 380px;
+  display: block;
+  cursor: pointer;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.reviews-slider .center-slide .review-video-wrapper video,
+.reviews-slider .center-slide .review-video-wrapper img {
+  height: 480px;
+}
+.video-play-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border: none;
+  outline: 0;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  display: inline-flex;
+  width: 6.5rem;
+  height: 6.5rem;
+}
+.video-play-btn svg {
+  width: 100%;
+  height: 100%;
+}
+.video-play-btn.hidden {
+  display: none;
+}
+.reviews-slider-section .product-card {
+  border: 1px solid #D9D9D9;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+.reviews-slider-section .product-card .pdp-info {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.reviews-slider-section .product-card .pdp-info .pdp-title {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin: 0;
+}
+.reviews-slider-section .product-card .pdp-info .price-area,
+.reviews-slider-section .product-card .pdp-info .price-area span {
+  font-family: 'Poppins';
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.reviews-slider-section .product-card .pdp-info .pdp-link {
+  display: inline-flex;
+}
+
+@media screen and (max-width: 749px) {
+  .reviews-slider-section .header-wr {
+    margin-bottom: 1.5rem;
+  }
+  .reviews-slider-section .swiper-wrapper {
+    margin-inline-start: 14%;
+    min-height: 460px;
+  }
+  .review-video-wrapper video,
+  .review-video-wrapper img {
+    height: 280px;
+    border-radius: 8px;
+  }
+  .reviews-slider .swiper-slide-active .review-video-wrapper video,
+  .reviews-slider .swiper-slide-active .review-video-wrapper img {
+    height: 350px;
+  }
+  .video-play-btn {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  .reviews-slider-section .product-card .pdp-info .pdp-title {
+    font-size: 2rem;
+  }
+  .reviews-slider-section .product-card .pdp-info .price-area,
+  .reviews-slider-section .product-card .pdp-info .price-area span {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,162 @@
+{% if settings.sweeps_switch %}
+  {%- liquid
+    assign p = product
+    assign accent = accent | default: '#d38bb2'
+    assign base_price = p.metafields.sharedsweeps.priceoverride
+    if base_price == blank
+      assign base_price = p.price | divided_by: 100.0
+    endif
+    assign global_mult = shop.metafields.sharedsweeps.global_multiplier | default: 1
+    assign product_mult = p.metafields.sharedsweeps.multiplier
+    assign mult = global_mult
+    if product_mult != blank and product_mult > global_mult
+      assign mult = product_mult
+    endif
+    assign bonus = p.metafields.sharedsweeps.bonusEntries | default: 0
+  -%}
+
+  {%- if base_price > 0 -%}
+    <div class="ss-entries-wrap" style="--ss-accent: {{ accent }};">
+      <div
+        class="ss-entries-badge"
+        data-base-price="{{ base_price }}"
+        data-mult="{{ mult }}"
+        data-bonus="{{ bonus }}"
+        id="ss-entries-badge-{{ section.id }}"
+      >
+        <span class="ss-entries-badge__text">
+          Earn <span class="ss-entries-value" id="ss-entries-value-{{ section.id }}">—</span> Entries
+          {%- if bonus > 0 -%}
+            + <span class="ss-entries-bonus" id="ss-entries-bonus-{{ section.id }}">—</span> Bonus
+          {%- endif -%}
+        </span>
+        <span class="ss-entries-badge__mult">{{ mult }}X</span>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const badge = document.getElementById('ss-entries-badge-{{ section.id }}');
+        const valueEl = document.getElementById('ss-entries-value-{{ section.id }}');
+        const bonusEl = document.getElementById('ss-entries-bonus-{{ section.id }}');
+        const inputQty = document.getElementById('Quantity-{{ section.id }}');
+
+        if (!badge || !valueEl) return;
+
+        const base = parseFloat(badge.dataset.basePrice) || 0;
+        const mult = parseFloat(badge.dataset.mult) || 1;
+        const bonus = parseInt(badge.dataset.bonus) || 0;
+
+        function safeParsePrice(text) {
+          if (!text) return 0;
+          let clean = text.replace(/[^0-9,.\-]/g, '').trim();
+          if (clean.includes(',') && clean.includes('.')) {
+            clean = clean.replace(/\./g, '').replace(',', '.');
+          } else if (clean.includes(',')) {
+            clean = clean.replace(',', '.');
+          }
+          return parseFloat(clean) || 0;
+        }
+
+        function readDomPrice() {
+          let el =
+            document.querySelector('.price-item.price-item--regular.recharge-inner-most-price') ||
+            document.querySelector('.price-item.price-item--regular') ||
+            document.querySelector('.price-item.price-item--sale') ||
+            document.querySelector('.price .price-item');
+          return el ? safeParsePrice(el.textContent) : 0;
+        }
+
+        function getQty() {
+          return inputQty ? parseInt(inputQty.value, 10) || 1 : 1;
+        }
+
+        function updateEntries() {
+          let price;
+          if (location.search.includes('variant=')) {
+            price = readDomPrice();
+          } else {
+            price = base;
+          }
+          if (!price) return;
+          const qty = getQty();
+          const total = Math.floor(price * mult * qty);
+          valueEl.textContent = total;
+          if (bonusEl) bonusEl.textContent = bonus * qty;
+        }
+
+        requestAnimationFrame(updateEntries);
+
+        const priceContainer = document.querySelector('.price');
+        if (priceContainer) {
+          const observer = new MutationObserver(updateEntries);
+          observer.observe(priceContainer, { childList: true, subtree: true });
+        }
+
+        if (inputQty) {
+          inputQty.addEventListener('input', updateEntries);
+          inputQty.addEventListener('change', updateEntries);
+        }
+
+        let lastUrl = location.href;
+        setInterval(function () {
+          if (location.href !== lastUrl) {
+            lastUrl = location.href;
+            if (lastUrl.includes('variant=')) {
+              setTimeout(updateEntries, 300);
+            }
+          }
+        }, 300);
+      });
+    </script>
+
+    <style>
+      .ss-entries-wrap {
+        margin: 0 auto 10px;
+        font-family: inherit;
+      }
+
+      .ss-entries-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px !important;
+        padding: 6px 14px;
+        border-radius: 8px !important;
+        border: 2px solid var(--ss-accent, #d38bb2) !important;
+        background: #fff;
+        font-weight: 600;
+        font-size: 14px;
+        color: #111 !important;
+      }
+
+      .ss-entries-value {
+        color: var(--ss-accent, #d38bb2) !important;
+        font-weight: 800 !important;
+        font-size: 16px !important;
+      }
+
+      .ss-entries-bonus {
+        color: #16a34a !important;
+        font-weight: 700 !important;
+        margin-left: 4px !important;
+      }
+
+      .ss-entries-badge__mult {
+        background: var(--ss-accent, #d38bb2) !important;
+        color: #fff !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        padding: 4px 8px !important;
+        border-radius: 6px !important;
+        white-space: nowrap !important;
+      }
+
+      .ss-entries-badge__text {
+        display: flex;
+        align-items: center;
+        gap: 6px !important;
+      }
+    </style>
+  {%- endif -%}
+{% endif %}

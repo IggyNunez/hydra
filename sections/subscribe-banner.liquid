@@ -1,0 +1,68 @@
+{{ 'subscribe-banner.css' | asset_url | stylesheet_tag }}
+
+<section class="subscribe-banner">
+  <div class="subscribe-banner__container">
+    <div class="subscribe-banner__grid{% if section.settings.bg_img %} has__bg{% endif %}"{% if section.settings.bg_img %} style="background-image:url('{{ section.settings.bg_img | image_url }}')"{% endif %}>
+      <div class="subscribe-banner__content">
+        {% if section.settings.heading %}
+          <h2 class="subscribe-banner__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.desc %}
+          <p class="subscribe-banner__desc">{{ section.settings.desc }}</p>
+        {% endif %}
+      </div>
+      <div class="subscribe-banner__cta">
+        {% if section.settings.btn_label %}
+          <a class="subscribe-banner__btn btn btn--secondary"
+   href="{{ section.settings.btn_link }}"
+   data-scroll="{{ section.settings.btn_scroll }}">
+  {{ section.settings.btn_label }}
+</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Subcribe Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "BG Image",
+      "id": "bg_img"
+    },
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "heading"
+    },
+    {
+      "type": "textarea",
+      "label": "Description",
+      "id": "desc"
+    },
+    {
+      "type": "text",
+      "label": "Button Label",
+      "id": "btn_label"
+    },
+    {
+      "type": "url",
+      "label": "Button URL",
+      "id": "btn_link"
+    },{
+      "type": "checkbox",
+      "id": "btn_scroll",
+      "label": "Scroll to Footer on Click",
+      "default": false
+    },
+  ],
+  "presets": [
+    {
+      "name": "Subcribe Banner"
+    }
+  ]
+}
+{% endschema %}

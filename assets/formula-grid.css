@@ -1,0 +1,126 @@
+.formula {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.formula__container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 75px;
+  padding-right: 0;
+}
+
+.formula__heading {
+  margin: 0;
+  font-size: var(--font-heading-2);
+  line-height: 70px;
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  color: var(--color-blue);
+  text-align: center;
+}
+
+.formula__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.formula__img {
+  aspect-ratio: 1.19;
+  object-fit: cover;
+  object-position: top;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: block;
+  height: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+.formula__card-content {
+  padding: 28px 18px 13px;
+  background: var(--color-grey4);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  min-height: 207px;
+}
+
+.formula__card-title {
+  color: var(--color-black);
+  font-size: var(--font-heading-6);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: 25px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.formula__header {
+  margin-bottom: 60px;
+  padding-right: 75px;
+}
+
+.formula__cta--mobile {
+  display: none;
+}
+
+.formula__card-desc {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  line-height: 22px;
+  font-size: var(--font-small);
+  color: var(--color-black);
+  margin: 0;
+}
+
+.formula__card {
+  position: relative;
+}
+
+html body .formula__card-link {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: block;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .formula__container {
+    padding-left: 20px;
+  }
+
+  .formula__header {
+    margin-bottom: 40px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .formula__cta {
+    display: none;
+  }
+
+  .formula__cta--mobile {
+    display: block;
+    margin-top: 40px;
+    text-align: center;
+    padding-right: 20px;
+  }
+
+  .formula__header {
+    justify-content: center;
+  }
+
+  .formula__heading {
+    line-height: 1;
+  }
+
+  .formula__card-content {
+    min-height: auto;
+  }
+}

@@ -1,0 +1,86 @@
+{% if settings.sweeps_switch %}
+{%- assign p = product -%}
+{%- assign base_price = p.metafields.sharedsweeps.priceoverride -%}
+{%- if base_price == blank -%}
+  {%- assign base_price = p.price | divided_by: 100.0 -%}
+{%- endif -%}
+{%- assign global_mult = shop.metafields.sharedsweeps.global_multiplier | default: 1 -%}
+{%- assign product_mult = p.metafields.sharedsweeps.multiplier -%}
+{%- assign mult = global_mult -%}
+{%- if product_mult != blank and product_mult > global_mult -%}
+  {%- assign mult = product_mult -%}
+{%- endif -%}
+{%- assign bonus = p.metafields.sharedsweeps.bonusEntries | default: 0 -%}
+
+<div class="ss-entries-wrap" style="--ss-accent: {{ accent | default: '#d38bb2' }};">
+  <div class="ss-entries-badge"
+       data-base-price="{{ base_price }}"
+       data-mult="{{ mult }}"
+       data-bonus="{{ bonus }}"
+       data-item-key="{{ item_key | default: '' }}">
+    <span class="ss-entries-badge__text">
+      Earn <span class="ss-entries-value">0</span> Entries
+      {%- if bonus > 0 -%}+ <span class="ss-entries-bonus">{{ bonus }}</span> Bonus{%- endif -%}
+    </span>
+    <span class="ss-entries-badge__mult">{{ mult }}X</span>
+  </div>
+</div>
+
+<script>
+(function() {
+  const parseMoney = str => {
+    if (!str) return 0;
+    str = String(str).replace(/\u00A0/g,'').trim().replace(/[^\d,.\-]/g,'');
+    const n = parseFloat(str.replace(/,/g,'.'));
+    return isNaN(n) ? 0 : n;
+  };
+
+  const getSubtotal = cartItem => {
+    if (!cartItem) return 0;
+    const priceEl = cartItem.querySelector('.cart-item__totals.right .price.price--end');
+    return priceEl ? parseMoney(priceEl.textContent) : 0;
+  };
+
+  const updateBadge = badge => {
+    const valueEl = badge.querySelector('.ss-entries-value');
+    const cartItem = badge.closest('.cart-item');
+    if (!valueEl || !cartItem) return;
+
+    // Espera a que el DOM esté listo usando requestAnimationFrame
+    const subtotal = getSubtotal(cartItem);
+    if (!subtotal) {
+      requestAnimationFrame(() => updateBadge(badge));
+      return;
+    }
+
+    const mult = parseFloat(badge.dataset.mult) || 1;
+    const bonus = parseInt(badge.dataset.bonus) || 0;
+    valueEl.textContent = Math.floor(subtotal * mult) + bonus;
+  };
+
+  const refreshAllBadges = () => {
+    document.querySelectorAll('.ss-entries-badge').forEach(updateBadge);
+  };
+
+  // Observa cambios en cada item del carrito
+  const observeCartItems = () => {
+    document.querySelectorAll('.cart-item').forEach(item => {
+      if (item.__ss_observer) return;
+      item.__ss_observer = true;
+      new MutationObserver(refreshAllBadges).observe(item, { childList: true, subtree: true });
+    });
+  };
+
+  // Eventos de interacción
+  document.addEventListener('input', e => { if(e.target.matches('input.quantity__input')) refreshAllBadges(); }, {passive:true});
+  document.addEventListener('click', e => { if(e.target.closest('.quantity__button')) refreshAllBadges(); }, {passive:true});
+  document.addEventListener('cart:updated', () => { refreshAllBadges(); observeCartItems(); });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    refreshAllBadges();
+    observeCartItems();
+  });
+
+})();
+</script>
+{% endif %}

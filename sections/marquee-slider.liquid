@@ -1,0 +1,118 @@
+{{ 'marquee-slider.css' | asset_url | stylesheet_tag }}
+{% style %}
+  #shopify-section-{{section.id}}{
+    --bg-color:{{section.settings.bg_color}};
+    --text-color:{{section.settings.text_color}};
+  }
+{% endstyle %}
+<slider-marquee>
+  <section class="marquee {% if section.settings.enable_custom_colors %}custom_colors{% endif %}" speed="{{ section.settings.slider_speed }}">
+    <div class="marquee__container" {% if section.settings.disable_max_width %}style="max-width:unset;padding:0;"{% endif %}>
+      <div class="marquee__slider-wrapper">
+        {% if section.blocks.size > 0 %}
+          <div class="swiper" data-marquee-swiper>
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+                {% if block.settings.title != blank %}
+                  <div class="swiper-slide">
+                    <div class="marquee__slider-slide">
+                      <h3 class="marquee__slide-text">
+                        {{ block.settings.title }}
+                      </h3>
+                      {% if block.settings.slide_icon != blank %}
+                        <div class="marquee__slide-icon">
+                          <img src="{{ block.settings.slide_icon | image_url  }}" alt="{{ block.settings.slide_icon.alt }}" height="{{ block.settings.slide_icon.height }}" width="{{ block.settings.slide_icon.width }}" class="marquee__icon-img">
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+              {% for block in section.blocks %}
+                {% if block.settings.title != blank %}
+                  <div class="swiper-slide">
+                    <div class="marquee__slider-slide">
+                      <h3 class="marquee__slide-text">
+                        {{ block.settings.title }}
+                      </h3>
+                      {% if block.settings.slide_icon != blank %}
+                        <div class="marquee__slide-icon">
+                          <img src="{{ block.settings.slide_icon | image_url  }}" alt="{{ block.settings.slide_icon.alt }}" height="{{ block.settings.slide_icon.height }}" width="{{ block.settings.slide_icon.width }}" class="marquee__icon-img">
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+</slider-marquee>
+
+{% schema %}
+{
+  "name": "Marquee Slider",
+  "settings": [
+    {
+      "type": "range",
+      "label": "Slider Speed",
+      "id": "slider_speed",
+      "default": 3000,
+      "min": 500,
+      "max": 5000,
+      "step": 100,
+      "unit": "ms"
+    },
+    {
+      "type":"checkbox",
+      "id":"disable_max_width",
+      "label":"Disable Max Width",
+      "default":false
+    },
+    {
+      "type":"checkbox",
+      "id":"enable_custom_colors",
+      "label":"Enable Custom Colors",
+      "default":false
+    },
+    {
+      "type":"color",
+      "id":"bg_color",
+      "label":"Background Color",
+      "default":"#263d87"
+    },
+    {
+      "type":"color",
+      "id":"text_color",
+      "label":"Text Color",
+      "default":"#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Add Text",
+          "id": "title"
+        },
+        {
+          "type": "image_picker",
+          "label": "Slide Icon",
+          "id": "slide_icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee Slider"
+    }
+  ]
+}
+{% endschema %}

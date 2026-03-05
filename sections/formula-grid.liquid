@@ -1,0 +1,65 @@
+{{ 'formula-grid.css' | asset_url | stylesheet_tag }}
+
+<formula-slider>
+  <section class="formula">
+    <div class="formula__container">
+      <div class="formula__header">
+        {% if section.settings.heading != blank %}
+          <h2 class="formula__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        <div class="formula__cta">
+          <a class="btn btn--primary" href="{{ section.settings.btn_link }}">{{ section.settings.btn_label }}</a>
+        </div>
+      </div>
+      {% if section.settings.blog != blank %}
+        <div class="formula__grid">
+          <div class="swiper formula__swiper" data-formula-swiper>
+            <div class="swiper-wrapper">
+              {% for article in section.settings.blog.articles reversed %}
+                <div class="swiper-slide">
+                  {% render 'formula-card', article: article %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      <div class="formula__cta formula__cta--mobile">
+        <a class="btn btn--primary" href="{{ section.settings.btn_link }}">{{ section.settings.btn_label }}</a>
+      </div>
+    </div>
+  </section>
+</formula-slider>
+
+{% schema %}
+  {
+    "name": "Formula",
+    "settings": [  
+      {
+        "type": "blog",
+        "label": "Select Blog",
+        "id": "blog"
+      } ,   
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "heading"
+      },
+      {
+        "type": "text",
+        "label": "Button Label",
+        "id": "btn_label"
+      },
+      {
+        "type": "url",
+        "label": "Button URL",
+        "id": "btn_link"
+      }  
+    ],
+    "presets": [
+      {
+        "name": "Formula"
+      }
+    ]
+  }
+{% endschema %}

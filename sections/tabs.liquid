@@ -1,0 +1,163 @@
+{{ 'tabs.css' | asset_url | stylesheet_tag }}
+
+<section class="tabs{% if section.settings.bg_img %} has__bg{% endif %}"
+  style="
+    {% if section.settings.bg_img %}background-image: url('{{ section.settings.bg_img | image_url }}');{% endif %}
+    --tabs-bg: {{ section.settings.bg_color | default: 'transparent' }};
+    --tabs-subtitle-color: {{ section.settings.subtitle_color | default: 'var(--color-off-black)' }};
+    --tabs-title-color: {{ section.settings.title_color | default: 'var(--color-blue)' }};
+    --tabs-faq-question-color: {{ section.settings.faq_question_color | default: 'var(--color-blue)' }};
+    --tabs-faq-ans-color: {{ section.settings.faq_ans_color | default: 'var(--color-blue)' }};
+    --icon-text-color: {{ section.settings.icon_text_color | default: '#263D87' }};
+  ">
+  <div class="tabs__container">
+    <div class="tabs__content">
+      {% if section.settings.subtitle != blank %}
+        <p class="tabs__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      {% if section.settings.heading %}
+        <h2 class="tabs__title">{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+    <div class="tabs__grid">
+      <div class="tabs__media">
+        <img class="tabs__media-img" src="{{ section.settings.main_img |  image_url  }}" alt="{{ section.settings.main_img.alt }}">
+      </div>
+      <div class="tabs__faqs">
+        {% for block in section.blocks %}
+          {% if block.type == 'faq' %}
+            {% if block.settings.title %}
+              <div class="tabs__faq tabs__faqs--{{ forloop.index }}{% if block.settings.open_default %} tabs__faq--active{% endif %}" data-faq>
+                <h5 class="tabs__faq-question" data-faq-question>{{ block.settings.title }}</h5>
+                <p class="tabs__faq-ans" data-faq-ans>{{ block.settings.answer }}</p>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="tabs__icons">
+      {% for block in section.blocks %}
+        {% if block.type == 'icon' %}
+          <div class="icon-block">
+            <div class="tabs__icon tabs__icon--{{ forloop.index }}">
+              <img class="tabs__icon-img" src="{{ block.settings.icon | image_url }}" alt="{{ block.settings.icon.alt }}">
+            </div>
+            <p class="text">{{ block.settings.icon_text }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{{ 'tabs.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Tabs",
+  "settings": [
+  {
+    "type": "image_picker",
+    "label": "BG Image",
+    "id": "bg_img"
+  },
+  {
+    "type": "color",
+    "label": "Background color",
+    "id": "bg_color",
+    "default": "#ffffff"
+  },
+  {
+    "type": "text",
+    "label": "Subtitle",
+    "id": "subtitle"
+  },
+  {
+    "type": "color",
+    "label": "Subtitle color",
+    "id": "subtitle_color",
+    "default": "#222222"
+  },
+  {
+    "type": "text",
+    "label": "Heading",
+    "id": "heading"
+  },
+  {
+    "type": "color",
+    "label": "Heading (title) color",
+    "id": "title_color",
+    "default": "#263D87"
+  },
+  {
+    "type": "image_picker",
+    "label": "Main Image",
+    "id": "main_img"
+  },
+  {
+    "type": "color",
+    "label": "FAQ question color",
+    "id": "faq_question_color",
+    "default": "#263D87"
+  },
+  {
+    "type": "color",
+    "label": "FAQ answer color",
+    "id": "faq_ans_color",
+    "default": "#263D87"
+  },
+  {
+    "type": "color",
+    "label": "Icon text color",
+    "id": "icon_text_color",
+    "default": "#263D87"
+  }
+],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Question",
+          "id": "title"
+        },
+        {
+          "type": "text",
+          "label": "Answer",
+          "id": "answer"
+        },
+        {
+          "type": "checkbox",
+          "label": "Open By Default",
+          "id": "open_default",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Add Icon",
+          "id": "icon"
+        },
+        {
+          "type": "text",
+          "id": "icon_text",
+          "label": "Icon text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tabs"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* 
+@font-face {
+  font-family: 'HardboP';
+  src: url(https://cdn.shopify.com/s/files/1/0726/5566/7433/files/Fontspring-DEMO-hardbop-light.woff?v=1736855337);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'HardboP';
+  src: url(https://cdn.shopify.com/s/files/1/0726/5566/7433/files/Fontspring-DEMO-hardbop-regular.woff?v=1736855336);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'HardboP';
+  src: url(https://cdn.shopify.com/s/files/1/0726/5566/7433/files/Fontspring-DEMO-hardbop-semibold.woff?v=1736855336);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'HardboP';
+  src: url(https://cdn.shopify.com/s/files/1/0726/5566/7433/files/Fontspring-DEMO-hardbop-bold.woff?v=1736855336);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'HardboP';
+  src: url(https://cdn.shopify.com/s/files/1/0726/5566/7433/files/Fontspring-DEMO-hardbop-black.woff?v=1736855336);
+  font-weight: 900;
+} */
+
+:root {
+  /* Colors */
+  --color-white: #fff;  
+  --color-black: #000;  
+  --color-off-black: #27272A;  
+  --color-ligt-black: #262626;  
+  --color-blue: #263D87;  
+  --color-yellow: #EB8532;  
+  --color-sky-blue: #61C2F4;  
+  --color-grey: #E6E3E3;  
+  --color-grey2: #E6E3E3;  
+  --color-grey3: #171717;  
+  --color-grey4: #F3F3F3;  
+  --color-grey5: #2B2B2B;  
+  --color-light-orange: #FFE1E8;  
+
+  /* Fonts */
+  /* --font-family-primary: "Poppins", serif; */
+  /* --font-family-secondary: "HardboP", serif; */
+
+  /* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-extra-light: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-meidum: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+  --font-weight-black: 900;
+
+  /* Font SIzes */
+  --font-extra-small: 14px;
+  --font-small: 16px;
+  --font-small-regular: 18px;
+  --font-regular: 20px;
+  --font-heading-1: 107px;
+  --font-heading-2: 76px;
+  --font-heading-3: 60px;
+  --font-heading-4: 32px;
+  --font-heading-5: 62px;
+  --font-heading-6: 24px;
+}
+
+img {
+  max-width: 100%;
+}
+
+html body * {
+  letter-spacing: 0;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.underline-links-hover:hover a {
+  text-decoration: none !important;
+}
+
+html body .fancybox-bg {
+  display: block;
+}
+
+/* ==== buttons ==== */
+
+.btn {
+  border: none;
+  outline: none;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  max-height: 56px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.btn--primary {
+  background: var(--color-blue);
+  color: var(--color-white);
+  text-transform: uppercase;
+  padding: 23px 40px;
+  border-radius: 10px;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-extra-small);
+  font-weight: var(--font-weight-meidum);
+  line-height: var(--font-extra-small);
+  border: 1px solid var(--color-blue);
+}
+
+.btn--primary:hover {
+  background: var(--color-white);
+  color: var(--color-off-black);
+}
+
+.btn--secondary {
+  background: var(--color-white);
+  color: var(--color-off-black);
+  text-transform: uppercase;
+  padding: 23px 40px;
+  border-radius: 10px;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-extra-small);
+  font-weight: var(--font-weight-meidum);
+  line-height: var(--font-extra-small); 
+  border: 1px solid var(--color-white);
+}
+
+.btn--secondary:hover {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+
+.hero-banner__has-bg {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btn--teritary {
+  background: var(--color-blue);
+  color: var(--color-white);
+  text-transform: uppercase;
+  padding: 16px 40px;
+  border-radius: 10px;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-extra-small);
+  font-weight: var(--font-weight-meidum);
+  line-height: var(--font-extra-small);
+  border: 1px solid var(--color-blue);
+}
+
+.btn--full {
+  width: 100%;
+  max-width: 100%;
+}
+
+.btn--teritary:hover {
+  background: var(--color-white);
+  color: var(--color-blue);
+}
+
+.btn[disabled] {
+  opacity: .7;
+  pointer-events: none;
+}
+
+.has__bg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.style_other--pages main{
+  margin-top:75px;
+}
+/* ===== responsive ===== */
+
+@media (max-width: 1024px) {
+  :root {
+    --font-heading-1: 70px;
+    --font-heading-2: 45px;
+    --font-heading-3: 40px;
+    --font-heading-4: 25px;
+    --font-heading-5: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --font-heading-1: 45px;
+    --font-heading-2: 40px;
+    --font-heading-3: 30px;
+    --font-heading-6: 18px;
+  }
+
+  .btn--primary,
+  .btn--secondary {
+    padding: 15px 30px;
+  }
+}

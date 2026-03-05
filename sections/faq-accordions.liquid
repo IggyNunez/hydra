@@ -1,0 +1,253 @@
+{{ 'faq-accordion.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mob }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  {% comment %} #shopify-section-{{ section.id }} .faq-accordion-custom .btn-box {
+    background-color: {{ section.settings.box_bg_color }};
+    color: {{ section.settings.box_text_color }};
+  }
+  #shopify-section-{{ section.id }} .box-caption,
+  #shopify-section-{{ section.id }} .box-desc {
+    color: {{ section.settings.box_text_color }};
+  }
+  #shopify-section-{{ section.id }} .faq-accordion-custom .btn-box .button.get-in-touch-btn {
+    background-color: {{ section.settings.btn_bg_color }};
+    color: {{ section.settings.btn_text_color }};
+  } {% endcomment %}
+</style>
+
+<div class="faq-accordion-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding">
+    <div class="page-width">
+      <div class="faq-accordion-custom">
+        <div class="left-container">
+          <h2 class="h0 heading">{{ section.settings.heading }}</h2>
+          <div class="btn-box small-hide color-{{ section.settings.color_scheme_faqbox }} gradient">
+            <p class="box-caption h2">{{ section.settings.caption }}</p>
+            <p class="box-desc">{{ section.settings.desc }}</p>
+            <a class="button button--primary get-in-touch-btn" href="{{ section.settings.btn-link }}">{{ section.settings.btn-label }}</a>
+          </div>
+        </div>
+        <div class="right-container">
+          <div class="custom-accordions-wrapper">
+            {% for block in section.blocks %}
+              <div class="accordion-item {% if forloop.index == 2 %}active{% endif %}">
+                <div class="quest-wrapper">
+                  <span class="title quest">{{ block.settings.quest }}</span>
+                  <svg class="accordion-icon" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="32.6696" width="32.1053" height="32.1053" rx="16.0526" transform="rotate(90 32.6696 0)" fill="#363036" fill-opacity="0.13"/>
+                    <path d="M11.266 13.3772L16.6169 18.7281L21.9678 13.3772" stroke="#363036" stroke-width="1.78363" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="ans-content">
+                  <div class="ans-inner">{{ block.settings.ans_content }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="btn-box color-{{ section.settings.color_scheme_faqbox }} gradient medium-hide large-up-hide">
+            <p class="box-caption h2">{{ section.settings.caption }}</p>
+            <p class="box-desc">{{ section.settings.desc }}</p>
+            <a class="button button--primary get-in-touch-btn" href="{{ section.settings.btn-link }}">{{ section.settings.btn-label }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.quest-wrapper');
+    const content = item.querySelector('.ans-content');
+    
+    if (item.classList.contains('active')) {
+      content.style.maxHeight = content.scrollHeight + 'px';
+    } else {
+      content.style.maxHeight = '0';
+    }
+    
+    header.addEventListener('click', () => {
+      accordionItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+          const otherContent = otherItem.querySelector('.ans-content');
+          otherContent.style.maxHeight = '0';
+        }
+      });
+      
+      item.classList.toggle('active');
+      
+      if (item.classList.contains('active')) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = '0';
+        icon.removeAttribute('transform');
+      }
+    });
+  });
+  
+  window.addEventListener('resize', function() {
+    document.querySelectorAll('.accordion-item.active .ans-content').forEach(content => {
+      content.style.maxHeight = content.scrollHeight + 'px';
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "FAQ accordions",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Button Box Caption",
+      "default": "We're here to help!"
+    },
+    {
+      "type": "text",
+      "id": "desc",
+      "label": "Button Box Description",
+      "default": "Get in touch with customer care"
+    },
+    {
+      "type": "text",
+      "id": "btn-label",
+      "label": "Button Label",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "btn-link",
+      "label": "Button Link"
+    },
+    
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_faqbox",
+      "label": "Box Color Scheme",
+      "default": "scheme-8"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop bottom padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "quest",
+          "label": "Question",
+          "default": "Can I test ride a Rexx bike before buying?"
+        },
+        {
+          "type": "richtext",
+          "id": "ans_content",
+          "label": "Answer",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur, id aliquet malesuada nisl vulputate nulla ut elit. Ut inties iutio sed epremmentum erat.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ accordions",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "quest": "Can I test ride a Rexx bike before buying?",
+            "ans_content": "<p>Lorem ipsum dolor sit amet consectetur, id aliquet malesuada nisl vulputate nulla ut elit. Ut inties iutio sed epremmentum erat.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "quest": "Do Rexx bikes come with a warranty?",
+            "ans_content": "<p>Lorem ipsum dolor sit amet consectetur. Porttitor amet ante maecenas armet ac nisl. Eros nam a purus volutpat.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "quest": "What is your return or exchange policy?",
+            "ans_content": "<p>Lorem ipsum dolor sit amet consectetur, id aliquet malesuada nisl vulputate nulla ut elit.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

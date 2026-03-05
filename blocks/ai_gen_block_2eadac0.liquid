@@ -1,0 +1,530 @@
+{% doc %}
+  @prompt
+    Create a custom Liquid section for my Shopify theme that adds an email signup popup. The popup must open when any button or link with the attribute data-open-popup="true" is clicked. The popup should include:
+    
+    A dark semi-transparent background overlay.
+    
+    A centered white popup box with a title, short description, and an email signup form that submits to Shopify’s customer list (/contact#contact_form).
+    
+    A close button that closes the popup.
+    
+    Clicking outside the popup or pressing ESC should also close it.
+    
+    The popup must trap keyboard focus while open for accessibility.
+    
+    The section should include all HTML, CSS, and JavaScript required so it works in any theme.
+    
+    The popup must not appear automatically; it only appears when something with data-open-popup="true" is clicked.
+    
+    The section should include a simple schema block so it can be added anywhere in the theme editor.
+    
+    Finally, provide the full Liquid code for the section so I can add it as popup-signup.liquid and place it on my page.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-popup-overlay-{{ ai_gen_id }} {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, {{ block.settings.overlay_opacity }});
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .ai-popup-overlay-{{ ai_gen_id }}.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .ai-popup-container-{{ ai_gen_id }} {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+  }
+
+  .ai-popup-container-{{ ai_gen_id }}.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .ai-popup-box-{{ ai_gen_id }} {
+    background-color: {{ block.settings.popup_bg_color }};
+    border-radius: {{ block.settings.popup_border_radius }}px;
+    max-width: {{ block.settings.popup_max_width }}px;
+    width: 100%;
+    padding: {{ block.settings.popup_padding }}px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+  }
+
+  .ai-popup-container-{{ ai_gen_id }}.active .ai-popup-box-{{ ai_gen_id }} {
+    transform: scale(1);
+  }
+
+  .ai-popup-close-{{ ai_gen_id }} {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: {{ block.settings.text_color }};
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .ai-popup-close-{{ ai_gen_id }}:hover {
+    opacity: 1;
+  }
+
+  .ai-popup-close-{{ ai_gen_id }} svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ai-popup-content-{{ ai_gen_id }} {
+    text-align: center;
+  }
+
+  .ai-popup-title-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.title_size }}px;
+    margin: 0 0 15px;
+    padding-right: 30px;
+  }
+
+  .ai-popup-description-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.description_size }}px;
+    margin: 0 0 25px;
+    line-height: 1.5;
+  }
+
+  .ai-popup-form-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-popup-input-{{ ai_gen_id }} {
+    padding: 12px 16px;
+    border: 1px solid {{ block.settings.input_border_color }};
+    border-radius: {{ block.settings.input_border_radius }}px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .ai-popup-button-{{ ai_gen_id }} {
+    padding: 12px 24px;
+    background-color: {{ block.settings.button_color }};
+    color: {{ block.settings.button_text_color }};
+    border: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+  }
+
+  .ai-popup-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_color }};
+  }
+
+  .ai-popup-success-{{ ai_gen_id }} {
+    color: {{ block.settings.success_color }};
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .ai-popup-error-{{ ai_gen_id }} {
+    color: {{ block.settings.error_color }};
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-popup-box-{{ ai_gen_id }} {
+      padding: 30px 20px;
+    }
+
+    .ai-popup-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.8 }}px;
+    }
+
+    .ai-popup-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.description_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<email-signup-popup-{{ ai_gen_id }} {{ block.shopify_attributes }}>
+  <div class="ai-popup-overlay-{{ ai_gen_id }}" data-popup-overlay></div>
+
+  <div class="ai-popup-container-{{ ai_gen_id }}" role="dialog" aria-modal="true" aria-labelledby="popup-title-{{ ai_gen_id }}" data-popup-container>
+    <div class="ai-popup-box-{{ ai_gen_id }}">
+      <button
+        class="ai-popup-close-{{ ai_gen_id }}"
+        data-popup-close
+        aria-label="Close popup"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="ai-popup-content-{{ ai_gen_id }}">
+        <h2 id="popup-title-{{ ai_gen_id }}" class="ai-popup-title-{{ ai_gen_id }}">
+          {{ block.settings.popup_title }}
+        </h2>
+
+        {% if block.settings.popup_description != blank %}
+          <div class="ai-popup-description-{{ ai_gen_id }}">
+            {{ block.settings.popup_description }}
+          </div>
+        {% endif %}
+
+        {%- form 'contact', id: 'contact_form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="ai-popup-form-{{ ai_gen_id }}">
+            <input
+              type="email"
+              name="contact[email]"
+              class="ai-popup-input-{{ ai_gen_id }}"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="popup-error-{{ ai_gen_id }}"
+              {% endif %}
+              {% if form.posted_successfully? %}
+                aria-describedby="popup-success-{{ ai_gen_id }}"
+              {% endif %}
+              placeholder="{{ block.settings.email_placeholder }}"
+              required
+            >
+            <button
+              type="submit"
+              class="ai-popup-button-{{ ai_gen_id }}"
+            >
+              {{ block.settings.button_label }}
+            </button>
+
+            {%- if form.errors -%}
+              <div
+                id="popup-error-{{ ai_gen_id }}"
+                class="ai-popup-error-{{ ai_gen_id }}"
+              >
+                {{ form.errors.messages.email }}
+              </div>
+            {%- endif -%}
+
+            {%- if form.posted_successfully? -%}
+              <div
+                id="popup-success-{{ ai_gen_id }}"
+                class="ai-popup-success-{{ ai_gen_id }}"
+              >
+                {{ block.settings.success_message }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</email-signup-popup-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class EmailSignupPopup{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.overlay = this.querySelector('[data-popup-overlay]');
+        this.container = this.querySelector('[data-popup-container]');
+        this.closeButton = this.querySelector('[data-popup-close]');
+        this.popupBox = this.querySelector('.ai-popup-box-{{ ai_gen_id }}');
+        this.focusableElements = null;
+        this.firstFocusable = null;
+        this.lastFocusable = null;
+      }
+
+      connectedCallback() {
+        this.setupEventListeners();
+        this.setupTriggers();
+      }
+
+      setupEventListeners() {
+        this.closeButton.addEventListener('click', () => this.closePopup());
+        this.overlay.addEventListener('click', () => this.closePopup());
+        
+        document.addEventListener('keydown', (e) => {
+          if (this.container.classList.contains('active')) {
+            if (e.key === 'Escape') {
+              this.closePopup();
+            }
+            if (e.key === 'Tab') {
+              this.trapFocus(e);
+            }
+          }
+        });
+      }
+
+      setupTriggers() {
+        document.addEventListener('click', (e) => {
+          const trigger = e.target.closest('[data-open-popup="true"]');
+          if (trigger) {
+            e.preventDefault();
+            this.openPopup();
+          }
+        });
+      }
+
+      openPopup() {
+        this.overlay.classList.add('active');
+        this.container.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        this.updateFocusableElements();
+        if (this.firstFocusable) {
+          this.firstFocusable.focus();
+        }
+      }
+
+      closePopup() {
+        this.overlay.classList.remove('active');
+        this.container.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      updateFocusableElements() {
+        const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        this.focusableElements = this.popupBox.querySelectorAll(focusableSelectors);
+        this.firstFocusable = this.focusableElements[0];
+        this.lastFocusable = this.focusableElements[this.focusableElements.length - 1];
+      }
+
+      trapFocus(e) {
+        if (e.shiftKey) {
+          if (document.activeElement === this.firstFocusable) {
+            e.preventDefault();
+            this.lastFocusable.focus();
+          }
+        } else {
+          if (document.activeElement === this.lastFocusable) {
+            e.preventDefault();
+            this.firstFocusable.focus();
+          }
+        }
+      }
+    }
+
+    customElements.define('email-signup-popup-{{ ai_gen_id }}', EmailSignupPopup{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Email signup popup",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "popup_title",
+      "label": "Title",
+      "default": "Join our newsletter"
+    },
+    {
+      "type": "textarea",
+      "id": "popup_description",
+      "label": "Description",
+      "default": "Subscribe to get special offers and updates delivered to your inbox."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks for subscribing!"
+    },
+    {
+      "type": "header",
+      "content": "Popup style"
+    },
+    {
+      "type": "range",
+      "id": "popup_max_width",
+      "min": 300,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "popup_padding",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "popup_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "popup_bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Overlay opacity",
+      "default": 0.7
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Title size",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Description size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Form style"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input border color",
+      "default": "#cccccc"
+    },
+    {
+      "type": "range",
+      "id": "input_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Input border radius",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#263d87"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button hover color",
+      "default": "#1a2d6b"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "success_color",
+      "label": "Success color",
+      "default": "#008060"
+    },
+    {
+      "type": "color",
+      "id": "error_color",
+      "label": "Error color",
+      "default": "#D82C0D"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Email signup popup"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,160 @@
+{{ 'main-footer.css' | asset_url | stylesheet_tag }}
+
+<footer class="main-footer">
+  <div class="main-footer__container">
+    {% if section.settings.newsletter_title != blank %}
+      <div class="main-footer__newsletter">
+        <div class="main-footer__newsletter-content">
+          <h3 class="main-footer__newsletter-title">{{ section.settings.newsletter_title }}</h3>
+          <p class="main-footer__newsletter-desc">{{ section.settings.newsletter_desc }}</p>
+        </div>
+        <div class="main-footer__newsletter-form">
+          {% form 'customer' %}
+            <div class="main-footer__newsletter-inputs">
+              <input type="email" class="main-footer__newsletter-input main-footer__newsletter-inputs--mail" placeholder="Your Email" name="contact[email]" />
+              <button type="submit" class="main-footer__newsletter-btn btn btn btn--primary">SUBMIT</button>
+            </div>
+          {% endform %}
+        </div>
+      </div>
+    {% endif %}
+    <div class="main-footer__menus">
+      {% if section.settings.menu != blank %}
+        <ul class="main-footer__menu">
+          {% for link in section.settings.menu.links %}
+            <li class="main-footer__menu-item">
+              <a href="{{ link.url }}" class="main-footer__menu-link">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if section.settings.menu_2 != blank %}
+        <ul class="main-footer__menu">
+          {% for link in section.settings.menu_2.links %}
+            <li class="main-footer__menu-item">
+              <a href="{{ link.url }}" class="main-footer__menu-link">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if section.settings.menu_3 != blank %}
+        <ul class="main-footer__menu">
+          {% for link in section.settings.menu_3.links %}
+            <li class="main-footer__menu-item">
+              <a href="{{ link.url }}" class="main-footer__menu-link">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if section.settings.menu_4 != blank %}
+        <ul class="main-footer__menu">
+          {% for link in section.settings.menu_4.links %}
+            <li class="main-footer__menu-item">
+              <a href="{{ link.url }}" class="main-footer__menu-link">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    <div class="main-footer__bottom">
+      {% if section.settings.copy_text != blank %}
+        <div class="main-footer__copyright">
+          {{ section.settings.copy_text }}
+        </div>
+      {% endif %}
+      <div class="main-footer__logo">
+        {% if section.settings.copy_logo != blank %}
+          <a href="{{ shop.url }}">
+            <img src="{{ section.settings.copy_logo | image_url }}" alt="{{ section.settings.copy_logo.alt }}">
+          </a>
+        {% endif %}        
+      </div>
+      <div class="main-footer__payments">
+        {%- if section.settings.payment_enable -%}
+          <div class="footer__payment">
+            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+            <ul class="list list-payment" role="list">
+              {%- for type in shop.enabled_payment_types -%}
+                <li class="list-payment__item">
+                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+    {% if settings.sweeps_switch %}
+      <div>
+        <p class="shared" style="text-align: center;font-size: 12px;color:white">NO PURCHASE NECESSARY. Ends 12/2/25. Must be: i) a legal US resident of the 50 US or DC and age of majority or ii) a legal resident of Canada (excl. Quebec) and age of majority at time of entry. Subject to Official Rules available at sharedsweeps.com/rules. Void where prohibited. Sponsored By Shared Sweeps.</p>
+      </div>
+    {% endif %}
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": "Main Footer",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Newsletter Title",
+        "id": "newsletter_title"
+      },
+      {
+        "type": "textarea",
+        "label": "Newsletter Description",
+        "id": "newsletter_desc"
+      },
+      {
+        "type": "link_list",
+        "label": "Menu 1",
+        "id": "menu"
+      },
+      {
+        "type": "link_list",
+        "label": "Menu 2",
+        "id": "menu_2"
+      },
+      {
+        "type": "link_list",
+        "label": "Menu 3",
+        "id": "menu_3"
+      },
+      {
+        "type": "link_list",
+        "label": "Menu 4",
+        "id": "menu_4"
+      },
+      {
+        "type": "text",
+        "label": "Copyright Text",
+        "id": "copy_text"
+      },
+      {
+        "type": "image_picker",
+        "label": "Copyright Logo",
+        "id": "copy_logo"
+      },
+      {
+        "type": "checkbox",
+        "label": "Payment Icons",
+        "id": "payment_enable",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "Main Footer"
+      }
+    ]
+  }
+{% endschema %}

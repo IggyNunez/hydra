@@ -1,0 +1,116 @@
+.faq-accordion-custom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7%;
+}
+.faq-accordion-custom .left-container {
+  flex: 1;
+  /* min-width: 300px; */
+}
+.faq-accordion-custom .right-container {
+  flex: 2;
+  min-width: 300px;
+}
+.faq-accordion-custom .btn-box {
+  margin-top: 2.5rem;
+  padding: 2.5rem;
+  border-radius: 15px;
+  text-align:left;
+}
+.faq-accordion-custom .heading {
+    margin-block: 0 3.5rem;
+}
+.faq-accordion-custom .box-caption {
+  margin-block: 0 1rem;
+}
+.faq-accordion-custom .box-desc {
+  margin-block: 0 2rem;
+}
+.faq-accordion-custom .get-in-touch-btn {
+  text-align: center;
+}
+.faq-accordion-custom .custom-accordions-wrapper {
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; */
+}
+.faq-accordion-custom .accordion-item {
+  border-bottom: 1px solid rgba(34, 34, 34, 0.1);
+  overflow: hidden;
+}
+.faq-accordion-custom .quest-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  cursor: pointer;
+}
+.faq-accordion-custom .quest {
+  margin: 0;
+  flex: 1;
+}
+.faq-accordion-custom .ans-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.faq-accordion-custom .ans-inner {
+  max-width: 75rem;
+  color: rgba(var(--color-foreground), 1);
+  padding: 0 20px 20px 0;
+}
+.faq-accordion-custom .ans-inner p {
+  color: rgba(var(--color-foreground), 1);
+  margin: 0;
+}
+.faq-accordion-custom .accordion-icon {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  width: 3.2rem;
+  margin-left: 15px;
+}
+.faq-accordion-custom .accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+.faq-accordion-custom .title.quest {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1;
+}
+
+@media (max-width: 749px) {
+  .faq-accordion-custom .left-container {
+    flex: 100%;
+  }
+  .faq-accordion-custom .right-container {
+    flex: 100%;
+  }
+  .faq-accordion-custom .heading {
+    margin-block: 0 2rem;
+    text-align: center;
+  }
+  .faq-accordion-custom .accordion-icon {
+    width: 2.5rem;
+  }
+  .faq-accordion-custom .quest-wrapper {
+    padding-block: 1.5rem;
+  }
+  .faq-accordion-custom .ans-inner {
+    padding: 0 15px 15px 0;
+  }
+  .faq-accordion-custom .btn-box {
+    padding: 2rem;
+    text-align:center;
+  }
+  .faq-accordion-custom .box-desc {
+    margin-block: 0 1.5rem;
+  }
+  .faq-accordion-custom .get-in-touch-btn {
+    font-size: 1.5rem;
+    padding-inline: 2.5rem;
+  }
+  .faq-accordion-custom .title.quest{
+    font-size:16px;
+  }
+}

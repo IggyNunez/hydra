@@ -1,0 +1,971 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_v1_3LkBRH": {
+      "type": "image-banner-v1",
+      "blocks": {
+        "heading_8BXRqP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hydra \"Sell Sheet\"",
+            "heading_size": "h0"
+          }
+        },
+        "text_mwpWjm": {
+          "type": "text",
+          "settings": {
+            "text": "Modern Hydration. Built for Real Life.",
+            "text_style": "body",
+            "light_text": false
+          }
+        },
+        "buttons_UnqQEV": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "scroll_to_sec": false,
+            "section_id": "",
+            "button_label_1": "Sign-Up Here",
+            "button_link_1": "https://thehydrashop.com/pages/collab",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_8BXRqP",
+        "text_mwpWjm",
+        "buttons_UnqQEV"
+      ],
+      "name": "Image Banner V1",
+      "settings": {
+        "image": "shopify://shop_images/9_copy_1.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "container_width_percent": 50,
+        "show_text_box": true,
+        "color_scheme": "scheme-e6e186e5-e84b-45ef-84ba-951c6ec217d4",
+        "stack_images_on_mobile": true,
+        "mobile_image": "shopify://shop_images/9_copy_1.webp",
+        "mobile_content_alignment": "center",
+        "mobile_container_width_percent": 100,
+        "show_text_below": false
+      }
+    },
+    "richtext_v1_EYDezj": {
+      "type": "richtext-v1",
+      "blocks": {
+        "heading_7gegth": {
+          "type": "heading",
+          "settings": {
+            "heading": "What You'll win",
+            "bold_fonts": false,
+            "heading_size": "h1"
+          }
+        },
+        "text_wDb8eR": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>A Trip to Fiji and a new Toyota Four Runner.</em><em><strong> Or $100,000</strong></em></p>",
+            "font_size": "typeset1"
+          }
+        },
+        "button_BVaMq7": {
+          "type": "button",
+          "settings": {
+            "button_label": "Terms And Conditions",
+            "button_link": "#",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7gegth",
+        "text_wDb8eR",
+        "button_BVaMq7"
+      ],
+      "disabled": true,
+      "name": "Richtext v1",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-a1957f54-60b0-45e4-83cd-515a0a0f93f6",
+        "full_width": true,
+        "animated_icon1": "shopify://shop_images/four_runner.png",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "image_with_text_v1_LJAgL8": {
+      "type": "image-with-text-v1",
+      "blocks": {
+        "heading_fXYhr7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Hydra Exists",
+            "heading_size": "h1"
+          }
+        },
+        "text_h33qdW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>75% of adults are chronically dehydrated.</p><p>Traditional sports drinks were built for endurance athletes decades ago. Today they are filled with sugar, artificial ingredients, and synthetic electrolyte blends that do not reflect how people actually live.</p><p>Hydra was created to bring hydration into everyday life. At work. At the gym. Traveling. Parenting. Recovering. Living.</p><p>Simple formats. Real minerals. No mixing. No hassle.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_gWc49r": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Join on TikTok Shop",
+            "button_link": "https://www.tiktok.com/alliance/ecom/fe/h5/default/fe_teu_h5_alliance/link-share/index.html?invitation_group_id=7605712430594672398&seller_id=7495490994186652508&scene=target_invitation_detail&shop_name=Hydra%20Hydration",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_fXYhr7",
+        "text_h33qdW",
+        "button_gWc49r"
+      ],
+      "name": "Image with text v1",
+      "settings": {
+        "page_width": true,
+        "image": "shopify://shop_images/Screen_Shot_2026-02-20_at_5.37.39_PM.png",
+        "contain": false,
+        "cstm_padding": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "padding_top": 60,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "image_with_text_Ek3fLA": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_3w6n7X": {
+          "type": "heading",
+          "settings": {
+            "heading": "What You'll win",
+            "heading_size": "h1"
+          }
+        },
+        "text_eb9Atr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✅ Dream Vacation to Fiji! and Drive Away in a Brand-New Toyota 4Runner!<br/><br/>✅ Or Take Home $100,000 in Cash!</p>",
+            "text_style": "subtitle"
+          }
+        },
+        "button_dDzGCB": {
+          "type": "button",
+          "settings": {
+            "button_label": "Temrs and Conditions",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_3w6n7X",
+        "text_eb9Atr",
+        "button_dDzGCB"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "enable_custom_padding_mobile": false,
+        "mobile_padding": "20px 0px 20px",
+        "image_border_radius": 0,
+        "image": "shopify://shop_images/four_runner.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_image_richtext_jUXC7T": {
+      "type": "custom-image-richtext",
+      "disabled": true,
+      "name": "Custom Image Richtext",
+      "settings": {
+        "image": "shopify://shop_images/four_runner.png",
+        "heading": "What You'll win",
+        "text": "A TRIP TO FIJI & A TOYOTA FOUR RUNNER. OR $100,000!",
+        "link": "#",
+        "link_label": "Terms and Condition",
+        "background_color": "#61c2f4",
+        "text_color": "#263d87",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 0
+      }
+    },
+    "multicolumn_v1_kDmAwx": {
+      "type": "multicolumn-v1",
+      "blocks": {
+        "column_xhiH4q": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/circle-1.png",
+            "title": "Shop The Hydra Shop",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hTqbAD": {
+          "type": "column",
+          "settings": {
+            "title": "Earn Entries",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_h8ac64": {
+          "type": "column",
+          "settings": {
+            "title": "Complete Purchase",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_xhiH4q",
+        "column_hTqbAD",
+        "column_h8ac64"
+      ],
+      "disabled": true,
+      "name": "Multicolumn v1",
+      "settings": {
+        "title": "How To Enter",
+        "heading_size": "h1",
+        "description": "",
+        "image_width": "third",
+        "image_ratio": "square",
+        "enable_cards_radius": true,
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "bottom_text": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "enable_custom_color": false,
+        "text_color": "#263d87",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "multicolumn_ftXfqf": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_LnXXGM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/circle-1.png",
+            "title": "Direct From Us",
+            "text": "<p>Email us directly info@thehydrashop.com or order wholesale via our website. </p><p><a href=\"https://thehydrashop.com/products/hydra-drops-sea-mineral-electrolyte-drops-wholesale-half-case?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web\" title=\"https://thehydrashop.com/products/hydra-drops-sea-mineral-electrolyte-drops-wholesale-half-case?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web\">Drops Case of 35</a></p><p>Pops case of 12: <a href=\"https://thehydrashop.com/products/hydra-pops-electrolyte-freeze-pops-12-bag-variety-pack?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web\" title=\"https://thehydrashop.com/products/hydra-pops-electrolyte-freeze-pops-12-bag-variety-pack?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web\">Variety</a>, <a href=\"https://thehydrashop.com/products/hydra-pops-electrolyte-freeze-pops-12-bag-apple-pack?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web\" title=\"https://thehydrashop.com/products/hydra-pops-electrolyte-freeze-pops-12-bag-apple-pack?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web\">Apple</a>, <a href=\"https://thehydrashop.com/products/hydra-pops-electrolyte-freeze-pops-12-bag-strawberry-pack?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web\" title=\"https://thehydrashop.com/products/hydra-pops-electrolyte-freeze-pops-12-bag-strawberry-pack?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web\">Strawberry</a>, <a href=\"https://thehydrashop.com/products/hydra-pops-electrolyte-freeze-pops-12-bag-lime-pack?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web\" title=\"https://thehydrashop.com/products/hydra-pops-electrolyte-freeze-pops-12-bag-lime-pack?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web\">Lime</a></p>",
+            "link_label": "",
+            "link": "https://thehydrashop.com/pages/collab"
+          }
+        },
+        "column_RyGNBL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/circle-2.png",
+            "title": "Faire",
+            "text": "<p>All of our products are set up on Faire</p>",
+            "link_label": "",
+            "link": "https://www.tiktok.com/alliance/ecom/fe/h5/default/fe_teu_h5_alliance/link-share/index.html?invitation_group_id=7605712430594672398&seller_id=7495490994186652508&scene=target_invitation_detail&shop_name=Hydra%20Hydration"
+          }
+        },
+        "column_jWaegQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/circle-3.png",
+            "title": "POD FOODS",
+            "text": "<p>We also won the KeHe Golden Ticket & UNFI Up Next, so if you need to pull from them, let us know</p>",
+            "link_label": "",
+            "link": "https://chat.whatsapp.com/GKWo2A2ekbtK6RyEiTTw4w"
+          }
+        }
+      },
+      "block_order": [
+        "column_LnXXGM",
+        "column_RyGNBL",
+        "column_jWaegQ"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "How to Purchase",
+        "heading_size": "h1",
+        "description": "",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "enable_cards_radius": true,
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "Purchase on Faire",
+        "bottom_text": "",
+        "button_link": "https://hydrahydration.faire.com",
+        "color_scheme": "scheme-1",
+        "enable_custom_color": false,
+        "text_color": "#121212",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_v1_qkkWkD": {
+      "type": "image-with-text-v1",
+      "blocks": {
+        "heading_RTHFqi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real Minerals. Not Synthetic Electrolytes.",
+            "heading_size": "h0"
+          }
+        },
+        "text_zLdiWM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Most hydration brands were built decades ago for intense endurance athletes. Modern life looks different.</p><p>Today people are drinking coffee, sitting at desks, traveling, raising kids in sports, taking GLP-1 medications, breastfeeding, and trying to stay healthy without drinking sugar all day.</p><p>Hydra was built for this version of life.</p><p>• No added sugar<br/><br/>• No artificial dyes<br/><br/>• No artificial sweeteners<br/><br/>• Sea mineral electrolytes<br/><br/>• Balanced sodium<br/><br/>• Potassium<br/><br/>• Magnesium<br/><br/>• Designed for everyday hydration</p><p>Hydration should support your body, not spike your blood sugar.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_3qpdLn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RTHFqi",
+        "text_zLdiWM",
+        "button_3qpdLn"
+      ],
+      "name": "Image with text v1",
+      "settings": {
+        "page_width": true,
+        "image": "shopify://shop_images/1_copy_2.jpg",
+        "mob_image": "shopify://shop_images/1_copy_2.jpg",
+        "contain": true,
+        "cstm_padding": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
+    "image_with_text_v1_3gN4Gp": {
+      "type": "image-with-text-v1",
+      "blocks": {
+        "heading_PaMbQc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hydra Pops",
+            "heading_size": "h0"
+          }
+        },
+        "text_hqPidm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Electrolyte Freeze Pops</p><p>Fun, grab-and-go hydration designed to drive impulse purchase and repeat use.</p><p>✔ 200+ mg electrolytes per pop<br/><br/>✔ No added sugar or artificial dyes<br/><br/>✔ 30 calories or less<br/><br/>✔ Apple • Lime • Strawberry</p><p>Wholesale: $7 per bag<br/><br/>Typical Retail: $11.99 to $17.99<br/><br/>Pack Size: 6 servings per bag<br/><br/>Case Pack: 12 bags per case</p><p><strong>Best Placement</strong><br/><br/>Retail Shelf • Front Desk • Checkout • Events • Fitness • Schools</p>",
+            "text_style": "body"
+          }
+        },
+        "button_3WQkVr": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_PaMbQc",
+        "text_hqPidm",
+        "button_3WQkVr"
+      ],
+      "name": "Image with text v1",
+      "settings": {
+        "page_width": true,
+        "image": "shopify://shop_images/3_1.jpg",
+        "mob_image": "shopify://shop_images/3_1.jpg",
+        "contain": true,
+        "cstm_padding": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
+    "image_with_text_v1_LTfPGb": {
+      "type": "image-with-text-v1",
+      "blocks": {
+        "heading_nfB6Up": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hydra drops",
+            "heading_size": "h0"
+          }
+        },
+        "text_t7LdWp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pure Electrolyte Add-In | 60 Servings</p><p>Turns any beverage into a functional hydration drink.<br/><br/>Flavorless. Sugar free. Extremely versatile.</p><p>✔ Mixes into water, coffee, matcha, smoothies, or cocktails<br/><br/>✔ Supports true cellular hydration<br/><br/>✔ Small footprint with high perceived value<br/><br/>✔ Daily use product that drives repeat purchasing</p><p>Wholesale: $15 per bottle<br/><br/>MSRP: $30<br/><br/>Case Pack: 35 units per case</p><p><strong>Best Placement</strong><br/><br/>Checkout Add-On • Coffee Bars • Wellness Retail • Travel</p>",
+            "text_style": "body"
+          }
+        },
+        "button_FH4hWR": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_nfB6Up",
+        "text_t7LdWp",
+        "button_FH4hWR"
+      ],
+      "name": "Image with text v1",
+      "settings": {
+        "page_width": true,
+        "image": "shopify://shop_images/5_1.jpg",
+        "mob_image": "shopify://shop_images/5_1.jpg",
+        "contain": true,
+        "cstm_padding": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
+    "image_with_text_v1_XtE6Tg": {
+      "type": "image-with-text-v1",
+      "blocks": {
+        "heading_eWbKXg": {
+          "type": "heading",
+          "settings": {
+            "heading": "WHO THIS IS FOR",
+            "heading_size": "h0"
+          }
+        },
+        "text_PkexdY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Built for Communities That Care About Health</p><p>Hydra performs especially well with:</p><p>• Moms and parenting<br/><br/>• Youth sports families<br/><br/>• GLP-1 and weight loss<br/><br/>• Breastfeeding support<br/><br/>• Senior wellness and caregivers<br/><br/>• Fitness and pilates<br/><br/>• Beauty and skin<br/><br/>• Wellness and clean living<br/><br/>• Hangover recovery<br/><br/>• Lifestyle & wellness</p><p>If your customers care about feeling better, Hydra fits naturally.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_7N6LEe": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_eWbKXg",
+        "text_PkexdY",
+        "button_7N6LEe"
+      ],
+      "name": "Image with text v1",
+      "settings": {
+        "page_width": true,
+        "image": "shopify://shop_images/10_copy.jpg",
+        "mob_image": "shopify://shop_images/10_copy.jpg",
+        "contain": true,
+        "cstm_padding": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
+    "image_with_text_v1_PFRBK9": {
+      "type": "image-with-text-v1",
+      "blocks": {
+        "heading_TA674z": {
+          "type": "heading",
+          "settings": {
+            "heading": "WHY IT WORKS",
+            "heading_size": "h0"
+          }
+        },
+        "text_eRxUp3": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>WHY CUSTOMERS LOVE HYDRA</strong></p><p>• Creates incremental revenue without adding operational complexity<br/><br/>• Shelf stable. No refrigeration required<br/><br/>• Small footprint with high margin per square inch<br/><br/>• Distinct from powders, tablets, and traditional sports drinks<br/><br/>• Naturally fits into wellness-driven environments<br/><br/>• Encourages daily use and repeat purchasing behavior</p>",
+            "text_style": "body"
+          }
+        },
+        "button_Vqy49E": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TA674z",
+        "text_eRxUp3",
+        "button_Vqy49E"
+      ],
+      "name": "Image with text v1",
+      "settings": {
+        "page_width": true,
+        "image": "shopify://shop_images/4_copy_2dc1f184-6066-4806-9aa1-7f89ec2b1032.jpg",
+        "mob_image": "shopify://shop_images/4_copy_2dc1f184-6066-4806-9aa1-7f89ec2b1032.jpg",
+        "contain": true,
+        "cstm_padding": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
+    "image_with_text_v1_FLrPrz": {
+      "type": "image-with-text-v1",
+      "blocks": {
+        "heading_NWakhK": {
+          "type": "heading",
+          "settings": {
+            "heading": "SOCIAL PROOF",
+            "heading_size": "h0"
+          }
+        },
+        "text_xBg9Mk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>🏆 Winner – GNC Next Big Thing Competition<br/><br/>🛒 Sprouts<br/><br/>🚚 GoPuff<br/><br/>📦 Amazon<br/><br/>⚽ Youth Sports Partnerships</p>",
+            "text_style": "body"
+          }
+        },
+        "button_3mfb4N": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_NWakhK",
+        "text_xBg9Mk",
+        "button_3mfb4N"
+      ],
+      "name": "Image with text v1",
+      "settings": {
+        "page_width": true,
+        "image": "shopify://shop_images/Screen_Shot_2026-02-20_at_5.34.48_PM.png",
+        "mob_image": "shopify://shop_images/Screen_Shot_2026-02-20_at_5.34.48_PM.png",
+        "contain": true,
+        "cstm_padding": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
+    "image_with_text_v1_3fNVpd": {
+      "type": "image-with-text-v1",
+      "blocks": {
+        "heading_cXfdwL": {
+          "type": "heading",
+          "settings": {
+            "heading": "the science",
+            "heading_size": "h0"
+          }
+        },
+        "text_YiWChH": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Why Our Minerals Work</strong></p><p>Hydra is built differently at the mineral level.</p><p>Most hydration products use isolated, synthetic lab salts manufactured primarily for cost efficiency.</p><p>Hydra uses premium, nature-derived sea minerals sourced from one of the most mineral-dense environments available.</p><p>Our minerals are:</p><p>• In ionic form<br/><br/>• Naturally balanced<br/><br/>• Contain trace mineral complexity<br/><br/>• Designed to be easier on digestion</p>",
+            "text_style": "body"
+          }
+        },
+        "button_AXxjV3": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cXfdwL",
+        "text_YiWChH",
+        "button_AXxjV3"
+      ],
+      "name": "Image with text v1",
+      "settings": {
+        "page_width": true,
+        "image": "shopify://shop_images/4blue.jpg",
+        "mob_image": "shopify://shop_images/Screen_Shot_2026-01-22_at_12.02.46_PM.png",
+        "contain": true,
+        "cstm_padding": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
+    "rich_text_Dyte98": {
+      "type": "rich-text",
+      "blocks": {
+        "text_UfpPKx": {
+          "type": "text",
+          "settings": {
+            "text": "<p></p><p><strong>Why Ionic Form Matters</strong></p><p>Ionic minerals are already dissolved and electrically charged in solution.</p><p>That means:</p><p>• They do not need to be broken down by digestion<br/><br/>• They are immediately available in solution<br/><br/>• They are closer to how electrolytes exist in the body</p><p>This supports smoother absorption and better cellular hydration.</p><p><strong>Why Source Matters</strong></p><p>Synthetic salts are typically isolated single compounds.</p><p>Nature-derived mineral sources contain a broader trace mineral profile and a naturally balanced ratio of sodium, potassium, and supporting minerals.</p><p>It is not about hype.</p><p>It is about balance, bioavailability, and better tolerance.</p><p>Hydration should feel smooth, not harsh.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_UfpPKx"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_v1_TN4g6P": {
+      "type": "image-with-text-v1",
+      "blocks": {
+        "heading_BVVtp9": {
+          "type": "heading",
+          "settings": {
+            "heading": "WHERE IT FITS",
+            "heading_size": "h0"
+          }
+        },
+        "text_qcrYkQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Boutique Retail<br/><br/>Coffee Shops<br/><br/>Fitness Studios<br/><br/>Hospitals & Clinics<br/><br/>Schools & Campuses<br/><br/>Hotels<br/><br/>Meal Delivery Platforms<br/><br/>Corporate Offices</p>",
+            "text_style": "body"
+          }
+        },
+        "button_PawBpd": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_BVVtp9",
+        "text_qcrYkQ",
+        "button_PawBpd"
+      ],
+      "name": "Image with text v1",
+      "settings": {
+        "page_width": true,
+        "image": "shopify://shop_images/2_1.jpg",
+        "mob_image": "shopify://shop_images/2_1.jpg",
+        "contain": true,
+        "cstm_padding": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "color_scheme": "scheme-ae97f25d-9687-4460-bed4-d305a652f713",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
+    "faq_accordions_rWd9tf": {
+      "type": "faq-accordions",
+      "blocks": {
+        "question_K4hfEk": {
+          "type": "question",
+          "settings": {
+            "quest": "How do I get entered?",
+            "ans_content": "<p>Every dollar spent on Hydra Pops during the times we are promoting the giveaway gets you entries to win! You can also enter by mail- check out official rules for details!</p>"
+          }
+        },
+        "question_LzJ8gU": {
+          "type": "question",
+          "settings": {
+            "quest": "How many entries do I have?",
+            "ans_content": "<p>Entries are shown on each product page, so you always know what you're earning as you shop.</p>"
+          }
+        },
+        "question_67B8mN": {
+          "type": "question",
+          "settings": {
+            "quest": "When is the giveaway period?",
+            "ans_content": "<p>Monday, September 8th @ 8:00 am PST - December 2nd @ 11:59 pm PST.</p>"
+          }
+        },
+        "question_9txdF4": {
+          "type": "question",
+          "settings": {
+            "quest": "How is the winner contacted?",
+            "ans_content": "<p>The winner will be contacted directly on or around December 12, 2025.<br/>We will never ask you for information or money to collect your prize.</p>"
+          }
+        },
+        "question_p8DTfj": {
+          "type": "question",
+          "settings": {
+            "quest": "How do I claim my prize?",
+            "ans_content": "<p>After the winner is contacted, you will be able to choose the package or $100,000. After you fill out the proper legal paperwork, which we will provide, you can make your decision.</p>"
+          }
+        },
+        "question_8fpWDk": {
+          "type": "question",
+          "settings": {
+            "quest": "When is the winner announced?",
+            "ans_content": "<p>The winner will be announced on or around December 17, 2025.</p>"
+          }
+        },
+        "question_3BAVGc": {
+          "type": "question",
+          "settings": {
+            "quest": "Who is Shared Sweeps?",
+            "ans_content": "<p>Shared Sweeps is a shared giveaway platform that partners with brands (Like Hydra Pops) to enable their customers to earn entries to the giveaway for purchasing on their site!</p>"
+          }
+        },
+        "question_7CfVDE": {
+          "type": "question",
+          "settings": {
+            "quest": "Is there a free method of entry?",
+            "ans_content": "<p>Yes! Please check the official rules for the details on the free method of entry.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_K4hfEk",
+        "question_LzJ8gU",
+        "question_67B8mN",
+        "question_9txdF4",
+        "question_p8DTfj",
+        "question_8fpWDk",
+        "question_3BAVGc",
+        "question_7CfVDE"
+      ],
+      "disabled": true,
+      "name": "FAQ accordions",
+      "settings": {
+        "heading": "Questions? We can help!",
+        "caption": "",
+        "desc": "",
+        "btn-label": "",
+        "btn-link": "",
+        "color_scheme_faqbox": "scheme-1",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mob": 28,
+        "padding_bottom_mob": 0
+      }
+    },
+    "rich_text_7JQKRr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_AMBBbA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Links Below",
+            "heading_size": "h1"
+          }
+        },
+        "text_MHYxeG": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Our Website: </strong>https://thehydrashop.com/</p><p><strong>Faire: </strong>https://hydrahydration.faire.com</p><p><strong>GoPuff: </strong>https://www.gopuff.com/p/hydra-pops-variety-pack-electrolyte-freeze-pops/p296960</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AMBBbA",
+        "text_MHYxeG"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_v1_3LkBRH",
+    "richtext_v1_EYDezj",
+    "image_with_text_v1_LJAgL8",
+    "image_with_text_Ek3fLA",
+    "custom_image_richtext_jUXC7T",
+    "multicolumn_v1_kDmAwx",
+    "multicolumn_ftXfqf",
+    "image_with_text_v1_qkkWkD",
+    "image_with_text_v1_3gN4Gp",
+    "image_with_text_v1_LTfPGb",
+    "image_with_text_v1_XtE6Tg",
+    "image_with_text_v1_PFRBK9",
+    "image_with_text_v1_FLrPrz",
+    "image_with_text_v1_3fNVpd",
+    "rich_text_Dyte98",
+    "image_with_text_v1_TN4g6P",
+    "faq_accordions_rWd9tf",
+    "rich_text_7JQKRr"
+  ]
+}

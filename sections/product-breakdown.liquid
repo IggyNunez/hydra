@@ -1,0 +1,425 @@
+<link rel="stylesheet" href="{{ 'component-product-breakdown.css' | asset_url }}" />
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    {% if section.settings.top_image %}
+      position:relative;
+    {% endif %}
+  }
+
+  {%- comment -%}
+    Choose mobile background: use image_bg_mobile if set, otherwise fallback to image_bg
+  {%- endcomment -%}
+  {% if section.settings.image_bg_mobile != blank %}
+    {% assign bg_mobile = section.settings.image_bg_mobile %}
+  {% else %}
+    {% assign bg_mobile = section.settings.image_bg %}
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .breakdown_section{
+    background-image: url('{{ bg_mobile | img_url: 'master' }}');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  {% if section.settings.top_image %}
+    #shopify-section-{{ section.id }}::before {
+        content: "";
+        background-image: url('{{section.settings.top_image | img_url : 'master' }}');
+        left: 0;
+        right: 0;
+        top: -38px;
+        width: 100%;
+        height: 40px;
+        background-size: contain;
+        background-repeat: repeat-x;
+        background-position: bottom left;
+        z-index: 0;
+        position: absolute;
+    }
+  {% endif %}
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    {% if section.settings.image_bg %}
+      #shopify-section-{{ section.id }} .breakdown_section{
+        background-image: url('{{ section.settings.image_bg | img_url : 'master' }}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+      }
+    {% endif %}
+  }
+{%- endstyle -%}
+
+{%- assign productNameArr = product.title | split: '-' -%}
+<div class="section-{{ section.id }}-padding breakdown_section " style="background-color:{{ section.settings.section_bg }}">
+  <section class="product-breakdown  page-width" >
+    {% if section.settings.heading != blank %}
+      <h2 class="product-breakdown__title title h2 center">
+        <span>{{ section.settings.heading }}</span>
+      </h2>
+    {% endif %}
+    <div class="product-breakdown__content color-{{ section.settings.color_scheme }}">
+        <div class="product-breakdown__details">
+            {%- for block in section.blocks limit: 2 -%}
+                {%- if block.settings.heading != blank -%}
+                  <style>
+                    {% if block.settings.image_second %}
+                      @media screen and (min-width:750px){
+                        #shopify-section-{{ section.id }} .det--block--{{ forloop.index }}{
+                          flex-direction:row-reverse
+                        }
+                      }
+                    {% endif %}
+                    {% if block.settings.image_top %}
+                      @media screen and (min-width:750px){
+                        #shopify-section-{{ section.id }} .det--block--{{ forloop.index }}{
+                          flex-direction:column;
+                          row-gap: 1rem;
+                        }
+                      }
+                    {% endif %}
+                  </style>
+                    <div class="product-breakdown__detail-block det--block--{{ forloop.index }}" style="">
+                        {%- if block.settings.icon != blank -%}
+                        <div class="product-breakdown__detail-block-img">
+                        {{ block.settings.icon | image_url: height: 88 | image_tag:
+                            loading: 'lazy'
+                        }}
+                        </div>
+                        {%- endif -%}
+                        <dl>
+                            <dt class="h4">{{ block.settings.heading }}</dt>
+                            <dd>{{ block.settings.text }}</dd>
+                        </dl>
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>  
+        <div class="product-breakdown__image">
+          {%- if section.settings.image_override != blank %} {% comment %} use image from CMS if provided others fallback to primary  page image {% endcomment %}
+            {%- assign breakdown_img = section.settings.image_override -%}
+          {%- else - %}
+              {%- assign breakdown_img = product.media[0] -%}
+          {%- endif %}
+          {{ breakdown_img | image_url: width: 670 | image_tag :lazy_load:true,width: 480, height: 480, alt: product.title, class: 'product-breakdown__image', srcset: nil }}
+        </div>
+        <div class="product-breakdown__details">
+            {%- for block in section.blocks limit: 2 offset: 2 -%}
+                {%- if block.settings.heading != blank -%}
+                    <style>
+                      {% if block.settings.image_second %}
+                        @media screen and (min-width:750px){
+                          #shopify-section-{{ section.id }} .det--block--{{ forloop.index }}{
+                            flex-direction:row-reverse
+                          }
+                        }
+                      {% endif %}
+                      {% if block.settings.image_top %}
+                        @media screen and (min-width:750px){
+                          #shopify-section-{{ section.id }} .det--block--{{ forloop.index }}{
+                            flex-direction:column;
+                            row-gap: 1rem;
+                          }
+                        }
+                      {% endif %}
+                    </style>
+                    <div class="product-breakdown__detail-block det--block--{{ forloop.index }}">
+                        {%- if block.settings.icon != blank -%}
+                        <div class="product-breakdown__detail-block-img">
+                        {{ block.settings.icon | image_url: height: 88 | image_tag:
+                            loading: 'lazy'
+                        }}
+                        </div>
+                        {%- endif -%}
+                        <dl>
+                            <dt class="h4">{{ block.settings.heading }}</dt>
+                            <dd>{{ block.settings.text }}</dd>
+                        </dl>
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+    </div>
+    <div class="product_breakdown--bottom">
+      <div class="center">
+        {%- if section.settings.button_label != blank -%}
+          <a
+            class="button button--primary"
+            {% if section.settings.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link }}"
+            {% endif %}
+          >
+            {{ section.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+        {% if section.settings.bottom_text != blank %}
+          <span class="bottom_text">{{ section.settings.bottom_text }}</span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="product_breakdown--testimonials">
+      <div class="pd--testimonials--inner">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'review_card' %}
+              <div class="testimonial-card">
+                <div class="d-flex color-{{ block.settings.card_color_scheme }}">
+                  {% if block.settings.review_image %}
+                    <div class="testimonial-main_image">
+                      <img class="main--image" src="{{ block.settings.review_image | image_url : width : 100 }}">
+                    </div>
+                  {% endif %}
+                  <div class="testimonial-card--inner">
+                    <div class="testimonial-card--top">
+                      {% if block.settings.stars_icon %}
+                        <img class="stars--image" src="{{ block.settings.stars_icon | image_url : width : 80 }}">
+                      {% endif %}
+                      {% if block.settings.review_text != blank %}
+                        <div class="typeset testimonial--details">
+                          {{ block.settings.review_text }}
+                        </div>
+                      {% endif %}
+                    </div>
+                    <div class="flex--author--verified d-flex align-center justify-between">
+                      {% if block.settings.author_name != blank %}
+                        <div class="author--name">
+                          <p class="typeset">{{ block.settings.author_name }}</p>
+                        </div>
+                      {% endif %}
+                      {% if block.settings.verified_text != blank %}
+                        <div class="varified--name d-flex align-center">
+                          {% render 'icon-verified' %}
+                          <p class="typeset">{{ block.settings.verified_text }}</p>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Product Breakdown",
+  "tag": "section",
+  "settings": [
+    {
+      "type":"image_picker",
+      "id":"top_image",
+      "label":"Top Image"
+    },
+    {
+      "type": "color",
+      "id":"section_bg",
+      "label":"Section Background",
+      "default":"#F1F5F9"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type":"image_picker",
+      "id":"image_bg",
+      "label":"Background Image"
+    },
+    {
+      "type":"image_picker",
+      "id":"image_bg_mobile",
+      "label":"Background Image (Mobile)"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "What makes Love Hemp",
+      "label": "Title prefix"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_override",
+      "label": "Selected Image (falls back to primary product page image)"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "t:sections.multicolumn.settings.button_label.default",
+      "label": "t:sections.multicolumn.settings.button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.multicolumn.settings.button_link.label"
+    },
+    {
+      "type":"text",
+      "id":"bottom_text",
+      "label":"Bottom Text",
+      "default":"LIMITED TIME OFFER - Save 53%"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section Padding Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Product features (4x)",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id":"image_top",
+          "label": "Image Icon Top",
+          "default":true
+        },
+        {
+          "type": "checkbox",
+          "id":"image_second",
+          "label": "Image Icon Second",
+          "default":false
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Feature title",
+          "label": "Feature Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "label": "Feature Text (approx: ~8-14 words)"
+        }
+      ]
+    },
+    {
+      "type":"review_card",
+      "name":"Review Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id":"review_image",
+          "label":"Review Image"
+        },
+        {
+          "type": "image_picker",
+          "id":"stars_icon",
+          "label":"Stars Icon"
+        },
+        {
+          "type": "text",
+          "id":"review_text",
+          "label":"Review Text",
+          "default":"<p>Lorem ipsum dolor sit amet consectetur. Accumsan est netus cum nullam amet dolor. Faucibus nulla lacus amet eleifend. </p>"
+        },
+        {
+          "type":"color_scheme",
+          "id": "card_color_scheme",
+          "label":"Color Scheme",
+          "default":"scheme-1"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label":"Author Name",
+          "default":"Emily J."
+        },
+        {
+          "type": "text",
+          "id": "verified_text",
+          "label": "Verified Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Breakdown",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

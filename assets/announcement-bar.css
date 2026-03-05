@@ -1,0 +1,25 @@
+.announcement-bar__message {
+  padding: 0;
+  min-height: auto;
+}
+
+.announcement-bar__message,
+.announcement-bar__message * {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-extra-small);
+  font-weight: var(--font-weight-meidum);
+  line-height: 21px;
+}
+
+.utility-bar--bottom-border {
+  border: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+@media (max-width: 1024px) {
+  .utility-bar__grid.page-width {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

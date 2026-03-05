@@ -1,0 +1,85 @@
+{% if settings.sweeps_switch %}
+  {%- liquid
+    assign p = product
+    assign accent = accent | default: '#d38bb2'
+
+    assign base_price = p.metafields.sharedsweeps.priceoverride
+    if base_price == blank
+      assign base_price = p.price | divided_by: 100.0
+    endif
+
+    assign global_mult = shop.metafields.sharedsweeps.global_multiplier | default: 1
+    assign product_mult = p.metafields.sharedsweeps.multiplier
+    assign mult = global_mult
+    if product_mult != blank and product_mult > global_mult
+      assign mult = product_mult
+    endif
+
+    assign bonus = p.metafields.sharedsweeps.bonusEntries | default: 0
+    assign entries = base_price | times: mult | floor
+  -%}
+
+  {%- if base_price > 0 -%}
+    <div class="ss-entries-wrap" style="--ss-accent: {{ accent }};">
+      <div
+        class="ss-entries-badge"
+        data-base-price="{{ base_price }}"
+        data-mult="{{ mult }}"
+        data-bonus="{{ bonus }}"
+      >
+        <span class="ss-entries-badge__text">
+          Earn <span class="ss-entries-value">{{ entries }}</span> Entries
+          {%- if bonus > 0 -%}
+            + <span class="ss-entries-bonus">{{ bonus }}</span> Bonus
+          {%- endif -%}
+        </span>
+        <span class="ss-entries-badge__mult">{{ mult }}X</span>
+      </div>
+    </div>
+
+    <style>
+      .ss-entries-wrap {
+        margin: 0 auto 10px;
+        font-family: inherit;
+      }
+      .ss-entries-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 6px 12px;
+        border-radius: 10px;
+        border: 2px solid var(--ss-accent, #d38bb2);
+        background: #f5f8ff;
+        font-weight: 600;
+        font-size: 14px;
+        color: #111;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      }
+      .ss-entries-value {
+        color: var(--ss-accent, #d38bb2);
+        font-weight: 800;
+        font-size: 16px;
+      }
+      .ss-entries-bonus {
+        color: #16a34a;
+        font-weight: 700;
+        margin-left: 4px;
+      }
+      .ss-entries-badge__mult {
+        background: var(--ss-accent, #d38bb2);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 6px;
+        white-space: nowrap;
+      }
+      .ss-entries-badge__text {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+    </style>
+  {%- endif -%}
+{% endif %}
