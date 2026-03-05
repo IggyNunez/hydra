@@ -1,5 +1,16 @@
 {{ 'hero-banner.css' | asset_url | stylesheet_tag }}
 
+{% style %}
+  #shopify-section-{{ section.id }} {
+    --hb-heading-size: {{ section.settings.heading_size }}px;
+    --hb-heading-weight: {{ section.settings.heading_weight }};
+    --hb-heading-color: {{ section.settings.heading_color }};
+    --hb-heading-mb: {{ section.settings.heading_mb }}px;
+    --hb-desc-size: {{ section.settings.desc_size }}px;
+    --hb-desc-color: {{ section.settings.desc_color }};
+    --hb-btn-size: {{ section.settings.btn_font_size }}px;
+  }
+{% endstyle %}
 
 {% comment %} Determine which image to use {% endcomment %}
 {% liquid
@@ -302,6 +313,59 @@
       "id": "btn_scroll_2",
       "label": "Scroll to Footer on Click",
       "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading font size (px)",
+      "min": 20, "max": 100, "step": 2, "default": 64
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading font weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" },
+        { "value": "900", "label": "Black" }
+      ],
+      "default": "900"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#263D87"
+    },
+    {
+      "type": "range",
+      "id": "heading_mb",
+      "label": "Space below heading (px)",
+      "min": 0, "max": 60, "step": 2, "default": 10
+    },
+    {
+      "type": "range",
+      "id": "desc_size",
+      "label": "Description font size (px)",
+      "min": 10, "max": 26, "step": 1, "default": 14
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "btn_font_size",
+      "label": "Button font size (px)",
+      "min": 10, "max": 24, "step": 1, "default": 15
     }
   ],
   "blocks": [

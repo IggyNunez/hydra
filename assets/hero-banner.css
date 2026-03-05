@@ -90,20 +90,20 @@
 
 .hero-banner__heading {
   font-family: var(--font-family-secondary);
-  font-size: var(--font-heading-1);
-  font-weight: var(--font-weight-black);
-  color: var(--color-blue);
-  line-height: 96px;
-  margin: 0 0 9px;
+  font-size: var(--hb-heading-size, var(--font-heading-1));
+  font-weight: var(--hb-heading-weight, var(--font-weight-black));
+  color: var(--hb-heading-color, var(--color-blue));
+  line-height: 1.1;
+  margin: 0 0 var(--hb-heading-mb, 9px);
   text-transform: uppercase;
 }
 
 .hero-banner__desc {
   font-family: var(--font-family-primary);
-  font-size: var(--font-extra-small);
+  font-size: var(--hb-desc-size, var(--font-extra-small));
   font-weight: var(--font-weight-regular);
-  line-height: 21px;
-  color: var(--color-off-black);
+  line-height: 1.6;
+  color: var(--hb-desc-color, var(--color-off-black));
 }
 
 .hero-banner__blocks {
@@ -125,6 +125,10 @@
   align-items: center;
   gap: 8px;
   margin-top: 10px;
+}
+
+.hero-banner__buttons .hero-banner__button {
+  font-size: var(--hb-btn-size, 15px) !important;
 }
 
 .hero-banner__block-img {

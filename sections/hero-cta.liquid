@@ -47,6 +47,12 @@
     --hc-btn2-text: {{ section.settings.btn2_text_color }};
     --hc-guarantee-color: {{ section.settings.guarantee_color }};
 
+    /* Button */
+    --hc-btn-size: {{ section.settings.btn_size }}px;
+    --hc-btn-padding-v: {{ section.settings.btn_padding_v }}px;
+    --hc-btn-padding-h: {{ section.settings.btn_padding_h }}px;
+    --hc-btn-radius: {{ section.settings.btn_radius }}px;
+
     /* Image */
     --hc-img-max-height: {{ section.settings.image_max_height }}px;
 
@@ -177,7 +183,13 @@
             src="{{ section.settings.hero_image | image_url: width: 1200 }}"
             alt="{{ section.settings.hero_image.alt | default: '' | escape }}"
             loading="eager"
+            width="{{ section.settings.hero_image.width }}"
+            height="{{ section.settings.hero_image.height }}"
           >
+        {%- else -%}
+          <div class="hero-cta__media-placeholder">
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
         {%- endif -%}
       </div>
     {%- endif -%}
@@ -473,6 +485,30 @@
       "id": "btn_show_arrow",
       "label": "Show arrow →",
       "default": true
+    },
+    {
+      "type": "range",
+      "id": "btn_size",
+      "label": "Button font size (px)",
+      "min": 10, "max": 24, "step": 1, "default": 15
+    },
+    {
+      "type": "range",
+      "id": "btn_padding_v",
+      "label": "Button vertical padding (px)",
+      "min": 8, "max": 36, "step": 2, "default": 18
+    },
+    {
+      "type": "range",
+      "id": "btn_padding_h",
+      "label": "Button horizontal padding (px)",
+      "min": 12, "max": 80, "step": 2, "default": 36
+    },
+    {
+      "type": "range",
+      "id": "btn_radius",
+      "label": "Button border radius (px)",
+      "min": 0, "max": 100, "step": 2, "default": 100
     },
     {
       "type": "color",
