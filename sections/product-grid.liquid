@@ -12,6 +12,11 @@
   <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+{%- comment -%} GSAP + ScrollTrigger CDN {%- endcomment -%}
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer="defer"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer="defer"></script>
+<script src="{{ 'product-grid.js' | asset_url }}" defer="defer"></script>
+
 {%- style -%}
   #shopify-section-{{ section.id }} {
     --pg-cols: {{ section.settings.columns_desktop }};
@@ -30,24 +35,66 @@
     {%- if section.settings.text_color != blank and section.settings.text_color != 'rgba(0,0,0,0)' -%}
       --pg-text-color: {{ section.settings.text_color }};
     {%- endif -%}
+    {%- if section.settings.accent_color != blank and section.settings.accent_color != 'rgba(0,0,0,0)' -%}
+      --pg-accent-dot: {{ section.settings.accent_color }};
+      --pg-subtitle-pill-bg: {{ section.settings.accent_color | color_modify: 'alpha', 0.08 }};
+      --pg-subtitle-pill-border: {{ section.settings.accent_color | color_modify: 'alpha', 0.15 }};
+      --pg-glow-1: {{ section.settings.accent_color | color_modify: 'alpha', 0.3 }};
+      --pg-particle-color: {{ section.settings.accent_color | color_modify: 'alpha', 0.25 }};
+      --pg-btn-bg-1: {{ section.settings.accent_color }};
+      --pg-btn-bg-2: {{ section.settings.accent_color | color_darken: 15 }};
+    {%- endif -%}
+    {%- if section.settings.show_bg_mesh -%}
+      --pg-mesh-opacity: 1;
+    {%- endif -%}
   }
 {%- endstyle -%}
 
-<section class="product-grid{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+<section
+  class="product-grid"
+  data-particles="{{ section.settings.show_particles }}"
+>
+  {%- comment -%} Background mesh gradient {%- endcomment -%}
+  {%- if section.settings.show_bg_mesh -%}
+    <div class="product-grid__bg-mesh" aria-hidden="true"></div>
+  {%- endif -%}
+
+  {%- comment -%} Floating particles {%- endcomment -%}
+  {%- if section.settings.show_particles -%}
+    <div class="pg-particles" aria-hidden="true"></div>
+  {%- endif -%}
+
   <div class="product-grid__container">
 
     {%- if section.settings.subtitle != blank or section.settings.title != blank or section.settings.description != blank -%}
       <div class="product-grid__header">
+
         {%- if section.settings.subtitle != blank -%}
-          <p class="product-grid__subtitle">{{ section.settings.subtitle }}</p>
+          <p class="product-grid__subtitle">
+            <span class="product-grid__subtitle-dot" aria-hidden="true"></span>
+            {{ section.settings.subtitle }}
+          </p>
         {%- endif -%}
 
         {%- if section.settings.title != blank -%}
-          <h2 class="product-grid__title">{{ section.settings.title }}</h2>
+          <h2 class="product-grid__title{% if section.settings.gradient_title %} product-grid__title--gradient{% endif %}">
+            {{ section.settings.title }}
+          </h2>
         {%- endif -%}
 
         {%- if section.settings.description != blank -%}
           <div class="product-grid__desc rte">{{ section.settings.description }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.show_divider -%}
+          <div class="product-grid__divider" aria-hidden="true"></div>
+        {%- endif -%}
+
+        {%- if section.settings.collection != blank and section.settings.show_count -%}
+          <div class="product-grid__count">
+            <span class="product-grid__count-num">{{ section.settings.collection.products_count }}</span>
+            products
+          </div>
         {%- endif -%}
       </div>
     {%- endif -%}
@@ -56,12 +103,18 @@
       <div class="product-grid__items">
         {%- assign skip_card_product_styles = false -%}
         {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
-          <div class="product-grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: {{ forloop.index }};"
-            {% endif %}
+          <div
+            class="product-grid__item"
+            style="--animation-order: {{ forloop.index }};"
           >
+            {%- comment -%} Card glow overlay (cursor-following via JS) {%- endcomment -%}
+            <div class="pg-card-glow" aria-hidden="true"></div>
+
+            {%- comment -%} Card index number {%- endcomment -%}
+            {%- if section.settings.show_card_index -%}
+              <span class="pg-card-index" aria-hidden="true"></span>
+            {%- endif -%}
+
             {%- render 'card-product',
               card_product: product,
               media_aspect_ratio: section.settings.image_ratio,
@@ -78,7 +131,8 @@
     {%- else -%}
       <div class="product-grid__items">
         {%- for i in (1..section.settings.columns_desktop) -%}
-          <div class="product-grid__item">
+          <div class="product-grid__item" style="--animation-order: {{ forloop.index }};">
+            <div class="pg-card-glow" aria-hidden="true"></div>
             {%- assign placeholder_image = 'product-apparel-' | append: forloop.index -%}
             {%- render 'card-product',
               show_vendor: section.settings.show_vendor,
@@ -96,7 +150,10 @@
           href="{{ section.settings.cta_link | default: '#' }}"
           class="product-grid__btn product-grid__btn--{{ section.settings.cta_style }}"
         >
-          {{- section.settings.cta_text -}}
+          <span class="pg-btn-text">
+            {{- section.settings.cta_text -}}
+            <span class="pg-btn-arrow" aria-hidden="true">→</span>
+          </span>
         </a>
       </div>
     {%- endif -%}
@@ -164,7 +221,7 @@
       "max": 24,
       "step": 1,
       "unit": "px",
-      "default": 14,
+      "default": 13,
       "label": "Subtitle font size"
     },
     {
@@ -190,7 +247,7 @@
       "max": 40,
       "step": 2,
       "unit": "px",
-      "default": 16,
+      "default": 20,
       "label": "Gap between cards"
     },
     {
@@ -245,6 +302,13 @@
       "default": "adapt"
     },
     {
+      "type": "checkbox",
+      "id": "show_card_index",
+      "label": "Show card index numbers",
+      "default": false,
+      "info": "Displays 01, 02, 03... on card hover"
+    },
+    {
       "type": "header",
       "content": "Colors"
     },
@@ -264,6 +328,51 @@
       "id": "text_color",
       "label": "Text color",
       "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#7c4db8",
+      "info": "Used for subtitle pill, glow ring, particles, button gradient"
+    },
+    {
+      "type": "header",
+      "content": "Visual effects"
+    },
+    {
+      "type": "checkbox",
+      "id": "gradient_title",
+      "label": "Animated gradient title",
+      "default": false,
+      "info": "Title text shimmers with a gradient animation"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show decorative divider",
+      "default": true,
+      "info": "Gradient line below the header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_count",
+      "label": "Show product count badge",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bg_mesh",
+      "label": "Show background mesh gradient",
+      "default": false,
+      "info": "Subtle animated gradient overlay on section background"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_particles",
+      "label": "Show floating particles",
+      "default": false,
+      "info": "Soft floating dots in the background"
     },
     {
       "type": "header",
@@ -291,7 +400,7 @@
       "id": "cta_style",
       "label": "Button style",
       "options": [
-        { "value": "primary", "label": "Solid" },
+        { "value": "primary", "label": "Gradient" },
         { "value": "secondary", "label": "Outline" }
       ],
       "default": "primary"
@@ -323,7 +432,12 @@
   ],
   "presets": [
     {
-      "name": "Product Grid"
+      "name": "Product Grid",
+      "settings": {
+        "show_divider": true,
+        "show_cta": true,
+        "cta_text": "View All"
+      }
     }
   ]
 }
