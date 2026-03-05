@@ -11,8 +11,79 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "custom_footer_xNAYzT": {
+      "type": "custom-footer",
+      "blocks": {
+        "link_list_fxdAnM": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "footer-shop-menu"
+          }
+        },
+        "link_list_D9RFUy": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Get in touch",
+            "menu": "footer-contact-information"
+          }
+        },
+        "link_list_7rmXRE": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Scial Media",
+            "menu": "footer-social-media"
+          }
+        },
+        "link_list_AjPaB4": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Policies",
+            "menu": "footer-more"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_fxdAnM",
+        "link_list_D9RFUy",
+        "link_list_7rmXRE",
+        "link_list_AjPaB4"
+      ],
+      "name": "Custom Footer",
+      "settings": {
+        "show_brand": true,
+        "logo": "shopify://shop_images/Group_1980468979_4.png",
+        "logo_width": 160,
+        "logo_text_size": 28,
+        "tagline": "Premium supplements crafted for peak performance.",
+        "tagline_size": 17,
+        "newsletter_enable": true,
+        "newsletter_heading": "Stay in the loop",
+        "newsletter_heading_size": 18,
+        "newsletter_subtext": "Get early access to drops, exclusive offers, and wellness tips.",
+        "newsletter_placeholder": "Enter your email",
+        "newsletter_btn_text": "Subscribe",
+        "newsletter_success": "Thanks for subscribing!",
+        "col_heading_size": 14,
+        "link_size": 16,
+        "show_social": true,
+        "social_icon_size": 42,
+        "payment_enable": true,
+        "show_policy": true,
+        "bg_color": "#ffffff",
+        "heading_color": "#263d87",
+        "text_color": "#263d87",
+        "accent_color": "#61c2f4",
+        "show_glow": true,
+        "show_divider": true,
+        "divider_height": 2,
+        "padding_top": 80,
+        "padding_bottom": 48
+      }
+    },
     "main_footer_qTDAwr": {
       "type": "main-footer",
+      "disabled": true,
       "settings": {
         "newsletter_title": "Enjoy 10 percent Off on your first order",
         "newsletter_desc": "Sign Up for Exclusive Offers and Fun Hydration Tips",
@@ -27,6 +98,7 @@
     },
     "footer": {
       "type": "footer",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
@@ -44,6 +116,7 @@
     }
   },
   "order": [
+    "custom_footer_xNAYzT",
     "main_footer_qTDAwr",
     "footer"
   ]
