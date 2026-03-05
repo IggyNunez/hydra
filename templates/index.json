@@ -52,31 +52,6 @@
       "name": "Popup",
       "settings": {}
     },
-    "hero_banner_87Fm8X": {
-      "type": "hero-banner",
-      "custom_css": [],
-      "settings": {
-        "banner_height": "adapt",
-        "bg_image": "shopify://shop_images/12_5f1167a2-afe0-4d5a-9776-ae78d5fe52bf.png",
-        "bg_image_mobile": "shopify://shop_images/12_67c728fa-bcd9-4c78-a632-71701c466774.jpg",
-        "overlay_enable": false,
-        "overlay_color": "#000000",
-        "overlay_opacity": 10,
-        "content_bg_enable": true,
-        "content_bg_color": "#f3f3f3",
-        "content_bg_opacity": 100,
-        "content_bg_padding": 24,
-        "content_bg_radius": 8,
-        "customer_message": "4.9 from 2500+ Hydrated Fans",
-        "heading": "Freeze the Thirst, Not the Fun",
-        "desc": "Electrolyte Freeze Pops & Drops formulated for function. Only natural ingredients: no added\nsugars, no artificial sweeteners, and no dyes.",
-        "btn_label": "Shop Now",
-        "btn_url": "shopify://collections/all",
-        "btn_label_2": "Subscribe",
-        "btn_url_2": "#signup-popup",
-        "btn_scroll_2": true
-      }
-    },
     "hero_cta_jjdVH6": {
       "type": "hero-cta",
       "blocks": {
@@ -157,6 +132,31 @@
         "guarantee_color": "#ffffffb3",
         "hero_image": "shopify://shop_images/Screen_Shot_2026-01-30_at_1.16.19_PM_e2e1e2bb-84b5-43ef-83b0-7c6ba82181da.png",
         "image_max_height": 670
+      }
+    },
+    "hero_banner_87Fm8X": {
+      "type": "hero-banner",
+      "custom_css": [],
+      "settings": {
+        "banner_height": "adapt",
+        "bg_image": "shopify://shop_images/12_5f1167a2-afe0-4d5a-9776-ae78d5fe52bf.png",
+        "bg_image_mobile": "shopify://shop_images/12_67c728fa-bcd9-4c78-a632-71701c466774.jpg",
+        "overlay_enable": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
+        "content_bg_enable": true,
+        "content_bg_color": "#f3f3f3",
+        "content_bg_opacity": 100,
+        "content_bg_padding": 24,
+        "content_bg_radius": 8,
+        "customer_message": "4.9 from 2500+ Hydrated Fans",
+        "heading": "Freeze the Thirst, Not the Fun",
+        "desc": "Electrolyte Freeze Pops & Drops formulated for function. Only natural ingredients: no added\nsugars, no artificial sweeteners, and no dyes.",
+        "btn_label": "Shop Now",
+        "btn_url": "shopify://collections/all",
+        "btn_label_2": "Subscribe",
+        "btn_url_2": "#signup-popup",
+        "btn_scroll_2": true
       }
     },
     "marquee_slider_kEUnWm": {
@@ -1212,8 +1212,8 @@
   },
   "order": [
     "17645961642850007b",
-    "hero_banner_87Fm8X",
     "hero_cta_jjdVH6",
+    "hero_banner_87Fm8X",
     "marquee_slider_kEUnWm",
     "rich_text_NFkQja",
     "slideshow_BnVCwq",
