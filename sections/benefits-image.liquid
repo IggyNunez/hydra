@@ -25,6 +25,8 @@
     --benefits-grid-cols: {{ section.settings.grid_cols }};
     --benefits-grid-gap: {{ section.settings.grid_gap }}px;
     --benefits-grid-gap-h: {{ section.settings.grid_gap_h }}px;
+    --benefits-mobile-item-align: {{ section.settings.mobile_item_align }};
+    --benefits-mobile-item-text-align: {% if section.settings.mobile_item_align == 'center' %}center{% else %}left{% endif %};
   }
 {% endstyle %}
 
@@ -328,6 +330,16 @@
         { "value": "2", "label": "2 columns" }
       ],
       "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "mobile_item_align",
+      "label": "Item alignment (mobile)",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center",     "label": "Center" }
+      ],
+      "default": "flex-start"
     },
     {
       "type": "range",

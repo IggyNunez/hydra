@@ -50,7 +50,11 @@
   gap: var(--benefits-grid-gap, 36px) var(--benefits-grid-gap-h, 40px);
 }
 
-.benefits-image__item {}
+.benefits-image__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .benefits-image__item-icon {
   width: 56px;
@@ -220,5 +224,15 @@
     padding-bottom: var(--benefits-pb-mobile, 40px) !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
+  }
+
+  /* Mobile item alignment (controlled by schema toggle) */
+  .benefits-image__item {
+    align-items: var(--benefits-mobile-item-align, flex-start);
+  }
+
+  .benefits-image__item-title,
+  .benefits-image__item-text {
+    text-align: var(--benefits-mobile-item-text-align, left);
   }
 }
