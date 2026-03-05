@@ -226,6 +226,120 @@
   color: var(--ing-protip-text, #2d1a56);
 }
 
+/* ══════════════════════════════════════
+   🎨 Playful Animations
+   ══════════════════════════════════════ */
+
+/* Heading — slide in from left */
+@keyframes igSlideRight {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.ingredients-grid__heading {
+  animation: igSlideRight 0.7s 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Cards — staggered slide-up with soft bounce */
+@keyframes igCardIn {
+  0% { opacity: 0; transform: translateY(28px); }
+  70% { transform: translateY(-3px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.ingredient-card {
+  opacity: 0;
+  animation: igCardIn 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ingredient-card:nth-child(1) { animation-delay: 0.15s; }
+.ingredient-card:nth-child(2) { animation-delay: 0.25s; }
+.ingredient-card:nth-child(3) { animation-delay: 0.35s; }
+.ingredient-card:nth-child(4) { animation-delay: 0.45s; }
+.ingredient-card:nth-child(5) { animation-delay: 0.55s; }
+.ingredient-card:nth-child(6) { animation-delay: 0.65s; }
+
+/* Card hover — lift + glow border */
+.ingredient-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+
+/* Card image hover zoom */
+.ingredient-card__image-wrap img {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ingredient-card:hover .ingredient-card__image-wrap img {
+  transform: scale(1.08);
+}
+
+/* Badge shimmer effect */
+@keyframes igBadgeShimmer {
+  0% { background-position: -100% center; }
+  100% { background-position: 200% center; }
+}
+
+.ingredient-card__badge {
+  background-image: linear-gradient(
+    90deg,
+    var(--ing-badge-bg, rgba(255,255,255,0.15)) 0%,
+    rgba(255,255,255,0.25) 50%,
+    var(--ing-badge-bg, rgba(255,255,255,0.15)) 100%
+  );
+  background-size: 200% 100%;
+  transition: background-position 0.6s ease;
+}
+
+.ingredient-card:hover .ingredient-card__badge {
+  animation: igBadgeShimmer 1.2s ease-in-out;
+}
+
+/* Taste card — slide up */
+@keyframes igTasteIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ingredients-grid__taste {
+  animation: igTasteIn 0.6s 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Taste card image subtle float */
+@keyframes igFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.taste-card__image-wrap img {
+  animation: igFloat 4s ease-in-out infinite;
+}
+
+/* Pro-tip subtle pulse */
+.taste-card__pro-tip {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.taste-card__pro-tip:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ingredients-grid__heading,
+  .ingredient-card,
+  .ingredients-grid__taste {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  .ingredient-card:hover { transform: none; }
+  .taste-card__image-wrap img { animation: none; }
+  .ingredient-card:hover .ingredient-card__image-wrap img { transform: none; }
+}
+
 /* ── Tablet ── */
 @media (max-width: 1024px) {
   .ingredients-grid__container {

@@ -23,7 +23,7 @@
 
 .product-grid__subtitle {
   margin: 0 0 12px;
-  font-size: 14px;
+  font-size: var(--pg-subtitle-size, 14px);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-semi-bold);
   line-height: 1.4;
@@ -36,7 +36,7 @@
   margin: 0 0 16px;
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-bold);
-  font-size: clamp(28px, 3vw, 48px);
+  font-size: var(--pg-title-size, 48px);
   line-height: 1.15;
   letter-spacing: -0.01em;
   color: var(--pg-heading-color, #000);
@@ -85,11 +85,12 @@
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 4px;
-  transition: opacity 0.2s ease;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .product-grid__btn:hover {
-  opacity: 0.85;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .product-grid__btn--primary {
@@ -112,6 +113,110 @@
 }
 
 /* ══════════════════════════════════════
+   🎨 Playful Animations
+   ══════════════════════════════════════ */
+
+/* Card hover — lift + glow */
+.product-grid__item {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media (min-width: 750px) {
+  .product-grid__item:hover {
+    transform: translateY(-6px);
+    z-index: 2;
+  }
+
+  .product-grid__item:hover .card {
+    box-shadow:
+      0 12px 40px rgba(0,0,0,0.1),
+      0 4px 12px rgba(0,0,0,0.06);
+  }
+}
+
+/* Image hover zoom — smooth scale */
+.product-grid__item .card__media .media > img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-grid__item:hover .card__media .media > img {
+  transform: scale(1.06);
+}
+
+/* Staggered fade-in for grid items */
+@keyframes pgSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-grid__item {
+  opacity: 0;
+  animation: pgSlideUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: calc(var(--animation-order, 0) * 100ms);
+}
+
+/* Title text shimmer on load */
+@keyframes pgShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Subtitle slide-in */
+@keyframes pgSubtitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    letter-spacing: 0.2em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.08em;
+  }
+}
+
+.product-grid__subtitle {
+  animation: pgSubtitleIn 0.7s 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Title scale-in */
+@keyframes pgTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.product-grid__title {
+  animation: pgTitleIn 0.7s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Desc fade-in */
+.product-grid__desc {
+  animation: pgSlideUp 0.6s 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* CTA button pulse glow on hover */
+@keyframes pgBtnGlow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  50% { box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+}
+
+.product-grid__btn:hover {
+  animation: pgBtnGlow 1.5s ease-in-out infinite;
+}
+
+/* ══════════════════════════════════════
    Responsive
    ══════════════════════════════════════ */
 
@@ -121,7 +226,6 @@
     padding: 0 20px;
   }
 
-  /* Cap columns: if desktop > 3, fall to 3 on tablet */
   .product-grid__items {
     grid-template-columns: repeat(min(var(--pg-cols, 4), 3), 1fr);
   }
@@ -144,7 +248,7 @@
   }
 
   .product-grid__title {
-    font-size: clamp(24px, 7vw, 36px);
+    font-size: clamp(24px, 7vw, calc(var(--pg-title-size, 48px) * 0.65));
   }
 
   .product-grid__header {
@@ -156,5 +260,25 @@
 @media (max-width: 400px) {
   .product-grid__container {
     padding: 0 14px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .product-grid__item,
+  .product-grid__subtitle,
+  .product-grid__title,
+  .product-grid__desc {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .product-grid__item:hover {
+    transform: none;
+  }
+
+  .product-grid__btn:hover {
+    animation: none;
   }
 }

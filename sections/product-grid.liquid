@@ -19,6 +19,8 @@
     --pg-gap: {{ section.settings.card_gap }}px;
     --pg-pt: {{ section.settings.padding_top }}px;
     --pg-pb: {{ section.settings.padding_bottom }}px;
+    --pg-title-size: {{ section.settings.title_size }}px;
+    --pg-subtitle-size: {{ section.settings.subtitle_size }}px;
     {%- if section.settings.bg_color != blank and section.settings.bg_color != 'rgba(0,0,0,0)' -%}
       --pg-bg: {{ section.settings.bg_color }};
     {%- endif -%}
@@ -140,6 +142,30 @@
       "type": "richtext",
       "id": "description",
       "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 48,
+      "label": "Title font size"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14,
+      "label": "Subtitle font size"
     },
     {
       "type": "header",
