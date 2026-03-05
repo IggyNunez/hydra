@@ -392,6 +392,7 @@
     },
     "product_list_VDFYCH": {
       "type": "product-list",
+      "disabled": true,
       "settings": {
         "collection": "bundles",
         "subtitle": "Your Hydration MVPs",
