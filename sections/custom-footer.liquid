@@ -7,10 +7,25 @@
     --cf-pb: {{ section.settings.padding_bottom }}px;
     --cf-logo-width: {{ section.settings.logo_width }}px;
     --cf-logo-text-size: {{ section.settings.logo_text_size }}px;
+    --cf-logo-text-ls: {{ section.settings.logo_text_ls | divided_by: 100.0 }}em;
+    --cf-logo-text-size-m: {{ section.settings.logo_text_size_mobile }}px;
+    --cf-logo-text-ls-m: {{ section.settings.logo_text_ls_mobile | divided_by: 100.0 }}em;
     --cf-tagline-size: {{ section.settings.tagline_size }}px;
-    --cf-col-heading-size: {{ section.settings.col_heading_size }}px;
-    --cf-link-size: {{ section.settings.link_size }}px;
+    --cf-tagline-ls: {{ section.settings.tagline_ls | divided_by: 100.0 }}em;
+    --cf-tagline-size-m: {{ section.settings.tagline_size_mobile }}px;
+    --cf-tagline-ls-m: {{ section.settings.tagline_ls_mobile | divided_by: 100.0 }}em;
     --cf-newsletter-heading-size: {{ section.settings.newsletter_heading_size }}px;
+    --cf-newsletter-heading-ls: {{ section.settings.newsletter_heading_ls | divided_by: 100.0 }}em;
+    --cf-newsletter-heading-size-m: {{ section.settings.newsletter_heading_size_mobile }}px;
+    --cf-newsletter-heading-ls-m: {{ section.settings.newsletter_heading_ls_mobile | divided_by: 100.0 }}em;
+    --cf-col-heading-size: {{ section.settings.col_heading_size }}px;
+    --cf-col-heading-ls: {{ section.settings.col_heading_ls | divided_by: 100.0 }}em;
+    --cf-col-heading-size-m: {{ section.settings.col_heading_size_mobile }}px;
+    --cf-col-heading-ls-m: {{ section.settings.col_heading_ls_mobile | divided_by: 100.0 }}em;
+    --cf-link-size: {{ section.settings.link_size }}px;
+    --cf-link-ls: {{ section.settings.link_ls | divided_by: 100.0 }}em;
+    --cf-link-size-m: {{ section.settings.link_size_mobile }}px;
+    --cf-link-ls-m: {{ section.settings.link_ls_mobile | divided_by: 100.0 }}em;
     --cf-social-icon-size: {{ section.settings.social_icon_size }}px;
     --cf-divider-height: {{ section.settings.divider_height }}px;
     {%- if section.settings.bg_color != blank and section.settings.bg_color != 'rgba(0,0,0,0)' -%}
@@ -306,12 +321,41 @@
       "type": "range",
       "id": "logo_text_size",
       "min": 16,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 36,
+      "label": "Logo text size (desktop)",
+      "info": "Only used if no logo image is set"
+    },
+    {
+      "type": "range",
+      "id": "logo_text_ls",
+      "min": -10,
+      "max": 20,
+      "step": 1,
+      "default": -2,
+      "label": "Logo text letter-spacing (desktop)",
+      "info": "In hundredths of em (e.g. -2 = -0.02em)"
+    },
+    {
+      "type": "range",
+      "id": "logo_text_size_mobile",
+      "min": 14,
       "max": 48,
       "step": 1,
       "unit": "px",
       "default": 28,
-      "label": "Logo text size",
-      "info": "Only used if no logo image is set"
+      "label": "Logo text size (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "logo_text_ls_mobile",
+      "min": -10,
+      "max": 20,
+      "step": 1,
+      "default": -2,
+      "label": "Logo text letter-spacing (mobile)"
     },
     {
       "type": "textarea",
@@ -323,11 +367,39 @@
       "type": "range",
       "id": "tagline_size",
       "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "label": "Tagline size (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "tagline_ls",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": 0,
+      "label": "Tagline letter-spacing (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "tagline_size_mobile",
+      "min": 10,
       "max": 24,
       "step": 1,
       "unit": "px",
-      "default": 15,
-      "label": "Tagline font size"
+      "default": 14,
+      "label": "Tagline size (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "tagline_ls_mobile",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": 0,
+      "label": "Tagline letter-spacing (mobile)"
     },
     {
       "type": "header",
@@ -349,11 +421,39 @@
       "type": "range",
       "id": "newsletter_heading_size",
       "min": 12,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "label": "Newsletter heading size (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "newsletter_heading_ls",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": -1,
+      "label": "Newsletter heading letter-spacing (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "newsletter_heading_size_mobile",
+      "min": 12,
       "max": 36,
       "step": 1,
       "unit": "px",
-      "default": 18,
-      "label": "Newsletter heading size"
+      "default": 20,
+      "label": "Newsletter heading size (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "newsletter_heading_ls_mobile",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": -1,
+      "label": "Newsletter heading letter-spacing (mobile)"
     },
     {
       "type": "text",
@@ -387,21 +487,77 @@
       "type": "range",
       "id": "col_heading_size",
       "min": 10,
-      "max": 24,
+      "max": 36,
       "step": 1,
       "unit": "px",
-      "default": 14,
-      "label": "Column heading size"
+      "default": 20,
+      "label": "Column heading size (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "col_heading_ls",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": 4,
+      "label": "Column heading letter-spacing (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "col_heading_size_mobile",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "label": "Column heading size (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "col_heading_ls_mobile",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": 4,
+      "label": "Column heading letter-spacing (mobile)"
     },
     {
       "type": "range",
       "id": "link_size",
       "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 15,
+      "label": "Link text size (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "link_ls",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": 0,
+      "label": "Link letter-spacing (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "link_size_mobile",
+      "min": 10,
       "max": 22,
       "step": 1,
       "unit": "px",
       "default": 14,
-      "label": "Link text size"
+      "label": "Link text size (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "link_ls_mobile",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": 0,
+      "label": "Link letter-spacing (mobile)"
     },
     {
       "type": "header",

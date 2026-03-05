@@ -97,15 +97,16 @@
 .cf__logo-text {
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-bold);
-  font-size: var(--cf-logo-text-size, 28px);
-  letter-spacing: -0.02em;
+  font-size: var(--cf-logo-text-size, 36px);
+  letter-spacing: var(--cf-logo-text-ls, -0.02em);
   color: var(--cf-heading, #fff);
   text-decoration: none;
   display: block;
 }
 
 .cf__tagline {
-  font-size: var(--cf-tagline-size, 15px);
+  font-size: var(--cf-tagline-size, 16px);
+  letter-spacing: var(--cf-tagline-ls, 0em);
   line-height: 1.6;
   color: var(--cf-text, rgba(255,255,255,0.55));
   margin: 0;
@@ -120,10 +121,10 @@
 .cf__newsletter-heading {
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-bold);
-  font-size: var(--cf-newsletter-heading-size, 18px);
+  font-size: var(--cf-newsletter-heading-size, 24px);
   color: var(--cf-heading, #fff);
   margin: 0 0 8px;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--cf-newsletter-heading-ls, -0.01em);
 }
 
 .cf__newsletter-sub {
@@ -209,8 +210,8 @@
 .cf__col-heading {
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-bold);
-  font-size: var(--cf-col-heading-size, 14px);
-  letter-spacing: 0.08em;
+  font-size: var(--cf-col-heading-size, 20px);
+  letter-spacing: var(--cf-col-heading-ls, 0.04em);
   text-transform: uppercase;
   color: var(--cf-heading, #fff);
   margin: 0 0 20px;
@@ -245,7 +246,8 @@
 }
 
 .cf__col-link {
-  font-size: var(--cf-link-size, 14px);
+  font-size: var(--cf-link-size, 15px);
+  letter-spacing: var(--cf-link-ls, 0em);
   color: var(--cf-text, rgba(255,255,255,0.55));
   text-decoration: none;
   transition: all 0.25s ease;
@@ -465,6 +467,28 @@
 
   .cf__logo-text {
     text-align: center;
+    font-size: var(--cf-logo-text-size-m, 28px);
+    letter-spacing: var(--cf-logo-text-ls-m, var(--cf-logo-text-ls, -0.02em));
+  }
+
+  .cf__tagline {
+    font-size: var(--cf-tagline-size-m, 14px);
+    letter-spacing: var(--cf-tagline-ls-m, var(--cf-tagline-ls, 0em));
+  }
+
+  .cf__newsletter-heading {
+    font-size: var(--cf-newsletter-heading-size-m, 20px);
+    letter-spacing: var(--cf-newsletter-heading-ls-m, var(--cf-newsletter-heading-ls, -0.01em));
+  }
+
+  .cf__col-heading {
+    font-size: var(--cf-col-heading-size-m, 16px);
+    letter-spacing: var(--cf-col-heading-ls-m, var(--cf-col-heading-ls, 0.04em));
+  }
+
+  .cf__col-link {
+    font-size: var(--cf-link-size-m, 14px);
+    letter-spacing: var(--cf-link-ls-m, var(--cf-link-ls, 0em));
   }
 
   .cf__newsletter {
