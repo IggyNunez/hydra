@@ -452,7 +452,7 @@
         "benefit_pFp3VK": {
           "type": "benefit",
           "settings": {
-            "icon_preset": "bolt",
+            "icon_preset": "droplet",
             "title": "200mg+ Electrolytes",
             "text": "Over 200mg of electrolytes per serving to keep you performing at your best."
           }
