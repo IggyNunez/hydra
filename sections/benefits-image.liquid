@@ -24,6 +24,7 @@
     --benefits-icon-bg: {{ section.settings.icon_bg_color }};
     --benefits-btn-font-size: {{ section.settings.btn_font_size }}px;
     --benefits-img-position: {{ section.settings.image_position }};
+    --benefits-glow-color: {{ section.settings.image_glow_color }};
     --benefits-grid-cols: {{ section.settings.grid_cols }};
     --benefits-grid-gap: {{ section.settings.grid_gap }}px;
     --benefits-grid-gap-h: {{ section.settings.grid_gap_h }}px;
@@ -474,6 +475,13 @@
       "id": "icon_bg_color",
       "label": "Icon circle background color",
       "default": "#ffffff00"
+    },
+    {
+      "type": "color",
+      "id": "image_glow_color",
+      "label": "Image glow color",
+      "default": "#61c2f440",
+      "info": "Animated glow behind the product image"
     },
     {
       "type": "color",

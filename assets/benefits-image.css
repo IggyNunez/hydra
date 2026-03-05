@@ -228,6 +228,62 @@
   animation: bfKenBurns 20s ease-in-out alternate infinite;
 }
 
+/* ── Floating glow behind the image ── */
+.benefits-image__media::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  z-index: -1;
+  border-radius: 24px;
+  background: radial-gradient(
+    ellipse 60% 80% at 50% 50%,
+    var(--benefits-glow-color, rgba(97, 194, 244, 0.25)) 0%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  animation: bfGlowPulse 5s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes bfGlowPulse {
+  0%   { opacity: 0.4; transform: scale(0.95); }
+  50%  { opacity: 0.7; transform: scale(1.02); }
+  100% { opacity: 0.5; transform: scale(1); }
+}
+
+/* ── Shimmer sweep across the image ── */
+.benefits-image__media::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.08) 55%,
+    transparent 70%
+  );
+  z-index: 1;
+  pointer-events: none;
+  animation: bfShimmerSweep 6s 2s ease-in-out infinite;
+}
+
+@keyframes bfShimmerSweep {
+  0%   { left: -100%; }
+  40%  { left: 150%; }
+  100% { left: 150%; }
+}
+
+/* ── Soft edge vignette on the image ── */
+.benefits-image__media {
+  position: relative;
+  z-index: 0;
+}
+
 /* CTA button hover — lift + glow */
 .benefits-image__btn {
   transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);

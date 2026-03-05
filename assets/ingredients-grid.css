@@ -156,15 +156,15 @@
 }
 
 .taste-card__icon {
-  width: 28px;
-  height: 28px;
+  width: var(--ing-taste-icon-size, 28px);
+  height: var(--ing-taste-icon-size, 28px);
   margin-bottom: 10px;
   color: var(--ing-heading-color, #fff);
 }
 
 .taste-card__icon svg {
-  width: 28px;
-  height: 28px;
+  width: var(--ing-taste-icon-size, 28px);
+  height: var(--ing-taste-icon-size, 28px);
   stroke: currentColor;
   fill: none;
   stroke-width: 1.5;

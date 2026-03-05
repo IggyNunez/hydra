@@ -43,6 +43,9 @@
     --hc-star-label-color: {{ section.settings.star_label_color }};
     --hc-mini-feature-color: {{ section.settings.mini_feature_color }};
     --hc-mini-icon-color: {{ section.settings.mini_icon_color }};
+    --hc-mini-icon-size: {{ section.settings.mini_icon_size }}px;
+    --hc-mini-feature-size: {{ section.settings.mini_feature_size }}px;
+    --hc-mini-feature-size-mobile: {{ section.settings.mini_feature_size_mobile }}px;
     --hc-btn-bg: {{ section.settings.btn_bg }};
     --hc-btn-text: {{ section.settings.btn_text_color }};
     --hc-btn2-text: {{ section.settings.btn2_text_color }};
@@ -472,6 +475,36 @@
       "id": "mini_icon_color",
       "label": "Mini feature icon color",
       "default": "#ffffffb3"
+    },
+    {
+      "type": "range",
+      "id": "mini_icon_size",
+      "label": "Mini feature icon size (px)",
+      "min": 14,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "mini_feature_size",
+      "label": "Mini feature font size (desktop)",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mini_feature_size_mobile",
+      "label": "Mini feature font size (mobile)",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 13
     },
     {
       "type": "header",

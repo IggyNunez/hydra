@@ -17,6 +17,7 @@
     --ing-card-gap-h: {{ section.settings.card_gap_h }}px;
     --ing-img-size: {{ section.settings.img_size }}px;
     --ing-card-inner-gap: {{ section.settings.card_inner_gap }}px;
+    --ing-taste-icon-size: {{ section.settings.taste_icon_size }}px;
     --ing-layout-cols: {{ section.settings.heading_col_width }}px 1fr;
     --ing-layout-gap: {{ section.settings.layout_gap }}px;
     --ing-taste-ml: calc({{ section.settings.heading_col_width }}px + {{ section.settings.layout_gap }}px);
@@ -531,6 +532,16 @@
         { "value": "none",    "label": "No icon" }
       ],
       "default": "cup"
+    },
+    {
+      "type": "range",
+      "id": "taste_icon_size",
+      "label": "Taste icon size (px)",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 28
     },
     {
       "type": "text",
