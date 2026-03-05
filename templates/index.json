@@ -174,35 +174,6 @@
         "btn_font_size": 15
       }
     },
-    "product_grid_KiqWdq": {
-      "type": "product-grid",
-      "name": "Product Grid",
-      "settings": {
-        "collection": "bundles",
-        "products_to_show": 6,
-        "title": "Our Products",
-        "subtitle": "",
-        "description": "",
-        "title_size": 72,
-        "subtitle_size": 14,
-        "columns_desktop": "3",
-        "card_gap": 16,
-        "columns_mobile": "2",
-        "quick_add": "standard",
-        "show_vendor": false,
-        "show_rating": false,
-        "image_ratio": "square",
-        "bg_color": "",
-        "heading_color": "#000000",
-        "text_color": "#555555",
-        "show_cta": false,
-        "cta_text": "View All",
-        "cta_link": "",
-        "cta_style": "primary",
-        "padding_top": 72,
-        "padding_bottom": 60
-      }
-    },
     "marquee_slider_kEUnWm": {
       "type": "marquee-slider",
       "blocks": {
@@ -276,10 +247,39 @@
       "custom_css": [],
       "settings": {
         "slider_speed": 3000,
-        "disable_max_width": false,
+        "disable_max_width": true,
         "enable_custom_colors": true,
-        "bg_color": "#242833",
+        "bg_color": "#263d87",
         "text_color": "#ffffff"
+      }
+    },
+    "product_grid_KiqWdq": {
+      "type": "product-grid",
+      "name": "Product Grid",
+      "settings": {
+        "collection": "bundles",
+        "products_to_show": 6,
+        "title": "Our Products",
+        "subtitle": "",
+        "description": "",
+        "title_size": 72,
+        "subtitle_size": 14,
+        "columns_desktop": "3",
+        "card_gap": 16,
+        "columns_mobile": "2",
+        "quick_add": "standard",
+        "show_vendor": false,
+        "show_rating": false,
+        "image_ratio": "square",
+        "bg_color": "",
+        "heading_color": "#000000",
+        "text_color": "#555555",
+        "show_cta": false,
+        "cta_text": "View All",
+        "cta_link": "",
+        "cta_style": "primary",
+        "padding_top": 72,
+        "padding_bottom": 60
       }
     },
     "rich_text_NFkQja": {
@@ -1100,8 +1100,8 @@
     "17645961642850007b",
     "hero_cta_jjdVH6",
     "hero_banner_87Fm8X",
-    "product_grid_KiqWdq",
     "marquee_slider_kEUnWm",
+    "product_grid_KiqWdq",
     "rich_text_NFkQja",
     "slideshow_BnVCwq",
     "product_list_VDFYCH",
