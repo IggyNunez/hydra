@@ -1,0 +1,604 @@
+{{ 'hero-cta.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign layout = section.settings.layout
+  assign content_align = section.settings.content_alignment
+  assign content_align_class = ''
+  if content_align == 'center'
+    assign content_align_class = 'hero-cta__content--center'
+  elsif content_align == 'right'
+    assign content_align_class = 'hero-cta__content--right'
+  endif
+  assign mini_blocks = section.blocks | where: 'type', 'mini_feature'
+-%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    --hc-bg: {{ section.settings.bg_color }};
+    --hc-min-height: {{ section.settings.min_height }}px;
+    --hc-pt: {{ section.settings.padding_top }}px;
+    --hc-pb: {{ section.settings.padding_bottom }}px;
+    --hc-pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --hc-pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --hc-side-padding: {{ section.settings.side_padding }}px;
+    --hc-side-padding-mobile: {{ section.settings.side_padding_mobile }}px;
+    --hc-max-width: {{ section.settings.content_max_width }}px;
+
+    /* Typography */
+    --hc-heading-size: {{ section.settings.heading_size }}px;
+    --hc-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --hc-heading-weight: {{ section.settings.heading_weight }};
+    --hc-heading-mb: {{ section.settings.heading_margin_bottom }}px;
+    --hc-desc-size: {{ section.settings.desc_size }}px;
+    --hc-desc-mb: {{ section.settings.desc_margin_bottom }}px;
+    --hc-desc-max-width: {{ section.settings.desc_max_width }}px;
+    --hc-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+
+    /* Colors */
+    --hc-heading-color: {{ section.settings.heading_color }};
+    --hc-desc-color: {{ section.settings.desc_color }};
+    --hc-eyebrow-color: {{ section.settings.eyebrow_color }};
+    --hc-star-color: {{ section.settings.star_color }};
+    --hc-star-label-color: {{ section.settings.star_label_color }};
+    --hc-mini-feature-color: {{ section.settings.mini_feature_color }};
+    --hc-mini-icon-color: {{ section.settings.mini_icon_color }};
+    --hc-btn-bg: {{ section.settings.btn_bg }};
+    --hc-btn-text: {{ section.settings.btn_text_color }};
+    --hc-btn2-text: {{ section.settings.btn2_text_color }};
+    --hc-guarantee-color: {{ section.settings.guarantee_color }};
+
+    /* Image */
+    --hc-img-max-height: {{ section.settings.image_max_height }}px;
+
+    {% if section.settings.bg_image == blank %}
+      background-color: var(--hc-bg);
+    {% endif %}
+  }
+{% endstyle %}
+
+<section class="hero-cta{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  {% if section.settings.bg_image != blank %}
+    style="background-image: url('{{ section.settings.bg_image | image_url }}');"
+  {% endif %}
+>
+
+  {%- if section.settings.overlay_enable and section.settings.bg_image != blank -%}
+    <div
+      class="hero-cta__overlay"
+      style="background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity | times: 0.01 }};"></div>
+  {%- endif -%}
+
+  <div class="hero-cta__wrapper hero-cta__wrapper--{{ layout }}">
+
+    {%- comment -%} ── CONTENT ── {%- endcomment -%}
+    <div class="hero-cta__content {{ content_align_class }}">
+
+      {%- comment -%} Stars row {%- endcomment -%}
+      {%- if section.settings.show_stars and section.settings.stars_label != blank -%}
+        <div class="hero-cta__stars-row">
+          <div class="hero-cta__stars">
+            {%- for i in (1..5) -%}
+              <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 1l2.39 4.84 5.34.78-3.87 3.76.91 5.33L10 13.27l-4.77 2.44.91-5.33L2.27 6.62l5.34-.78z"/>
+              </svg>
+            {%- endfor -%}
+          </div>
+          <span class="hero-cta__stars-label">{{ section.settings.stars_label }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Eyebrow {%- endcomment -%}
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="hero-cta__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+
+      {%- comment -%} Heading {%- endcomment -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="hero-cta__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- comment -%} Description {%- endcomment -%}
+      {%- if section.settings.description != blank -%}
+        <div class="hero-cta__desc">{{ section.settings.description }}</div>
+      {%- endif -%}
+
+      {%- comment -%} Sub text {%- endcomment -%}
+      {%- if section.settings.sub_text != blank -%}
+        <p class="hero-cta__sub-text">{{ section.settings.sub_text }}</p>
+      {%- endif -%}
+
+      {%- comment -%} Mini feature blocks {%- endcomment -%}
+      {%- if mini_blocks.size > 0 -%}
+        <div class="hero-cta__mini-features">
+          {%- for block in mini_blocks -%}
+            <div class="hero-cta__mini-feature" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon_image != blank or block.settings.icon_preset != 'none' -%}
+                <div class="hero-cta__mini-feature-icon">
+                  {%- if block.settings.icon_image != blank -%}
+                    <img src="{{ block.settings.icon_image | image_url: width: 44 }}" alt="" loading="lazy">
+                  {%- else -%}
+                    {%- case block.settings.icon_preset -%}
+                      {%- when 'no-sugar' -%}
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M4.93 4.93l14.14 14.14"/></svg>
+                      {%- when 'leaf' -%}
+                        <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 22c4.8-3 8.14-6.38 9.18-11 4.28.31 7.5 2.65 7.5 7 0 3-1.5 6-3.5 8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {%- when 'moon' -%}
+                        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {%- when 'check' -%}
+                        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {%- when 'shield' -%}
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      {%- when 'star' -%}
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    {%- endcase -%}
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+              {%- if block.settings.label != blank -%}
+                {{ block.settings.label }}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} CTA {%- endcomment -%}
+      {%- if section.settings.btn_label != blank or section.settings.guarantee_text != blank -%}
+        <div class="hero-cta__cta">
+          {%- if section.settings.btn_label != blank -%}
+            <a href="{{ section.settings.btn_url }}" class="hero-cta__btn hero-cta__btn--primary">
+              {{ section.settings.btn_label }}
+              {%- if section.settings.btn_show_arrow -%}<span class="hero-cta__btn-arrow">→</span>{%- endif -%}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.btn2_label != blank -%}
+            <a href="{{ section.settings.btn2_url }}" class="hero-cta__btn hero-cta__btn--secondary">
+              {{ section.settings.btn2_label }}
+              {%- if section.settings.btn_show_arrow -%}<span class="hero-cta__btn-arrow">→</span>{%- endif -%}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.guarantee_text != blank -%}
+            <p class="hero-cta__guarantee">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              {{ section.settings.guarantee_text }}
+            </p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+
+    {%- comment -%} ── MEDIA ── {%- endcomment -%}
+    {%- if layout != 'text-only' and layout != 'image-bg' -%}
+      <div class="hero-cta__media">
+        {%- if section.settings.hero_image != blank -%}
+          <img
+            class="hero-cta__media-img"
+            src="{{ section.settings.hero_image | image_url: width: 1200 }}"
+            alt="{{ section.settings.hero_image.alt | default: '' | escape }}"
+            loading="eager"
+          >
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero CTA",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout style",
+      "options": [
+        { "value": "image-right", "label": "Text left / Image right" },
+        { "value": "image-left",  "label": "Image left / Text right" },
+        { "value": "image-bg",    "label": "Full-width text (image as background)" },
+        { "value": "text-only",   "label": "Text only (no image)" }
+      ],
+      "default": "image-right"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "options": [
+        { "value": "left",   "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right",  "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Min section height (px)",
+      "min": 300, "max": 1000, "step": 10, "default": 520
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Max content width (px)",
+      "min": 800, "max": 1800, "step": 10, "default": 1346
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (desktop)",
+      "min": 0, "max": 200, "step": 4, "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (desktop)",
+      "min": 0, "max": 200, "step": 4, "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top (mobile)",
+      "min": 0, "max": 120, "step": 4, "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (mobile)",
+      "min": 0, "max": 120, "step": 4, "default": 48
+    },
+    {
+      "type": "range",
+      "id": "side_padding",
+      "label": "Side padding (desktop, px)",
+      "min": 0, "max": 120, "step": 4, "default": 60
+    },
+    {
+      "type": "range",
+      "id": "side_padding_mobile",
+      "label": "Side padding (mobile, px)",
+      "min": 0, "max": 60, "step": 2, "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#5B2D8E"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_enable",
+      "label": "Enable overlay on bg image",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity (%)",
+      "min": 0, "max": 90, "step": 5, "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Stars / Social proof"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show star rating row",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "stars_label",
+      "label": "Stars label",
+      "default": "30,000+ deeper sleepers"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#4CAF50"
+    },
+    {
+      "type": "color",
+      "id": "star_label_color",
+      "label": "Star label color",
+      "default": "#4CAF50"
+    },
+    {
+      "type": "header",
+      "content": "Eyebrow text"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text (above heading)"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow font size (px)",
+      "min": 10, "max": 24, "step": 1, "default": 13
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#ffffffb3"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join 30,000+ Deep Sleepers Today"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading font size (px, desktop)",
+      "min": 20, "max": 100, "step": 2, "default": 58
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading font size (px, mobile)",
+      "min": 20, "max": 70, "step": 2, "default": 36
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading font weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" },
+        { "value": "900", "label": "Black" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "heading_margin_bottom",
+      "label": "Space below heading (px)",
+      "min": 0, "max": 60, "step": 2, "default": 20
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Description"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Main description",
+      "default": "<p>Add one scoop to your evening routine and join over 30,000 adults who now sleep like a baby.</p>"
+    },
+    {
+      "type": "text",
+      "id": "sub_text",
+      "label": "Sub-text (below description)",
+      "info": "Optional second line, e.g. 'Hit the button below to get started:'"
+    },
+    {
+      "type": "range",
+      "id": "desc_size",
+      "label": "Description font size (px)",
+      "min": 12, "max": 26, "step": 1, "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desc_margin_bottom",
+      "label": "Space below description (px)",
+      "min": 0, "max": 60, "step": 2, "default": 24
+    },
+    {
+      "type": "range",
+      "id": "desc_max_width",
+      "label": "Description max width (px)",
+      "min": 300, "max": 900, "step": 10, "default": 560
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description color",
+      "default": "#ffffffd9"
+    },
+    {
+      "type": "header",
+      "content": "Mini features"
+    },
+    {
+      "type": "color",
+      "id": "mini_feature_color",
+      "label": "Mini feature text color",
+      "default": "#ffffffe6"
+    },
+    {
+      "type": "color",
+      "id": "mini_icon_color",
+      "label": "Mini feature icon color",
+      "default": "#ffffffb3"
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button label",
+      "default": "Get Yours Here"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "btn_show_arrow",
+      "label": "Show arrow →",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button background",
+      "default": "#7c4db8"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Button 2 (optional)"
+    },
+    {
+      "type": "text",
+      "id": "btn2_label",
+      "label": "Button 2 label"
+    },
+    {
+      "type": "url",
+      "id": "btn2_url",
+      "label": "Button 2 link"
+    },
+    {
+      "type": "color",
+      "id": "btn2_text_color",
+      "label": "Button 2 text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Guarantee text"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "USA-Made. 90-Day Guarantee."
+    },
+    {
+      "type": "color",
+      "id": "guarantee_color",
+      "label": "Guarantee text color",
+      "default": "#ffffffb3"
+    },
+    {
+      "type": "header",
+      "content": "Hero image (right/left layout)"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "range",
+      "id": "image_max_height",
+      "label": "Image max height (px)",
+      "min": 200, "max": 900, "step": 10, "default": 600
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mini_feature",
+      "name": "Mini feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon image (overrides preset)"
+        },
+        {
+          "type": "select",
+          "id": "icon_preset",
+          "label": "Preset icon",
+          "options": [
+            { "value": "none",     "label": "None" },
+            { "value": "no-sugar", "label": "No / Cancel circle" },
+            { "value": "leaf",     "label": "Leaf" },
+            { "value": "moon",     "label": "Moon" },
+            { "value": "check",    "label": "Checkmark" },
+            { "value": "shield",   "label": "Shield" },
+            { "value": "star",     "label": "Star" }
+          ],
+          "default": "leaf"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Zero Sugar"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero CTA — Text + Image",
+      "settings": {
+        "layout": "image-right",
+        "heading": "Join 30,000+ Deep Sleepers Today",
+        "stars_label": "30,000+ deeper sleepers",
+        "btn_label": "Get Yours Here",
+        "guarantee_text": "USA-Made. 90-Day Guarantee."
+      }
+    },
+    {
+      "name": "Hero CTA — Full Width",
+      "settings": {
+        "layout": "image-bg",
+        "heading": "Sleep Like You're Dead",
+        "show_stars": true,
+        "stars_label": "30,000+ deeper sleepers",
+        "btn_label": "Get Yours Here",
+        "guarantee_text": "USA-Made. 90-Day Guarantee."
+      },
+      "blocks": [
+        { "type": "mini_feature", "settings": { "icon_preset": "no-sugar", "label": "Zero Sugar" } },
+        { "type": "mini_feature", "settings": { "icon_preset": "moon",     "label": "Zero Synthetic Melatonin" } },
+        { "type": "mini_feature", "settings": { "icon_preset": "check",    "label": "Zero Grogginess" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
