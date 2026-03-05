@@ -1,0 +1,644 @@
+{{ 'custom-footer.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --cf-pt: {{ section.settings.padding_top }}px;
+    --cf-pb: {{ section.settings.padding_bottom }}px;
+    --cf-logo-width: {{ section.settings.logo_width }}px;
+    --cf-logo-text-size: {{ section.settings.logo_text_size }}px;
+    --cf-tagline-size: {{ section.settings.tagline_size }}px;
+    --cf-col-heading-size: {{ section.settings.col_heading_size }}px;
+    --cf-link-size: {{ section.settings.link_size }}px;
+    --cf-newsletter-heading-size: {{ section.settings.newsletter_heading_size }}px;
+    --cf-social-icon-size: {{ section.settings.social_icon_size }}px;
+    --cf-divider-height: {{ section.settings.divider_height }}px;
+    {%- if section.settings.bg_color != blank and section.settings.bg_color != 'rgba(0,0,0,0)' -%}
+      --cf-bg: {{ section.settings.bg_color }};
+    {%- endif -%}
+    {%- if section.settings.heading_color != blank and section.settings.heading_color != 'rgba(0,0,0,0)' -%}
+      --cf-heading: {{ section.settings.heading_color }};
+    {%- endif -%}
+    {%- if section.settings.text_color != blank and section.settings.text_color != 'rgba(0,0,0,0)' -%}
+      --cf-text: {{ section.settings.text_color }};
+    {%- endif -%}
+    {%- if section.settings.accent_color != blank and section.settings.accent_color != 'rgba(0,0,0,0)' -%}
+      --cf-accent: {{ section.settings.accent_color }};
+      --cf-accent-2: {{ section.settings.accent_color | color_darken: 15 }};
+      --cf-glow-1: {{ section.settings.accent_color | color_modify: 'alpha', 0.12 }};
+      --cf-glow-2: {{ section.settings.accent_color | color_modify: 'alpha', 0.08 | color_lighten: 30 }};
+    {%- endif -%}
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign has_social_icons = false
+  if settings.social_facebook_link != blank or settings.social_instagram_link != blank or settings.social_youtube_link != blank or settings.social_tiktok_link != blank or settings.social_twitter_link != blank or settings.social_pinterest_link != blank or settings.social_snapchat_link != blank or settings.social_tumblr_link != blank or settings.social_vimeo_link != blank
+    assign has_social_icons = true
+  endif
+-%}
+
+<footer class="cf">
+  {%- comment -%} Ambient glow orbs {%- endcomment -%}
+  {%- if section.settings.show_glow -%}
+    <div class="cf__glow cf__glow--1" aria-hidden="true"></div>
+    <div class="cf__glow cf__glow--2" aria-hidden="true"></div>
+  {%- endif -%}
+
+  {%- comment -%} Top accent divider {%- endcomment -%}
+  {%- if section.settings.show_divider -%}
+    <div class="cf__divider-top" aria-hidden="true"></div>
+  {%- endif -%}
+
+  <div class="cf__inner">
+
+    {%- comment -%} ═══ TOP ROW: Brand + Newsletter ═══ {%- endcomment -%}
+    {%- if section.settings.show_brand or section.settings.newsletter_enable -%}
+      <div class="cf__top">
+
+        {%- if section.settings.show_brand -%}
+          <div class="cf__brand">
+            {%- if section.settings.logo != blank -%}
+              <div class="cf__logo">
+                <a href="{{ routes.root_url }}">
+                  <img
+                    src="{{ section.settings.logo | image_url: width: 400 }}"
+                    alt="{{ shop.name | escape }}"
+                    width="{{ section.settings.logo_width }}"
+                    height="{{ section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio }}"
+                    loading="lazy"
+                  >
+                </a>
+              </div>
+            {%- else -%}
+              <a href="{{ routes.root_url }}" class="cf__logo-text">{{ shop.name }}</a>
+            {%- endif -%}
+
+            {%- if section.settings.tagline != blank -%}
+              <p class="cf__tagline">{{ section.settings.tagline }}</p>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.newsletter_enable -%}
+          <div class="cf__newsletter">
+            {%- if section.settings.newsletter_heading != blank -%}
+              <h2 class="cf__newsletter-heading">{{ section.settings.newsletter_heading }}</h2>
+            {%- endif -%}
+            {%- if section.settings.newsletter_subtext != blank -%}
+              <p class="cf__newsletter-sub">{{ section.settings.newsletter_subtext }}</p>
+            {%- endif -%}
+
+            {%- form 'customer', id: 'ContactFooterCustom', class: 'cf__newsletter-form-wrap' -%}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="cf__newsletter-form">
+                <input
+                  id="NewsletterForm--cf-{{ section.id }}"
+                  type="email"
+                  name="contact[email]"
+                  class="cf__newsletter-input"
+                  value="{{ form.email }}"
+                  aria-required="true"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  placeholder="{{ section.settings.newsletter_placeholder | default: 'Enter your email' }}"
+                  required
+                  {% if form.errors %}
+                    autofocus
+                    aria-invalid="true"
+                    aria-describedby="ContactFooterCustom-error"
+                  {% elsif form.posted_successfully? %}
+                    aria-describedby="ContactFooterCustom-success"
+                  {% endif %}
+                >
+                <button type="submit" class="cf__newsletter-btn" name="commit" aria-label="Subscribe">
+                  {{ section.settings.newsletter_btn_text | default: 'Subscribe' }}
+                </button>
+              </div>
+              {%- if form.errors -%}
+                <div class="cf__newsletter-msg cf__newsletter-msg--error" id="ContactFooterCustom-error">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                  {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+                </div>
+              {%- endif -%}
+              {%- if form.posted_successfully? -%}
+                <div class="cf__newsletter-msg cf__newsletter-msg--success" id="ContactFooterCustom-success" tabindex="-1" autofocus>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                  {{ section.settings.newsletter_success | default: 'Thanks for subscribing!' }}
+                </div>
+              {%- endif -%}
+            {%- endform -%}
+          </div>
+        {%- endif -%}
+
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ═══ MIDDLE: Link Columns ═══ {%- endcomment -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="cf__columns" style="--cf-link-cols: {{ section.blocks.size }};">
+        {%- for block in section.blocks -%}
+          <div class="cf__col" {{ block.shopify_attributes }}>
+
+            {%- case block.type -%}
+
+              {%- when 'link_list' -%}
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="cf__col-heading">{{ block.settings.heading }}</h3>
+                {%- endif -%}
+                {%- if block.settings.menu != blank -%}
+                  <ul class="cf__col-links">
+                    {%- for link in block.settings.menu.links -%}
+                      <li>
+                        <a href="{{ link.url }}" class="cf__col-link">{{ link.title | escape }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+
+              {%- when 'text' -%}
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="cf__col-heading">{{ block.settings.heading }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="cf__col-text rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+
+              {%- when 'image' -%}
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="cf__col-heading">{{ block.settings.heading }}</h3>
+                {%- endif -%}
+                {%- if block.settings.image != blank -%}
+                  <div class="cf__col-image">
+                    <img
+                      src="{{ block.settings.image | image_url: width: 600 }}"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      loading="lazy"
+                      width="{{ block.settings.image_width }}"
+                      style="max-width: {{ block.settings.image_width }}px;"
+                    >
+                  </div>
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+
+            {%- endcase -%}
+
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ═══ SOCIAL ICONS ═══ {%- endcomment -%}
+    {%- if section.settings.show_social and has_social_icons -%}
+      <div class="cf__social">
+        {%- if settings.social_facebook_link != blank -%}
+          <a href="{{ settings.social_facebook_link }}" class="cf__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_instagram_link != blank -%}
+          <a href="{{ settings.social_instagram_link }}" class="cf__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_tiktok_link != blank -%}
+          <a href="{{ settings.social_tiktok_link }}" class="cf__social-link" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.71a8.2 8.2 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.14z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_twitter_link != blank -%}
+          <a href="{{ settings.social_twitter_link }}" class="cf__social-link" aria-label="X / Twitter" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_youtube_link != blank -%}
+          <a href="{{ settings.social_youtube_link }}" class="cf__social-link" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_pinterest_link != blank -%}
+          <a href="{{ settings.social_pinterest_link }}" class="cf__social-link" aria-label="Pinterest" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.182-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.425 1.808-2.425.853 0 1.265.64 1.265 1.408 0 .858-.546 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.282a.3.3 0 01.069.288l-.278 1.133c-.044.183-.145.222-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.527-2.291-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_snapchat_link != blank -%}
+          <a href="{{ settings.social_snapchat_link }}" class="cf__social-link" aria-label="Snapchat" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12.959-.289.21-.12.48-.18.72-.15.27.03.51.15.69.36.21.24.24.54.15.84-.15.45-.54.78-.96.93-.12.06-.24.09-.36.12-.21.06-.42.12-.63.24-.12.09-.18.15-.24.21-.09.12-.09.27-.06.33.21.54.48 1.05.78 1.53.63 1.02 1.41 1.83 2.31 2.4.06.03.12.06.21.09.39.18.75.39.99.75.21.33.15.75-.12 1.02-.39.36-.99.54-1.59.63-.36.06-.72.09-1.02.12-.42.03-.75.06-.99.18-.21.09-.33.27-.39.42-.09.21-.24.39-.42.54-.39.3-.9.39-1.62.3-.6-.06-1.11-.21-1.62-.36-.78-.21-1.53-.42-2.37-.42-.84 0-1.59.21-2.37.42-.51.15-1.02.3-1.62.36-.72.09-1.23 0-1.62-.3-.18-.15-.33-.33-.42-.54-.06-.15-.18-.33-.39-.42-.24-.12-.57-.15-.99-.18-.3-.03-.66-.06-1.02-.12-.6-.09-1.2-.27-1.59-.63-.27-.27-.33-.69-.12-1.02.24-.36.6-.57.99-.75.09-.03.15-.06.21-.09.9-.57 1.68-1.38 2.31-2.4.3-.48.57-.99.78-1.53.03-.06.03-.21-.06-.33-.06-.06-.12-.12-.24-.21-.21-.12-.42-.18-.63-.24-.12-.03-.24-.06-.36-.12-.42-.15-.81-.48-.96-.93-.09-.3-.06-.6.15-.84.18-.21.42-.33.69-.36.24-.03.48.03.72.15.3.17.66.29.96.29.2 0 .33-.05.41-.09-.01-.17-.02-.33-.03-.51l-.003-.06c-.104-1.628-.23-3.654.299-4.847C7.859 1.069 11.216.793 12.206.793z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_tumblr_link != blank -%}
+          <a href="{{ settings.social_tumblr_link }}" class="cf__social-link" aria-label="Tumblr" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 10.065 0h3.803v6.094h5.174v3.653h-5.198v7.467c0 1.767.924 2.376 2.399 2.376h2.873V24h-4.553z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_vimeo_link != blank -%}
+          <a href="{{ settings.social_vimeo_link }}" class="cf__social-link" aria-label="Vimeo" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22 7.42c-.09 1.95-1.45 4.62-4.08 8.02C15.18 19.15 12.84 21 10.94 21c-1.17 0-2.16-1.08-2.97-3.25L6.38 11.4c-.6-2.17-1.24-3.26-1.92-3.26-.15 0-.67.31-1.56.94L2 7.97c.98-.86 1.95-1.73 2.9-2.6 1.31-1.13 2.29-1.72 2.95-1.77 1.55-.15 2.5.91 2.86 3.17.39 2.44.66 3.96.81 4.56.45 2.04.94 3.06 1.48 3.06.42 0 1.05-.66 1.89-1.99.84-1.33 1.29-2.34 1.35-3.04.12-1.15-.33-1.73-1.35-1.73-.48 0-.97.11-1.48.33.98-3.23 2.87-4.8 5.65-4.7 2.06.06 3.03 1.4 2.94 4.16z"/></svg>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ═══ BOTTOM BAR ═══ {%- endcomment -%}
+    <div class="cf__bottom">
+      <div class="cf__copyright">
+        <small>&copy; {{ 'now' | date: '%Y' }},&nbsp;</small>
+        <small><a href="{{ routes.root_url }}">{{ shop.name }}</a></small>
+      </div>
+
+      {%- if section.settings.payment_enable -%}
+        <div class="cf__payment">
+          {%- for type in shop.enabled_payment_types -%}
+            {{ type | payment_type_svg_tag: class: 'icon icon--full-color cf__payment-icon' }}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.show_policy -%}
+        <ul class="cf__policies">
+          {%- for policy in shop.policies -%}
+            {%- if policy != blank -%}
+              <li><a href="{{ policy.url }}">{{ policy.title | escape }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "tag": "section",
+  "class": "section cf-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_brand",
+      "label": "Show brand area",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer logo",
+      "info": "Leave blank to show store name as text"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 60,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "default": 160,
+      "label": "Logo width"
+    },
+    {
+      "type": "range",
+      "id": "logo_text_size",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 28,
+      "label": "Logo text size",
+      "info": "Only used if no logo image is set"
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline / Description",
+      "default": "Premium supplements crafted for peak performance."
+    },
+    {
+      "type": "range",
+      "id": "tagline_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 15,
+      "label": "Tagline font size"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "label": "Show newsletter signup",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter heading",
+      "default": "Stay in the loop"
+    },
+    {
+      "type": "range",
+      "id": "newsletter_heading_size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 18,
+      "label": "Newsletter heading size"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_subtext",
+      "label": "Newsletter subtext",
+      "default": "Get early access to drops, exclusive offers, and wellness tips."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Input placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_btn_text",
+      "label": "Button text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_success",
+      "label": "Success message",
+      "default": "Thanks for subscribing!"
+    },
+    {
+      "type": "header",
+      "content": "Link columns"
+    },
+    {
+      "type": "range",
+      "id": "col_heading_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14,
+      "label": "Column heading size"
+    },
+    {
+      "type": "range",
+      "id": "link_size",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 14,
+      "label": "Link text size"
+    },
+    {
+      "type": "header",
+      "content": "Social icons"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social icons",
+      "default": true,
+      "info": "Uses social links from Theme Settings > Social media"
+    },
+    {
+      "type": "range",
+      "id": "social_icon_size",
+      "min": 30,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 42,
+      "label": "Social icon button size"
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "label": "Show payment icons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy",
+      "label": "Show policy links",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#0a0a0a"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#999999"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#7c4db8",
+      "info": "Used for links, glow, buttons, divider"
+    },
+    {
+      "type": "header",
+      "content": "Visual effects"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_glow",
+      "label": "Show ambient glow",
+      "default": true,
+      "info": "Subtle floating glow orbs behind footer"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show top gradient divider",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "divider_height",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "unit": "px",
+      "default": 2,
+      "label": "Divider height"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80,
+      "label": "Top padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 50,
+      "label": "Bottom padding"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Quick Links"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "default": "footer"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "About"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>We create premium supplements designed to help you perform at your best, every day.</p>"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 50,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "default": 200,
+          "label": "Image width"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "link_list",
+        "settings": {
+          "heading": "Shop"
+        }
+      },
+      {
+        "type": "link_list",
+        "settings": {
+          "heading": "Support"
+        }
+      },
+      {
+        "type": "link_list",
+        "settings": {
+          "heading": "Company"
+        }
+      },
+      {
+        "type": "text",
+        "settings": {
+          "heading": "About",
+          "text": "<p>Premium supplements crafted for peak performance and everyday wellness.</p>"
+        }
+      }
+    ]
+  },
+  "presets": [
+    {
+      "name": "Custom Footer",
+      "blocks": [
+        {
+          "type": "link_list",
+          "settings": { "heading": "Shop" }
+        },
+        {
+          "type": "link_list",
+          "settings": { "heading": "Support" }
+        },
+        {
+          "type": "link_list",
+          "settings": { "heading": "Company" }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "heading": "About",
+            "text": "<p>Premium supplements crafted for peak performance and everyday wellness.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
