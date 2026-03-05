@@ -1,1 +1,911 @@
-{"sections":{"17645961642850007b":{"type":"_blocks","blocks":{"ai_gen_block_6098650_L3qmae":{"type":"ai_gen_block_6098650","settings":{"heading":"<h1>Join our newsletter<\/h1>","subtext":"<p>Subscribe to get special offers and updates.<\/p>","email_placeholder":"Enter your email","button_label":"Subscribe","success_message":"Thanks for subscribing!","show_image":true,"popup_image":"shopify:\/\/shop_images\/9_copy_1.webp","layout":"row","popup_max_width":700,"popup_border_radius":10,"form_padding":40,"popup_bg_color":"#ffffff","heading_size":28,"heading_color":"#121212","text_size":14,"text_color":"#666666","input_border_color":"#cccccc","input_border_radius":10,"button_color":"#263d87","button_hover_color":"#1a2d66","button_text_color":"#ffffff","button_border_radius":10,"close_button_bg":"#ffffff","close_button_hover_bg":"#f4f4f4","close_button_color":"#121212","success_color":"#008060","error_color":"#d82c0d"},"blocks":{}}},"block_order":["ai_gen_block_6098650_L3qmae"],"name":"Popup","settings":{}},"hero_banner_87Fm8X":{"type":"hero-banner","custom_css":[],"settings":{"banner_height":"adapt","bg_image":"shopify:\/\/shop_images\/12_5f1167a2-afe0-4d5a-9776-ae78d5fe52bf.png","bg_image_mobile":"shopify:\/\/shop_images\/12_67c728fa-bcd9-4c78-a632-71701c466774.jpg","overlay_enable":false,"overlay_color":"#000000","overlay_opacity":10,"content_bg_enable":true,"content_bg_color":"#f3f3f3","content_bg_opacity":100,"content_bg_padding":24,"content_bg_radius":8,"customer_message":"4.9 from 2500+ Hydrated Fans","heading":"Freeze the Thirst, Not the Fun","desc":"Electrolyte Freeze Pops & Drops formulated for function. Only natural ingredients: no added\nsugars, no artificial sweeteners, and no dyes.","btn_label":"Shop Now","btn_url":"shopify:\/\/collections\/all","btn_label_2":"Subscribe","btn_url_2":"#signup-popup","btn_scroll_2":true}},"marquee_slider_kEUnWm":{"type":"marquee-slider","blocks":{"slide_K7eBfj":{"type":"slide","settings":{"title":"No added sugar","slide_icon":"shopify:\/\/shop_images\/Group_2085665970.png"}},"slide_n9kx6C":{"type":"slide","settings":{"title":"no artificial sweeteners","slide_icon":"shopify:\/\/shop_images\/Group_2085665970.png"}},"slide_MhhwrB":{"type":"slide","settings":{"title":"No dyes","slide_icon":"shopify:\/\/shop_images\/Group_2085665970.png"}},"slide_FMh4cM":{"type":"slide","settings":{"title":"Vegan","slide_icon":"shopify:\/\/shop_images\/Group_2085665970.png"}},"slide_nDEtcy":{"type":"slide","settings":{"title":"30 CALORIES OR LESS","slide_icon":"shopify:\/\/shop_images\/Group_2085665970.png"}},"slide_Kwjhz9":{"type":"slide","settings":{"title":"Over 200 mg of electrolytes","slide_icon":"shopify:\/\/shop_images\/Group_2085665970.png"}},"slide_CjJB84":{"type":"slide","settings":{"title":"NON-GMO","slide_icon":"shopify:\/\/shop_images\/Group_2085665970.png"}},"slide_yHEf6R":{"type":"slide","settings":{"title":"Gluten Free","slide_icon":"shopify:\/\/shop_images\/Group_2085665970.png"}}},"block_order":["slide_K7eBfj","slide_n9kx6C","slide_MhhwrB","slide_FMh4cM","slide_nDEtcy","slide_Kwjhz9","slide_CjJB84","slide_yHEf6R"],"custom_css":[],"settings":{"slider_speed":3000,"disable_max_width":false,"enable_custom_colors":true,"bg_color":"#242833","text_color":"#ffffff"}},"rich_text_NFkQja":{"type":"rich-text","blocks":{"heading_yKw38z":{"type":"heading","settings":{"heading":"TRIED, TESTED & LOVED","heading_size":"h1"}},"text_HHKMGD":{"type":"text","settings":{"text":"<p>YOUR HYDRATION MVPS<\/p>"}},"button_TGCRwX":{"type":"button","disabled":true,"settings":{"button_label":"Button label","button_link":"","button_style_secondary":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading_yKw38z","text_HHKMGD","button_TGCRwX"],"disabled":true,"name":"t:sections.rich-text.presets.name","settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"","full_width":true,"padding_top":40,"padding_bottom":52}},"slideshow_BnVCwq":{"type":"slideshow","blocks":{"slide_nAdh9x":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/5_copy_daa0e4e3-a0a4-459e-bdf3-347f960b22a2.jpg","heading":"SUN RIPE STRAWBERRY","heading_size":"h1","subheading":"Bright, juicy, and perfectly sweet. Real fruit flavor meets real function for hydration that hits just right.","button_label":"SHOP NOW","link":"shopify:\/\/products\/hydra-pops-strawberry","button_style_secondary":false,"box_align":"middle-center","show_text_box":true,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"","text_alignment_mobile":"center"}},"slide_rFUDeM":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/ScreenShot2025-11-05at7.07.55AM.png","heading":"Electric Lime","heading_size":"h1","subheading":"Zesty and sharp with a punch of citrus. Instantly energizing and perfectly balanced for that electrolyte kick.","button_label":"SHOP NOW","link":"shopify:\/\/products\/hydra-pops-lime-1","button_style_secondary":false,"box_align":"middle-center","show_text_box":true,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"","text_alignment_mobile":"center"}},"slide_KQdK4U":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/6_copy.jpg","heading":"Fresh Pressed Apple","heading_size":"h1","subheading":"Crisp, cool, and naturally sweet. Like biting into a just picked apple. Refreshing hydration that tastes as clean as it feels.","button_label":"SHOP NOW","link":"shopify:\/\/products\/hydra-pops-apple-2","button_style_secondary":false,"box_align":"middle-center","show_text_box":true,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"scheme-1","text_alignment_mobile":"center"}},"slide_d7mfqx":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/4_copy_2dc1f184-6066-4806-9aa1-7f89ec2b1032.jpg","heading":"Variety Pack","heading_size":"h1","subheading":"All three fan favorites in one box. Switch it up, stay hydrated, and keep it fun.","button_label":"Button label","link":"shopify:\/\/products\/hydra-pops-variety","button_style_secondary":false,"box_align":"middle-center","show_text_box":true,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"scheme-1","text_alignment_mobile":"center"}}},"block_order":["slide_nAdh9x","slide_rFUDeM","slide_KQdK4U","slide_d7mfqx"],"disabled":true,"name":"t:sections.slideshow.presets.name","settings":{"layout":"full_bleed","slide_height":"medium","slider_visual":"counter","auto_rotate":false,"change_slides_speed":5,"image_behavior":"none","show_text_below":true,"accessibility_info":"Slideshow about our brand"}},"product_list_VDFYCH":{"type":"product-list","settings":{"collection":"bundles","subtitle":"Your Hydration MVPs","title":"Tried, tested, and loved"}},"tabs_GYY9pq":{"type":"tabs","blocks":{"faq_n7J8AY":{"type":"faq","settings":{"title":"Zero Junk, All Function","answer":"No added sugar, no artificial dyes, no weird stuff, just clean, effective hydration.","open_default":true}},"faq_HkMQ4m":{"type":"faq","settings":{"title":"Electrolytes That Actually Work","answer":"With 200mg+ of electrolytes, crafted from premium sea minerals, per pop, Hydra Pops are designed for optimal hydration and absorption, but here’s the real magic: we use natural fruit sugars to enhance bioavailability. The natural glucose in fruit binds to electrolytes, helping your body absorb them faster and more efficiently.","open_default":true}},"faq_4wnJDr":{"type":"faq","settings":{"title":"Freeze It or Sip It","answer":"Pop it in the freezer for a frosty treat, enjoy it straight up or mix it with water! Sparkling is our fav. Your hydration, your rules.","open_default":true}},"icon_bwYe8G":{"type":"icon","settings":{"icon":"shopify:\/\/shop_images\/Group_1980469000.webp","icon_text":"No dyes"}},"icon_zEtpCR":{"type":"icon","settings":{"icon":"shopify:\/\/shop_images\/Group_1980469001.webp","icon_text":"No added sugar"}},"icon_CmxQbp":{"type":"icon","settings":{"icon":"shopify:\/\/shop_images\/Group_1980468999.webp","icon_text":"Gluten Free"}},"icon_XFcHpH":{"type":"icon","settings":{"icon":"shopify:\/\/shop_images\/Group_1980469002.webp","icon_text":"Vegan"}}},"block_order":["faq_n7J8AY","faq_HkMQ4m","faq_4wnJDr","icon_bwYe8G","icon_zEtpCR","icon_CmxQbp","icon_XFcHpH"],"settings":{"bg_color":"#ffffff","subtitle":"You need clean, effective hydration that fits your lifestyle.","subtitle_color":"#222222","heading":"The Freeze Pop, Reinvented","title_color":"#263d87","main_img":"shopify:\/\/shop_images\/1_copy_2.jpg","faq_question_color":"#263d87","faq_ans_color":"#121212","icon_text_color":"#263d87"}},"rich_text_iJTRb8":{"type":"rich-text","blocks":{"text_yfajEz":{"type":"text","settings":{"text":"<p>CRAFTED WITH PREMIUM SCIENCE BACKED ELECTROLYTES YOUR BODY ACTUALLY ABSORBS<\/p>"}},"heading_GX8NnX":{"type":"heading","settings":{"heading":"Nature made them ionic. Your body makes them powerful.","heading_size":"h0"}},"button_BL9LjY":{"type":"button","disabled":true,"settings":{"button_label":"Button label","button_link":"","button_style_secondary":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["text_yfajEz","heading_GX8NnX","button_BL9LjY"],"name":"t:sections.rich-text.presets.name","settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"scheme-1","full_width":true,"padding_top":40,"padding_bottom":52}},"176255478396082918":{"type":"_blocks","blocks":{"ai_gen_block_fb3f841_GyKg9J":{"type":"ai_gen_block_fb3f841","settings":{"title":"","footer_text":"","electrolyte_1_name":"Sodium","electrolyte_1_description":"Maintains hydration balance and keeps your muscles firing.","electrolyte_2_name":"Potassium","electrolyte_2_description":"Prevents cramps and supports smooth muscle recovery.","electrolyte_3_name":"Magnesium","electrolyte_3_description":"Boosts energy, focus, and full body performance.","electrolyte_4_name":"Chloride","electrolyte_4_description":"Keeps fluids in check so every cell stays perfectly hydrated & aids in digestion.","columns_desktop":2,"columns_mobile":"1","grid_gap":24,"text_alignment":"left","max_width":1200,"background_color":"#ffffff","title_color":"#121212","card_background":"#61c2f4","card_title_color":"#000000","card_description_color":"#121212","footer_color":"#121212","card_padding":20,"card_border_radius":8,"card_border_width":0,"card_border_color":"#e0e0e0","title_size":44,"card_title_size":18,"card_description_size":14,"footer_size":21,"section_padding":0,"border_radius":0,"title_spacing":20,"card_title_spacing":8,"footer_spacing":20},"blocks":{}}},"block_order":["ai_gen_block_fb3f841_GyKg9J"],"settings":{}},"subscribe_banner_qyJ4Fm":{"type":"subscribe-banner","settings":{"bg_img":"shopify:\/\/shop_images\/Screen_Shot_2025-11-07_at_1.04.28_PM.png","heading":"the hydra drip","desc":"Subscribe & Save 20%! Get automatic deliveries, free shipping, and hassle free hydration. Cancel anytime, no commitments!","btn_label":"Subscribe Now","btn_link":"shopify:\/\/products\/hydra-pops-electrolyte-freeze-pops-variety-pack","btn_scroll":true}},"testimonials_Mw4BtF":{"type":"testimonials","blocks":{"slide_qwxtmF":{"type":"slide","settings":{"slide_img":"shopify:\/\/shop_images\/IMG_0939.jpg","badge_text":"GNC Customer","title":"Natalie K.","review":"Perfect for quick hydration. I love these pops! I get dehydrated easily, so having these on hand is always a win, and they’re so refreshing!"}},"slide_BX9WFV":{"type":"slide","settings":{"slide_img":"shopify:\/\/shop_images\/IMG_2346.heic","badge_text":"Online Customer","title":"Chrissy C.","review":"FREEZE POP = GENIUS. My kids can’t get enough!"}},"slide_aK4Pbe":{"type":"slide","settings":{"slide_img":"shopify:\/\/shop_images\/IMG_3306.jpg","badge_text":"Orange Theory Customer","title":"Sophia R.","review":"I literally crave a pop post run\/class now. I was traveling for work, got back from a run, and was so sad I didn’t have a pop at my hotel. I prefer Apple!"}},"slide_DKnYLx":{"type":"slide","settings":{"slide_img":"shopify:\/\/shop_images\/IMG_1164.jpg","badge_text":"Online Customer","title":"Ollie M.","review":"Omg, okay. I had the worst headache all day. I took painkillers, and nothing would get rid of it. Then I just had a Hydra Pop, thought maybe I was dehydrated… and it’s gone! The headache is gone. Also, the packaging is amazing!"}}},"block_order":["slide_qwxtmF","slide_BX9WFV","slide_aK4Pbe","slide_DKnYLx"],"settings":{"subtitle":"Testimonials","heading":"The coolest reviews you will ever read","btn_label":"See How It Works","btn_link":"shopify:\/\/products\/hydra-pops-variety"}},"happy_customer_8yeWAm":{"type":"happy-customer","blocks":{"review_7rLfNh":{"type":"review","settings":{"video_url":"https:\/\/youtu.be\/wM-NT6hcw48","video_poster":"shopify:\/\/shop_images\/Rectangle_34624581.png","product":"hydra-pops-apple"}},"review_B8Yead":{"type":"review","settings":{"video_url":"https:\/\/youtu.be\/wM-NT6hcw48","video_poster":"shopify:\/\/shop_images\/Rectangle_34624584.png","product":"hydra-pops-apple"}},"review_MpXpih":{"type":"review","settings":{"video_url":"https:\/\/youtu.be\/wM-NT6hcw48","video_poster":"shopify:\/\/shop_images\/Rectangle_34624581.png","product":"hydra-pops-apple"}},"review_GRmDfp":{"type":"review","settings":{"video_url":"https:\/\/youtu.be\/wM-NT6hcw48","video_poster":"shopify:\/\/shop_images\/Rectangle_34624584.png","product":"hydra-pops-apple"}},"review_NhKEye":{"type":"review","settings":{"video_url":"https:\/\/youtu.be\/wM-NT6hcw48","video_poster":"shopify:\/\/shop_images\/Rectangle_34624581.png","product":"hydra-pops-apple"}},"review_fXHtUe":{"type":"review","settings":{"video_url":"https:\/\/youtu.be\/wM-NT6hcw48","video_poster":"shopify:\/\/shop_images\/Rectangle_34624584.png","product":"hydra-pops-apple"}}},"block_order":["review_7rLfNh","review_B8Yead","review_MpXpih","review_GRmDfp","review_NhKEye","review_fXHtUe"],"disabled":true,"settings":{"customers_count":"4.9 from 2500+ Happy Customers","heading":"The Coolest Reviews You’ll Ever Read"}},"formula_grid_nmhbVJ":{"type":"formula-grid","disabled":true,"settings":{"blog":"formulas","heading":"The Method Behind the Madness","btn_label":"Learn More About Our Formula","btn_link":"shopify:\/\/blogs\/formulas"}},"tips_zbMwmt":{"type":"tips","disabled":true,"settings":{"blog":"tips","heading":"The Drip Report"}},"1737120265f0728718":{"type":"apps","blocks":{"instafeed_app_block_wPwB6n":{"type":"shopify:\/\/apps\/instafeed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5","settings":{"title":"Join the Hydra Community","title_color":"#334fb4","title_size_v2":0,"alignment":"center","instafeed_margin_top":0,"instafeed_margin_bottom":0,"instafeed_margin_sides":0,"show_instagram_link":false,"link_alignment":"left","link_color":"#000000","background_color":"","feed_id":"","html_area":""}}},"block_order":["instafeed_app_block_wPwB6n"],"settings":{"include_margins":true}},"image_with_text_FYNqXL":{"type":"image-with-text","blocks":{"heading_WHzEmq":{"type":"heading","settings":{"heading":"HYDRA HQ","heading_size":"h1"}},"text_ecTaxc":{"type":"text","settings":{"text":"<p><strong>Learn More About How We’re Transforming Hydration<\/strong> <\/p>","text_style":"body"}},"button_bjCrHr":{"type":"button","settings":{"button_label":"THE DRIP","button_link":"shopify:\/\/blogs\/news","button_style_secondary":false}}},"block_order":["heading_WHzEmq","text_ecTaxc","button_bjCrHr"],"disabled":true,"settings":{"enable_custom_padding_mobile":false,"mobile_padding":"20px 0px 20px","image_border_radius":0,"image":"shopify:\/\/shop_images\/Group_2085665970.png","height":"adapt","desktop_image_width":"medium","layout":"image_first","desktop_content_position":"top","desktop_content_alignment":"left","content_layout":"no-overlap","section_color_scheme":"","color_scheme":"","image_behavior":"none","mobile_content_alignment":"left","padding_top":36,"padding_bottom":36}},"reviews_slider_Tgc4nb":{"type":"reviews-slider","blocks":{"review_iFJEjp":{"type":"review","settings":{"video":"shopify:\/\/files\/videos\/D300006C-A9AF-4943-BE90-F4FC4E1DA80B.mov","vid_product":"hydra-pops-strawberry"}},"review_ALhPW9":{"type":"review","settings":{"video":"shopify:\/\/files\/videos\/D07DECD5-DE4E-430B-9131-03AFF6AE979D.mov","vid_product":"hydra-pops-apple-2"}},"review_AEX3FB":{"type":"review","settings":{"video":"shopify:\/\/files\/videos\/C9A4BF07-E3F8-47A7-B868-A074A9F28BAA.mov","vid_product":"hydra-pops-lime-1"}},"review_jyNRpy":{"type":"review","settings":{"video":"shopify:\/\/files\/videos\/B61DDC6F-EFBF-444A-8795-716B41D12450.mov","vid_product":"hydra-pops-electrolyte-freeze-pops-three-bag-bundle-pack"}},"review_ebxin7":{"type":"review","settings":{"video":"shopify:\/\/files\/videos\/B12C3BCB-9241-48AE-AE9A-692C66693446.mov","vid_product":"hydra-pops-apple-2"}},"review_zEeena":{"type":"review","settings":{"video":"shopify:\/\/files\/videos\/Hydra_video1.mp4","vid_product":"hydra-pops-strawberry"}}},"block_order":["review_iFJEjp","review_ALhPW9","review_AEX3FB","review_jyNRpy","review_ebxin7","review_zEeena"],"settings":{"heading":"The Drip Zone","heading_size":"h1","heading_color":"#263d87","desc_text":"PRESS PLAY, STAY HYDRATED","enable_stars":false,"color_scheme":"","header_alignment":"center","padding_top":60,"padding_bottom":60,"padding_top_mob":32,"padding_bottom_mob":32}},"multirow_HzqiWf":{"type":"multirow","blocks":{"row_YL8REY":{"type":"row","settings":{"caption":"Caption","heading":"Row","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","button_label":"Button label","button_link":""}},"row_9kURGM":{"type":"row","settings":{"caption":"Caption","heading":"Row","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","button_label":"Button label","button_link":""}},"row_zCy4J9":{"type":"row","settings":{"caption":"Caption","heading":"Row","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","button_label":"Button label","button_link":""}}},"block_order":["row_YL8REY","row_9kURGM","row_zCy4J9"],"disabled":true,"name":"t:sections.multirow.presets.name","settings":{"image_height":"medium","desktop_image_width":"medium","heading_size":"h1","text_style":"body","button_style":"secondary","desktop_content_position":"middle","desktop_content_alignment":"left","image_layout":"alternate-left","section_color_scheme":"","row_color_scheme":"","mobile_content_alignment":"left","padding_top":36,"padding_bottom":36}}},"order":["17645961642850007b","hero_banner_87Fm8X","marquee_slider_kEUnWm","rich_text_NFkQja","slideshow_BnVCwq","product_list_VDFYCH","tabs_GYY9pq","rich_text_iJTRb8","176255478396082918","subscribe_banner_qyJ4Fm","testimonials_Mw4BtF","happy_customer_8yeWAm","formula_grid_nmhbVJ","tips_zbMwmt","1737120265f0728718","image_with_text_FYNqXL","reviews_slider_Tgc4nb","multirow_HzqiWf"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17645961642850007b": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_6098650_L3qmae": {
+          "type": "ai_gen_block_6098650",
+          "settings": {
+            "heading": "<h1>Join our newsletter</h1>",
+            "subtext": "<p>Subscribe to get special offers and updates.</p>",
+            "email_placeholder": "Enter your email",
+            "button_label": "Subscribe",
+            "success_message": "Thanks for subscribing!",
+            "show_image": true,
+            "popup_image": "shopify://shop_images/9_copy_1.webp",
+            "layout": "row",
+            "popup_max_width": 700,
+            "popup_border_radius": 10,
+            "form_padding": 40,
+            "popup_bg_color": "#ffffff",
+            "heading_size": 28,
+            "heading_color": "#121212",
+            "text_size": 14,
+            "text_color": "#666666",
+            "input_border_color": "#cccccc",
+            "input_border_radius": 10,
+            "button_color": "#263d87",
+            "button_hover_color": "#1a2d66",
+            "button_text_color": "#ffffff",
+            "button_border_radius": 10,
+            "close_button_bg": "#ffffff",
+            "close_button_hover_bg": "#f4f4f4",
+            "close_button_color": "#121212",
+            "success_color": "#008060",
+            "error_color": "#d82c0d"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_6098650_L3qmae"
+      ],
+      "name": "Popup",
+      "settings": {}
+    },
+    "hero_banner_87Fm8X": {
+      "type": "hero-banner",
+      "custom_css": [],
+      "settings": {
+        "banner_height": "adapt",
+        "bg_image": "shopify://shop_images/12_5f1167a2-afe0-4d5a-9776-ae78d5fe52bf.png",
+        "bg_image_mobile": "shopify://shop_images/12_67c728fa-bcd9-4c78-a632-71701c466774.jpg",
+        "overlay_enable": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
+        "content_bg_enable": true,
+        "content_bg_color": "#f3f3f3",
+        "content_bg_opacity": 100,
+        "content_bg_padding": 24,
+        "content_bg_radius": 8,
+        "customer_message": "4.9 from 2500+ Hydrated Fans",
+        "heading": "Freeze the Thirst, Not the Fun",
+        "desc": "Electrolyte Freeze Pops & Drops formulated for function. Only natural ingredients: no added\nsugars, no artificial sweeteners, and no dyes.",
+        "btn_label": "Shop Now",
+        "btn_url": "shopify://collections/all",
+        "btn_label_2": "Subscribe",
+        "btn_url_2": "#signup-popup",
+        "btn_scroll_2": true
+      }
+    },
+    "marquee_slider_kEUnWm": {
+      "type": "marquee-slider",
+      "blocks": {
+        "slide_K7eBfj": {
+          "type": "slide",
+          "settings": {
+            "title": "No added sugar",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_n9kx6C": {
+          "type": "slide",
+          "settings": {
+            "title": "no artificial sweeteners",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_MhhwrB": {
+          "type": "slide",
+          "settings": {
+            "title": "No dyes",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_FMh4cM": {
+          "type": "slide",
+          "settings": {
+            "title": "Vegan",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_nDEtcy": {
+          "type": "slide",
+          "settings": {
+            "title": "30 CALORIES OR LESS",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_Kwjhz9": {
+          "type": "slide",
+          "settings": {
+            "title": "Over 200 mg of electrolytes",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_CjJB84": {
+          "type": "slide",
+          "settings": {
+            "title": "NON-GMO",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        },
+        "slide_yHEf6R": {
+          "type": "slide",
+          "settings": {
+            "title": "Gluten Free",
+            "slide_icon": "shopify://shop_images/Group_2085665970.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_K7eBfj",
+        "slide_n9kx6C",
+        "slide_MhhwrB",
+        "slide_FMh4cM",
+        "slide_nDEtcy",
+        "slide_Kwjhz9",
+        "slide_CjJB84",
+        "slide_yHEf6R"
+      ],
+      "custom_css": [],
+      "settings": {
+        "slider_speed": 3000,
+        "disable_max_width": false,
+        "enable_custom_colors": true,
+        "bg_color": "#242833",
+        "text_color": "#ffffff"
+      }
+    },
+    "rich_text_NFkQja": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_yKw38z": {
+          "type": "heading",
+          "settings": {
+            "heading": "TRIED, TESTED & LOVED",
+            "heading_size": "h1"
+          }
+        },
+        "text_HHKMGD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>YOUR HYDRATION MVPS</p>"
+          }
+        },
+        "button_TGCRwX": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_yKw38z",
+        "text_HHKMGD",
+        "button_TGCRwX"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "slideshow_BnVCwq": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_nAdh9x": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/5_copy_daa0e4e3-a0a4-459e-bdf3-347f960b22a2.jpg",
+            "heading": "SUN RIPE STRAWBERRY",
+            "heading_size": "h1",
+            "subheading": "Bright, juicy, and perfectly sweet. Real fruit flavor meets real function for hydration that hits just right.",
+            "button_label": "SHOP NOW",
+            "link": "shopify://products/hydra-pops-strawberry",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_rFUDeM": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ScreenShot2025-11-05at7.07.55AM.png",
+            "heading": "Electric Lime",
+            "heading_size": "h1",
+            "subheading": "Zesty and sharp with a punch of citrus. Instantly energizing and perfectly balanced for that electrolyte kick.",
+            "button_label": "SHOP NOW",
+            "link": "shopify://products/hydra-pops-lime-1",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_KQdK4U": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/6_copy.jpg",
+            "heading": "Fresh Pressed Apple",
+            "heading_size": "h1",
+            "subheading": "Crisp, cool, and naturally sweet. Like biting into a just picked apple. Refreshing hydration that tastes as clean as it feels.",
+            "button_label": "SHOP NOW",
+            "link": "shopify://products/hydra-pops-apple-2",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_d7mfqx": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/4_copy_2dc1f184-6066-4806-9aa1-7f89ec2b1032.jpg",
+            "heading": "Variety Pack",
+            "heading_size": "h1",
+            "subheading": "All three fan favorites in one box. Switch it up, stay hydrated, and keep it fun.",
+            "button_label": "Button label",
+            "link": "shopify://products/hydra-pops-variety",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_nAdh9x",
+        "slide_rFUDeM",
+        "slide_KQdK4U",
+        "slide_d7mfqx"
+      ],
+      "disabled": true,
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "product_list_VDFYCH": {
+      "type": "product-list",
+      "settings": {
+        "collection": "bundles",
+        "subtitle": "Your Hydration MVPs",
+        "title": "Tried, tested, and loved"
+      }
+    },
+    "benefits_image_cbj96Y": {
+      "type": "benefits-image",
+      "blocks": {
+        "benefit_9DJQ9F": {
+          "type": "benefit",
+          "settings": {
+            "icon_preset": "brain",
+            "title": "Quiet The Mind And Drift Off",
+            "text": "Calms a racing mind so you can fall asleep easily and quickly."
+          }
+        },
+        "benefit_3UBizE": {
+          "type": "benefit",
+          "settings": {
+            "icon_preset": "moon",
+            "title": "Stay Asleep Until Morning",
+            "text": "Supports your natural rhythm for deep, uninterrupted sleep."
+          }
+        },
+        "benefit_q4xw46": {
+          "type": "benefit",
+          "settings": {
+            "icon_preset": "no",
+            "title": "No \"Grogginess\"",
+            "text": "No synthetic melatonin to reduce grogginess and fatigue."
+          }
+        },
+        "benefit_emzXVX": {
+          "type": "benefit",
+          "settings": {
+            "icon_preset": "sparkle",
+            "title": "Tastes Like A Treat",
+            "text": "A rich cocoa blend you'll find delicious, hot or cold."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_9DJQ9F",
+        "benefit_3UBizE",
+        "benefit_q4xw46",
+        "benefit_emzXVX"
+      ],
+      "name": "Benefits + Image",
+      "settings": {
+        "bg_color": "#61c2f4",
+        "heading": "30 Days To Deeper Sleep",
+        "description": "<p>Each serving combines top-tier ingredients to target <strong>Melatonin Production, Relaxation, and Lower Stress Levels</strong> to give you the best sleep of your life in under 30 days.</p>",
+        "product_image": "shopify://shop_images/10copy.jpg",
+        "btn_label": "",
+        "btn_url": "",
+        "btn2_label": "",
+        "btn2_url": "",
+        "heading_color": "#ffffff",
+        "text_color": "#f3f3f3",
+        "btn_bg_color": "#ffffff",
+        "btn_text_color": "#5B2D8E",
+        "btn2_text_color": "#ffffff"
+      }
+    },
+    "tabs_GYY9pq": {
+      "type": "tabs",
+      "blocks": {
+        "faq_n7J8AY": {
+          "type": "faq",
+          "settings": {
+            "title": "Zero Junk, All Function",
+            "answer": "No added sugar, no artificial dyes, no weird stuff, just clean, effective hydration.",
+            "open_default": true
+          }
+        },
+        "faq_HkMQ4m": {
+          "type": "faq",
+          "settings": {
+            "title": "Electrolytes That Actually Work",
+            "answer": "With 200mg+ of electrolytes, crafted from premium sea minerals, per pop, Hydra Pops are designed for optimal hydration and absorption, but here’s the real magic: we use natural fruit sugars to enhance bioavailability. The natural glucose in fruit binds to electrolytes, helping your body absorb them faster and more efficiently.",
+            "open_default": true
+          }
+        },
+        "faq_4wnJDr": {
+          "type": "faq",
+          "settings": {
+            "title": "Freeze It or Sip It",
+            "answer": "Pop it in the freezer for a frosty treat, enjoy it straight up or mix it with water! Sparkling is our fav. Your hydration, your rules.",
+            "open_default": true
+          }
+        },
+        "icon_bwYe8G": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Group_1980469000.webp",
+            "icon_text": "No dyes"
+          }
+        },
+        "icon_zEtpCR": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Group_1980469001.webp",
+            "icon_text": "No added sugar"
+          }
+        },
+        "icon_CmxQbp": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Group_1980468999.webp",
+            "icon_text": "Gluten Free"
+          }
+        },
+        "icon_XFcHpH": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Group_1980469002.webp",
+            "icon_text": "Vegan"
+          }
+        }
+      },
+      "block_order": [
+        "faq_n7J8AY",
+        "faq_HkMQ4m",
+        "faq_4wnJDr",
+        "icon_bwYe8G",
+        "icon_zEtpCR",
+        "icon_CmxQbp",
+        "icon_XFcHpH"
+      ],
+      "settings": {
+        "bg_color": "#ffffff",
+        "subtitle": "You need clean, effective hydration that fits your lifestyle.",
+        "subtitle_color": "#222222",
+        "heading": "The Freeze Pop, Reinvented",
+        "title_color": "#263d87",
+        "main_img": "shopify://shop_images/1_copy_2.jpg",
+        "faq_question_color": "#263d87",
+        "faq_ans_color": "#121212",
+        "icon_text_color": "#263d87"
+      }
+    },
+    "rich_text_iJTRb8": {
+      "type": "rich-text",
+      "blocks": {
+        "text_yfajEz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>CRAFTED WITH PREMIUM SCIENCE BACKED ELECTROLYTES YOUR BODY ACTUALLY ABSORBS</p>"
+          }
+        },
+        "heading_GX8NnX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Nature made them ionic. Your body makes them powerful.",
+            "heading_size": "h0"
+          }
+        },
+        "button_BL9LjY": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_yfajEz",
+        "heading_GX8NnX",
+        "button_BL9LjY"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "176255478396082918": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_fb3f841_GyKg9J": {
+          "type": "ai_gen_block_fb3f841",
+          "settings": {
+            "title": "",
+            "footer_text": "",
+            "electrolyte_1_name": "Sodium",
+            "electrolyte_1_description": "Maintains hydration balance and keeps your muscles firing.",
+            "electrolyte_2_name": "Potassium",
+            "electrolyte_2_description": "Prevents cramps and supports smooth muscle recovery.",
+            "electrolyte_3_name": "Magnesium",
+            "electrolyte_3_description": "Boosts energy, focus, and full body performance.",
+            "electrolyte_4_name": "Chloride",
+            "electrolyte_4_description": "Keeps fluids in check so every cell stays perfectly hydrated & aids in digestion.",
+            "columns_desktop": 2,
+            "columns_mobile": "1",
+            "grid_gap": 24,
+            "text_alignment": "left",
+            "max_width": 1200,
+            "background_color": "#ffffff",
+            "title_color": "#121212",
+            "card_background": "#61c2f4",
+            "card_title_color": "#000000",
+            "card_description_color": "#121212",
+            "footer_color": "#121212",
+            "card_padding": 20,
+            "card_border_radius": 8,
+            "card_border_width": 0,
+            "card_border_color": "#e0e0e0",
+            "title_size": 44,
+            "card_title_size": 18,
+            "card_description_size": 14,
+            "footer_size": 21,
+            "section_padding": 0,
+            "border_radius": 0,
+            "title_spacing": 20,
+            "card_title_spacing": 8,
+            "footer_spacing": 20
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_fb3f841_GyKg9J"
+      ],
+      "settings": {}
+    },
+    "subscribe_banner_qyJ4Fm": {
+      "type": "subscribe-banner",
+      "settings": {
+        "bg_img": "shopify://shop_images/Screen_Shot_2025-11-07_at_1.04.28_PM.png",
+        "heading": "the hydra drip",
+        "desc": "Subscribe & Save 20%! Get automatic deliveries, free shipping, and hassle free hydration. Cancel anytime, no commitments!",
+        "btn_label": "Subscribe Now",
+        "btn_link": "shopify://products/hydra-pops-electrolyte-freeze-pops-variety-pack",
+        "btn_scroll": true
+      }
+    },
+    "testimonials_Mw4BtF": {
+      "type": "testimonials",
+      "blocks": {
+        "slide_qwxtmF": {
+          "type": "slide",
+          "settings": {
+            "slide_img": "shopify://shop_images/IMG_0939.jpg",
+            "badge_text": "GNC Customer",
+            "title": "Natalie K.",
+            "review": "Perfect for quick hydration. I love these pops! I get dehydrated easily, so having these on hand is always a win, and they’re so refreshing!"
+          }
+        },
+        "slide_BX9WFV": {
+          "type": "slide",
+          "settings": {
+            "slide_img": "shopify://shop_images/IMG_2346.heic",
+            "badge_text": "Online Customer",
+            "title": "Chrissy C.",
+            "review": "FREEZE POP = GENIUS. My kids can’t get enough!"
+          }
+        },
+        "slide_aK4Pbe": {
+          "type": "slide",
+          "settings": {
+            "slide_img": "shopify://shop_images/IMG_3306.jpg",
+            "badge_text": "Orange Theory Customer",
+            "title": "Sophia R.",
+            "review": "I literally crave a pop post run/class now. I was traveling for work, got back from a run, and was so sad I didn’t have a pop at my hotel. I prefer Apple!"
+          }
+        },
+        "slide_DKnYLx": {
+          "type": "slide",
+          "settings": {
+            "slide_img": "shopify://shop_images/IMG_1164.jpg",
+            "badge_text": "Online Customer",
+            "title": "Ollie M.",
+            "review": "Omg, okay. I had the worst headache all day. I took painkillers, and nothing would get rid of it. Then I just had a Hydra Pop, thought maybe I was dehydrated… and it’s gone! The headache is gone. Also, the packaging is amazing!"
+          }
+        }
+      },
+      "block_order": [
+        "slide_qwxtmF",
+        "slide_BX9WFV",
+        "slide_aK4Pbe",
+        "slide_DKnYLx"
+      ],
+      "settings": {
+        "subtitle": "Testimonials",
+        "heading": "The coolest reviews you will ever read",
+        "btn_label": "See How It Works",
+        "btn_link": "shopify://products/hydra-pops-variety"
+      }
+    },
+    "happy_customer_8yeWAm": {
+      "type": "happy-customer",
+      "blocks": {
+        "review_7rLfNh": {
+          "type": "review",
+          "settings": {
+            "video_url": "https://youtu.be/wM-NT6hcw48",
+            "video_poster": "shopify://shop_images/Rectangle_34624581.png",
+            "product": "hydra-pops-apple"
+          }
+        },
+        "review_B8Yead": {
+          "type": "review",
+          "settings": {
+            "video_url": "https://youtu.be/wM-NT6hcw48",
+            "video_poster": "shopify://shop_images/Rectangle_34624584.png",
+            "product": "hydra-pops-apple"
+          }
+        },
+        "review_MpXpih": {
+          "type": "review",
+          "settings": {
+            "video_url": "https://youtu.be/wM-NT6hcw48",
+            "video_poster": "shopify://shop_images/Rectangle_34624581.png",
+            "product": "hydra-pops-apple"
+          }
+        },
+        "review_GRmDfp": {
+          "type": "review",
+          "settings": {
+            "video_url": "https://youtu.be/wM-NT6hcw48",
+            "video_poster": "shopify://shop_images/Rectangle_34624584.png",
+            "product": "hydra-pops-apple"
+          }
+        },
+        "review_NhKEye": {
+          "type": "review",
+          "settings": {
+            "video_url": "https://youtu.be/wM-NT6hcw48",
+            "video_poster": "shopify://shop_images/Rectangle_34624581.png",
+            "product": "hydra-pops-apple"
+          }
+        },
+        "review_fXHtUe": {
+          "type": "review",
+          "settings": {
+            "video_url": "https://youtu.be/wM-NT6hcw48",
+            "video_poster": "shopify://shop_images/Rectangle_34624584.png",
+            "product": "hydra-pops-apple"
+          }
+        }
+      },
+      "block_order": [
+        "review_7rLfNh",
+        "review_B8Yead",
+        "review_MpXpih",
+        "review_GRmDfp",
+        "review_NhKEye",
+        "review_fXHtUe"
+      ],
+      "disabled": true,
+      "settings": {
+        "customers_count": "4.9 from 2500+ Happy Customers",
+        "heading": "The Coolest Reviews You’ll Ever Read"
+      }
+    },
+    "formula_grid_nmhbVJ": {
+      "type": "formula-grid",
+      "disabled": true,
+      "settings": {
+        "blog": "formulas",
+        "heading": "The Method Behind the Madness",
+        "btn_label": "Learn More About Our Formula",
+        "btn_link": "shopify://blogs/formulas"
+      }
+    },
+    "tips_zbMwmt": {
+      "type": "tips",
+      "disabled": true,
+      "settings": {
+        "blog": "tips",
+        "heading": "The Drip Report"
+      }
+    },
+    "1737120265f0728718": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_wPwB6n": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "Join the Hydra Community",
+            "title_color": "#334fb4",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_wPwB6n"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "image_with_text_FYNqXL": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_WHzEmq": {
+          "type": "heading",
+          "settings": {
+            "heading": "HYDRA HQ",
+            "heading_size": "h1"
+          }
+        },
+        "text_ecTaxc": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Learn More About How We’re Transforming Hydration</strong> </p>",
+            "text_style": "body"
+          }
+        },
+        "button_bjCrHr": {
+          "type": "button",
+          "settings": {
+            "button_label": "THE DRIP",
+            "button_link": "shopify://blogs/news",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WHzEmq",
+        "text_ecTaxc",
+        "button_bjCrHr"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_custom_padding_mobile": false,
+        "mobile_padding": "20px 0px 20px",
+        "image_border_radius": 0,
+        "image": "shopify://shop_images/Group_2085665970.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "reviews_slider_Tgc4nb": {
+      "type": "reviews-slider",
+      "blocks": {
+        "review_iFJEjp": {
+          "type": "review",
+          "settings": {
+            "video": "shopify://files/videos/D300006C-A9AF-4943-BE90-F4FC4E1DA80B.mov",
+            "vid_product": "hydra-pops-strawberry"
+          }
+        },
+        "review_ALhPW9": {
+          "type": "review",
+          "settings": {
+            "video": "shopify://files/videos/D07DECD5-DE4E-430B-9131-03AFF6AE979D.mov",
+            "vid_product": "hydra-pops-apple-2"
+          }
+        },
+        "review_AEX3FB": {
+          "type": "review",
+          "settings": {
+            "video": "shopify://files/videos/C9A4BF07-E3F8-47A7-B868-A074A9F28BAA.mov",
+            "vid_product": "hydra-pops-lime-1"
+          }
+        },
+        "review_jyNRpy": {
+          "type": "review",
+          "settings": {
+            "video": "shopify://files/videos/B61DDC6F-EFBF-444A-8795-716B41D12450.mov",
+            "vid_product": "hydra-pops-electrolyte-freeze-pops-three-bag-bundle-pack"
+          }
+        },
+        "review_ebxin7": {
+          "type": "review",
+          "settings": {
+            "video": "shopify://files/videos/B12C3BCB-9241-48AE-AE9A-692C66693446.mov",
+            "vid_product": "hydra-pops-apple-2"
+          }
+        },
+        "review_zEeena": {
+          "type": "review",
+          "settings": {
+            "video": "shopify://files/videos/Hydra_video1.mp4",
+            "vid_product": "hydra-pops-strawberry"
+          }
+        }
+      },
+      "block_order": [
+        "review_iFJEjp",
+        "review_ALhPW9",
+        "review_AEX3FB",
+        "review_jyNRpy",
+        "review_ebxin7",
+        "review_zEeena"
+      ],
+      "settings": {
+        "heading": "The Drip Zone",
+        "heading_size": "h1",
+        "heading_color": "#263d87",
+        "desc_text": "PRESS PLAY, STAY HYDRATED",
+        "enable_stars": false,
+        "color_scheme": "",
+        "header_alignment": "center",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mob": 32,
+        "padding_bottom_mob": 32
+      }
+    },
+    "multirow_HzqiWf": {
+      "type": "multirow",
+      "blocks": {
+        "row_YL8REY": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_9kURGM": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_zCy4J9": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_YL8REY",
+        "row_9kURGM",
+        "row_zCy4J9"
+      ],
+      "disabled": true,
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "17645961642850007b",
+    "hero_banner_87Fm8X",
+    "marquee_slider_kEUnWm",
+    "rich_text_NFkQja",
+    "slideshow_BnVCwq",
+    "product_list_VDFYCH",
+    "benefits_image_cbj96Y",
+    "tabs_GYY9pq",
+    "rich_text_iJTRb8",
+    "176255478396082918",
+    "subscribe_banner_qyJ4Fm",
+    "testimonials_Mw4BtF",
+    "happy_customer_8yeWAm",
+    "formula_grid_nmhbVJ",
+    "tips_zbMwmt",
+    "1737120265f0728718",
+    "image_with_text_FYNqXL",
+    "reviews_slider_Tgc4nb",
+    "multirow_HzqiWf"
+  ]
+}
