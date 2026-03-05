@@ -26,7 +26,8 @@
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-bold);
   font-size: clamp(32px, 3.5vw, 54px);
-  line-height: 1.1;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   color: var(--benefits-heading-color, #fff);
 }
 
@@ -83,20 +84,21 @@
 }
 
 .benefits-image__item-title {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-bold);
   font-size: clamp(13px, 1vw, 15px);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--benefits-heading-color, #fff);
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .benefits-image__item-text {
   margin: 0;
   font-size: clamp(13px, 0.95vw, 15px);
-  line-height: 1.55;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
   color: var(--benefits-text-color, rgba(255,255,255,0.8));
 }
 
