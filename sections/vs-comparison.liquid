@@ -1,0 +1,393 @@
+{{ 'vs-comparison.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    --vs-bg: {{ section.settings.bg_color }};
+    --vs-heading-color: {{ section.settings.heading_color }};
+    --vs-table-bg: {{ section.settings.table_bg }};
+    --vs-divider: {{ section.settings.divider_color }};
+    --vs-feature-color: {{ section.settings.feature_color }};
+    --vs-check-bg: {{ section.settings.check_color }};
+    --vs-cross-bg: {{ section.settings.cross_color }};
+    --vs-btn-bg: {{ section.settings.btn_bg }};
+    --vs-btn-text: {{ section.settings.btn_text_color }};
+    --vs-guarantee-color: {{ section.settings.guarantee_color }};
+    {% if section.settings.bg_image != blank %}
+      background-image: url('{{ section.settings.bg_image | image_url }}');
+    {% endif %}
+  }
+{% endstyle %}
+
+{%- liquid
+  assign row_blocks = section.blocks | where: 'type', 'row'
+-%}
+
+<section class="vs-comparison{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+
+  {%- if section.settings.overlay_enable -%}
+    <div
+      class="vs-comparison__overlay"
+      style="background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity | times: 0.01 }};"
+    ></div>
+  {%- endif -%}
+
+  <div class="vs-comparison__inner">
+
+    {%- comment -%} ── LEFT ── {%- endcomment -%}
+    <div class="vs-comparison__left">
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="vs-comparison__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      <div class="vs-table">
+
+        {%- comment -%} Header row with product images {%- endcomment -%}
+        <div class="vs-table__header">
+
+          <div class="vs-table__header-us">
+            {%- if section.settings.our_product_image != blank -%}
+              <img
+                src="{{ section.settings.our_product_image | image_url: width: 104 }}"
+                alt="{{ section.settings.our_product_image.alt | default: 'Our product' | escape }}"
+                width="52"
+                loading="lazy"
+              >
+            {%- else -%}
+              <div class="vs-table__product-placeholder">
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="vs-table__vs-badge">
+            <span class="vs-table__vs-pill">VS</span>
+          </div>
+
+          <div class="vs-table__header-them">
+            {%- if section.settings.their_product_image != blank -%}
+              <img
+                src="{{ section.settings.their_product_image | image_url: width: 104 }}"
+                alt="{{ section.settings.their_product_image.alt | default: 'Competitor' | escape }}"
+                width="52"
+                loading="lazy"
+              >
+            {%- else -%}
+              <div class="vs-table__product-placeholder">
+                {{ 'product-2' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {%- endif -%}
+          </div>
+
+        </div>
+
+        {%- comment -%} Feature rows {%- endcomment -%}
+        <div class="vs-table__rows">
+          {%- for block in row_blocks -%}
+            <div class="vs-table__row" {{ block.shopify_attributes }}>
+
+              <div class="vs-table__check">
+                {%- if block.settings.we_have_it -%}
+                  <div class="vs-table__check-icon">
+                    <svg viewBox="0 0 18 18"><path d="M3 9l4.5 4.5L15 5"/></svg>
+                  </div>
+                {%- else -%}
+                  <div class="vs-table__cross-icon">
+                    <svg viewBox="0 0 18 18"><path d="M5 5l8 8M13 5l-8 8"/></svg>
+                  </div>
+                {%- endif -%}
+              </div>
+
+              <div class="vs-table__feature">{{ block.settings.feature }}</div>
+
+              <div class="vs-table__cross">
+                {%- if block.settings.they_have_it -%}
+                  <div class="vs-table__check-icon">
+                    <svg viewBox="0 0 18 18"><path d="M3 9l4.5 4.5L15 5"/></svg>
+                  </div>
+                {%- else -%}
+                  <div class="vs-table__cross-icon">
+                    <svg viewBox="0 0 18 18"><path d="M5 5l8 8M13 5l-8 8"/></svg>
+                  </div>
+                {%- endif -%}
+              </div>
+
+            </div>
+          {%- endfor -%}
+        </div>
+
+      </div>
+
+      {%- comment -%} CTA {%- endcomment -%}
+      {%- if section.settings.btn_label != blank -%}
+        <div class="vs-comparison__cta">
+          <a href="{{ section.settings.btn_url }}" class="vs-comparison__btn">
+            {{ section.settings.btn_label }}
+            <span class="vs-comparison__btn-arrow">→</span>
+          </a>
+          {%- if section.settings.guarantee_text != blank -%}
+            <p class="vs-comparison__guarantee">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              {{ section.settings.guarantee_text }}
+            </p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+
+    {%- comment -%} ── RIGHT: product lifestyle image ── {%- endcomment -%}
+    {%- if section.settings.hero_image != blank -%}
+      <div class="vs-comparison__right">
+        <img
+          class="vs-comparison__product-image"
+          src="{{ section.settings.hero_image | image_url: width: 840 }}"
+          alt="{{ section.settings.hero_image.alt | default: 'Product' | escape }}"
+          loading="lazy"
+        >
+      </div>
+    {%- else -%}
+      <div class="vs-comparison__right vs-comparison__right--placeholder">
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VS Comparison",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Us Vs. Others"
+    },
+    {
+      "type": "header",
+      "content": "Product images (table header)"
+    },
+    {
+      "type": "image_picker",
+      "id": "our_product_image",
+      "label": "Our product image"
+    },
+    {
+      "type": "image_picker",
+      "id": "their_product_image",
+      "label": "Competitor product image"
+    },
+    {
+      "type": "header",
+      "content": "Hero image (right side)"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Lifestyle / product hero image"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#5B2D8E"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (optional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_enable",
+      "label": "Enable overlay on bg image",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity (%)",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button label",
+      "default": "Get Yours Here"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "USA-Made. 90-Day Guarantee."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "table_bg",
+      "label": "Table background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Table divider",
+      "default": "#ececec"
+    },
+    {
+      "type": "color",
+      "id": "feature_color",
+      "label": "Feature text",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "check_color",
+      "label": "Check (yes) icon color",
+      "default": "#5B2D8E"
+    },
+    {
+      "type": "color",
+      "id": "cross_color",
+      "label": "Cross (no) icon color",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button background",
+      "default": "#7c4db8"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "guarantee_color",
+      "label": "Guarantee text color",
+      "default": "#ffffffbf"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Feature row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature label",
+          "default": "Feature name"
+        },
+        {
+          "type": "checkbox",
+          "id": "we_have_it",
+          "label": "We have it (✓)",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "they_have_it",
+          "label": "They have it (✓)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "VS Comparison",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Zero Melatonin",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "USA-Made",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Wake Up Refreshed, Not Groggy",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Free-From Sugar And Artificial Sweeteners",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Backed By Sleep Tracking Data",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Natural Ingredients",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

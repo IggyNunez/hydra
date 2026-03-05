@@ -1,0 +1,336 @@
+.vs-comparison {
+  position: relative;
+  background-color: var(--vs-bg, #5B2D8E);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 0 90px;
+  overflow: hidden;
+}
+
+.vs-comparison__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vs-comparison__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1346px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 60px;
+  align-items: center;
+}
+
+/* ── Left column ── */
+.vs-comparison__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vs-comparison__heading {
+  margin: 0 0 32px;
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(28px, 3vw, 48px);
+  line-height: 1.15;
+  color: var(--vs-heading-color, #fff);
+  text-align: center;
+}
+
+/* ── Table ── */
+.vs-table {
+  width: 100%;
+  max-width: 560px;
+  background: var(--vs-table-bg, #fff);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Header row */
+.vs-table__header {
+  display: grid;
+  grid-template-columns: 70px 1fr 70px;
+  align-items: center;
+  padding: 20px 16px 16px;
+  border-bottom: 1px solid var(--vs-divider, #e8e8e8);
+  gap: 0;
+}
+
+.vs-table__header-us,
+.vs-table__header-them {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vs-table__header-us img,
+.vs-table__header-them img {
+  width: 52px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.vs-table__header-us .vs-table__product-placeholder,
+.vs-table__header-them .vs-table__product-placeholder {
+  width: 52px;
+  height: 60px;
+  background: rgba(91,45,142,0.1);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vs-table__header-us .vs-table__product-placeholder svg,
+.vs-table__header-them .vs-table__product-placeholder svg {
+  width: 28px;
+  height: 28px;
+  opacity: 0.3;
+}
+
+.vs-table__vs-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vs-table__vs-pill {
+  background: var(--vs-vs-bg, #fff);
+  border: 2px solid var(--vs-divider, #e0e0e0);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--vs-feature-color, #333);
+}
+
+/* Feature rows */
+.vs-table__rows {}
+
+.vs-table__row {
+  display: grid;
+  grid-template-columns: 70px 1fr 70px;
+  align-items: center;
+  border-bottom: 1px solid var(--vs-divider, #ececec);
+  min-height: 64px;
+}
+
+.vs-table__row:last-child {
+  border-bottom: none;
+}
+
+.vs-table__check,
+.vs-table__cross {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Check icon — filled circle */
+.vs-table__check-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--vs-check-bg, #5B2D8E);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vs-table__check-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Cross icon — grey circle */
+.vs-table__cross-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--vs-cross-bg, #d0d0d0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vs-table__cross-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vs-table__feature {
+  padding: 14px 8px;
+  text-align: center;
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: 1.35;
+  color: var(--vs-feature-color, #1a1a1a);
+  border-left: 1px solid var(--vs-divider, #ececec);
+  border-right: 1px solid var(--vs-divider, #ececec);
+}
+
+/* ── CTA below table ── */
+.vs-comparison__cta {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 560px;
+}
+
+.vs-comparison__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 18px 32px;
+  border-radius: 100px;
+  background-color: var(--vs-btn-bg, #7c4db8);
+  color: var(--vs-btn-text, #fff);
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(14px, 1.1vw, 17px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.vs-comparison__btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.vs-comparison__btn-arrow {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.vs-comparison__guarantee {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--vs-guarantee-color, rgba(255,255,255,0.75));
+}
+
+.vs-comparison__guarantee svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  flex-shrink: 0;
+}
+
+/* ── Right column: product image ── */
+.vs-comparison__right {
+  width: 420px;
+  flex-shrink: 0;
+}
+
+.vs-comparison__product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.vs-comparison__right--placeholder {
+  width: 420px;
+  height: 420px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vs-comparison__right--placeholder svg {
+  width: 80px;
+  height: 80px;
+  opacity: 0.2;
+}
+
+/* ── Tablet ── */
+@media (max-width: 1100px) {
+  .vs-comparison__inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 40px 0;
+    padding: 0 28px;
+  }
+
+  .vs-comparison__right {
+    width: 340px;
+  }
+
+  .vs-comparison__right--placeholder {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .vs-comparison {
+    padding: 50px 0 60px;
+  }
+
+  .vs-comparison__inner {
+    padding: 0 16px;
+  }
+
+  .vs-table__header,
+  .vs-table__row {
+    grid-template-columns: 52px 1fr 52px;
+  }
+
+  .vs-table__check-icon,
+  .vs-table__cross-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .vs-table__check-icon svg,
+  .vs-table__cross-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .vs-comparison__right {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .vs-comparison__right--placeholder {
+    width: 100%;
+    max-width: 300px;
+    height: 260px;
+  }
+}
