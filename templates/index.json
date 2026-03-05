@@ -140,6 +140,7 @@
     },
     "hero_banner_87Fm8X": {
       "type": "hero-banner",
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "banner_height": "adapt",
