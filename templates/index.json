@@ -84,8 +84,8 @@
       ],
       "name": "Hero CTA — Full Width",
       "settings": {
-        "layout": "image-bg",
-        "content_alignment": "left",
+        "layout": "image-right",
+        "content_alignment": "center",
         "min_height": 520,
         "content_max_width": 1340,
         "padding_top": 80,
@@ -107,7 +107,7 @@
         "eyebrow_size": 13,
         "eyebrow_color": "#ffffffb3",
         "heading": "Hydration That Actually Works",
-        "heading_size": 72,
+        "heading_size": 82,
         "heading_size_mobile": 36,
         "heading_weight": "700",
         "heading_margin_bottom": 20,
@@ -118,20 +118,24 @@
         "desc_margin_bottom": 24,
         "desc_max_width": 560,
         "desc_color": "#ffffffd9",
-        "mini_feature_color": "#ffffffe6",
+        "mini_feature_color": "#ffffff",
         "mini_icon_color": "#ffffffb3",
         "btn_label": "Shop Now",
         "btn_url": "",
         "btn_show_arrow": true,
-        "btn_bg": "#61c2f4",
-        "btn_text_color": "#263d87",
+        "btn_size": 24,
+        "btn_padding_v": 18,
+        "btn_padding_h": 36,
+        "btn_radius": 6,
+        "btn_bg": "#263d87",
+        "btn_text_color": "#f3f3f3",
         "btn2_label": "",
         "btn2_url": "",
         "btn2_text_color": "#ffffff",
         "guarantee_text": "Free shipping on orders over $50.",
         "guarantee_color": "#ffffffb3",
         "hero_image": "shopify://shop_images/Screen_Shot_2026-01-30_at_1.16.19_PM_e2e1e2bb-84b5-43ef-83b0-7c6ba82181da.png",
-        "image_max_height": 670
+        "image_max_height": 470
       }
     },
     "hero_banner_87Fm8X": {
@@ -156,7 +160,14 @@
         "btn_url": "shopify://collections/all",
         "btn_label_2": "Subscribe",
         "btn_url_2": "#signup-popup",
-        "btn_scroll_2": true
+        "btn_scroll_2": true,
+        "heading_size": 64,
+        "heading_weight": "900",
+        "heading_color": "#263d87",
+        "heading_mb": 10,
+        "desc_size": 14,
+        "desc_color": "#1a1a1a",
+        "btn_font_size": 15
       }
     },
     "marquee_slider_kEUnWm": {
@@ -464,7 +475,7 @@
         "icon_border_color": "#61c2f480",
         "icon_bg_color": "#61c2f414",
         "btn_bg_color": "#ffffff",
-        "btn_text_color": "#263D87",
+        "btn_text_color": "#263d87",
         "btn2_text_color": "#ffffff"
       }
     },
@@ -562,7 +573,7 @@
         "protip_text_size": 13,
         "protip_radius": 10,
         "protip_padding": 18,
-        "bg_color": "#263D87",
+        "bg_color": "#263d87",
         "heading_color": "#ffffff",
         "text_color": "#ffffffcc",
         "card_bg_color": "#ffffff14",
@@ -570,7 +581,7 @@
         "badge_text_color": "#ffffff",
         "taste_bg_color": "#ffffff1f",
         "protip_bg_color": "#ffffffe6",
-        "protip_label_bg": "#263D87",
+        "protip_label_bg": "#263d87",
         "protip_text_color": "#1a2d6e"
       }
     },
