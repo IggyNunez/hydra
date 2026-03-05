@@ -359,8 +359,78 @@
         "heading_color": "#ffffff",
         "text_color": "#f3f3f3",
         "btn_bg_color": "#ffffff",
-        "btn_text_color": "#5B2D8E",
+        "btn_text_color": "#5b2d8e",
         "btn2_text_color": "#ffffff"
+      }
+    },
+    "ingredients_grid_xN8NiF": {
+      "type": "ingredients-grid",
+      "blocks": {
+        "ingredient_zmWBKc": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Tart Cherry",
+            "badge": "Natural melatonin boost",
+            "description": "Supports natural melatonin production, helping you fall asleep faster and stay asleep longer without synthetic hormones."
+          }
+        },
+        "ingredient_tRXzrN": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Magnesium Glycinate",
+            "badge": "Promotes lower stress",
+            "description": "Targets stress, anxiety, and inflammation, helping you unlock the deepest, most restorative phases of sleep every night."
+          }
+        },
+        "ingredient_GXByWL": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Theobroma Cacao",
+            "badge": "Euphoric relaxation state",
+            "description": "Premium cocoa that promotes euphoric relaxation and blissful sleep that leaves you feeling fully refreshed."
+          }
+        },
+        "ingredient_i4xFUF": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Fermented L-Theanine",
+            "badge": "Calms racing thoughts",
+            "description": "Pulls the plug on a racing mind and mental overwhelm, creating perfect conditions for natural sleep."
+          }
+        },
+        "ingredient_iEae44": {
+          "type": "ingredient",
+          "settings": {
+            "name": "GABA",
+            "badge": "Quiets mental chatter",
+            "description": "Your brain's natural \"off switch\". This neurotransmitter helps quiet mental chatter and ease you into sleep."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_zmWBKc",
+        "ingredient_tRXzrN",
+        "ingredient_GXByWL",
+        "ingredient_i4xFUF",
+        "ingredient_iEae44"
+      ],
+      "name": "Ingredients Grid",
+      "settings": {
+        "heading": "Carefully-Selected Ingredients:",
+        "taste_title": "What does it taste like?",
+        "taste_desc": "Our customers describe it as a rich, cozy chocolate. Not too sweet and no weird aftertaste.",
+        "protip_label": "Pro Tip:",
+        "protip_text": "Many customers like to add cinnamon, vanilla, or peppermint. Your order includes a collection of simple, sleep-friendly recipes to try.",
+        "bg_color": "#61c2f4",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "card_bg_color": "#ffffff14",
+        "badge_bg_color": "#ffffff26",
+        "badge_text_color": "#ffffff",
+        "taste_bg_color": "#ffffff1f",
+        "protip_bg_color": "#ffffffe6",
+        "protip_label_bg": "#263d87",
+        "protip_text_color": "#2d1a56"
       }
     },
     "tabs_GYY9pq": {
@@ -895,6 +965,7 @@
     "slideshow_BnVCwq",
     "product_list_VDFYCH",
     "benefits_image_cbj96Y",
+    "ingredients_grid_xN8NiF",
     "tabs_GYY9pq",
     "rich_text_iJTRb8",
     "176255478396082918",
