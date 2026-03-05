@@ -30,6 +30,8 @@
     --pg-subtitle-size: {{ section.settings.subtitle_size }}px;
     --pg-subtitle-ls: {{ section.settings.subtitle_letter_spacing | divided_by: 100.0 }}em;
     --pg-btn-font-size: {{ section.settings.btn_font_size }}px;
+    --pg-card-title-size: {{ section.settings.card_title_size }}px;
+    --pg-card-title-size-mobile: {{ section.settings.card_title_size_mobile }}px;
     {%- if section.settings.bg_color != blank and section.settings.bg_color != 'rgba(0,0,0,0)' -%}
       --pg-bg: {{ section.settings.bg_color }};
     {%- endif -%}
@@ -314,6 +316,26 @@
     {
       "type": "header",
       "content": "Card settings"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 18,
+      "label": "Product title size (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size_mobile",
+      "min": 8,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 13,
+      "label": "Product title size (mobile)"
     },
     {
       "type": "select",
