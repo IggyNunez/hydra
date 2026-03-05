@@ -14,6 +14,27 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_NDwiRE": {
+          "type": "announcement",
+          "settings": {
+            "text": "NON-GMO Certified",
+            "link": ""
+          }
+        },
+        "announcement_A4UEt7": {
+          "type": "announcement",
+          "settings": {
+            "text": "VEGAN FOMULAR",
+            "link": ""
+          }
+        },
+        "announcement_eqEfg4": {
+          "type": "announcement",
+          "settings": {
+            "text": "NO ADDED SUGAR",
+            "link": ""
+          }
+        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
@@ -23,13 +44,16 @@
         }
       },
       "block_order": [
+        "announcement_NDwiRE",
+        "announcement_A4UEt7",
+        "announcement_eqEfg4",
         "announcement-bar-0"
       ],
       "settings": {
         "color_scheme": "scheme-5",
         "show_line_separator": true,
         "show_social": true,
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "enable_country_selector": false,
         "enable_language_selector": false
