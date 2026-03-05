@@ -171,6 +171,33 @@
         "btn_font_size": 15
       }
     },
+    "product_grid_KiqWdq": {
+      "type": "product-grid",
+      "name": "Product Grid",
+      "settings": {
+        "collection": "bundles",
+        "products_to_show": 6,
+        "title": "Our Products",
+        "subtitle": "",
+        "description": "",
+        "columns_desktop": "3",
+        "card_gap": 16,
+        "columns_mobile": "2",
+        "quick_add": "standard",
+        "show_vendor": false,
+        "show_rating": false,
+        "image_ratio": "square",
+        "bg_color": "",
+        "heading_color": "#000000",
+        "text_color": "#555555",
+        "show_cta": false,
+        "cta_text": "View All",
+        "cta_link": "",
+        "cta_style": "primary",
+        "padding_top": 72,
+        "padding_bottom": 60
+      }
+    },
     "marquee_slider_kEUnWm": {
       "type": "marquee-slider",
       "blocks": {
@@ -1235,6 +1262,7 @@
     "17645961642850007b",
     "hero_cta_jjdVH6",
     "hero_banner_87Fm8X",
+    "product_grid_KiqWdq",
     "marquee_slider_kEUnWm",
     "rich_text_NFkQja",
     "slideshow_BnVCwq",
