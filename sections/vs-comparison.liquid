@@ -12,6 +12,7 @@
     --vs-btn-bg: {{ section.settings.btn_bg }};
     --vs-btn-text: {{ section.settings.btn_text_color }};
     --vs-guarantee-color: {{ section.settings.guarantee_color }};
+    --vs-vs-pill-color: {{ section.settings.vs_pill_color }};
     {% if section.settings.bg_image != blank %}
       background-image: url('{{ section.settings.bg_image | image_url }}');
     {% endif %}
@@ -22,7 +23,13 @@
   assign row_blocks = section.blocks | where: 'type', 'row'
 -%}
 
-<section class="vs-comparison{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+<section
+  class="vs-comparison{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
 
   {%- if section.settings.overlay_enable -%}
     <div
@@ -31,26 +38,54 @@
     ></div>
   {%- endif -%}
 
-  <div class="vs-comparison__inner">
+  <div
+    class="vs-comparison__inner"
+    style="
+      max-width: {{ section.settings.content_max_width }}px;
+      padding-left: {{ section.settings.side_padding }}px;
+      padding-right: {{ section.settings.side_padding }}px;
+      gap: 0 {{ section.settings.col_gap }}px;
+    "
+  >
 
     {%- comment -%} ── LEFT ── {%- endcomment -%}
     <div class="vs-comparison__left">
 
-      {%- if section.settings.heading != blank -%}
-        <h2 class="vs-comparison__heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.eyebrow != blank -%}
+        <p
+          style="
+            font-size: {{ section.settings.eyebrow_size }}px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: {{ section.settings.eyebrow_color }};
+            margin: 0 0 12px;
+          "
+        >{{ section.settings.eyebrow }}</p>
       {%- endif -%}
 
-      <div class="vs-table">
+      {%- if section.settings.heading != blank -%}
+        <h2
+          class="vs-comparison__heading"
+          style="
+            font-size: {{ section.settings.heading_size }}px;
+            font-weight: {{ section.settings.heading_weight }};
+            margin-bottom: {{ section.settings.heading_mb }}px;
+          "
+        >{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      <div class="vs-table" style="border-radius: {{ section.settings.table_radius }}px; max-width: {{ section.settings.table_max_width }}px;">
 
         {%- comment -%} Header row with product images {%- endcomment -%}
-        <div class="vs-table__header">
+        <div class="vs-table__header" style="grid-template-columns: {{ section.settings.icon_col_width }}px 1fr {{ section.settings.icon_col_width }}px;">
 
           <div class="vs-table__header-us">
             {%- if section.settings.our_product_image != blank -%}
               <img
                 src="{{ section.settings.our_product_image | image_url: width: 104 }}"
                 alt="{{ section.settings.our_product_image.alt | default: 'Our product' | escape }}"
-                width="52"
+                width="{{ section.settings.icon_col_width }}"
                 loading="lazy"
               >
             {%- else -%}
@@ -61,7 +96,10 @@
           </div>
 
           <div class="vs-table__vs-badge">
-            <span class="vs-table__vs-pill">VS</span>
+            <span
+              class="vs-table__vs-pill"
+              style="font-size: {{ section.settings.vs_pill_size }}px; color: {{ section.settings.vs_pill_color }};"
+            >VS</span>
           </div>
 
           <div class="vs-table__header-them">
@@ -69,7 +107,7 @@
               <img
                 src="{{ section.settings.their_product_image | image_url: width: 104 }}"
                 alt="{{ section.settings.their_product_image.alt | default: 'Competitor' | escape }}"
-                width="52"
+                width="{{ section.settings.icon_col_width }}"
                 loading="lazy"
               >
             {%- else -%}
@@ -84,29 +122,39 @@
         {%- comment -%} Feature rows {%- endcomment -%}
         <div class="vs-table__rows">
           {%- for block in row_blocks -%}
-            <div class="vs-table__row" {{ block.shopify_attributes }}>
+            <div
+              class="vs-table__row"
+              style="
+                grid-template-columns: {{ section.settings.icon_col_width }}px 1fr {{ section.settings.icon_col_width }}px;
+                min-height: {{ section.settings.row_height }}px;
+              "
+              {{ block.shopify_attributes }}
+            >
 
               <div class="vs-table__check">
                 {%- if block.settings.we_have_it -%}
-                  <div class="vs-table__check-icon">
+                  <div class="vs-table__check-icon" style="width: {{ section.settings.check_icon_size }}px; height: {{ section.settings.check_icon_size }}px;">
                     <svg viewBox="0 0 18 18"><path d="M3 9l4.5 4.5L15 5"/></svg>
                   </div>
                 {%- else -%}
-                  <div class="vs-table__cross-icon">
+                  <div class="vs-table__cross-icon" style="width: {{ section.settings.check_icon_size }}px; height: {{ section.settings.check_icon_size }}px;">
                     <svg viewBox="0 0 18 18"><path d="M5 5l8 8M13 5l-8 8"/></svg>
                   </div>
                 {%- endif -%}
               </div>
 
-              <div class="vs-table__feature">{{ block.settings.feature }}</div>
+              <div
+                class="vs-table__feature"
+                style="font-size: {{ section.settings.feature_size }}px; padding: {{ section.settings.feature_padding_v }}px 8px;"
+              >{{ block.settings.feature }}</div>
 
               <div class="vs-table__cross">
                 {%- if block.settings.they_have_it -%}
-                  <div class="vs-table__check-icon">
+                  <div class="vs-table__check-icon" style="width: {{ section.settings.check_icon_size }}px; height: {{ section.settings.check_icon_size }}px;">
                     <svg viewBox="0 0 18 18"><path d="M3 9l4.5 4.5L15 5"/></svg>
                   </div>
                 {%- else -%}
-                  <div class="vs-table__cross-icon">
+                  <div class="vs-table__cross-icon" style="width: {{ section.settings.check_icon_size }}px; height: {{ section.settings.check_icon_size }}px;">
                     <svg viewBox="0 0 18 18"><path d="M5 5l8 8M13 5l-8 8"/></svg>
                   </div>
                 {%- endif -%}
@@ -120,13 +168,23 @@
 
       {%- comment -%} CTA {%- endcomment -%}
       {%- if section.settings.btn_label != blank -%}
-        <div class="vs-comparison__cta">
-          <a href="{{ section.settings.btn_url }}" class="vs-comparison__btn">
+        <div class="vs-comparison__cta" style="margin-top: {{ section.settings.cta_mt }}px; max-width: {{ section.settings.table_max_width }}px;">
+          <a
+            href="{{ section.settings.btn_url }}"
+            class="vs-comparison__btn"
+            style="
+              font-size: {{ section.settings.btn_size }}px;
+              border-radius: {{ section.settings.btn_radius }}px;
+              padding: {{ section.settings.btn_padding_v }}px {{ section.settings.btn_padding_h }}px;
+            "
+          >
             {{ section.settings.btn_label }}
-            <span class="vs-comparison__btn-arrow">→</span>
+            {%- if section.settings.btn_show_arrow -%}
+              <span class="vs-comparison__btn-arrow">→</span>
+            {%- endif -%}
           </a>
           {%- if section.settings.guarantee_text != blank -%}
-            <p class="vs-comparison__guarantee">
+            <p class="vs-comparison__guarantee" style="font-size: {{ section.settings.guarantee_size }}px;">
               <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               {{ section.settings.guarantee_text }}
             </p>
@@ -138,7 +196,7 @@
 
     {%- comment -%} ── RIGHT: product lifestyle image ── {%- endcomment -%}
     {%- if section.settings.hero_image != blank -%}
-      <div class="vs-comparison__right">
+      <div class="vs-comparison__right" style="width: {{ section.settings.right_col_width }}px;">
         <img
           class="vs-comparison__product-image"
           src="{{ section.settings.hero_image | image_url: width: 840 }}"
@@ -147,7 +205,7 @@
         >
       </div>
     {%- else -%}
-      <div class="vs-comparison__right vs-comparison__right--placeholder">
+      <div class="vs-comparison__right vs-comparison__right--placeholder" style="width: {{ section.settings.right_col_width }}px; height: {{ section.settings.right_col_width }}px;">
         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
       </div>
     {%- endif -%}
@@ -161,7 +219,93 @@
   "settings": [
     {
       "type": "header",
+      "content": "Layout & Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "side_padding",
+      "label": "Side padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Max content width",
+      "min": 800,
+      "max": 1800,
+      "step": 20,
+      "unit": "px",
+      "default": 1346
+    },
+    {
+      "type": "range",
+      "id": "col_gap",
+      "label": "Gap between table and image",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "right_col_width",
+      "label": "Right image column width",
+      "min": 200,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 420
+    },
+    {
+      "type": "header",
       "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text (optional)",
+      "default": ""
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#ffffffb3"
     },
     {
       "type": "text",
@@ -170,8 +314,42 @@
       "default": "Us Vs. Others"
     },
     {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 18,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semi-bold (600)" },
+        { "value": "700", "label": "Bold (700)" },
+        { "value": "800", "label": "Extra bold (800)" },
+        { "value": "900", "label": "Black (900)" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "heading_mb",
+      "label": "Heading bottom spacing",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
       "type": "header",
-      "content": "Product images (table header)"
+      "content": "Product Images (Table Header)"
     },
     {
       "type": "image_picker",
@@ -185,12 +363,183 @@
     },
     {
       "type": "header",
-      "content": "Hero image (right side)"
+      "content": "Table"
+    },
+    {
+      "type": "range",
+      "id": "table_max_width",
+      "label": "Table max width",
+      "min": 300,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 560
+    },
+    {
+      "type": "range",
+      "id": "table_radius",
+      "label": "Table border radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "icon_col_width",
+      "label": "Icon column width",
+      "min": 40,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "check_icon_size",
+      "label": "Check / cross icon size",
+      "min": 20,
+      "max": 56,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "row_height",
+      "label": "Row min height",
+      "min": 40,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "feature_size",
+      "label": "Feature text size",
+      "min": 11,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "feature_padding_v",
+      "label": "Feature cell vertical padding",
+      "min": 4,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "vs_pill_size",
+      "label": "VS pill font size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Hero Image (Right Side)"
     },
     {
       "type": "image_picker",
       "id": "hero_image",
       "label": "Lifestyle / product hero image"
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "range",
+      "id": "cta_mt",
+      "label": "CTA top spacing",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button label",
+      "default": "Get Yours Here"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "btn_size",
+      "label": "Button font size",
+      "min": 11,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "btn_padding_v",
+      "label": "Button vertical padding",
+      "min": 8,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "btn_padding_h",
+      "label": "Button horizontal padding",
+      "min": 12,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "btn_radius",
+      "label": "Button border radius",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "checkbox",
+      "id": "btn_show_arrow",
+      "label": "Show arrow on button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "USA-Made. 90-Day Guarantee."
+    },
+    {
+      "type": "range",
+      "id": "guarantee_size",
+      "label": "Guarantee text size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 13
     },
     {
       "type": "header",
@@ -227,27 +576,6 @@
       "max": 90,
       "step": 5,
       "default": 40
-    },
-    {
-      "type": "header",
-      "content": "CTA"
-    },
-    {
-      "type": "text",
-      "id": "btn_label",
-      "label": "Button label",
-      "default": "Get Yours Here"
-    },
-    {
-      "type": "url",
-      "id": "btn_url",
-      "label": "Button link"
-    },
-    {
-      "type": "text",
-      "id": "guarantee_text",
-      "label": "Guarantee text",
-      "default": "USA-Made. 90-Day Guarantee."
     },
     {
       "type": "header",
@@ -288,6 +616,12 @@
       "id": "cross_color",
       "label": "Cross (no) icon color",
       "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "vs_pill_color",
+      "label": "VS pill text color",
+      "default": "#333333"
     },
     {
       "type": "color",

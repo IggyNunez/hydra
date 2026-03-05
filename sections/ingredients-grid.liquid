@@ -19,30 +19,86 @@
   assign ingredient_blocks = section.blocks | where: 'type', 'ingredient'
 -%}
 
-<section class="ingredients-grid{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-  <div class="ingredients-grid__container">
+<section
+  class="ingredients-grid{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div
+    class="ingredients-grid__container"
+    style="
+      max-width: {{ section.settings.content_max_width }}px;
+      padding-left: {{ section.settings.side_padding }}px;
+      padding-right: {{ section.settings.side_padding }}px;
+    "
+  >
 
-    <div class="ingredients-grid__layout">
+    <div
+      class="ingredients-grid__layout"
+      style="grid-template-columns: {{ section.settings.heading_col_width }}px 1fr; gap: 0 {{ section.settings.layout_gap }}px;"
+    >
 
       {%- comment -%} Sticky heading left {%- endcomment -%}
       <div class="ingredients-grid__heading-wrap">
         {%- if section.settings.heading != blank -%}
-          <h2 class="ingredients-grid__heading">{{ section.settings.heading }}</h2>
+          <h2
+            class="ingredients-grid__heading"
+            style="
+              font-size: {{ section.settings.heading_size }}px;
+              font-weight: {{ section.settings.heading_weight }};
+              margin-bottom: {{ section.settings.heading_mb }}px;
+            "
+          >{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p
+            class="ingredients-grid__subheading"
+            style="
+              font-size: {{ section.settings.subheading_size }}px;
+              color: var(--ing-text-color);
+              margin: 0;
+              line-height: 1.6;
+            "
+          >{{ section.settings.subheading }}</p>
         {%- endif -%}
       </div>
 
       {%- comment -%} Ingredient cards grid {%- endcomment -%}
-      <div class="ingredients-grid__cards">
+      <div
+        class="ingredients-grid__cards"
+        style="
+          grid-template-columns: repeat({{ section.settings.card_cols }}, 1fr);
+          gap: {{ section.settings.card_gap_v }}px {{ section.settings.card_gap_h }}px;
+        "
+      >
         {%- for block in ingredient_blocks -%}
-          <div class="ingredient-card" {{ block.shopify_attributes }}>
+          <div
+            class="ingredient-card"
+            style="
+              padding: {{ section.settings.card_padding }}px;
+              border-radius: {{ section.settings.card_radius }}px;
+              grid-template-columns: {{ section.settings.img_size }}px 1fr;
+              gap: 0 {{ section.settings.card_inner_gap }}px;
+            "
+            {{ block.shopify_attributes }}
+          >
 
-            <div class="ingredient-card__image-wrap{% if block.settings.image == blank %} ingredient-card__image-wrap--placeholder{% endif %}">
+            <div
+              class="ingredient-card__image-wrap{% if block.settings.image == blank %} ingredient-card__image-wrap--placeholder{% endif %}"
+              style="
+                width: {{ section.settings.img_size }}px;
+                height: {{ section.settings.img_size }}px;
+                border-radius: {{ section.settings.img_radius }}px;
+              "
+            >
               {%- if block.settings.image != blank -%}
                 <img
                   src="{{ block.settings.image | image_url: width: 220 }}"
                   alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
-                  width="110"
-                  height="110"
+                  width="{{ section.settings.img_size }}"
+                  height="{{ section.settings.img_size }}"
                   loading="lazy"
                 >
               {%- else -%}
@@ -52,11 +108,17 @@
 
             <div class="ingredient-card__body">
               {%- if block.settings.name != blank -%}
-                <h3 class="ingredient-card__name">{{ block.settings.name }}</h3>
+                <h3
+                  class="ingredient-card__name"
+                  style="font-size: {{ section.settings.card_name_size }}px; margin-bottom: {{ section.settings.card_name_mb }}px;"
+                >{{ block.settings.name }}</h3>
               {%- endif -%}
 
               {%- if block.settings.badge != blank -%}
-                <div class="ingredient-card__badge">
+                <div
+                  class="ingredient-card__badge"
+                  style="font-size: {{ section.settings.badge_size }}px; margin-bottom: {{ section.settings.badge_mb }}px;"
+                >
                   <span class="ingredient-card__badge-icon">
                     <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2 7l3.5 3.5L12 3"/>
@@ -67,7 +129,10 @@
               {%- endif -%}
 
               {%- if block.settings.description != blank -%}
-                <p class="ingredient-card__desc">{{ block.settings.description }}</p>
+                <p
+                  class="ingredient-card__desc"
+                  style="font-size: {{ section.settings.card_desc_size }}px;"
+                >{{ block.settings.description }}</p>
               {%- endif -%}
             </div>
 
@@ -84,22 +149,39 @@
     {%- endif -%}
 
     {%- if show_taste -%}
-      <div class="ingredients-grid__taste">
-        <div class="taste-card">
+      <div
+        class="ingredients-grid__taste"
+        style="
+          margin-top: {{ section.settings.taste_mt }}px;
+          margin-left: calc({{ section.settings.heading_col_width }}px + {{ section.settings.layout_gap }}px);
+        "
+      >
+        <div
+          class="taste-card"
+          style="border-radius: {{ section.settings.taste_radius }}px; padding: {{ section.settings.taste_padding }}px {{ section.settings.taste_padding }}px 0;"
+        >
 
-          <div class="taste-card__left">
+          <div class="taste-card__left" style="padding-bottom: {{ section.settings.taste_padding }}px;">
             {%- if section.settings.taste_title != blank -%}
-              <div class="taste-card__icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 8h1a4 4 0 0 1 0 8h-1" stroke-linecap="round"/>
-                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M6 2v3M10 2v3M14 2v3" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h3 class="taste-card__title">{{ section.settings.taste_title }}</h3>
+              {%- if section.settings.show_taste_icon -%}
+                <div class="taste-card__icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 8h1a4 4 0 0 1 0 8h-1" stroke-linecap="round"/>
+                    <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 2v3M10 2v3M14 2v3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              {%- endif -%}
+              <h3
+                class="taste-card__title"
+                style="font-size: {{ section.settings.taste_title_size }}px; margin-bottom: {{ section.settings.taste_title_mb }}px;"
+              >{{ section.settings.taste_title }}</h3>
             {%- endif -%}
             {%- if section.settings.taste_desc != blank -%}
-              <p class="taste-card__desc">{{ section.settings.taste_desc }}</p>
+              <p
+                class="taste-card__desc"
+                style="font-size: {{ section.settings.taste_desc_size }}px;"
+              >{{ section.settings.taste_desc }}</p>
             {%- endif -%}
           </div>
 
@@ -109,6 +191,7 @@
                 src="{{ section.settings.taste_image | image_url: width: 400 }}"
                 alt="{{ section.settings.taste_image.alt | default: 'Product' | escape }}"
                 loading="lazy"
+                style="max-height: {{ section.settings.taste_img_height }}px;"
               >
             </div>
           {%- else -%}
@@ -116,11 +199,20 @@
           {%- endif -%}
 
           {%- if section.settings.protip_text != blank -%}
-            <div class="taste-card__pro-tip">
+            <div
+              class="taste-card__pro-tip"
+              style="border-radius: {{ section.settings.protip_radius }}px; padding: {{ section.settings.protip_padding }}px; margin-bottom: {{ section.settings.taste_padding }}px;"
+            >
               {%- if section.settings.protip_label != blank -%}
-                <span class="taste-card__pro-tip-label">{{ section.settings.protip_label }}</span>
+                <span
+                  class="taste-card__pro-tip-label"
+                  style="font-size: {{ section.settings.protip_label_size }}px;"
+                >{{ section.settings.protip_label }}</span>
               {%- endif -%}
-              <p class="taste-card__pro-tip-text">{{ section.settings.protip_text }}</p>
+              <p
+                class="taste-card__pro-tip-text"
+                style="font-size: {{ section.settings.protip_text_size }}px;"
+              >{{ section.settings.protip_text }}</p>
             </div>
           {%- endif -%}
 
@@ -137,6 +229,70 @@
   "settings": [
     {
       "type": "header",
+      "content": "Layout & Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "side_padding",
+      "label": "Side padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Max content width",
+      "min": 800,
+      "max": 1800,
+      "step": 20,
+      "unit": "px",
+      "default": 1346
+    },
+    {
+      "type": "range",
+      "id": "heading_col_width",
+      "label": "Heading column width",
+      "min": 160,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 280
+    },
+    {
+      "type": "range",
+      "id": "layout_gap",
+      "label": "Gap between heading and cards",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
       "content": "Heading"
     },
     {
@@ -146,8 +302,207 @@
       "default": "Carefully-Selected Ingredients:"
     },
     {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 18,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semi-bold (600)" },
+        { "value": "700", "label": "Bold (700)" },
+        { "value": "800", "label": "Extra bold (800)" },
+        { "value": "900", "label": "Black (900)" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "heading_mb",
+      "label": "Heading bottom spacing",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading (optional)",
+      "default": ""
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
       "type": "header",
-      "content": "Taste banner"
+      "content": "Card Grid"
+    },
+    {
+      "type": "select",
+      "id": "card_cols",
+      "label": "Cards per row",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" },
+        { "value": "3", "label": "3 columns" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "card_gap_v",
+      "label": "Card row gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_gap_h",
+      "label": "Card column gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card inner padding",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Card Image"
+    },
+    {
+      "type": "range",
+      "id": "img_size",
+      "label": "Image size (width & height)",
+      "min": 60,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "default": 110
+    },
+    {
+      "type": "range",
+      "id": "img_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "card_inner_gap",
+      "label": "Gap between image and text",
+      "min": 4,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Card Typography"
+    },
+    {
+      "type": "range",
+      "id": "card_name_size",
+      "label": "Ingredient name size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_name_mb",
+      "label": "Name bottom spacing",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "badge_size",
+      "label": "Badge text size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "badge_mb",
+      "label": "Badge bottom spacing",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_desc_size",
+      "label": "Description text size",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Taste Banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_taste_icon",
+      "label": "Show cup icon",
+      "default": true
     },
     {
       "type": "text",
@@ -156,15 +511,89 @@
       "default": "What does it taste like?"
     },
     {
+      "type": "range",
+      "id": "taste_title_size",
+      "label": "Taste title size",
+      "min": 14,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "taste_title_mb",
+      "label": "Title bottom spacing",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
       "type": "textarea",
       "id": "taste_desc",
       "label": "Taste description",
       "default": "Our customers describe it as a rich, cozy chocolate. Not too sweet and no weird aftertaste."
     },
     {
+      "type": "range",
+      "id": "taste_desc_size",
+      "label": "Taste description size",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
       "type": "image_picker",
       "id": "taste_image",
       "label": "Taste image (mug / product shot)"
+    },
+    {
+      "type": "range",
+      "id": "taste_img_height",
+      "label": "Taste image max height",
+      "min": 80,
+      "max": 320,
+      "step": 8,
+      "unit": "px",
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "taste_mt",
+      "label": "Taste banner top spacing",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "taste_radius",
+      "label": "Taste banner border radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "taste_padding",
+      "label": "Taste banner padding",
+      "min": 12,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Pro Tip Box"
     },
     {
       "type": "text",
@@ -173,10 +602,50 @@
       "default": "Pro Tip:"
     },
     {
+      "type": "range",
+      "id": "protip_label_size",
+      "label": "Pro tip label size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
       "type": "textarea",
       "id": "protip_text",
       "label": "Pro tip text",
       "default": "Many customers like to add cinnamon, vanilla, or peppermint. Your order includes a collection of simple, sleep-friendly recipes to try."
+    },
+    {
+      "type": "range",
+      "id": "protip_text_size",
+      "label": "Pro tip text size",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "protip_radius",
+      "label": "Pro tip box border radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "protip_padding",
+      "label": "Pro tip box padding",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 18
     },
     {
       "type": "header",

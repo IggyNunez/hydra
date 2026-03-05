@@ -8,38 +8,76 @@
     --benefits-btn-bg: {{ section.settings.btn_bg_color }};
     --benefits-btn-text: {{ section.settings.btn_text_color }};
     --benefits-btn-text-2: {{ section.settings.btn2_text_color }};
+    --benefits-pt: {{ section.settings.padding_top }}px;
+    --benefits-pb: {{ section.settings.padding_bottom }}px;
+    --benefits-pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --benefits-pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --benefits-side-pad: {{ section.settings.side_padding }}px;
+    --benefits-heading-size: {{ section.settings.heading_size }}px;
+    --benefits-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --benefits-heading-weight: {{ section.settings.heading_weight }};
+    --benefits-desc-size: {{ section.settings.desc_size }}px;
+    --benefits-item-title-size: {{ section.settings.item_title_size }}px;
+    --benefits-item-text-size: {{ section.settings.item_text_size }}px;
+    --benefits-icon-border-color: {{ section.settings.icon_border_color }};
+    --benefits-icon-bg: {{ section.settings.icon_bg_color }};
+    --benefits-img-position: {{ section.settings.image_position }};
   }
 {% endstyle %}
 
-<section class="benefits-image{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-  <div class="benefits-image__inner">
+<section class="benefits-image{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  style="
+    padding-top: var(--benefits-pt, 80px);
+    padding-bottom: var(--benefits-pb, 80px);
+  "
+>
+  <div class="benefits-image__inner"
+    style="{% if section.settings.layout == 'image_left' %}direction: rtl;{% endif %}"
+  >
 
-    {%- comment -%} LEFT — content {%- endcomment -%}
-    <div class="benefits-image__content">
+    {%- comment -%} CONTENT {%- endcomment -%}
+    <div class="benefits-image__content" style="
+      direction: ltr;
+      padding: var(--benefits-pt, 80px) var(--benefits-side-pad, 60px) var(--benefits-pb, 80px);
+      text-align: {{ section.settings.content_alignment }};
+      align-items: {% if section.settings.content_alignment == 'center' %}center{% elsif section.settings.content_alignment == 'right' %}flex-end{% else %}flex-start{% endif %};
+    ">
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="benefits-image__heading">{{ section.settings.heading }}</h2>
+        <h2 class="benefits-image__heading" style="
+          font-size: var(--benefits-heading-size, 44px);
+          font-weight: var(--benefits-heading-weight, 700);
+          margin-bottom: {{ section.settings.heading_mb }}px;
+        ">{{ section.settings.heading }}</h2>
       {%- endif -%}
 
       {%- if section.settings.description != blank -%}
-        <p class="benefits-image__desc">{{ section.settings.description }}</p>
+        <div class="benefits-image__desc" style="
+          font-size: var(--benefits-desc-size, 17px);
+          margin-bottom: {{ section.settings.desc_mb }}px;
+        ">{{ section.settings.description }}</div>
       {%- endif -%}
 
       {%- if section.blocks.size > 0 -%}
-        <div class="benefits-image__grid">
+        <div class="benefits-image__grid" style="
+          grid-template-columns: repeat({{ section.settings.grid_cols }}, 1fr);
+          gap: {{ section.settings.grid_gap }}px {{ section.settings.grid_gap_h }}px;
+        ">
           {%- for block in section.blocks -%}
             {%- if block.type == 'benefit' -%}
               <div class="benefits-image__item" {{ block.shopify_attributes }}>
 
-                {%- comment -%} Icon: uploaded image OR inline SVG fallback {%- endcomment -%}
-                <div class="benefits-image__item-icon">
+                <div class="benefits-image__item-icon" style="
+                  width: {{ section.settings.icon_size }}px;
+                  height: {{ section.settings.icon_size }}px;
+                  background-color: var(--benefits-icon-bg, transparent);
+                  border-color: var(--benefits-icon-border-color, rgba(255,255,255,0.5));
+                ">
                   {%- if block.settings.icon_image != blank -%}
                     <img
                       src="{{ block.settings.icon_image | image_url: width: 56 }}"
                       alt="{{ block.settings.icon_image.alt | escape }}"
-                      width="28"
-                      height="28"
-                      loading="lazy"
+                      width="28" height="28" loading="lazy"
                     >
                   {%- else -%}
                     {%- case block.settings.icon_preset -%}
@@ -62,11 +100,15 @@
                 </div>
 
                 {%- if block.settings.title != blank -%}
-                  <p class="benefits-image__item-title">{{ block.settings.title }}</p>
+                  <p class="benefits-image__item-title" style="font-size: var(--benefits-item-title-size, 15px);">
+                    {{ block.settings.title }}
+                  </p>
                 {%- endif -%}
 
                 {%- if block.settings.text != blank -%}
-                  <p class="benefits-image__item-text">{{ block.settings.text }}</p>
+                  <p class="benefits-image__item-text" style="font-size: var(--benefits-item-text-size, 15px);">
+                    {{ block.settings.text }}
+                  </p>
                 {%- endif -%}
 
               </div>
@@ -76,7 +118,7 @@
       {%- endif -%}
 
       {%- if section.settings.btn_label != blank or section.settings.btn2_label != blank -%}
-        <div class="benefits-image__cta">
+        <div class="benefits-image__cta" style="margin-top: {{ section.settings.btn_mt }}px;">
           {%- if section.settings.btn_label != blank -%}
             <a href="{{ section.settings.btn_url }}" class="benefits-image__btn benefits-image__btn--primary">
               {{ section.settings.btn_label }}
@@ -92,8 +134,10 @@
 
     </div>
 
-    {%- comment -%} RIGHT — image {%- endcomment -%}
-    <div class="benefits-image__media{% if section.settings.product_image == blank %} benefits-image__media--placeholder{% endif %}">
+    {%- comment -%} IMAGE {%- endcomment -%}
+    <div class="benefits-image__media{% if section.settings.product_image == blank %} benefits-image__media--placeholder{% endif %}"
+      style="direction: ltr;"
+    >
       {%- if section.settings.product_image != blank -%}
         <img
           src="{{ section.settings.product_image | image_url: width: 1200 }}"
@@ -101,6 +145,7 @@
           width="{{ section.settings.product_image.width }}"
           height="{{ section.settings.product_image.height }}"
           loading="lazy"
+          style="object-position: var(--benefits-img-position, center top);"
         >
       {%- else -%}
         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -119,6 +164,78 @@
       "content": "Layout"
     },
     {
+      "type": "select",
+      "id": "layout",
+      "label": "Image position",
+      "options": [
+        { "value": "image_right", "label": "Image right (default)" },
+        { "value": "image_left",  "label": "Image left" }
+      ],
+      "default": "image_right"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content text alignment",
+      "options": [
+        { "value": "left",   "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right",  "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image focal point",
+      "options": [
+        { "value": "center top",    "label": "Top center" },
+        { "value": "center center", "label": "Center" },
+        { "value": "center bottom", "label": "Bottom center" },
+        { "value": "left center",   "label": "Left center" },
+        { "value": "right center",  "label": "Right center" }
+      ],
+      "default": "center top"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (desktop)",
+      "min": 0, "max": 200, "step": 4, "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (desktop)",
+      "min": 0, "max": 200, "step": 4, "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top (mobile)",
+      "min": 0, "max": 120, "step": 4, "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (mobile)",
+      "min": 0, "max": 120, "step": 4, "default": 50
+    },
+    {
+      "type": "range",
+      "id": "side_padding",
+      "label": "Content side padding (px)",
+      "min": 0, "max": 120, "step": 4, "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
       "type": "color",
       "id": "bg_color",
       "label": "Background color",
@@ -126,7 +243,7 @@
     },
     {
       "type": "header",
-      "content": "Content"
+      "content": "Heading"
     },
     {
       "type": "text",
@@ -135,10 +252,102 @@
       "default": "30 Days To Deeper Sleep"
     },
     {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size (desktop, px)",
+      "min": 18, "max": 90, "step": 2, "default": 44
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile, px)",
+      "min": 18, "max": 60, "step": 2, "default": 32
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" },
+        { "value": "900", "label": "Black" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "heading_mb",
+      "label": "Space below heading (px)",
+      "min": 0, "max": 60, "step": 2, "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Description"
+    },
+    {
       "type": "richtext",
       "id": "description",
       "label": "Description",
       "default": "<p>Each serving combines top-tier ingredients to target <strong>Melatonin Production, Relaxation, and Lower Stress Levels</strong> to give you the best sleep of your life in under 30 days.</p>"
+    },
+    {
+      "type": "range",
+      "id": "desc_size",
+      "label": "Description font size (px)",
+      "min": 12, "max": 26, "step": 1, "default": 17
+    },
+    {
+      "type": "range",
+      "id": "desc_mb",
+      "label": "Space below description (px)",
+      "min": 0, "max": 80, "step": 2, "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Benefit grid"
+    },
+    {
+      "type": "select",
+      "id": "grid_cols",
+      "label": "Columns (desktop)",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" },
+        { "value": "3", "label": "3 columns" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Row gap (px)",
+      "min": 8, "max": 80, "step": 2, "default": 36
+    },
+    {
+      "type": "range",
+      "id": "grid_gap_h",
+      "label": "Column gap (px)",
+      "min": 8, "max": 80, "step": 2, "default": 40
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon circle size (px)",
+      "min": 32, "max": 100, "step": 2, "default": 56
+    },
+    {
+      "type": "range",
+      "id": "item_title_size",
+      "label": "Benefit title size (px)",
+      "min": 10, "max": 28, "step": 1, "default": 15
+    },
+    {
+      "type": "range",
+      "id": "item_text_size",
+      "label": "Benefit description size (px)",
+      "min": 10, "max": 22, "step": 1, "default": 15
     },
     {
       "type": "header",
@@ -174,20 +383,38 @@
       "label": "Button 2 link"
     },
     {
+      "type": "range",
+      "id": "btn_mt",
+      "label": "Space above buttons (px)",
+      "min": 0, "max": 80, "step": 2, "default": 40
+    },
+    {
       "type": "header",
       "content": "Colors"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "Heading & title color",
+      "label": "Heading & item title color",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Body text color",
+      "label": "Body & item text color",
       "default": "#ffffffcc"
+    },
+    {
+      "type": "color",
+      "id": "icon_border_color",
+      "label": "Icon circle border color",
+      "default": "#ffffff80"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Icon circle background color",
+      "default": "#ffffff00"
     },
     {
       "type": "color",
@@ -222,7 +449,7 @@
         {
           "type": "select",
           "id": "icon_preset",
-          "label": "Preset icon (if no image uploaded)",
+          "label": "Preset icon",
           "options": [
             { "value": "brain",   "label": "Brain" },
             { "value": "moon",    "label": "Moon" },
@@ -253,38 +480,10 @@
     {
       "name": "Benefits + Image",
       "blocks": [
-        {
-          "type": "benefit",
-          "settings": {
-            "icon_preset": "brain",
-            "title": "Quiet The Mind And Drift Off",
-            "text": "Calms a racing mind so you can fall asleep easily and quickly."
-          }
-        },
-        {
-          "type": "benefit",
-          "settings": {
-            "icon_preset": "moon",
-            "title": "Stay Asleep Until Morning",
-            "text": "Supports your natural rhythm for deep, uninterrupted sleep."
-          }
-        },
-        {
-          "type": "benefit",
-          "settings": {
-            "icon_preset": "no",
-            "title": "No \"Grogginess\"",
-            "text": "No synthetic melatonin to reduce grogginess and fatigue."
-          }
-        },
-        {
-          "type": "benefit",
-          "settings": {
-            "icon_preset": "sparkle",
-            "title": "Tastes Like A Treat",
-            "text": "A rich cocoa blend you'll find delicious, hot or cold."
-          }
-        }
+        { "type": "benefit", "settings": { "icon_preset": "brain",   "title": "Quiet The Mind And Drift Off",  "text": "Calms a racing mind so you can fall asleep easily and quickly." } },
+        { "type": "benefit", "settings": { "icon_preset": "moon",    "title": "Stay Asleep Until Morning",     "text": "Supports your natural rhythm for deep, uninterrupted sleep." } },
+        { "type": "benefit", "settings": { "icon_preset": "no",      "title": "No \"Grogginess\"",             "text": "No synthetic melatonin to reduce grogginess and fatigue." } },
+        { "type": "benefit", "settings": { "icon_preset": "sparkle", "title": "Tastes Like A Treat",          "text": "A rich cocoa blend you'll find delicious, hot or cold." } }
       ]
     }
   ]
