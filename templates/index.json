@@ -463,9 +463,9 @@
         "grid_gap": 36,
         "grid_gap_h": 40,
         "icon_size": 56,
-        "item_title_size": 15,
-        "item_text_size": 15,
-        "product_image": "shopify://shop_images/12_67c728fa-bcd9-4c78-a632-71701c466774.jpg",
+        "item_title_size": 28,
+        "item_text_size": 17,
+        "product_image": "shopify://shop_images/12_67c728fa-bcd9-4c78-a632-71701c466774.png",
         "btn_label": "",
         "btn_url": "",
         "btn2_label": "",
@@ -476,7 +476,7 @@
         "icon_border_color": "#61c2f480",
         "icon_bg_color": "#61c2f414",
         "btn_bg_color": "#ffffff",
-        "btn_text_color": "#263d87",
+        "btn_text_color": "#334fb4",
         "btn2_text_color": "#ffffff"
       }
     },
