@@ -25,7 +25,9 @@
     --pg-pt: {{ section.settings.padding_top }}px;
     --pg-pb: {{ section.settings.padding_bottom }}px;
     --pg-title-size: {{ section.settings.title_size }}px;
+    --pg-title-ls: {{ section.settings.title_letter_spacing | divided_by: 100.0 }}em;
     --pg-subtitle-size: {{ section.settings.subtitle_size }}px;
+    --pg-subtitle-ls: {{ section.settings.subtitle_letter_spacing | divided_by: 100.0 }}em;
     {%- if section.settings.bg_color != blank and section.settings.bg_color != 'rgba(0,0,0,0)' -%}
       --pg-bg: {{ section.settings.bg_color }};
     {%- endif -%}
@@ -219,6 +221,16 @@
     },
     {
       "type": "range",
+      "id": "title_letter_spacing",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": -2,
+      "label": "Title letter spacing",
+      "info": "Values in hundredths of an em (e.g. -2 = -0.02em)"
+    },
+    {
+      "type": "range",
       "id": "subtitle_size",
       "min": 10,
       "max": 24,
@@ -226,6 +238,16 @@
       "unit": "px",
       "default": 13,
       "label": "Subtitle font size"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_letter_spacing",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 10,
+      "label": "Subtitle letter spacing",
+      "info": "Values in hundredths of an em (e.g. 10 = 0.1em)"
     },
     {
       "type": "header",

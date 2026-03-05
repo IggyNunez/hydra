@@ -16,6 +16,7 @@
     --benefits-heading-size: {{ section.settings.heading_size }}px;
     --benefits-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
     --benefits-heading-weight: {{ section.settings.heading_weight }};
+    --benefits-heading-ls: {{ section.settings.heading_letter_spacing | divided_by: 100.0 }}em;
     --benefits-desc-size: {{ section.settings.desc_size }}px;
     --benefits-item-title-size: {{ section.settings.item_title_size }}px;
     --benefits-item-text-size: {{ section.settings.item_text_size }}px;
@@ -52,6 +53,7 @@
         <h2 class="benefits-image__heading" style="
           font-size: var(--benefits-heading-size, 44px);
           font-weight: var(--benefits-heading-weight, 700);
+          letter-spacing: var(--benefits-heading-ls, -0.02em);
           margin-bottom: {{ section.settings.heading_mb }}px;
         ">{{ section.settings.heading }}</h2>
       {%- endif -%}
@@ -282,6 +284,16 @@
       "id": "heading_size_mobile",
       "label": "Heading size (mobile, px)",
       "min": 18, "max": 60, "step": 2, "default": 32
+    },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "label": "Heading letter spacing",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": -2,
+      "info": "Values in hundredths of an em (e.g. -2 = -0.02em)"
     },
     {
       "type": "select",

@@ -83,7 +83,7 @@
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-semi-bold);
   line-height: 1.4;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--pg-subtitle-ls, 0.1em);
   text-transform: uppercase;
   color: var(--pg-subtitle-pill-text, var(--pg-heading-color, #333));
   background: var(--pg-subtitle-pill-bg, rgba(124,77,184,0.08));
@@ -114,7 +114,7 @@
   font-weight: var(--font-weight-bold);
   font-size: var(--pg-title-size, 48px);
   line-height: 1.1;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--pg-title-ls, -0.025em);
   color: var(--pg-heading-color, #0f0f0f);
 }
 

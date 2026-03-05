@@ -70,6 +70,7 @@
           style="
             font-size: {{ section.settings.heading_size }}px;
             font-weight: {{ section.settings.heading_weight }};
+            letter-spacing: {{ section.settings.heading_letter_spacing | divided_by: 100.0 }}em;
             margin-bottom: {{ section.settings.heading_mb }}px;
           "
         >{{ section.settings.heading }}</h2>
@@ -321,6 +322,16 @@
       "step": 1,
       "unit": "px",
       "default": 44
+    },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "label": "Heading letter spacing",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": -2,
+      "info": "Values in hundredths of an em (e.g. -2 = -0.02em)"
     },
     {
       "type": "select",
