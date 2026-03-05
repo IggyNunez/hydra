@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════
    Product Grid — Animation Engine
-   GSAP + ScrollTrigger + 3D Tilt + Magnetic Cursor
+   GSAP + ScrollTrigger + Magnetic Cursor + Parallax
    ═══════════════════════════════════════════════════ */
 
 (function () {
@@ -28,6 +28,9 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     sections.forEach(function (section) {
+      /* Mark section so CSS fallback animations are disabled */
+      section.classList.add('gsap-loaded');
+
       var tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -36,19 +39,19 @@
         }
       });
 
-      /* Floating particles */
+      /* Floating particles — gentle drift with GSAP */
       var particles = section.querySelectorAll('.pg-particle');
       if (particles.length) {
         particles.forEach(function (p) {
           gsap.to(p, {
-            y: 'random(-30, 30)',
-            x: 'random(-20, 20)',
-            rotation: 'random(-15, 15)',
-            duration: 'random(3, 6)',
+            y: 'random(-40, 40)',
+            x: 'random(-30, 30)',
+            rotation: 'random(-20, 20)',
+            duration: 'random(4, 8)',
             repeat: -1,
             yoyo: true,
             ease: 'sine.inOut',
-            delay: 'random(0, 2)'
+            delay: 'random(0, 3)'
           });
         });
       }
@@ -65,7 +68,7 @@
         });
       }
 
-      /* Title — split text reveal with clip */
+      /* Title — scale reveal */
       var title = section.querySelector('.product-grid__title');
       if (title) {
         tl.from(title, {
@@ -98,14 +101,13 @@
         }, '-=0.3');
       }
 
-      /* Product cards — staggered with rotation */
+      /* Product cards — staggered entrance (no tilt) */
       var cards = section.querySelectorAll('.product-grid__item');
       if (cards.length) {
         tl.from(cards, {
           y: 60,
           opacity: 0,
           scale: 0.92,
-          rotationY: 8,
           duration: 0.7,
           stagger: {
             each: 0.1,
@@ -129,41 +131,21 @@
   }
 
   /* ═══════════════════════
-     3D Tilt Effect
+     Cursor Glow on Cards
      ═══════════════════════ */
-  function init3DTilt() {
+  function initCursorGlow() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (window.matchMedia('(max-width: 749px)').matches) return;
 
     var cards = document.querySelectorAll('.product-grid__item');
 
     cards.forEach(function (card) {
-      var inner = card.querySelector('.card-wrapper') || card.querySelector('.card');
-      if (!inner) inner = card;
-
       card.addEventListener('mousemove', function (e) {
-        var rect = card.getBoundingClientRect();
-        var x = e.clientX - rect.left;
-        var y = e.clientY - rect.top;
-        var centerX = rect.width / 2;
-        var centerY = rect.height / 2;
-
-        var rotateX = ((y - centerY) / centerY) * -6;
-        var rotateY = ((x - centerX) / centerX) * 6;
-
-        gsap.to(inner, {
-          rotationX: rotateX,
-          rotationY: rotateY,
-          transformPerspective: 800,
-          duration: 0.4,
-          ease: 'power2.out'
-        });
-
-        /* Move glow overlay */
         var glow = card.querySelector('.pg-card-glow');
         if (glow) {
-          var pctX = (x / rect.width) * 100;
-          var pctY = (y / rect.height) * 100;
+          var rect = card.getBoundingClientRect();
+          var pctX = ((e.clientX - rect.left) / rect.width) * 100;
+          var pctY = ((e.clientY - rect.top) / rect.height) * 100;
           glow.style.background =
             'radial-gradient(circle at ' + pctX + '% ' + pctY +
             '%, rgba(255,255,255,0.15) 0%, transparent 60%)';
@@ -171,13 +153,6 @@
       });
 
       card.addEventListener('mouseleave', function () {
-        gsap.to(inner, {
-          rotationX: 0,
-          rotationY: 0,
-          duration: 0.6,
-          ease: 'elastic.out(1, 0.5)'
-        });
-
         var glow = card.querySelector('.pg-card-glow');
         if (glow) {
           glow.style.background = 'transparent';
@@ -290,16 +265,19 @@
       var container = grid.querySelector('.pg-particles');
       if (!container) return;
 
-      for (var i = 0; i < 6; i++) {
+      /* Clear any existing particles (Shopify customizer reload) */
+      container.innerHTML = '';
+
+      for (var i = 0; i < 12; i++) {
         var particle = document.createElement('span');
         particle.className = 'pg-particle';
+        var size = Math.random() * 18 + 8;  /* 8–26px — much more visible */
         particle.style.cssText =
-          'left:' + (Math.random() * 90 + 5) + '%;' +
-          'top:' + (Math.random() * 80 + 10) + '%;' +
-          'width:' + (Math.random() * 6 + 3) + 'px;' +
-          'height:' + (Math.random() * 6 + 3) + 'px;' +
-          'opacity:' + (Math.random() * 0.3 + 0.1) + ';' +
-          'animation-delay:' + (Math.random() * 3) + 's;';
+          'left:' + (Math.random() * 85 + 5) + '%;' +
+          'top:' + (Math.random() * 75 + 10) + '%;' +
+          'width:' + size + 'px;' +
+          'height:' + size + 'px;' +
+          'opacity:' + (Math.random() * 0.35 + 0.15) + ';';
         container.appendChild(particle);
       }
     });
@@ -324,7 +302,7 @@
 
     waitForGSAP(function () {
       initGSAP();
-      init3DTilt();
+      initCursorGlow();
       initMagneticButtons();
       initImageParallax();
     });

@@ -40,9 +40,12 @@
       --pg-subtitle-pill-bg: {{ section.settings.accent_color | color_modify: 'alpha', 0.08 }};
       --pg-subtitle-pill-border: {{ section.settings.accent_color | color_modify: 'alpha', 0.15 }};
       --pg-glow-1: {{ section.settings.accent_color | color_modify: 'alpha', 0.3 }};
-      --pg-particle-color: {{ section.settings.accent_color | color_modify: 'alpha', 0.25 }};
+      --pg-particle-color: {{ section.settings.accent_color | color_modify: 'alpha', 0.35 }};
       --pg-btn-bg-1: {{ section.settings.accent_color }};
       --pg-btn-bg-2: {{ section.settings.accent_color | color_darken: 15 }};
+      --pg-mesh-1: {{ section.settings.accent_color | color_modify: 'alpha', 0.2 }};
+      --pg-mesh-2: {{ section.settings.accent_color | color_modify: 'alpha', 0.15 | color_lighten: 20 }};
+      --pg-mesh-3: {{ section.settings.accent_color | color_modify: 'alpha', 0.12 | color_lighten: 40 }};
     {%- endif -%}
     {%- if section.settings.show_bg_mesh -%}
       --pg-mesh-opacity: 1;
