@@ -222,19 +222,20 @@
   color: var(--ing-protip-text, #2d1a56);
 }
 
-/* ── Mobile ── */
+/* ── Tablet ── */
 @media (max-width: 1024px) {
   .ingredients-grid__container {
     padding: 0 28px;
   }
 
+  /* Force stack regardless of inline style */
   .ingredients-grid__layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 32px 0;
   }
 
   .ingredients-grid__taste {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
 
   .taste-card {
@@ -247,14 +248,24 @@
   }
 }
 
+/* ── Mobile ── */
 @media (max-width: 700px) {
   .ingredients-grid {
-    padding: 50px 0 60px;
+    padding: 48px 0 56px;
+  }
+
+  .ingredients-grid__container {
+    padding: 0 20px;
+  }
+
+  .ingredients-grid__heading {
+    font-size: clamp(26px, 7vw, 36px);
+    text-align: center;
   }
 
   .ingredients-grid__cards {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
 
   .ingredients-grid__cards .ingredient-card:last-child:nth-child(odd) {
@@ -262,27 +273,59 @@
   }
 
   .ingredient-card {
-    grid-template-columns: 90px 1fr;
+    grid-template-columns: 80px 1fr !important;
     gap: 0 14px;
+    padding: 16px;
   }
 
   .ingredient-card__image-wrap {
-    width: 90px;
-    height: 90px;
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .ingredient-card__name {
+    font-size: clamp(15px, 4vw, 19px);
+    margin-bottom: 6px;
+  }
+
+  .ingredient-card__desc {
+    font-size: 13px;
   }
 
   .taste-card {
     grid-template-columns: 1fr;
     padding: 24px 20px 0;
+    gap: 0;
+  }
+
+  .taste-card__left {
+    padding-bottom: 0;
   }
 
   .taste-card__pro-tip {
     margin-bottom: 0;
     margin-top: 16px;
     border-radius: 10px;
+    padding: 14px 16px;
   }
 
-  .taste-card__left {
-    padding-bottom: 0;
+  .taste-card__title {
+    font-size: clamp(17px, 5vw, 22px);
+  }
+
+  .taste-card__desc {
+    font-size: 13px;
+  }
+}
+
+/* ── Small mobile ── */
+@media (max-width: 400px) {
+  .ingredient-card {
+    grid-template-columns: 70px 1fr !important;
+  }
+
+  .ingredient-card__image-wrap {
+    width: 70px !important;
+    height: 70px !important;
   }
 }

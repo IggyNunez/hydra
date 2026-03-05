@@ -3,7 +3,19 @@
     "allow": [
       "Bash(git init)",
       "Bash(git remote add origin https://github.com/IggyNunez/hydra.git)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git push -u origin master)",
+      "Bash(git add sections/benefits-image.liquid assets/benefits-image.css)",
+      "Bash(git push)",
+      "Bash(git add sections/ingredients-grid.liquid assets/ingredients-grid.css)",
+      "Bash(git add sections/vs-comparison.liquid assets/vs-comparison.css)",
+      "Bash(git add sections/ingredients-grid.liquid sections/vs-comparison.liquid sections/benefits-image.liquid)",
+      "Bash(git push origin master)",
+      "Bash(git add assets/hero-cta.css sections/hero-cta.liquid)",
+      "WebFetch(domain:thehydrashop.com)",
+      "Bash(git add sections/hero-cta.liquid sections/benefits-image.liquid sections/ingredients-grid.liquid sections/vs-comparison.liquid)",
+      "Bash(git add sections/benefits-image.liquid sections/hero-cta.liquid sections/ingredients-grid.liquid sections/vs-comparison.liquid)",
+      "Bash(git add sections/hero-cta.liquid sections/hero-banner.liquid assets/hero-cta.css assets/hero-banner.css)"
     ]
   }
 }

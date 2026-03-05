@@ -59,7 +59,7 @@
       {%- endif -%}
 
       {%- if section.blocks.size > 0 -%}
-        <div class="benefits-image__grid" style="
+        <div class="benefits-image__grid{% if section.settings.mobile_grid_cols == '1' %} benefits-image__grid--mobile-1col{% endif %}" style="
           grid-template-columns: repeat({{ section.settings.grid_cols }}, 1fr);
           gap: {{ section.settings.grid_gap }}px {{ section.settings.grid_gap_h }}px;
         ">
@@ -316,6 +316,16 @@
         { "value": "1", "label": "1 column" },
         { "value": "2", "label": "2 columns" },
         { "value": "3", "label": "3 columns" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "mobile_grid_cols",
+      "label": "Columns (mobile)",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
       ],
       "default": "2"
     },

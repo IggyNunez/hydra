@@ -214,7 +214,7 @@
   color: var(--vs-btn-text, #fff);
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-bold);
-  font-size: clamp(14px, 1.1vw, 17px);
+  font-size: var(--vs-btn-size, clamp(14px, 1.1vw, 17px));
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
@@ -294,21 +294,43 @@
     width: 340px;
     height: 340px;
   }
+
+  .vs-table {
+    max-width: 100%;
+  }
+
+  .vs-comparison__cta {
+    max-width: 100%;
+  }
 }
 
 /* ── Mobile ── */
 @media (max-width: 600px) {
   .vs-comparison {
-    padding: 50px 0 60px;
+    padding: 48px 0 56px;
   }
 
   .vs-comparison__inner {
     padding: 0 16px;
+    gap: 28px 0;
+  }
+
+  .vs-comparison__heading {
+    font-size: clamp(24px, 7vw, 36px);
+    margin-bottom: 20px;
   }
 
   .vs-table__header,
   .vs-table__row {
     grid-template-columns: 52px 1fr 52px;
+  }
+
+  .vs-table__header {
+    padding: 16px 12px 12px;
+  }
+
+  .vs-table__row {
+    min-height: 54px;
   }
 
   .vs-table__check-icon,
@@ -323,14 +345,52 @@
     height: 14px;
   }
 
-  .vs-comparison__right {
-    width: 100%;
-    max-width: 300px;
+  .vs-table__feature {
+    font-size: 13px;
+    padding: 12px 6px;
   }
 
-  .vs-comparison__right--placeholder {
-    width: 100%;
-    max-width: 300px;
-    height: 260px;
+  .vs-table__vs-pill {
+    font-size: 15px;
+    padding: 6px 14px;
+  }
+
+  .vs-comparison__btn {
+    padding: 15px 24px;
+    font-size: 14px;
+  }
+
+  /* Hide product image on small mobile — table is the hero */
+  .vs-comparison__right {
+    display: none;
+  }
+}
+
+/* ── Small mobile ── */
+@media (max-width: 400px) {
+  .vs-comparison__inner {
+    padding: 0 12px;
+  }
+
+  .vs-table__header,
+  .vs-table__row {
+    grid-template-columns: 44px 1fr 44px;
+  }
+
+  .vs-table__check-icon,
+  .vs-table__cross-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .vs-table__check-icon svg,
+  .vs-table__cross-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .vs-table__feature {
+    font-size: 12px;
+    padding: 10px 4px;
   }
 }
