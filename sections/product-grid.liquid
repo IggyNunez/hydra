@@ -25,6 +25,7 @@
     --pg-pt: {{ section.settings.padding_top }}px;
     --pg-pb: {{ section.settings.padding_bottom }}px;
     --pg-title-size: {{ section.settings.title_size }}px;
+    --pg-title-size-mobile: {{ section.settings.title_size_mobile }}px;
     --pg-title-ls: {{ section.settings.title_letter_spacing | divided_by: 100.0 }}em;
     --pg-subtitle-size: {{ section.settings.subtitle_size }}px;
     --pg-subtitle-ls: {{ section.settings.subtitle_letter_spacing | divided_by: 100.0 }}em;
@@ -218,7 +219,17 @@
       "step": 2,
       "unit": "px",
       "default": 48,
-      "label": "Title font size"
+      "label": "Title font size (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "min": 18,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 28,
+      "label": "Title font size (mobile)"
     },
     {
       "type": "range",

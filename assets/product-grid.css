@@ -502,7 +502,7 @@
   }
 
   .product-grid__title {
-    font-size: clamp(26px, 7.5vw, calc(var(--pg-title-size, 48px) * 0.65));
+    font-size: var(--pg-title-size-mobile, 28px);
     letter-spacing: -0.02em;
   }
 
@@ -532,6 +532,48 @@
     max-width: 320px;
   }
 
+  /* ── Mobile card layout fixes ── */
+  /* Stack card info vertically instead of side-by-side */
+  .product-grid__items .card--pdp .card--standard > .card__content .card__information {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    padding-top: 14px;
+    padding-bottom: 10px;
+  }
+
+  /* Let heading take full width on mobile */
+  .product-grid__items .card--pdp .card__heading {
+    max-width: 100%;
+  }
+
+  /* Scale down card heading font for narrow columns */
+  .product-grid__items .card--pdp .card__heading,
+  .product-grid__items .card--pdp .card__heading * {
+    font-size: clamp(11px, 3.2vw, 16px);
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+  }
+
+  /* Price pill: smaller + inline */
+  .product-grid__items .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) {
+    padding: 7px 12px;
+    border-radius: 10px;
+  }
+
+  .product-grid__items .card--pdp .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) *,
+  .product-grid__items .card--pdp .price {
+    font-size: clamp(11px, 2.8vw, 14px);
+  }
+
+  /* Quick-add button: full width, compact */
+  .product-grid__items .quick-add .button,
+  .product-grid__items .quick-add button {
+    font-size: clamp(10px, 2.5vw, 13px);
+    padding: 8px 10px;
+    letter-spacing: 0.3px;
+  }
+
   /* Disable 3D effects on mobile */
   .pg-card-glow,
   .pg-card-index {
@@ -556,6 +598,18 @@
 
   .product-grid__items {
     gap: 10px;
+  }
+
+  /* Tighten card info on very small screens */
+  .product-grid__items .card--pdp .card--standard > .card__content .card__information {
+    padding-top: 10px;
+    padding-bottom: 8px;
+    gap: 6px;
+  }
+
+  .product-grid__items .card--pdp .card__heading,
+  .product-grid__items .card--pdp .card__heading * {
+    font-size: clamp(10px, 3vw, 14px);
   }
 }
 
