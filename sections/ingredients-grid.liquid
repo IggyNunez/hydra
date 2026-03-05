@@ -12,6 +12,16 @@
     --ing-protip-bg: {{ section.settings.protip_bg_color }};
     --ing-protip-label-bg: {{ section.settings.protip_label_bg }};
     --ing-protip-text: {{ section.settings.protip_text_color }};
+    --ing-card-cols: {{ section.settings.card_cols }};
+    --ing-card-gap-v: {{ section.settings.card_gap_v }}px;
+    --ing-card-gap-h: {{ section.settings.card_gap_h }}px;
+    --ing-img-size: {{ section.settings.img_size }}px;
+    --ing-card-inner-gap: {{ section.settings.card_inner_gap }}px;
+    --ing-layout-cols: {{ section.settings.heading_col_width }}px 1fr;
+    --ing-layout-gap: {{ section.settings.layout_gap }}px;
+    --ing-taste-ml: calc({{ section.settings.heading_col_width }}px + {{ section.settings.layout_gap }}px);
+    --ing-side-pad: {{ section.settings.side_padding }}px;
+    --ing-max-width: {{ section.settings.content_max_width }}px;
   }
 {% endstyle %}
 
@@ -28,16 +38,10 @@
 >
   <div
     class="ingredients-grid__container"
-    style="
-      max-width: {{ section.settings.content_max_width }}px;
-      padding-left: {{ section.settings.side_padding }}px;
-      padding-right: {{ section.settings.side_padding }}px;
-    "
   >
 
     <div
       class="ingredients-grid__layout"
-      style="grid-template-columns: {{ section.settings.heading_col_width }}px 1fr; gap: 0 {{ section.settings.layout_gap }}px;"
     >
 
       {%- comment -%} Sticky heading left {%- endcomment -%}
@@ -68,10 +72,6 @@
       {%- comment -%} Ingredient cards grid {%- endcomment -%}
       <div
         class="ingredients-grid__cards"
-        style="
-          grid-template-columns: repeat({{ section.settings.card_cols }}, 1fr);
-          gap: {{ section.settings.card_gap_v }}px {{ section.settings.card_gap_h }}px;
-        "
       >
         {%- for block in ingredient_blocks -%}
           <div
@@ -79,19 +79,13 @@
             style="
               padding: {{ section.settings.card_padding }}px;
               border-radius: {{ section.settings.card_radius }}px;
-              grid-template-columns: {{ section.settings.img_size }}px 1fr;
-              gap: 0 {{ section.settings.card_inner_gap }}px;
             "
             {{ block.shopify_attributes }}
           >
 
             <div
               class="ingredient-card__image-wrap{% if block.settings.image == blank %} ingredient-card__image-wrap--placeholder{% endif %}"
-              style="
-                width: {{ section.settings.img_size }}px;
-                height: {{ section.settings.img_size }}px;
-                border-radius: {{ section.settings.img_radius }}px;
-              "
+              style="border-radius: {{ section.settings.img_radius }}px;"
             >
               {%- if block.settings.image != blank -%}
                 <img
@@ -151,10 +145,7 @@
     {%- if show_taste -%}
       <div
         class="ingredients-grid__taste"
-        style="
-          margin-top: {{ section.settings.taste_mt }}px;
-          margin-left: calc({{ section.settings.heading_col_width }}px + {{ section.settings.layout_gap }}px);
-        "
+        style="margin-top: {{ section.settings.taste_mt }}px;"
       >
         <div
           class="taste-card"

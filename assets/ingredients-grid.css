@@ -4,17 +4,17 @@
 }
 
 .ingredients-grid__container {
-  max-width: 1346px;
+  max-width: var(--ing-max-width, 1346px);
   width: 100%;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 0 var(--ing-side-pad, 60px);
 }
 
 /* ── Top row: heading left + cards right ── */
 .ingredients-grid__layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 0 60px;
+  grid-template-columns: var(--ing-layout-cols, 280px 1fr);
+  gap: 0 var(--ing-layout-gap, 60px);
   align-items: start;
 }
 
@@ -34,8 +34,8 @@
 /* ── Cards grid ── */
 .ingredients-grid__cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(var(--ing-card-cols, 2), 1fr);
+  gap: var(--ing-card-gap-v, 20px) var(--ing-card-gap-h, 20px);
 }
 
 /* odd card count: last card in its own row left-aligned */
@@ -49,14 +49,14 @@
   border-radius: 12px;
   padding: 20px;
   display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 0 18px;
+  grid-template-columns: var(--ing-img-size, 110px) 1fr;
+  gap: 0 var(--ing-card-inner-gap, 18px);
   align-items: start;
 }
 
 .ingredient-card__image-wrap {
-  width: 110px;
-  height: 110px;
+  width: var(--ing-img-size, 110px);
+  height: var(--ing-img-size, 110px);
   border-radius: 8px;
   overflow: hidden;
   background: rgba(255,255,255,0.1);
@@ -134,7 +134,7 @@
 .ingredients-grid__taste {
   margin-top: 32px;
   /* aligns under the cards column */
-  margin-left: calc(280px + 60px);
+  margin-left: var(--ing-taste-ml, calc(280px + 60px));
 }
 
 .taste-card {
@@ -225,17 +225,17 @@
 /* ── Tablet ── */
 @media (max-width: 1024px) {
   .ingredients-grid__container {
-    padding: 0 28px;
+    --ing-side-pad: 28px;
   }
 
-  /* Force stack regardless of inline style */
   .ingredients-grid__layout {
-    grid-template-columns: 1fr !important;
+    --ing-layout-cols: 1fr;
+    --ing-layout-gap: 0px;
     gap: 32px 0;
   }
 
   .ingredients-grid__taste {
-    margin-left: 0 !important;
+    --ing-taste-ml: 0px;
   }
 
   .taste-card {
@@ -255,7 +255,7 @@
   }
 
   .ingredients-grid__container {
-    padding: 0 20px;
+    --ing-side-pad: 20px;
   }
 
   .ingredients-grid__heading {
@@ -263,9 +263,11 @@
     text-align: center;
   }
 
+  /* Override card cols + image size via CSS vars — no !important needed */
   .ingredients-grid__cards {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    --ing-card-cols: 1;
+    --ing-card-gap-v: 14px;
+    --ing-card-gap-h: 14px;
   }
 
   .ingredients-grid__cards .ingredient-card:last-child:nth-child(odd) {
@@ -273,14 +275,9 @@
   }
 
   .ingredient-card {
-    grid-template-columns: 80px 1fr !important;
-    gap: 0 14px;
+    --ing-img-size: 80px;
+    --ing-card-inner-gap: 14px;
     padding: 16px;
-  }
-
-  .ingredient-card__image-wrap {
-    width: 80px !important;
-    height: 80px !important;
   }
 
   .ingredient-card__name {
@@ -321,11 +318,6 @@
 /* ── Small mobile ── */
 @media (max-width: 400px) {
   .ingredient-card {
-    grid-template-columns: 70px 1fr !important;
-  }
-
-  .ingredient-card__image-wrap {
-    width: 70px !important;
-    height: 70px !important;
+    --ing-img-size: 70px;
   }
 }
