@@ -77,6 +77,86 @@
         "btn_scroll_2": true
       }
     },
+    "hero_cta_jjdVH6": {
+      "type": "hero-cta",
+      "blocks": {
+        "mini_feature_UypLpU": {
+          "type": "mini_feature",
+          "settings": {
+            "icon_preset": "no-sugar",
+            "label": "No Added Sugar"
+          }
+        },
+        "mini_feature_Tk3aBy": {
+          "type": "mini_feature",
+          "settings": {
+            "icon_preset": "leaf",
+            "label": "Vegan Formula"
+          }
+        },
+        "mini_feature_PeQfUk": {
+          "type": "mini_feature",
+          "settings": {
+            "icon_preset": "check",
+            "label": "Non-GMO Certified"
+          }
+        }
+      },
+      "block_order": [
+        "mini_feature_UypLpU",
+        "mini_feature_Tk3aBy",
+        "mini_feature_PeQfUk"
+      ],
+      "name": "Hero CTA — Full Width",
+      "settings": {
+        "layout": "image-bg",
+        "content_alignment": "left",
+        "min_height": 520,
+        "content_max_width": 1340,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "side_padding": 60,
+        "side_padding_mobile": 20,
+        "bg_color": "#263d87",
+        "overlay_enable": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "show_stars": true,
+        "stars_label": "4.9 from 2500+ Hydrated Fans",
+        "star_color": "#61c2f4",
+        "star_label_color": "#61c2f4",
+        "eyebrow": "",
+        "eyebrow_size": 13,
+        "eyebrow_color": "#ffffffb3",
+        "heading": "Hydration That Actually Works",
+        "heading_size": 58,
+        "heading_size_mobile": 36,
+        "heading_weight": "700",
+        "heading_margin_bottom": 20,
+        "heading_color": "#ffffff",
+        "description": "<p>Electrolyte Freeze Pops & Drops formulated for function. Over 200mg electrolytes per serving with no added sugar, no artificial sweeteners, and no dyes.</p>",
+        "sub_text": "",
+        "desc_size": 16,
+        "desc_margin_bottom": 24,
+        "desc_max_width": 560,
+        "desc_color": "#ffffffd9",
+        "mini_feature_color": "#ffffffe6",
+        "mini_icon_color": "#ffffffb3",
+        "btn_label": "Shop Now",
+        "btn_url": "",
+        "btn_show_arrow": true,
+        "btn_bg": "#61c2f4",
+        "btn_text_color": "#263d87",
+        "btn2_label": "",
+        "btn2_url": "",
+        "btn2_text_color": "#ffffff",
+        "guarantee_text": "Free shipping on orders over $50.",
+        "guarantee_color": "#ffffffb3",
+        "image_max_height": 600
+      }
+    },
     "marquee_slider_kEUnWm": {
       "type": "marquee-slider",
       "blocks": {
@@ -304,216 +384,299 @@
         "title": "Tried, tested, and loved"
       }
     },
-    "benefits_image_cbj96Y": {
+    "benefits_image_BnwnTe": {
       "type": "benefits-image",
       "blocks": {
-        "benefit_9DJQ9F": {
-          "type": "benefit",
-          "settings": {
-            "icon_preset": "brain",
-            "title": "Quiet The Mind And Drift Off",
-            "text": "Calms a racing mind so you can fall asleep easily and quickly."
-          }
-        },
-        "benefit_3UBizE": {
-          "type": "benefit",
-          "settings": {
-            "icon_preset": "moon",
-            "title": "Stay Asleep Until Morning",
-            "text": "Supports your natural rhythm for deep, uninterrupted sleep."
-          }
-        },
-        "benefit_q4xw46": {
+        "benefit_JADtT8": {
           "type": "benefit",
           "settings": {
             "icon_preset": "no",
-            "title": "No \"Grogginess\"",
-            "text": "No synthetic melatonin to reduce grogginess and fatigue."
+            "title": "No Added Sugar",
+            "text": "Formulated with zero added sugar and no artificial sweeteners."
           }
         },
-        "benefit_emzXVX": {
+        "benefit_WhEtRk": {
+          "type": "benefit",
+          "settings": {
+            "icon_preset": "leaf",
+            "title": "Vegan & Non-GMO",
+            "text": "Clean ingredients you can trust — vegan, gluten-free, and Non-GMO certified."
+          }
+        },
+        "benefit_pFp3VK": {
           "type": "benefit",
           "settings": {
             "icon_preset": "sparkle",
-            "title": "Tastes Like A Treat",
-            "text": "A rich cocoa blend you'll find delicious, hot or cold."
+            "title": "200mg+ Electrolytes",
+            "text": "Over 200mg of electrolytes per serving to keep you performing at your best."
+          }
+        },
+        "benefit_qVBH6L": {
+          "type": "benefit",
+          "settings": {
+            "icon_preset": "check",
+            "title": "No Artificial Dyes",
+            "text": "No dyes, no junk. Just clean, effective hydration in every pop or drop."
           }
         }
       },
       "block_order": [
-        "benefit_9DJQ9F",
-        "benefit_3UBizE",
-        "benefit_q4xw46",
-        "benefit_emzXVX"
+        "benefit_JADtT8",
+        "benefit_WhEtRk",
+        "benefit_pFp3VK",
+        "benefit_qVBH6L"
       ],
       "name": "Benefits + Image",
       "settings": {
-        "bg_color": "#61c2f4",
-        "heading": "30 Days To Deeper Sleep",
-        "description": "<p>Each serving combines top-tier ingredients to target <strong>Melatonin Production, Relaxation, and Lower Stress Levels</strong> to give you the best sleep of your life in under 30 days.</p>",
-        "product_image": "shopify://shop_images/10copy.jpg",
+        "layout": "image_right",
+        "content_alignment": "left",
+        "image_position": "center top",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "side_padding": 60,
+        "bg_color": "#263d87",
+        "heading": "Why Hydra Works",
+        "heading_size": 44,
+        "heading_size_mobile": 32,
+        "heading_weight": "700",
+        "heading_mb": 20,
+        "description": "<p>Over 200mg of electrolytes per serving. No added sugar, no artificial sweeteners, no dyes. Just pure hydration in a formula you can feel good about.</p>",
+        "desc_size": 17,
+        "desc_mb": 40,
+        "grid_cols": "2",
+        "grid_gap": 36,
+        "grid_gap_h": 40,
+        "icon_size": 56,
+        "item_title_size": 15,
+        "item_text_size": 15,
         "btn_label": "",
         "btn_url": "",
         "btn2_label": "",
         "btn2_url": "",
+        "btn_mt": 40,
         "heading_color": "#ffffff",
-        "text_color": "#f3f3f3",
+        "text_color": "#ffffffcc",
+        "icon_border_color": "#61c2f480",
+        "icon_bg_color": "#61c2f414",
         "btn_bg_color": "#ffffff",
-        "btn_text_color": "#5b2d8e",
+        "btn_text_color": "#263D87",
         "btn2_text_color": "#ffffff"
       }
     },
-    "ingredients_grid_xN8NiF": {
+    "ingredients_grid_B7qxAt": {
       "type": "ingredients-grid",
       "blocks": {
-        "ingredient_zmWBKc": {
+        "ingredient_HJDaJC": {
           "type": "ingredient",
           "settings": {
-            "name": "Tart Cherry",
-            "badge": "Natural melatonin boost",
-            "description": "Supports natural melatonin production, helping you fall asleep faster and stay asleep longer without synthetic hormones."
+            "name": "Sea Minerals",
+            "badge": "Full spectrum electrolytes",
+            "description": "Sourced from pristine sea water, our sea mineral blend delivers a complete profile of electrolytes your body actually uses."
           }
         },
-        "ingredient_tRXzrN": {
+        "ingredient_Ymi6JR": {
           "type": "ingredient",
           "settings": {
-            "name": "Magnesium Glycinate",
-            "badge": "Promotes lower stress",
-            "description": "Targets stress, anxiety, and inflammation, helping you unlock the deepest, most restorative phases of sleep every night."
+            "name": "Sodium",
+            "badge": "Hydration & muscle function",
+            "description": "The primary electrolyte lost in sweat. Sodium drives fluid balance and keeps muscles firing at full capacity."
           }
         },
-        "ingredient_GXByWL": {
+        "ingredient_pmPaML": {
           "type": "ingredient",
           "settings": {
-            "name": "Theobroma Cacao",
-            "badge": "Euphoric relaxation state",
-            "description": "Premium cocoa that promotes euphoric relaxation and blissful sleep that leaves you feeling fully refreshed."
+            "name": "Potassium",
+            "badge": "Reduces cramps",
+            "description": "Works alongside sodium to maintain cellular hydration, reduce muscle cramps, and support nerve signaling."
           }
         },
-        "ingredient_i4xFUF": {
+        "ingredient_N4BHMa": {
           "type": "ingredient",
           "settings": {
-            "name": "Fermented L-Theanine",
-            "badge": "Calms racing thoughts",
-            "description": "Pulls the plug on a racing mind and mental overwhelm, creating perfect conditions for natural sleep."
+            "name": "Magnesium",
+            "badge": "Energy & recovery",
+            "description": "Essential for energy production and muscle recovery. Most people don't get enough from diet alone."
           }
         },
-        "ingredient_iEae44": {
+        "ingredient_4EeCTz": {
           "type": "ingredient",
           "settings": {
-            "name": "GABA",
-            "badge": "Quiets mental chatter",
-            "description": "Your brain's natural \"off switch\". This neurotransmitter helps quiet mental chatter and ease you into sleep."
+            "name": "Vitamin C",
+            "badge": "Immune support",
+            "description": "Added antioxidant protection to support your immune system and help your body recover faster."
           }
         }
       },
       "block_order": [
-        "ingredient_zmWBKc",
-        "ingredient_tRXzrN",
-        "ingredient_GXByWL",
-        "ingredient_i4xFUF",
-        "ingredient_iEae44"
+        "ingredient_HJDaJC",
+        "ingredient_Ymi6JR",
+        "ingredient_pmPaML",
+        "ingredient_N4BHMa",
+        "ingredient_4EeCTz"
       ],
       "name": "Ingredients Grid",
       "settings": {
-        "heading": "Carefully-Selected Ingredients:",
-        "taste_title": "What does it taste like?",
-        "taste_desc": "Our customers describe it as a rich, cozy chocolate. Not too sweet and no weird aftertaste.",
+        "padding_top": 80,
+        "padding_bottom": 88,
+        "side_padding": 60,
+        "content_max_width": 1340,
+        "heading_col_width": 280,
+        "layout_gap": 60,
+        "heading": "What's Inside Every Pop & Drop:",
+        "heading_size": 40,
+        "heading_weight": "700",
+        "heading_mb": 0,
+        "subheading": "",
+        "subheading_size": 15,
+        "card_cols": "2",
+        "card_gap_v": 20,
+        "card_gap_h": 20,
+        "card_padding": 20,
+        "card_radius": 12,
+        "img_size": 108,
+        "img_radius": 8,
+        "card_inner_gap": 18,
+        "card_name_size": 20,
+        "card_name_mb": 10,
+        "badge_size": 12,
+        "badge_mb": 12,
+        "card_desc_size": 14,
+        "show_taste_icon": true,
+        "taste_title": "What do they taste like?",
+        "taste_title_size": 22,
+        "taste_title_mb": 10,
+        "taste_desc": "Our pops come in Apple, Strawberry, and Lime — bright, refreshing flavors with zero artificial sweeteners or aftertaste.",
+        "taste_desc_size": 14,
+        "taste_img_height": 176,
+        "taste_mt": 32,
+        "taste_radius": 14,
+        "taste_padding": 28,
         "protip_label": "Pro Tip:",
-        "protip_text": "Many customers like to add cinnamon, vanilla, or peppermint. Your order includes a collection of simple, sleep-friendly recipes to try.",
-        "bg_color": "#61c2f4",
+        "protip_label_size": 13,
+        "protip_text": "Try adding Hydra Drops to any cold drink — sparkling water, lemonade, or straight from the bottle. A few drops go a long way.",
+        "protip_text_size": 13,
+        "protip_radius": 10,
+        "protip_padding": 18,
+        "bg_color": "#263D87",
         "heading_color": "#ffffff",
         "text_color": "#ffffffcc",
         "card_bg_color": "#ffffff14",
-        "badge_bg_color": "#ffffff26",
+        "badge_bg_color": "#61c2f426",
         "badge_text_color": "#ffffff",
         "taste_bg_color": "#ffffff1f",
         "protip_bg_color": "#ffffffe6",
-        "protip_label_bg": "#263d87",
-        "protip_text_color": "#2d1a56"
+        "protip_label_bg": "#263D87",
+        "protip_text_color": "#1a2d6e"
       }
     },
-    "vs_comparison_WfQD3B": {
+    "vs_comparison_LBpmCJ": {
       "type": "vs-comparison",
       "blocks": {
-        "row_exJdb9": {
+        "row_T3aPBY": {
           "type": "row",
           "settings": {
-            "feature": "Zero Melatonin",
+            "feature": "No Added Sugar",
             "we_have_it": true,
             "they_have_it": false
           }
         },
-        "row_GUWPTd": {
+        "row_ccTGCM": {
           "type": "row",
           "settings": {
-            "feature": "USA-Made",
+            "feature": "No Artificial Sweeteners",
             "we_have_it": true,
             "they_have_it": false
           }
         },
-        "row_ApGK7b": {
+        "row_pjiEHR": {
           "type": "row",
           "settings": {
-            "feature": "Wake Up Refreshed, Not Groggy",
+            "feature": "No Artificial Dyes",
             "we_have_it": true,
             "they_have_it": false
           }
         },
-        "row_EDbgqQ": {
+        "row_Qyi8VN": {
           "type": "row",
           "settings": {
-            "feature": "Free-From Sugar And Artificial Sweeteners",
+            "feature": "Vegan Formula",
             "we_have_it": true,
             "they_have_it": false
           }
         },
-        "row_WVmHK6": {
+        "row_YtULRz": {
           "type": "row",
           "settings": {
-            "feature": "Backed By Sleep Tracking Data",
+            "feature": "Non-GMO Certified",
             "we_have_it": true,
             "they_have_it": false
           }
         },
-        "row_e3THYe": {
+        "row_Bqzezt": {
           "type": "row",
           "settings": {
-            "feature": "Natural Ingredients",
+            "feature": "200mg+ Electrolytes Per Serving",
             "we_have_it": true,
             "they_have_it": false
           }
         }
       },
       "block_order": [
-        "row_exJdb9",
-        "row_GUWPTd",
-        "row_ApGK7b",
-        "row_EDbgqQ",
-        "row_WVmHK6",
-        "row_e3THYe"
+        "row_T3aPBY",
+        "row_ccTGCM",
+        "row_pjiEHR",
+        "row_Qyi8VN",
+        "row_YtULRz",
+        "row_Bqzezt"
       ],
       "name": "VS Comparison",
       "settings": {
-        "heading": "Us Vs. Others",
-        "our_product_image": "shopify://shop_images/Lime_Front_55658f10-91c9-425e-b81c-1138b9f4dbc1.png",
-        "their_product_image": "shopify://shop_images/mocku-up-pacakge-of-suplement-bag-clear-to-use-as-them-vs-comparison-image_68ab8e4f-e925-4bd9-9574-b6b48d920a01.png",
-        "hero_image": "shopify://shop_images/Lime_Front_55658f10-91c9-425e-b81c-1138b9f4dbc1.png",
-        "bg_color": "#61c2f4",
-        "overlay_enable": true,
+        "padding_top": 80,
+        "padding_bottom": 88,
+        "side_padding": 60,
+        "content_max_width": 1340,
+        "col_gap": 60,
+        "right_col_width": 420,
+        "eyebrow": "",
+        "eyebrow_size": 13,
+        "eyebrow_color": "#ffffffb3",
+        "heading": "Hydra Vs. The Rest",
+        "heading_size": 44,
+        "heading_weight": "700",
+        "heading_mb": 32,
+        "table_max_width": 560,
+        "table_radius": 18,
+        "icon_col_width": 68,
+        "check_icon_size": 36,
+        "row_height": 64,
+        "feature_size": 14,
+        "feature_padding_v": 14,
+        "vs_pill_size": 18,
+        "cta_mt": 28,
+        "btn_label": "Shop Now",
+        "btn_url": "",
+        "btn_size": 16,
+        "btn_padding_v": 18,
+        "btn_padding_h": 32,
+        "btn_radius": 100,
+        "btn_show_arrow": true,
+        "guarantee_text": "Free shipping on orders over $50.",
+        "guarantee_size": 13,
+        "bg_color": "#263d87",
+        "overlay_enable": false,
         "overlay_color": "#000000",
         "overlay_opacity": 40,
-        "btn_label": "Get Yours Here",
-        "btn_url": "",
-        "guarantee_text": "USA-Made. 90-Day Guarantee.",
         "heading_color": "#ffffff",
         "table_bg": "#ffffff",
         "divider_color": "#ececec",
         "feature_color": "#1a1a1a",
         "check_color": "#263d87",
         "cross_color": "#cccccc",
-        "btn_bg": "#334fb4",
-        "btn_text_color": "#ffffff",
+        "vs_pill_color": "#333333",
+        "btn_bg": "#61c2f4",
+        "btn_text_color": "#263d87",
         "guarantee_color": "#ffffffbf"
       }
     },
@@ -1044,13 +1207,14 @@
   "order": [
     "17645961642850007b",
     "hero_banner_87Fm8X",
+    "hero_cta_jjdVH6",
     "marquee_slider_kEUnWm",
     "rich_text_NFkQja",
     "slideshow_BnVCwq",
     "product_list_VDFYCH",
-    "benefits_image_cbj96Y",
-    "ingredients_grid_xN8NiF",
-    "vs_comparison_WfQD3B",
+    "benefits_image_BnwnTe",
+    "ingredients_grid_B7qxAt",
+    "vs_comparison_LBpmCJ",
     "tabs_GYY9pq",
     "rich_text_iJTRb8",
     "176255478396082918",
