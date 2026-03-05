@@ -28,6 +28,7 @@
     --pg-title-ls: {{ section.settings.title_letter_spacing | divided_by: 100.0 }}em;
     --pg-subtitle-size: {{ section.settings.subtitle_size }}px;
     --pg-subtitle-ls: {{ section.settings.subtitle_letter_spacing | divided_by: 100.0 }}em;
+    --pg-btn-font-size: {{ section.settings.btn_font_size }}px;
     {%- if section.settings.bg_color != blank and section.settings.bg_color != 'rgba(0,0,0,0)' -%}
       --pg-bg: {{ section.settings.bg_color }};
     {%- endif -%}
@@ -248,6 +249,16 @@
       "default": 10,
       "label": "Subtitle letter spacing",
       "info": "Values in hundredths of an em (e.g. 10 = 0.1em)"
+    },
+    {
+      "type": "range",
+      "id": "btn_font_size",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 14,
+      "label": "Button font size"
     },
     {
       "type": "header",

@@ -22,6 +22,7 @@
     --benefits-item-text-size: {{ section.settings.item_text_size }}px;
     --benefits-icon-border-color: {{ section.settings.icon_border_color }};
     --benefits-icon-bg: {{ section.settings.icon_bg_color }};
+    --benefits-btn-font-size: {{ section.settings.btn_font_size }}px;
     --benefits-img-position: {{ section.settings.image_position }};
     --benefits-grid-cols: {{ section.settings.grid_cols }};
     --benefits-grid-gap: {{ section.settings.grid_gap }}px;
@@ -433,6 +434,12 @@
       "type": "url",
       "id": "btn2_url",
       "label": "Button 2 link"
+    },
+    {
+      "type": "range",
+      "id": "btn_font_size",
+      "label": "Button font size (px)",
+      "min": 10, "max": 50, "step": 1, "default": 15
     },
     {
       "type": "range",

@@ -141,7 +141,7 @@
   padding: 14px 32px;
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-bold);
-  font-size: 15px;
+  font-size: var(--benefits-btn-font-size, 15px);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
