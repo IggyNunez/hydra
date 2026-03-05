@@ -461,6 +461,7 @@
         "desc_mb": 40,
         "grid_cols": "2",
         "mobile_grid_cols": "1",
+        "mobile_item_align": "center",
         "grid_gap": 36,
         "grid_gap_h": 40,
         "icon_size": 56,
