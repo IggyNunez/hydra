@@ -32,6 +32,8 @@
     --pg-btn-font-size: {{ section.settings.btn_font_size }}px;
     --pg-card-title-size: {{ section.settings.card_title_size }}px;
     --pg-card-title-size-mobile: {{ section.settings.card_title_size_mobile }}px;
+    --pg-card-btn-size: {{ section.settings.card_btn_size }}px;
+    --pg-card-btn-size-mobile: {{ section.settings.card_btn_size_mobile }}px;
     {%- if section.settings.bg_color != blank and section.settings.bg_color != 'rgba(0,0,0,0)' -%}
       --pg-bg: {{ section.settings.bg_color }};
     {%- endif -%}
@@ -336,6 +338,26 @@
       "unit": "px",
       "default": 13,
       "label": "Product title size (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "card_btn_size",
+      "min": 8,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 14,
+      "label": "Card button text size (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "card_btn_size_mobile",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 12,
+      "label": "Card button text size (mobile)"
     },
     {
       "type": "select",
