@@ -433,6 +433,90 @@
         "protip_text_color": "#2d1a56"
       }
     },
+    "vs_comparison_WfQD3B": {
+      "type": "vs-comparison",
+      "blocks": {
+        "row_exJdb9": {
+          "type": "row",
+          "settings": {
+            "feature": "Zero Melatonin",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_GUWPTd": {
+          "type": "row",
+          "settings": {
+            "feature": "USA-Made",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_ApGK7b": {
+          "type": "row",
+          "settings": {
+            "feature": "Wake Up Refreshed, Not Groggy",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_EDbgqQ": {
+          "type": "row",
+          "settings": {
+            "feature": "Free-From Sugar And Artificial Sweeteners",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_WVmHK6": {
+          "type": "row",
+          "settings": {
+            "feature": "Backed By Sleep Tracking Data",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_e3THYe": {
+          "type": "row",
+          "settings": {
+            "feature": "Natural Ingredients",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        }
+      },
+      "block_order": [
+        "row_exJdb9",
+        "row_GUWPTd",
+        "row_ApGK7b",
+        "row_EDbgqQ",
+        "row_WVmHK6",
+        "row_e3THYe"
+      ],
+      "name": "VS Comparison",
+      "settings": {
+        "heading": "Us Vs. Others",
+        "our_product_image": "shopify://shop_images/Lime_Front_55658f10-91c9-425e-b81c-1138b9f4dbc1.png",
+        "their_product_image": "shopify://shop_images/mocku-up-pacakge-of-suplement-bag-clear-to-use-as-them-vs-comparison-image_68ab8e4f-e925-4bd9-9574-b6b48d920a01.png",
+        "hero_image": "shopify://shop_images/Lime_Front_55658f10-91c9-425e-b81c-1138b9f4dbc1.png",
+        "bg_color": "#61c2f4",
+        "overlay_enable": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "btn_label": "Get Yours Here",
+        "btn_url": "",
+        "guarantee_text": "USA-Made. 90-Day Guarantee.",
+        "heading_color": "#ffffff",
+        "table_bg": "#ffffff",
+        "divider_color": "#ececec",
+        "feature_color": "#1a1a1a",
+        "check_color": "#263d87",
+        "cross_color": "#cccccc",
+        "btn_bg": "#334fb4",
+        "btn_text_color": "#ffffff",
+        "guarantee_color": "#ffffffbf"
+      }
+    },
     "tabs_GYY9pq": {
       "type": "tabs",
       "blocks": {
@@ -966,6 +1050,7 @@
     "product_list_VDFYCH",
     "benefits_image_cbj96Y",
     "ingredients_grid_xN8NiF",
+    "vs_comparison_WfQD3B",
     "tabs_GYY9pq",
     "rich_text_iJTRb8",
     "176255478396082918",
