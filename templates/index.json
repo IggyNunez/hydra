@@ -180,6 +180,8 @@
         "title": "Our Products",
         "subtitle": "",
         "description": "",
+        "title_size": 72,
+        "subtitle_size": 14,
         "columns_desktop": "3",
         "card_gap": 16,
         "columns_mobile": "2",
