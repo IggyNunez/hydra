@@ -254,6 +254,23 @@
   }
 }
 
+/* ── Hide quick-add buttons until card hover (desktop) ── */
+@media (min-width: 750px) {
+  .product-grid__item .quick-add {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+  }
+
+  .product-grid__item:hover .quick-add {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
 /* Card inner corners */
 .product-grid__items .card--pdp .card__inner,
 .product-grid__items .card--pdp .card__inner .card__media,
