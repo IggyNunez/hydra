@@ -168,8 +168,8 @@
   padding: 14px 28px;
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-bold);
-  font-size: 13px;
-  letter-spacing: 0.06em;
+  font-size: var(--cf-btn-size, 14px);
+  letter-spacing: var(--cf-btn-ls, 0.06em);
   text-transform: uppercase;
   color: #fff;
   background: linear-gradient(135deg, var(--cf-accent, #7c4db8), var(--cf-accent-2, #5B2D8E));
@@ -292,6 +292,14 @@
   height: auto;
   border-radius: 8px;
 }
+
+/* ══════════════════════════════════════
+   Collapsible Columns (mobile)
+   ══════════════════════════════════════ */
+
+/* Hide the accordion wrapper on desktop — show normal heading */
+.cf__col-accordion { display: none; }
+.cf__col-body--desktop { display: block; }
 
 /* ══════════════════════════════════════
    Social Icons Row
@@ -519,6 +527,100 @@
     transform: none;
   }
 
+  /* ── Collapsible columns on mobile ── */
+  .cf__col-body--desktop { display: none; }
+  .cf__col-accordion { display: block; }
+
+  .cf__col-accordion summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .cf__col-accordion summary::-webkit-details-marker { display: none; }
+  .cf__col-accordion summary::marker { display: none; content: ''; }
+
+  .cf__col-accordion summary .cf__col-heading {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    flex: 1;
+  }
+
+  /* Remove the underline accent on mobile accordion headings */
+  .cf__col-accordion summary .cf__col-heading::after {
+    display: none;
+  }
+
+  .cf__col-toggle {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .cf__col-toggle::before,
+  .cf__col-toggle::after {
+    content: '';
+    position: absolute;
+    background: rgba(255,255,255,0.5);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Horizontal bar */
+  .cf__col-toggle::before {
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 2px;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Vertical bar (becomes + sign) */
+  .cf__col-toggle::after {
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+  }
+
+  /* When open — rotate the vertical bar out (+ becomes –) */
+  .cf__col-accordion[open] .cf__col-toggle::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+    opacity: 0;
+  }
+
+  .cf__col-accordion[open] .cf__col-toggle {
+    transform: rotate(0deg);
+  }
+
+  /* Body content slides in */
+  .cf__col-accordion .cf__col-body {
+    padding-top: 16px;
+    animation: cfAccordionOpen 0.3s ease both;
+  }
+
+  @keyframes cfAccordionOpen {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Column border between items */
+  .cf__col {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cf__col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
   .cf__social {
     justify-content: center;
     flex-wrap: wrap;
@@ -552,6 +654,8 @@
   .cf__newsletter-btn {
     border-radius: 8px;
     padding: 14px 24px;
+    font-size: var(--cf-btn-size-m, 13px);
+    letter-spacing: var(--cf-btn-ls-m, var(--cf-btn-ls, 0.06em));
   }
 
   /* Hide ambient glow on mobile for perf */

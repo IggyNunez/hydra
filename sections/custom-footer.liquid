@@ -26,6 +26,10 @@
     --cf-link-ls: {{ section.settings.link_ls | divided_by: 100.0 }}em;
     --cf-link-size-m: {{ section.settings.link_size_mobile }}px;
     --cf-link-ls-m: {{ section.settings.link_ls_mobile | divided_by: 100.0 }}em;
+    --cf-btn-size: {{ section.settings.newsletter_btn_size }}px;
+    --cf-btn-ls: {{ section.settings.newsletter_btn_ls | divided_by: 100.0 }}em;
+    --cf-btn-size-m: {{ section.settings.newsletter_btn_size_mobile }}px;
+    --cf-btn-ls-m: {{ section.settings.newsletter_btn_ls_mobile | divided_by: 100.0 }}em;
     --cf-social-icon-size: {{ section.settings.social_icon_size }}px;
     --cf-divider-height: {{ section.settings.divider_height }}px;
     {%- if section.settings.bg_color != blank and section.settings.bg_color != 'rgba(0,0,0,0)' -%}
@@ -159,44 +163,101 @@
             {%- case block.type -%}
 
               {%- when 'link_list' -%}
-                {%- if block.settings.heading != blank -%}
-                  <h3 class="cf__col-heading">{{ block.settings.heading }}</h3>
-                {%- endif -%}
-                {%- if block.settings.menu != blank -%}
-                  <ul class="cf__col-links">
-                    {%- for link in block.settings.menu.links -%}
-                      <li>
-                        <a href="{{ link.url }}" class="cf__col-link">{{ link.title | escape }}</a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                {%- endif -%}
+                {%- comment -%} Desktop: normal heading + list {%- endcomment -%}
+                <div class="cf__col-body--desktop">
+                  {%- if block.settings.heading != blank -%}
+                    <h3 class="cf__col-heading">{{ block.settings.heading }}</h3>
+                  {%- endif -%}
+                  {%- if block.settings.menu != blank -%}
+                    <ul class="cf__col-links">
+                      {%- for link in block.settings.menu.links -%}
+                        <li>
+                          <a href="{{ link.url }}" class="cf__col-link">{{ link.title | escape }}</a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+                {%- comment -%} Mobile: collapsible accordion {%- endcomment -%}
+                <details class="cf__col-accordion">
+                  <summary>
+                    <h3 class="cf__col-heading">{{ block.settings.heading | default: 'Links' }}</h3>
+                    <span class="cf__col-toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="cf__col-body">
+                    {%- if block.settings.menu != blank -%}
+                      <ul class="cf__col-links">
+                        {%- for link in block.settings.menu.links -%}
+                          <li>
+                            <a href="{{ link.url }}" class="cf__col-link">{{ link.title | escape }}</a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                  </div>
+                </details>
 
               {%- when 'text' -%}
-                {%- if block.settings.heading != blank -%}
-                  <h3 class="cf__col-heading">{{ block.settings.heading }}</h3>
-                {%- endif -%}
-                {%- if block.settings.text != blank -%}
-                  <div class="cf__col-text rte">{{ block.settings.text }}</div>
-                {%- endif -%}
+                <div class="cf__col-body--desktop">
+                  {%- if block.settings.heading != blank -%}
+                    <h3 class="cf__col-heading">{{ block.settings.heading }}</h3>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <div class="cf__col-text rte">{{ block.settings.text }}</div>
+                  {%- endif -%}
+                </div>
+                <details class="cf__col-accordion">
+                  <summary>
+                    <h3 class="cf__col-heading">{{ block.settings.heading | default: 'Info' }}</h3>
+                    <span class="cf__col-toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="cf__col-body">
+                    {%- if block.settings.text != blank -%}
+                      <div class="cf__col-text rte">{{ block.settings.text }}</div>
+                    {%- endif -%}
+                  </div>
+                </details>
 
               {%- when 'image' -%}
-                {%- if block.settings.heading != blank -%}
-                  <h3 class="cf__col-heading">{{ block.settings.heading }}</h3>
-                {%- endif -%}
-                {%- if block.settings.image != blank -%}
-                  <div class="cf__col-image">
-                    <img
-                      src="{{ block.settings.image | image_url: width: 600 }}"
-                      alt="{{ block.settings.image.alt | escape }}"
-                      loading="lazy"
-                      width="{{ block.settings.image_width }}"
-                      style="max-width: {{ block.settings.image_width }}px;"
-                    >
+                <div class="cf__col-body--desktop">
+                  {%- if block.settings.heading != blank -%}
+                    <h3 class="cf__col-heading">{{ block.settings.heading }}</h3>
+                  {%- endif -%}
+                  {%- if block.settings.image != blank -%}
+                    <div class="cf__col-image">
+                      <img
+                        src="{{ block.settings.image | image_url: width: 600 }}"
+                        alt="{{ block.settings.image.alt | escape }}"
+                        loading="lazy"
+                        width="{{ block.settings.image_width }}"
+                        style="max-width: {{ block.settings.image_width }}px;"
+                      >
+                    </div>
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+                <details class="cf__col-accordion">
+                  <summary>
+                    <h3 class="cf__col-heading">{{ block.settings.heading | default: 'Gallery' }}</h3>
+                    <span class="cf__col-toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="cf__col-body">
+                    {%- if block.settings.image != blank -%}
+                      <div class="cf__col-image">
+                        <img
+                          src="{{ block.settings.image | image_url: width: 600 }}"
+                          alt="{{ block.settings.image.alt | escape }}"
+                          loading="lazy"
+                          width="{{ block.settings.image_width }}"
+                          style="max-width: {{ block.settings.image_width }}px;"
+                        >
+                      </div>
+                    {%- else -%}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
                   </div>
-                {%- else -%}
-                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-                {%- endif -%}
+                </details>
 
             {%- endcase -%}
 
@@ -478,6 +539,44 @@
       "id": "newsletter_success",
       "label": "Success message",
       "default": "Thanks for subscribing!"
+    },
+    {
+      "type": "range",
+      "id": "newsletter_btn_size",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14,
+      "label": "Button text size (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "newsletter_btn_ls",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": 6,
+      "label": "Button letter-spacing (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "newsletter_btn_size_mobile",
+      "min": 8,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 13,
+      "label": "Button text size (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "newsletter_btn_ls_mobile",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": 6,
+      "label": "Button letter-spacing (mobile)"
     },
     {
       "type": "header",
