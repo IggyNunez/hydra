@@ -261,7 +261,7 @@ thead .bc-col-highlight {
 /* ── Responsive ── */
 @media (max-width: 749px) {
   .brand-comparison__heading {
-    font-size: var(--bc-heading-size-mob, 32px);
+    font-size: var(--bc-heading-size, 32px);
   }
 
   .brand-comparison__subheading {
