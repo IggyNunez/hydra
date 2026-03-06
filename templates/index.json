@@ -997,8 +997,8 @@
         "footer_mt": 40,
         "max_width": 1200,
         "side_pad": 24,
-        "pad_top": 80,
-        "pad_bottom": 80,
+        "pad_top": 0,
+        "pad_bottom": 0,
         "pad_top_mob": 48,
         "pad_bottom_mob": 48
       }
