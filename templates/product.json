@@ -164,7 +164,7 @@
             "image_second": false,
             "icon": "shopify://shop_images/Group_1980468999.webp",
             "heading": "Soy, gluten and dairy free",
-            "text": "Hydra Pops are made without common allergens or fillers, just clean, functional hydration that’s easy on your gut and good for every body."
+            "text": "Hydra Pops are made without common allergens or fillers, just clean, functional hydration that's easy on your gut and good for every body."
           }
         },
         "column_FqKG8x": {
@@ -311,7 +311,7 @@
           "settings": {
             "image": "shopify://shop_images/1copy.jpg",
             "title": "Electrolytes",
-            "text": "<p>Hydration isn’t just about drinking water, it’s about absorbing it. Hydra’s sea-mineral electrolyte blend, magnesium, potassium, sodium, and chloride, helps your body retain fluids, power muscle function, and sustain energy so you can feel your best.</p>",
+            "text": "<p>Hydration isn't just about drinking water, it's about absorbing it. Hydra's sea-mineral electrolyte blend, magnesium, potassium, sodium, and chloride, helps your body retain fluids, power muscle function, and sustain energy so you can feel your best.</p>",
             "link_label": "",
             "link": ""
           }
@@ -331,7 +331,7 @@
           "settings": {
             "image": "shopify://shop_images/10_copy_1.jpg",
             "title": "Water",
-            "text": "<p>Not all water is created equal. At Hydra, our water goes through a multi step purification process, including filtration and UV treatment, to ensure it’s free from harmful contaminants.</p>",
+            "text": "<p>Not all water is created equal. At Hydra, our water goes through a multi step purification process, including filtration and UV treatment, to ensure it's free from harmful contaminants.</p>",
             "link_label": "",
             "link": ""
           }
@@ -414,6 +414,332 @@
         "padding_bottom": 36
       }
     },
+    "benefits_image_prod": {
+      "type": "benefits-image",
+      "blocks": {
+        "benefit_JADtT8": {
+          "type": "benefit",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469001_468de2a6-791b-4ac5-b0be-66421311fdd9.png",
+            "icon_preset": "no",
+            "title": "No Added Sugar",
+            "text": "Zero added sugar, zero artificial sweeteners. Just clean hydration you can feel good about."
+          }
+        },
+        "benefit_WhEtRk": {
+          "type": "benefit",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469002_eb6c227f-c9a3-425d-b971-530ab93583d4.webp",
+            "icon_preset": "check",
+            "title": "Non-GMO & Gluten Free",
+            "text": "Clean ingredients you can trust. SolarSea Sport certified Non-GMO and gluten free — backed by independent testing."
+          }
+        },
+        "benefit_pFp3VK": {
+          "type": "benefit",
+          "settings": {
+            "icon_preset": "droplet",
+            "title": "Natural Electrolytes",
+            "text": "A naturally occurring spectrum of sodium, potassium, magnesium, chloride, and trace minerals — absorbed the way your body was designed."
+          }
+        },
+        "benefit_qVBH6L": {
+          "type": "benefit",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469000_ab2e3c68-fbaf-4430-88ea-cce1a1364272.png",
+            "icon_preset": "check",
+            "title": "GRAS Certified Minerals",
+            "text": "Independently lab tested. Heavy metals screened. Classified as Generally Recognized As Safe for food and beverage products."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_JADtT8",
+        "benefit_WhEtRk",
+        "benefit_pFp3VK",
+        "benefit_qVBH6L"
+      ],
+      "name": "Benefits + Image",
+      "settings": {
+        "layout": "image_right",
+        "content_alignment": "left",
+        "image_position": "center center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "side_padding": 60,
+        "bg_color": "#263d87",
+        "heading": "Real Minerals. Real Hydration.",
+        "heading_size": 74,
+        "heading_size_mobile": 38,
+        "heading_letter_spacing": 2,
+        "heading_weight": "700",
+        "heading_mb": 20,
+        "description": "<p>Most electrolyte drinks are built in labs using synthetic powders. Hydra is different. Our electrolytes come from natural sea mineral deposits sourced from the Great Salt Lake — one of the most mineral-rich inland bodies of water in the world.</p>",
+        "desc_size": 20,
+        "desc_mb": 40,
+        "grid_cols": "2",
+        "mobile_grid_cols": "1",
+        "mobile_item_align": "center",
+        "grid_gap": 36,
+        "grid_gap_h": 40,
+        "icon_size": 62,
+        "item_title_size": 28,
+        "item_text_size": 17,
+        "product_image": "shopify://shop_images/Screen_Shot_2025-11-05_at_12.29.00_PM_53563067-f5c4-47b2-ae5e-f20ab2bab606.png",
+        "btn_label": "",
+        "btn_url": "",
+        "btn2_label": "",
+        "btn2_url": "",
+        "btn_font_size": 15,
+        "btn_mt": 40,
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "icon_border_color": "#263d87",
+        "icon_bg_color": "#61c2f414",
+        "image_glow_color": "#61c2f440",
+        "btn_bg_color": "#ffffff",
+        "btn_text_color": "#334fb4",
+        "btn2_text_color": "#ffffff"
+      }
+    },
+    "ingredients_grid_prod": {
+      "type": "ingredients-grid",
+      "blocks": {
+        "ingredient_HJDaJC": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/sea_minerals.png",
+            "name": "Sea Minerals",
+            "badge": "Full spectrum electrolytes",
+            "description": "Sourced from the mineral-rich Great Salt Lake in Utah via a 3-year solar evaporation process. No chemical synthesis — just naturally concentrated electrolytes your body recognizes."
+          }
+        },
+        "ingredient_Ymi6JR": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Sodium_Mineral.png",
+            "name": "Sodium",
+            "badge": "Hydration & muscle function",
+            "description": "The primary electrolyte lost in sweat. Sodium drives fluid balance and keeps muscles firing — essential for cellular hydration and performance."
+          }
+        },
+        "ingredient_pmPaML": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Potasium.png",
+            "name": "Potassium",
+            "badge": "Muscle function & nerve signaling",
+            "description": "Works alongside sodium to maintain fluid balance, reduce muscle cramps, and support the nerve signaling your body depends on."
+          }
+        },
+        "ingredient_N4BHMa": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/magensium.png",
+            "name": "Magnesium",
+            "badge": "Energy & recovery",
+            "description": "Essential for energy production and muscle recovery. Part of the naturally occurring mineral spectrum found in Great Salt Lake sea minerals."
+          }
+        },
+        "ingredient_4EeCTz": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/vitmain-c.png",
+            "name": "Vitamin C",
+            "badge": "Immune support",
+            "description": "Added antioxidant protection to support your immune system and help your body recover faster."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_HJDaJC",
+        "ingredient_Ymi6JR",
+        "ingredient_pmPaML",
+        "ingredient_N4BHMa",
+        "ingredient_4EeCTz"
+      ],
+      "name": "Ingredients Grid",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 88,
+        "side_padding": 60,
+        "content_max_width": 1340,
+        "heading_col_width": 280,
+        "layout_gap": 60,
+        "heading": "What's Inside Every Pop & Drop:",
+        "heading_size": 74,
+        "heading_letter_spacing": 2,
+        "heading_weight": "700",
+        "heading_mb": 0,
+        "subheading": "Real minerals. No synthetic powders. Our electrolytes are sourced from the Great Salt Lake and naturally concentrated over three years — so your body gets them the way nature intended.",
+        "subheading_size": 15,
+        "card_cols": "2",
+        "card_gap_v": 20,
+        "card_gap_h": 20,
+        "card_padding": 20,
+        "card_radius": 12,
+        "img_size": 108,
+        "img_radius": 8,
+        "card_inner_gap": 18,
+        "card_name_size": 32,
+        "card_name_mb": 10,
+        "badge_size": 13,
+        "badge_mb": 12,
+        "card_desc_size": 14,
+        "taste_icon": "heart",
+        "taste_icon_size": 28,
+        "taste_title": "What do they taste like?",
+        "taste_title_size": 36,
+        "taste_title_mb": 10,
+        "taste_desc": "Our pops come in Apple, Strawberry, and Lime — bright, refreshing flavors with zero artificial sweeteners or aftertaste.",
+        "taste_desc_size": 14,
+        "taste_image": "shopify://shop_images/5_copy_daa0e4e3-a0a4-459e-bdf3-347f960b22a2.jpg",
+        "taste_img_height": 288,
+        "taste_mt": 32,
+        "taste_radius": 14,
+        "taste_padding": 28,
+        "protip_label": "Pro Tip:",
+        "protip_label_size": 13,
+        "protip_text": "Try adding Hydra Drops to any cold drink — sparkling water, lemonade, or straight from the bottle. A few drops go a long way.",
+        "protip_text_size": 13,
+        "protip_radius": 10,
+        "protip_padding": 18,
+        "bg_color": "#263d87",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "card_bg_color": "#ffffff14",
+        "badge_bg_color": "#61c2f426",
+        "badge_text_color": "#ffffff",
+        "taste_bg_color": "#ffffff1f",
+        "protip_bg_color": "#ffffffe6",
+        "protip_label_bg": "#263d87",
+        "protip_text_color": "#1a2d6e"
+      }
+    },
+    "vs_comparison_prod": {
+      "type": "vs-comparison",
+      "blocks": {
+        "row_T3aPBY": {
+          "type": "row",
+          "settings": {
+            "feature": "No Added Sugar",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_ccTGCM": {
+          "type": "row",
+          "settings": {
+            "feature": "No Artificial Sweeteners",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_pjiEHR": {
+          "type": "row",
+          "settings": {
+            "feature": "No Artificial Dyes",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_Qyi8VN": {
+          "type": "row",
+          "settings": {
+            "feature": "Vegan Formula",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_YtULRz": {
+          "type": "row",
+          "settings": {
+            "feature": "Non-GMO Certified",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_Bqzezt": {
+          "type": "row",
+          "settings": {
+            "feature": "200mg+ Electrolytes Per Serving",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        },
+        "row_NatMin": {
+          "type": "row",
+          "settings": {
+            "feature": "Natural Mineral Source (Not Synthetic)",
+            "we_have_it": true,
+            "they_have_it": false
+          }
+        }
+      },
+      "block_order": [
+        "row_T3aPBY",
+        "row_ccTGCM",
+        "row_pjiEHR",
+        "row_Qyi8VN",
+        "row_YtULRz",
+        "row_Bqzezt",
+        "row_NatMin"
+      ],
+      "name": "VS Comparison",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 88,
+        "side_padding": 24,
+        "content_max_width": 1340,
+        "col_gap": 60,
+        "right_col_width": 630,
+        "eyebrow": "",
+        "eyebrow_size": 13,
+        "eyebrow_color": "#ffffffb3",
+        "heading": "Hydra Vs. The Rest",
+        "heading_size": 80,
+        "heading_letter_spacing": 2,
+        "heading_weight": "700",
+        "heading_mb": 32,
+        "our_product_image": "shopify://shop_images/Lime_Front_55658f10-91c9-425e-b81c-1138b9f4dbc1.png",
+        "their_product_image": "shopify://shop_images/mocku-up-pacakge-of-suplement-bag-clear-to-use-as-them-vs-comparison-image_68ab8e4f-e925-4bd9-9574-b6b48d920a01.png",
+        "table_max_width": 560,
+        "table_radius": 8,
+        "icon_col_width": 68,
+        "check_icon_size": 36,
+        "row_height": 68,
+        "feature_size": 16,
+        "feature_padding_v": 4,
+        "vs_pill_size": 28,
+        "hero_image": "shopify://shop_images/Screen_Shot_2026-01-30_at_1.16.19_PM_e2e1e2bb-84b5-43ef-83b0-7c6ba82181da.png",
+        "cta_mt": 28,
+        "btn_label": "Shop Now",
+        "btn_url": "",
+        "btn_size": 39,
+        "btn_padding_v": 10,
+        "btn_padding_h": 24,
+        "btn_radius": 8,
+        "btn_show_arrow": true,
+        "guarantee_text": "Free shipping on orders over $50.",
+        "guarantee_size": 13,
+        "bg_color": "#263d87",
+        "overlay_enable": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "heading_color": "#ffffff",
+        "table_bg": "#d175b5",
+        "divider_color": "#ececec",
+        "feature_color": "#1a1a1a",
+        "check_color": "#263d87",
+        "cross_color": "#d28d8d",
+        "vs_pill_color": "#333333",
+        "btn_bg": "#61c2f4",
+        "btn_text_color": "#ffffff",
+        "guarantee_color": "#ffffffbf"
+      }
+    },
     "1737097653810224b9": {
       "type": "apps",
       "blocks": {
@@ -485,6 +811,9 @@
     "marquee_slider_kEUnWm",
     "multicolumn_7FAKFx",
     "image_with_text_jEhVUU",
+    "benefits_image_prod",
+    "ingredients_grid_prod",
+    "vs_comparison_prod",
     "1737097653810224b9",
     "related-products",
     "175952410047ff4b89",
