@@ -1,0 +1,288 @@
+/* ══════════════════════════════════════════════
+   Brand Comparison Table
+   Multi-brand grid: Hydra vs competitors
+   ══════════════════════════════════════════════ */
+
+.brand-comparison {
+  background-color: var(--bc-bg, #263D87);
+  overflow: hidden;
+}
+
+.brand-comparison__inner {
+  max-width: var(--bc-max-width, 1200px);
+  margin: 0 auto;
+  padding: 0 var(--bc-side-pad, 24px);
+}
+
+/* ── Header ── */
+.brand-comparison__header {
+  text-align: center;
+  margin-bottom: var(--bc-header-mb, 48px);
+}
+
+.brand-comparison__eyebrow {
+  display: inline-block;
+  font-size: var(--bc-eyebrow-size, 13px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bc-accent, #61c2f4);
+  margin-bottom: 12px;
+}
+
+.brand-comparison__heading {
+  font-size: var(--bc-heading-size, 48px);
+  font-weight: var(--bc-heading-weight, 700);
+  letter-spacing: var(--bc-heading-ls, -0.02em);
+  color: var(--bc-heading-color, #fff);
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+.brand-comparison__subheading {
+  font-size: var(--bc-sub-size, 17px);
+  color: var(--bc-text-color, #ffffffcc);
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 680px;
+}
+
+/* ── Table wrapper ── */
+.brand-comparison__table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -8px;
+  padding: 0 8px 12px;
+}
+
+.brand-comparison__table-wrap::-webkit-scrollbar {
+  height: 4px;
+}
+.brand-comparison__table-wrap::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+}
+.brand-comparison__table-wrap::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+}
+
+/* ── Table ── */
+.brand-comparison__table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--bc-cell-size, 15px);
+}
+
+/* ── Brand header row ── */
+.brand-comparison__table thead th {
+  padding: 20px 16px 16px;
+  text-align: center;
+  vertical-align: bottom;
+  border-bottom: 2px solid var(--bc-border, rgba(255,255,255,0.12));
+}
+
+.brand-comparison__table thead th:first-child {
+  text-align: left;
+  width: 28%;
+}
+
+.brand-comparison__brand-name {
+  display: block;
+  font-size: var(--bc-brand-size, 16px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--bc-heading-color, #fff);
+  margin-top: 8px;
+}
+
+.brand-comparison__brand-name--highlight {
+  color: var(--bc-accent, #61c2f4);
+  font-size: calc(var(--bc-brand-size, 16px) + 2px);
+}
+
+.brand-comparison__brand-img {
+  width: var(--bc-logo-size, 48px);
+  height: var(--bc-logo-size, 48px);
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 6px;
+}
+
+/* ── Feature label column ── */
+.brand-comparison__table thead th.bc-feature-header {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bc-text-color, #ffffffcc);
+}
+
+/* ── Body rows ── */
+.brand-comparison__table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.brand-comparison__table tbody tr:hover {
+  background-color: rgba(255,255,255,0.04);
+}
+
+.brand-comparison__table tbody td {
+  padding: var(--bc-cell-pad-v, 14px) 16px;
+  border-bottom: 1px solid var(--bc-border, rgba(255,255,255,0.08));
+  text-align: center;
+  vertical-align: middle;
+  color: var(--bc-text-color, #ffffffcc);
+}
+
+.brand-comparison__table tbody td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: var(--bc-heading-color, #fff);
+  letter-spacing: 0.01em;
+}
+
+/* ── Highlight column (Hydra) ── */
+.bc-col-highlight {
+  background-color: var(--bc-highlight-bg, rgba(97, 194, 244, 0.08));
+}
+
+thead .bc-col-highlight {
+  background-color: var(--bc-highlight-bg, rgba(97, 194, 244, 0.1));
+  border-radius: 12px 12px 0 0;
+}
+
+tbody tr:last-child .bc-col-highlight {
+  border-radius: 0 0 12px 12px;
+}
+
+/* ── Cell values ── */
+.bc-cell-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bc-check-bg, rgba(97, 194, 244, 0.2));
+}
+
+.bc-cell-check svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--bc-accent, #61c2f4);
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.bc-cell-cross {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+
+.bc-cell-cross svg {
+  width: 14px;
+  height: 14px;
+  stroke: rgba(255,255,255,0.3);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.bc-cell-text {
+  font-size: var(--bc-cell-size, 14px);
+  line-height: 1.4;
+}
+
+.bc-cell-text--good {
+  color: var(--bc-accent, #61c2f4);
+  font-weight: 600;
+}
+
+.bc-cell-text--bad {
+  color: rgba(255,255,255,0.45);
+}
+
+.bc-cell-text--mixed {
+  color: rgba(255,255,255,0.65);
+}
+
+/* ── Footer ── */
+.brand-comparison__footer {
+  text-align: center;
+  margin-top: var(--bc-footer-mt, 40px);
+}
+
+.brand-comparison__footer-text {
+  font-size: var(--bc-footer-size, 15px);
+  color: var(--bc-text-color, #ffffffcc);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.brand-comparison__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--bc-btn-bg, #61c2f4);
+  color: var(--bc-btn-text, #fff);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.brand-comparison__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(97, 194, 244, 0.3);
+}
+
+.brand-comparison__cta svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 749px) {
+  .brand-comparison__heading {
+    font-size: var(--bc-heading-size-mob, 32px);
+  }
+
+  .brand-comparison__subheading {
+    font-size: 15px;
+  }
+
+  .brand-comparison__table {
+    font-size: 13px;
+  }
+
+  .brand-comparison__brand-name {
+    font-size: 13px;
+  }
+
+  .brand-comparison__brand-img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-comparison__table thead th,
+  .brand-comparison__table tbody td {
+    padding: 10px 10px;
+  }
+}

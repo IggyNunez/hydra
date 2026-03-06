@@ -721,7 +721,7 @@
         "row_hV9zpN": {
           "type": "row",
           "settings": {
-            "feature": "No Added Sugar",
+            "feature": "Real Mineral Electrolytes",
             "we_have_it": true,
             "they_have_it": false
           }
@@ -742,26 +742,26 @@
             "they_have_it": false
           }
         },
-        "row_TVgfRU": {
+        "row_sugar": {
           "type": "row",
           "settings": {
-            "feature": "Vegan Formula",
+            "feature": "No Added Sugar",
             "we_have_it": true,
             "they_have_it": false
           }
         },
-        "row_dXzLiH": {
+        "row_format": {
           "type": "row",
           "settings": {
-            "feature": "Non-GMO Certified",
+            "feature": "Fun Hydration Format (Freeze Pops)",
             "we_have_it": true,
             "they_have_it": false
           }
         },
-        "row_A43ywG": {
+        "row_drops": {
           "type": "row",
           "settings": {
-            "feature": "200mg+ Electrolytes Per Serving",
+            "feature": "Flavor-Free Option (Drops)",
             "we_have_it": true,
             "they_have_it": false
           }
@@ -773,16 +773,25 @@
             "we_have_it": true,
             "they_have_it": false
           }
+        },
+        "row_clean": {
+          "type": "row",
+          "settings": {
+            "feature": "Clean Ingredients",
+            "we_have_it": true,
+            "they_have_it": false
+          }
         }
       },
       "block_order": [
         "row_hV9zpN",
         "row_n9FFJE",
         "row_7V3fnr",
-        "row_TVgfRU",
-        "row_dXzLiH",
-        "row_A43ywG",
-        "row_QBxyiT"
+        "row_sugar",
+        "row_format",
+        "row_drops",
+        "row_QBxyiT",
+        "row_clean"
       ],
       "name": "VS Comparison",
       "settings": {
@@ -835,6 +844,150 @@
         "btn_bg": "#61c2f4",
         "btn_text_color": "#ffffff",
         "guarantee_color": "#ffffffbf"
+      }
+    },
+    "brand_comparison_prod": {
+      "type": "brand-comparison",
+      "blocks": {
+        "bc_row_source": {
+          "type": "row",
+          "settings": {
+            "feature": "Electrolyte Source",
+            "brand_1_type": "text",
+            "brand_1_text": "Natural Minerals",
+            "brand_2_type": "text_bad",
+            "brand_2_text": "Synthetic",
+            "brand_3_type": "text_bad",
+            "brand_3_text": "Synthetic",
+            "brand_4_type": "text_bad",
+            "brand_4_text": "Synthetic"
+          }
+        },
+        "bc_row_dyes": {
+          "type": "row",
+          "settings": {
+            "feature": "Artificial Dyes",
+            "brand_1_type": "text",
+            "brand_1_text": "None",
+            "brand_2_type": "text_neutral",
+            "brand_2_text": "None",
+            "brand_3_type": "text_bad",
+            "brand_3_text": "Yes",
+            "brand_4_type": "text_neutral",
+            "brand_4_text": "None"
+          }
+        },
+        "bc_row_sweeteners": {
+          "type": "row",
+          "settings": {
+            "feature": "Artificial Sweeteners",
+            "brand_1_type": "text",
+            "brand_1_text": "None",
+            "brand_2_type": "text_bad",
+            "brand_2_text": "Yes",
+            "brand_3_type": "text_neutral",
+            "brand_3_text": "None",
+            "brand_4_type": "text_neutral",
+            "brand_4_text": "None"
+          }
+        },
+        "bc_row_sugar": {
+          "type": "row",
+          "settings": {
+            "feature": "Added Sugar",
+            "brand_1_type": "text",
+            "brand_1_text": "0g",
+            "brand_2_type": "text_bad",
+            "brand_2_text": "~11g",
+            "brand_3_type": "text_bad",
+            "brand_3_text": "~34g",
+            "brand_4_type": "text",
+            "brand_4_text": "0g"
+          }
+        },
+        "bc_row_format": {
+          "type": "row",
+          "settings": {
+            "feature": "Fun Hydration Format",
+            "brand_1_type": "text",
+            "brand_1_text": "Freeze Pops",
+            "brand_2_type": "cross",
+            "brand_3_type": "cross",
+            "brand_4_type": "cross"
+          }
+        },
+        "bc_row_drops": {
+          "type": "row",
+          "settings": {
+            "feature": "Flavor-Free Option",
+            "brand_1_type": "text",
+            "brand_1_text": "Drops",
+            "brand_2_type": "cross",
+            "brand_3_type": "cross",
+            "brand_4_type": "cross"
+          }
+        },
+        "bc_row_clean": {
+          "type": "row",
+          "settings": {
+            "feature": "Clean Ingredients",
+            "brand_1_type": "check",
+            "brand_2_type": "cross",
+            "brand_3_type": "cross",
+            "brand_4_type": "text_neutral",
+            "brand_4_text": "Partial"
+          }
+        }
+      },
+      "block_order": [
+        "bc_row_source",
+        "bc_row_dyes",
+        "bc_row_sweeteners",
+        "bc_row_sugar",
+        "bc_row_format",
+        "bc_row_drops",
+        "bc_row_clean"
+      ],
+      "name": "Brand Comparison",
+      "settings": {
+        "eyebrow": "The Comparison",
+        "heading": "Hydra vs. The Competition",
+        "subheading": "See how Hydra stacks up against the leading hydration brands on the market.",
+        "feature_col_label": "Feature",
+        "brand_1_name": "Hydra",
+        "brand_2_name": "Liquid IV",
+        "brand_3_name": "Gatorade",
+        "brand_4_name": "LMNT",
+        "footer_text": "Hydra delivers clean, naturally sourced hydration without the junk.",
+        "cta_text": "Try Hydra Today",
+        "cta_url": "",
+        "bg_color": "#263d87",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "accent_color": "#61c2f4",
+        "border_color": "#ffffff14",
+        "highlight_bg": "#61c2f414",
+        "check_bg": "#61c2f433",
+        "btn_bg": "#61c2f4",
+        "btn_text": "#ffffff",
+        "heading_size": 48,
+        "heading_size_mob": 32,
+        "heading_weight": "700",
+        "heading_letter_spacing": -2,
+        "sub_size": 17,
+        "eyebrow_size": 13,
+        "cell_size": 15,
+        "brand_name_size": 16,
+        "logo_size": 48,
+        "cell_pad_v": 14,
+        "header_mb": 48,
+        "footer_mt": 40,
+        "max_width": 1200,
+        "side_pad": 24,
+        "pad_top": 80,
+        "pad_bottom": 80,
+        "pad_top_mob": 48,
+        "pad_bottom_mob": 48
       }
     },
     "1737097653810224b9": {
@@ -995,6 +1148,7 @@
     "benefits_image_prod",
     "science_process_xbLNBX",
     "vs_comparison_V6tcEa",
+    "brand_comparison_prod",
     "1737097653810224b9",
     "faq_science_prod",
     "related-products",

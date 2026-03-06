@@ -1,0 +1,795 @@
+{{ 'brand-comparison.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --bc-bg: {{ section.settings.bg_color }};
+    --bc-heading-color: {{ section.settings.heading_color }};
+    --bc-text-color: {{ section.settings.text_color }};
+    --bc-accent: {{ section.settings.accent_color }};
+    --bc-border: {{ section.settings.border_color }};
+    --bc-highlight-bg: {{ section.settings.highlight_bg }};
+    --bc-check-bg: {{ section.settings.check_bg }};
+    --bc-btn-bg: {{ section.settings.btn_bg }};
+    --bc-btn-text: {{ section.settings.btn_text }};
+    --bc-heading-size: {{ section.settings.heading_size }}px;
+    --bc-heading-weight: {{ section.settings.heading_weight }};
+    --bc-heading-ls: {{ section.settings.heading_letter_spacing | divided_by: 100.0 }}em;
+    --bc-sub-size: {{ section.settings.sub_size }}px;
+    --bc-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --bc-cell-size: {{ section.settings.cell_size }}px;
+    --bc-brand-size: {{ section.settings.brand_name_size }}px;
+    --bc-logo-size: {{ section.settings.logo_size }}px;
+    --bc-cell-pad-v: {{ section.settings.cell_pad_v }}px;
+    --bc-header-mb: {{ section.settings.header_mb }}px;
+    --bc-footer-mt: {{ section.settings.footer_mt }}px;
+    --bc-max-width: {{ section.settings.max_width }}px;
+    --bc-side-pad: {{ section.settings.side_pad }}px;
+    padding-top: {{ section.settings.pad_top }}px;
+    padding-bottom: {{ section.settings.pad_bottom }}px;
+  }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} {
+      --bc-heading-size: {{ section.settings.heading_size_mob }}px;
+      padding-top: {{ section.settings.pad_top_mob }}px;
+      padding-bottom: {{ section.settings.pad_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  class="brand-comparison"
+  {% if settings.animations_reveal_on_scroll %}
+    data-cascade
+  {% endif %}
+>
+  <div class="brand-comparison__inner">
+
+    {%- comment -%} ── Header ── {%- endcomment -%}
+    <div class="brand-comparison__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="brand-comparison__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="brand-comparison__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="brand-comparison__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} ── Table ── {%- endcomment -%}
+    <div class="brand-comparison__table-wrap{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      <table class="brand-comparison__table">
+        <thead>
+          <tr>
+            {%- comment -%} Feature label column header {%- endcomment -%}
+            <th class="bc-feature-header">{{ section.settings.feature_col_label }}</th>
+
+            {%- comment -%} Brand 1 — Hydra (highlighted) {%- endcomment -%}
+            <th class="bc-col-highlight">
+              {%- if section.settings.brand_1_logo != blank -%}
+                <img
+                  class="brand-comparison__brand-img"
+                  src="{{ section.settings.brand_1_logo | image_url: width: 96 }}"
+                  alt="{{ section.settings.brand_1_name | escape }}"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                >
+              {%- endif -%}
+              <span class="brand-comparison__brand-name brand-comparison__brand-name--highlight">
+                {{ section.settings.brand_1_name }}
+              </span>
+            </th>
+
+            {%- comment -%} Brand 2 {%- endcomment -%}
+            <th>
+              {%- if section.settings.brand_2_logo != blank -%}
+                <img
+                  class="brand-comparison__brand-img"
+                  src="{{ section.settings.brand_2_logo | image_url: width: 96 }}"
+                  alt="{{ section.settings.brand_2_name | escape }}"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                >
+              {%- endif -%}
+              <span class="brand-comparison__brand-name">{{ section.settings.brand_2_name }}</span>
+            </th>
+
+            {%- comment -%} Brand 3 {%- endcomment -%}
+            <th>
+              {%- if section.settings.brand_3_logo != blank -%}
+                <img
+                  class="brand-comparison__brand-img"
+                  src="{{ section.settings.brand_3_logo | image_url: width: 96 }}"
+                  alt="{{ section.settings.brand_3_name | escape }}"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                >
+              {%- endif -%}
+              <span class="brand-comparison__brand-name">{{ section.settings.brand_3_name }}</span>
+            </th>
+
+            {%- comment -%} Brand 4 {%- endcomment -%}
+            <th>
+              {%- if section.settings.brand_4_logo != blank -%}
+                <img
+                  class="brand-comparison__brand-img"
+                  src="{{ section.settings.brand_4_logo | image_url: width: 96 }}"
+                  alt="{{ section.settings.brand_4_name | escape }}"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                >
+              {%- endif -%}
+              <span class="brand-comparison__brand-name">{{ section.settings.brand_4_name }}</span>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'row' -%}
+              <tr {{ block.shopify_attributes }}>
+                {%- comment -%} Feature label {%- endcomment -%}
+                <td>{{ block.settings.feature }}</td>
+
+                {%- comment -%} Brand 1 (Hydra) cell {%- endcomment -%}
+                <td class="bc-col-highlight">
+                  {%- case block.settings.brand_1_type -%}
+                    {%- when 'check' -%}
+                      <span class="bc-cell-check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    {%- when 'cross' -%}
+                      <span class="bc-cell-cross">
+                        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                      </span>
+                    {%- when 'text' -%}
+                      <span class="bc-cell-text bc-cell-text--good">{{ block.settings.brand_1_text }}</span>
+                    {%- when 'text_neutral' -%}
+                      <span class="bc-cell-text bc-cell-text--mixed">{{ block.settings.brand_1_text }}</span>
+                    {%- when 'text_bad' -%}
+                      <span class="bc-cell-text bc-cell-text--bad">{{ block.settings.brand_1_text }}</span>
+                  {%- endcase -%}
+                </td>
+
+                {%- comment -%} Brand 2 cell {%- endcomment -%}
+                <td>
+                  {%- case block.settings.brand_2_type -%}
+                    {%- when 'check' -%}
+                      <span class="bc-cell-check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    {%- when 'cross' -%}
+                      <span class="bc-cell-cross">
+                        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                      </span>
+                    {%- when 'text' -%}
+                      <span class="bc-cell-text bc-cell-text--good">{{ block.settings.brand_2_text }}</span>
+                    {%- when 'text_neutral' -%}
+                      <span class="bc-cell-text bc-cell-text--mixed">{{ block.settings.brand_2_text }}</span>
+                    {%- when 'text_bad' -%}
+                      <span class="bc-cell-text bc-cell-text--bad">{{ block.settings.brand_2_text }}</span>
+                  {%- endcase -%}
+                </td>
+
+                {%- comment -%} Brand 3 cell {%- endcomment -%}
+                <td>
+                  {%- case block.settings.brand_3_type -%}
+                    {%- when 'check' -%}
+                      <span class="bc-cell-check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    {%- when 'cross' -%}
+                      <span class="bc-cell-cross">
+                        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                      </span>
+                    {%- when 'text' -%}
+                      <span class="bc-cell-text bc-cell-text--good">{{ block.settings.brand_3_text }}</span>
+                    {%- when 'text_neutral' -%}
+                      <span class="bc-cell-text bc-cell-text--mixed">{{ block.settings.brand_3_text }}</span>
+                    {%- when 'text_bad' -%}
+                      <span class="bc-cell-text bc-cell-text--bad">{{ block.settings.brand_3_text }}</span>
+                  {%- endcase -%}
+                </td>
+
+                {%- comment -%} Brand 4 cell {%- endcomment -%}
+                <td>
+                  {%- case block.settings.brand_4_type -%}
+                    {%- when 'check' -%}
+                      <span class="bc-cell-check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    {%- when 'cross' -%}
+                      <span class="bc-cell-cross">
+                        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                      </span>
+                    {%- when 'text' -%}
+                      <span class="bc-cell-text bc-cell-text--good">{{ block.settings.brand_4_text }}</span>
+                    {%- when 'text_neutral' -%}
+                      <span class="bc-cell-text bc-cell-text--mixed">{{ block.settings.brand_4_text }}</span>
+                    {%- when 'text_bad' -%}
+                      <span class="bc-cell-text bc-cell-text--bad">{{ block.settings.brand_4_text }}</span>
+                  {%- endcase -%}
+                </td>
+              </tr>
+            {%- endif -%}
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+
+    {%- comment -%} ── Footer / CTA ── {%- endcomment -%}
+    {%- if section.settings.footer_text != blank or section.settings.cta_text != blank -%}
+      <div class="brand-comparison__footer{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+        {%- if section.settings.footer_text != blank -%}
+          <p class="brand-comparison__footer-text">{{ section.settings.footer_text }}</p>
+        {%- endif -%}
+        {%- if section.settings.cta_text != blank -%}
+          <a href="{{ section.settings.cta_url }}" class="brand-comparison__cta">
+            {{ section.settings.cta_text }}
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Comparison",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Comparison"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Hydra vs. The Competition"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "See how Hydra stacks up against the leading hydration brands on the market."
+    },
+    {
+      "type": "header",
+      "content": "Brand columns"
+    },
+    {
+      "type": "text",
+      "id": "feature_col_label",
+      "label": "Feature column label",
+      "default": "Feature"
+    },
+    {
+      "type": "text",
+      "id": "brand_1_name",
+      "label": "Brand 1 name (highlighted)",
+      "default": "Hydra"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_1_logo",
+      "label": "Brand 1 logo"
+    },
+    {
+      "type": "text",
+      "id": "brand_2_name",
+      "label": "Brand 2 name",
+      "default": "Liquid IV"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_2_logo",
+      "label": "Brand 2 logo"
+    },
+    {
+      "type": "text",
+      "id": "brand_3_name",
+      "label": "Brand 3 name",
+      "default": "Gatorade"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_3_logo",
+      "label": "Brand 3 logo"
+    },
+    {
+      "type": "text",
+      "id": "brand_4_name",
+      "label": "Brand 4 name",
+      "default": "LMNT"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_4_logo",
+      "label": "Brand 4 logo"
+    },
+    {
+      "type": "header",
+      "content": "Footer / CTA"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "Footer text",
+      "default": "Hydra delivers clean, naturally sourced hydration without the junk."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA button text",
+      "default": "Try Hydra Today"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA button URL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#263D87"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffffcc"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#61c2f4"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#ffffff14"
+    },
+    {
+      "type": "color",
+      "id": "highlight_bg",
+      "label": "Highlight column bg",
+      "default": "#61c2f414"
+    },
+    {
+      "type": "color",
+      "id": "check_bg",
+      "label": "Check icon bg",
+      "default": "#61c2f433"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button background",
+      "default": "#61c2f4"
+    },
+    {
+      "type": "color",
+      "id": "btn_text",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size (desktop)",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mob",
+      "label": "Heading size (mobile)",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "label": "Heading letter spacing",
+      "min": -5,
+      "max": 10,
+      "step": 1,
+      "default": -2,
+      "info": "Hundredths of an em"
+    },
+    {
+      "type": "range",
+      "id": "sub_size",
+      "label": "Subheading size",
+      "min": 13,
+      "max": 24,
+      "step": 1,
+      "default": 17,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 13,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "cell_size",
+      "label": "Cell text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "brand_name_size",
+      "label": "Brand name size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "logo_size",
+      "label": "Logo size",
+      "min": 24,
+      "max": 80,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "cell_pad_v",
+      "label": "Row vertical padding",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "header_mb",
+      "label": "Header bottom margin",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "footer_mt",
+      "label": "Footer top margin",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "default": 1200,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "side_pad",
+      "label": "Side padding",
+      "min": 12,
+      "max": 48,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "pad_top",
+      "label": "Top padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "pad_bottom",
+      "label": "Bottom padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "pad_top_mob",
+      "label": "Top padding (mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "pad_bottom_mob",
+      "label": "Bottom padding (mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature name",
+          "default": "Feature"
+        },
+        {
+          "type": "header",
+          "content": "Brand 1 (Hydra)"
+        },
+        {
+          "type": "select",
+          "id": "brand_1_type",
+          "label": "Cell type",
+          "options": [
+            { "value": "check", "label": "Checkmark" },
+            { "value": "cross", "label": "Cross" },
+            { "value": "text", "label": "Text (positive)" },
+            { "value": "text_neutral", "label": "Text (neutral)" },
+            { "value": "text_bad", "label": "Text (negative)" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "text",
+          "id": "brand_1_text",
+          "label": "Text value (if text type)",
+          "default": ""
+        },
+        {
+          "type": "header",
+          "content": "Brand 2"
+        },
+        {
+          "type": "select",
+          "id": "brand_2_type",
+          "label": "Cell type",
+          "options": [
+            { "value": "check", "label": "Checkmark" },
+            { "value": "cross", "label": "Cross" },
+            { "value": "text", "label": "Text (positive)" },
+            { "value": "text_neutral", "label": "Text (neutral)" },
+            { "value": "text_bad", "label": "Text (negative)" }
+          ],
+          "default": "cross"
+        },
+        {
+          "type": "text",
+          "id": "brand_2_text",
+          "label": "Text value (if text type)",
+          "default": ""
+        },
+        {
+          "type": "header",
+          "content": "Brand 3"
+        },
+        {
+          "type": "select",
+          "id": "brand_3_type",
+          "label": "Cell type",
+          "options": [
+            { "value": "check", "label": "Checkmark" },
+            { "value": "cross", "label": "Cross" },
+            { "value": "text", "label": "Text (positive)" },
+            { "value": "text_neutral", "label": "Text (neutral)" },
+            { "value": "text_bad", "label": "Text (negative)" }
+          ],
+          "default": "cross"
+        },
+        {
+          "type": "text",
+          "id": "brand_3_text",
+          "label": "Text value (if text type)",
+          "default": ""
+        },
+        {
+          "type": "header",
+          "content": "Brand 4"
+        },
+        {
+          "type": "select",
+          "id": "brand_4_type",
+          "label": "Cell type",
+          "options": [
+            { "value": "check", "label": "Checkmark" },
+            { "value": "cross", "label": "Cross" },
+            { "value": "text", "label": "Text (positive)" },
+            { "value": "text_neutral", "label": "Text (neutral)" },
+            { "value": "text_bad", "label": "Text (negative)" }
+          ],
+          "default": "cross"
+        },
+        {
+          "type": "text",
+          "id": "brand_4_text",
+          "label": "Text value (if text type)",
+          "default": ""
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Comparison",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Electrolyte Source",
+            "brand_1_type": "text",
+            "brand_1_text": "Natural Minerals",
+            "brand_2_type": "text_bad",
+            "brand_2_text": "Synthetic",
+            "brand_3_type": "text_bad",
+            "brand_3_text": "Synthetic",
+            "brand_4_type": "text_bad",
+            "brand_4_text": "Synthetic"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Artificial Dyes",
+            "brand_1_type": "cross",
+            "brand_2_type": "cross",
+            "brand_3_type": "check",
+            "brand_4_type": "cross"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Artificial Sweeteners",
+            "brand_1_type": "cross",
+            "brand_2_type": "check",
+            "brand_3_type": "cross",
+            "brand_4_type": "cross"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Added Sugar",
+            "brand_1_type": "text",
+            "brand_1_text": "0g",
+            "brand_2_type": "text_bad",
+            "brand_2_text": "~11g",
+            "brand_3_type": "text_bad",
+            "brand_3_text": "~34g",
+            "brand_4_type": "text",
+            "brand_4_text": "0g"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Fun Hydration Format",
+            "brand_1_type": "text",
+            "brand_1_text": "Freeze Pops",
+            "brand_2_type": "cross",
+            "brand_3_type": "cross",
+            "brand_4_type": "cross"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Flavor-Free Option",
+            "brand_1_type": "text",
+            "brand_1_text": "Drops",
+            "brand_2_type": "cross",
+            "brand_3_type": "cross",
+            "brand_4_type": "cross"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Clean Ingredients",
+            "brand_1_type": "check",
+            "brand_2_type": "cross",
+            "brand_3_type": "cross",
+            "brand_4_type": "text_neutral",
+            "brand_4_text": "Partial"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
