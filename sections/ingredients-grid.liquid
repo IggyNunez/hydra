@@ -106,7 +106,7 @@
               {%- if block.settings.name != blank -%}
                 <h3
                   class="ingredient-card__name"
-                  style="font-size: {{ section.settings.card_name_size }}px; margin-bottom: {{ section.settings.card_name_mb }}px;"
+                  style="font-size: {{ section.settings.card_name_size }}px; font-weight: {{ section.settings.card_name_weight }}; letter-spacing: {{ section.settings.card_name_letter_spacing | divided_by: 100.0 }}em; margin-bottom: {{ section.settings.card_name_mb }}px;"
                 >{{ block.settings.name }}</h3>
               {%- endif -%}
 
@@ -470,6 +470,29 @@
       "step": 1,
       "unit": "px",
       "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_name_letter_spacing",
+      "label": "Name letter spacing",
+      "min": -5,
+      "max": 30,
+      "step": 1,
+      "default": 0,
+      "info": "Values in hundredths of an em (e.g. 2 = 0.02em)"
+    },
+    {
+      "type": "select",
+      "id": "card_name_weight",
+      "label": "Name font weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" }
+      ],
+      "default": "700"
     },
     {
       "type": "range",
