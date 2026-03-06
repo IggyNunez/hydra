@@ -1,7 +1,7 @@
 {{ 'brand-comparison.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  #shopify-section-{{ section.id }} {
+  #shopify-section-{{ section.id }} .brand-comparison {
     --bc-bg: {{ section.settings.bg_color }};
     --bc-heading-color: {{ section.settings.heading_color }};
     --bc-text-color: {{ section.settings.text_color }};
@@ -28,7 +28,7 @@
     padding-bottom: {{ section.settings.pad_bottom }}px;
   }
   @media (max-width: 749px) {
-    #shopify-section-{{ section.id }} {
+    #shopify-section-{{ section.id }} .brand-comparison {
       --bc-heading-size: {{ section.settings.heading_size_mob }}px;
       padding-top: {{ section.settings.pad_top_mob }}px;
       padding-bottom: {{ section.settings.pad_bottom_mob }}px;
