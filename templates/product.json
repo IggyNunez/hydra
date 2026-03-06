@@ -77,7 +77,7 @@
           "type": "collapsble_description",
           "settings": {
             "heading": "Description",
-            "open_default": true
+            "open_default": false
           }
         },
         "custom_collapsible_ytqnw6": {
@@ -415,96 +415,6 @@
         "padding_bottom": 36
       }
     },
-    "benefits_image_prod": {
-      "type": "benefits-image",
-      "blocks": {
-        "benefit_JADtT8": {
-          "type": "benefit",
-          "settings": {
-            "icon_image": "shopify://shop_images/Group_1980469001_468de2a6-791b-4ac5-b0be-66421311fdd9.png",
-            "icon_preset": "droplet",
-            "title": "Naturally Sourced Minerals",
-            "text": "Our electrolytes come from natural sea mineral deposits sourced from the Great Salt Lake in Utah, one of the most mineral-rich inland bodies of water in the world."
-          }
-        },
-        "benefit_WhEtRk": {
-          "type": "benefit",
-          "settings": {
-            "icon_image": "shopify://shop_images/Group_1980469002_eb6c227f-c9a3-425d-b971-530ab93583d4.webp",
-            "icon_preset": "shield",
-            "title": "Tested for Purity & Safety",
-            "text": "Heavy metals screened and controlled. Purity testing across multiple mineral panels. Classified as GRAS (Generally Recognized As Safe) for food and beverage use."
-          }
-        },
-        "benefit_pFp3VK": {
-          "type": "benefit",
-          "settings": {
-            "icon_preset": "bolt",
-            "title": "Full-Spectrum Electrolytes",
-            "text": "A naturally occurring spectrum of essential electrolytes including sodium, potassium, magnesium, chloride, and trace minerals — easily recognized and used by the body."
-          }
-        },
-        "benefit_qVBH6L": {
-          "type": "benefit",
-          "settings": {
-            "icon_image": "shopify://shop_images/Group_1980469000_ab2e3c68-fbaf-4430-88ea-cce1a1364272.png",
-            "icon_preset": "vegan",
-            "title": "Zero Synthetics",
-            "text": "No added sugar. No artificial dyes. No artificial sweeteners. Clean ingredient formulas. Hydration, the way your body was designed to use it."
-          }
-        }
-      },
-      "block_order": [
-        "benefit_JADtT8",
-        "benefit_WhEtRk",
-        "benefit_pFp3VK",
-        "benefit_qVBH6L"
-      ],
-      "name": "Benefits + Image",
-      "settings": {
-        "layout": "image_right",
-        "content_alignment": "left",
-        "image_position": "center center",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48,
-        "side_padding": 60,
-        "bg_color": "#263d87",
-        "heading": "The Science Behind Hydra",
-        "heading_size": 74,
-        "heading_size_mobile": 38,
-        "heading_letter_spacing": 2,
-        "heading_weight": "700",
-        "heading_mb": 20,
-        "description": "<p>Most electrolyte drinks are built in labs using synthetic powders. Hydra is different. Our electrolytes come from natural sea mineral deposits sourced from the Great Salt Lake — one of the most mineral-rich inland bodies of water in the world. Instead of manufacturing isolated salts, our minerals are naturally concentrated through a multi-year solar extraction process.</p>",
-        "desc_size": 20,
-        "desc_mb": 40,
-        "grid_cols": "2",
-        "mobile_grid_cols": "1",
-        "mobile_item_align": "center",
-        "grid_gap": 36,
-        "grid_gap_h": 40,
-        "icon_size": 62,
-        "item_title_size": 28,
-        "item_text_size": 17,
-        "product_image": "shopify://shop_images/Screen_Shot_2025-11-05_at_12.29.00_PM_53563067-f5c4-47b2-ae5e-f20ab2bab606.png",
-        "btn_label": "",
-        "btn_url": "",
-        "btn2_label": "",
-        "btn2_url": "",
-        "btn_font_size": 15,
-        "btn_mt": 40,
-        "heading_color": "#ffffff",
-        "text_color": "#ffffffcc",
-        "icon_border_color": "#263d87",
-        "icon_bg_color": "#61c2f414",
-        "image_glow_color": "#61c2f440",
-        "btn_bg_color": "#ffffff",
-        "btn_text_color": "#334fb4",
-        "btn2_text_color": "#ffffff"
-      }
-    },
     "ingredients_grid_kA3Vp9": {
       "type": "ingredients-grid",
       "blocks": {
@@ -617,6 +527,96 @@
         "protip_bg_color": "#ffffffe6",
         "protip_label_bg": "#263d87",
         "protip_text_color": "#1a2d6e"
+      }
+    },
+    "benefits_image_prod": {
+      "type": "benefits-image",
+      "blocks": {
+        "benefit_JADtT8": {
+          "type": "benefit",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469001_468de2a6-791b-4ac5-b0be-66421311fdd9.png",
+            "icon_preset": "droplet",
+            "title": "Naturally Sourced Minerals",
+            "text": "Our electrolytes come from natural sea mineral deposits sourced from the Great Salt Lake in Utah, one of the most mineral-rich inland bodies of water in the world."
+          }
+        },
+        "benefit_WhEtRk": {
+          "type": "benefit",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469002_eb6c227f-c9a3-425d-b971-530ab93583d4.webp",
+            "icon_preset": "shield",
+            "title": "Tested for Purity & Safety",
+            "text": "Heavy metals screened and controlled. Purity testing across multiple mineral panels. Classified as GRAS (Generally Recognized As Safe) for food and beverage use."
+          }
+        },
+        "benefit_pFp3VK": {
+          "type": "benefit",
+          "settings": {
+            "icon_preset": "bolt",
+            "title": "Full-Spectrum Electrolytes",
+            "text": "A naturally occurring spectrum of essential electrolytes including sodium, potassium, magnesium, chloride, and trace minerals — easily recognized and used by the body."
+          }
+        },
+        "benefit_qVBH6L": {
+          "type": "benefit",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469000_ab2e3c68-fbaf-4430-88ea-cce1a1364272.png",
+            "icon_preset": "vegan",
+            "title": "Zero Synthetics",
+            "text": "No added sugar. No artificial dyes. No artificial sweeteners. Clean ingredient formulas. Hydration, the way your body was designed to use it."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_JADtT8",
+        "benefit_WhEtRk",
+        "benefit_pFp3VK",
+        "benefit_qVBH6L"
+      ],
+      "name": "Benefits + Image",
+      "settings": {
+        "layout": "image_right",
+        "content_alignment": "left",
+        "image_position": "center center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "side_padding": 60,
+        "bg_color": "#263d87",
+        "heading": "The Science Behind Hydra",
+        "heading_size": 74,
+        "heading_size_mobile": 38,
+        "heading_letter_spacing": 2,
+        "heading_weight": "700",
+        "heading_mb": 20,
+        "description": "<p>Most electrolyte drinks are built in labs using synthetic powders. Hydra is different. Our electrolytes come from natural sea mineral deposits sourced from the Great Salt Lake — one of the most mineral-rich inland bodies of water in the world. Instead of manufacturing isolated salts, our minerals are naturally concentrated through a multi-year solar extraction process.</p>",
+        "desc_size": 20,
+        "desc_mb": 40,
+        "grid_cols": "2",
+        "mobile_grid_cols": "1",
+        "mobile_item_align": "center",
+        "grid_gap": 36,
+        "grid_gap_h": 40,
+        "icon_size": 62,
+        "item_title_size": 28,
+        "item_text_size": 17,
+        "product_image": "shopify://shop_images/Screen_Shot_2025-11-05_at_12.29.00_PM_53563067-f5c4-47b2-ae5e-f20ab2bab606.png",
+        "btn_label": "",
+        "btn_url": "",
+        "btn2_label": "",
+        "btn2_url": "",
+        "btn_font_size": 15,
+        "btn_mt": 40,
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "icon_border_color": "#263d87",
+        "icon_bg_color": "#61c2f414",
+        "image_glow_color": "#61c2f440",
+        "btn_bg_color": "#ffffff",
+        "btn_text_color": "#334fb4",
+        "btn2_text_color": "#ffffff"
       }
     },
     "science_process_xbLNBX": {
@@ -837,6 +837,26 @@
         "guarantee_color": "#ffffffbf"
       }
     },
+    "1737097653810224b9": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_4cqFpy": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "no_reviews",
+            "max_width": 1200,
+            "show_shop_reviews": true,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_4cqFpy"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "faq_science_prod": {
       "type": "faq-science",
       "blocks": {
@@ -918,26 +938,6 @@
         "item_bg": "#ffffff14",
         "border_color": "#ffffff1a",
         "icon_color": "#61c2f4"
-      }
-    },
-    "1737097653810224b9": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_4cqFpy": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "no_reviews",
-            "max_width": 1200,
-            "show_shop_reviews": true,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_4cqFpy"
-      ],
-      "settings": {
-        "include_margins": true
       }
     },
     "related-products": {
