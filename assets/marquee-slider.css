@@ -63,7 +63,7 @@
 
   .marquee__slide-text {
     line-height: 1.2;
-    letter-spacing: -0.5px;
+    letter-spacing: 2px;
   }
 
   .marquee__container {
