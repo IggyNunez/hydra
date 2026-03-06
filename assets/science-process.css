@@ -1,112 +1,246 @@
+/* ============================================================
+   Science Process – Premium Glass-Morphism Design
+   ============================================================ */
+
 .science-process {
   background-color: var(--sp-bg);
   color: var(--sp-text-color);
+  padding: var(--sp-pt) var(--sp-side) var(--sp-pb);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient background glow effects */
+.science-process::before,
+.science-process::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(120px);
+  opacity: 0.35;
+}
+
+.science-process::before {
+  width: 500px;
+  height: 500px;
+  background: var(--sp-glow-color);
+  top: -100px;
+  right: -150px;
+}
+
+.science-process::after {
+  width: 400px;
+  height: 400px;
+  background: var(--sp-glow-color);
+  bottom: -80px;
+  left: -120px;
+  opacity: 0.2;
 }
 
 .science-process__inner {
+  max-width: var(--sp-max-w);
   margin: 0 auto;
-  width: 100%;
-  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
+/* Header */
 .science-process__header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: var(--sp-header-mb);
 }
 
 .science-process__eyebrow {
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--sp-step-num-bg);
-  margin: 0 0 12px;
-  opacity: 0.75;
+  color: var(--sp-accent-color);
+  margin: 0 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.science-process__eyebrow::before,
+.science-process__eyebrow::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--sp-accent-color);
+  opacity: 0.5;
 }
 
 .science-process__heading {
+  font-size: var(--sp-heading-size);
+  font-weight: var(--sp-heading-weight);
+  letter-spacing: var(--sp-heading-ls);
   color: var(--sp-heading-color);
-  margin: 0;
-  line-height: 1.15;
+  margin: 0 0 var(--sp-heading-mb);
+  line-height: 1.1;
 }
 
 .science-process__subheading {
+  font-size: var(--sp-sub-size);
   color: var(--sp-text-color);
-  margin: 12px 0 0;
+  margin: 0 auto;
   opacity: 0.7;
-  line-height: 1.5;
+  line-height: 1.6;
+  max-width: 560px;
 }
 
-/* Steps */
+/* Steps container */
 .science-process__steps {
   display: flex;
   flex-direction: column;
+  gap: var(--sp-step-gap);
   position: relative;
 }
 
+/* Vertical connector line */
+.science-process__connector {
+  position: absolute;
+  left: 27px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  z-index: 0;
+}
+
+.science-process__connector-track {
+  width: 100%;
+  height: 100%;
+  background: var(--sp-connector-color);
+  border-radius: 2px;
+}
+
+.science-process__connector-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--sp-accent-color);
+  border-radius: 2px;
+  transition: height 0.1s linear;
+}
+
+/* Step card */
 .science-process__step {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  background-color: var(--sp-step-bg);
+  gap: var(--sp-step-inner-gap);
+  padding: var(--sp-step-padding);
+  border-radius: var(--sp-step-radius);
   position: relative;
+  z-index: 1;
+  background: var(--sp-step-bg);
+  border: 1px solid var(--sp-step-border-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+  will-change: transform, opacity;
 }
 
+.science-process__step:hover {
+  transform: translateY(-2px);
+  border-color: var(--sp-accent-color-dim);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),
+              0 0 0 1px var(--sp-accent-color-dim);
+}
+
+/* Step number */
 .science-process__step-num {
+  width: var(--sp-num-size);
+  height: var(--sp-num-size);
+  min-width: var(--sp-num-size);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--sp-step-num-bg);
-  color: var(--sp-step-num-color);
+  border-radius: 50%;
+  font-size: var(--sp-num-font-size);
   font-weight: 700;
   line-height: 1;
+  position: relative;
   flex-shrink: 0;
+  background: var(--sp-step-num-bg);
+  color: var(--sp-step-num-color);
+  box-shadow: 0 0 0 4px var(--sp-step-num-ring);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+.science-process__step:hover .science-process__step-num {
+  box-shadow: 0 0 0 4px var(--sp-step-num-ring),
+              0 0 20px var(--sp-accent-color-dim);
+  transform: scale(1.05);
+}
+
+/* Pulse animation on number when step is in view */
+.science-process__step-num::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--sp-accent-color);
+  opacity: 0;
+  animation: none;
+}
+
+.science-process__step.is-active .science-process__step-num::after {
+  animation: sp-pulse 2s ease-out infinite;
+}
+
+@keyframes sp-pulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* Step content */
 .science-process__step-body {
   flex: 1;
-  padding: 4px 0;
+  padding: 2px 0;
 }
 
 .science-process__step-title {
-  color: var(--sp-heading-color);
+  font-size: var(--sp-step-title-size);
   font-weight: 600;
-  margin: 0;
+  color: var(--sp-heading-color);
+  margin: 0 0 var(--sp-step-title-mb);
   line-height: 1.3;
 }
 
 .science-process__step-text {
+  font-size: var(--sp-step-text-size);
   color: var(--sp-text-color);
   margin: 0;
-  line-height: 1.6;
-  opacity: 0.85;
-}
-
-/* Connector line between steps */
-.science-process__steps::before {
-  content: '';
-  position: absolute;
-  left: 22px;
-  top: 44px;
-  bottom: 44px;
-  width: 2px;
-  background-color: var(--sp-connector-color);
-  z-index: 0;
-}
-
-.science-process__step {
-  position: relative;
-  z-index: 1;
+  line-height: 1.65;
+  opacity: 0.8;
 }
 
 /* Footer */
 .science-process__footer {
   text-align: center;
-  margin: 40px 0 24px;
+  margin-top: var(--sp-footer-mt);
+  padding-top: var(--sp-footer-mt);
+  position: relative;
+}
+
+.science-process__footer-text {
+  font-size: var(--sp-footer-size);
   color: var(--sp-heading-color);
   font-weight: 600;
   line-height: 1.5;
   opacity: 0.9;
+  margin: 0 0 16px;
 }
 
 /* Badges */
@@ -115,27 +249,75 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 8px;
 }
 
 .science-process__badge {
-  background-color: var(--sp-badge-bg);
+  background: var(--sp-badge-bg);
   color: var(--sp-badge-color);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 6px 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 20px;
   border-radius: 100px;
+  border: 1px solid var(--sp-badge-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
+.science-process__badge:hover {
+  background: var(--sp-accent-color-dim);
+  border-color: var(--sp-accent-color);
+}
+
+/* GSAP initial states (hidden before animation) */
+.science-process[data-gsap-ready] .science-process__header {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.science-process[data-gsap-ready] .science-process__step {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.science-process[data-gsap-ready] .science-process__footer {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Responsive */
 @media screen and (max-width: 749px) {
-  .science-process__header {
-    margin-bottom: 32px;
+  .science-process {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  .science-process__steps::before {
-    left: 20px;
-    top: 40px;
-    bottom: 40px;
+  .science-process__heading {
+    font-size: var(--sp-heading-size-mob) !important;
+  }
+
+  .science-process__connector {
+    left: 23px;
+  }
+
+  .science-process__step {
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .science-process::before {
+    width: 300px;
+    height: 300px;
+    top: -80px;
+    right: -100px;
+  }
+
+  .science-process::after {
+    width: 250px;
+    height: 250px;
+    bottom: -60px;
+    left: -80px;
   }
 }

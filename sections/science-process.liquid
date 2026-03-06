@@ -1,96 +1,96 @@
 {{ 'science-process.css' | asset_url | stylesheet_tag }}
 
-{% style %}
-  #shopify-section-{{ section.id }} {
-    --sp-bg: {{ section.settings.bg_color }};
-    --sp-heading-color: {{ section.settings.heading_color }};
-    --sp-text-color: {{ section.settings.text_color }};
-    --sp-step-bg: {{ section.settings.step_bg_color }};
-    --sp-step-num-bg: {{ section.settings.step_num_bg }};
-    --sp-step-num-color: {{ section.settings.step_num_color }};
-    --sp-connector-color: {{ section.settings.connector_color }};
-    --sp-badge-bg: {{ section.settings.badge_bg }};
-    --sp-badge-color: {{ section.settings.badge_color }};
-  }
-{% endstyle %}
-
 {%- liquid
   assign step_blocks = section.blocks | where: 'type', 'step'
 -%}
 
-<section
-  class="science-process{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-  style="
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-  "
->
-  <div
-    class="science-process__inner"
-    style="
-      max-width: {{ section.settings.content_max_width }}px;
-      padding-left: {{ section.settings.side_padding }}px;
-      padding-right: {{ section.settings.side_padding }}px;
-    "
-  >
+{% style %}
+  #shopify-section-{{ section.id }} {
+    --sp-bg: {{ section.settings.bg_color }};
+    --sp-pt: {{ section.settings.padding_top }}px;
+    --sp-pb: {{ section.settings.padding_bottom }}px;
+    --sp-side: {{ section.settings.side_padding }}px;
+    --sp-max-w: {{ section.settings.content_max_width }}px;
+    --sp-header-mb: {{ section.settings.header_mb }}px;
+    --sp-heading-color: {{ section.settings.heading_color }};
+    --sp-text-color: {{ section.settings.text_color }};
+    --sp-heading-size: {{ section.settings.heading_size }}px;
+    --sp-heading-size-mob: {{ section.settings.heading_size_mobile }}px;
+    --sp-heading-weight: {{ section.settings.heading_weight }};
+    --sp-heading-ls: {{ section.settings.heading_letter_spacing | divided_by: 100.0 }}em;
+    --sp-heading-mb: {{ section.settings.heading_mb }}px;
+    --sp-sub-size: {{ section.settings.subheading_size }}px;
+    --sp-accent-color: {{ section.settings.accent_color }};
+    --sp-accent-color-dim: {{ section.settings.accent_color | color_modify: 'alpha', 0.25 }};
+    --sp-glow-color: {{ section.settings.glow_color }};
+    --sp-step-gap: {{ section.settings.step_gap }}px;
+    --sp-step-padding: {{ section.settings.step_padding }}px;
+    --sp-step-radius: {{ section.settings.step_radius }}px;
+    --sp-step-inner-gap: {{ section.settings.step_inner_gap }}px;
+    --sp-step-bg: {{ section.settings.step_bg_color }};
+    --sp-step-border-color: {{ section.settings.step_border_color }};
+    --sp-step-num-bg: {{ section.settings.step_num_bg }};
+    --sp-step-num-color: {{ section.settings.step_num_color }};
+    --sp-step-num-ring: {{ section.settings.step_num_ring }};
+    --sp-num-size: {{ section.settings.num_size }}px;
+    --sp-num-font-size: {{ section.settings.num_font_size }}px;
+    --sp-step-title-size: {{ section.settings.step_title_size }}px;
+    --sp-step-title-mb: {{ section.settings.step_title_mb }}px;
+    --sp-step-text-size: {{ section.settings.step_text_size }}px;
+    --sp-connector-color: {{ section.settings.connector_color }};
+    --sp-footer-mt: {{ section.settings.footer_mt }}px;
+    --sp-footer-size: {{ section.settings.footer_text_size }}px;
+    --sp-badge-bg: {{ section.settings.badge_bg }};
+    --sp-badge-color: {{ section.settings.badge_color }};
+    --sp-badge-border: {{ section.settings.badge_border }};
+  }
+{% endstyle %}
 
+<section
+  class="science-process"
+  data-section-id="{{ section.id }}"
+  data-science-process
+>
+  <div class="science-process__inner">
+
+    {%- comment -%} HEADER {%- endcomment -%}
     <div class="science-process__header">
       {%- if section.settings.eyebrow != blank -%}
         <p class="science-process__eyebrow">{{ section.settings.eyebrow }}</p>
       {%- endif -%}
       {%- if section.settings.heading != blank -%}
-        <h2
-          class="science-process__heading"
-          style="
-            font-size: {{ section.settings.heading_size }}px;
-            font-weight: {{ section.settings.heading_weight }};
-            letter-spacing: {{ section.settings.heading_letter_spacing | divided_by: 100.0 }}em;
-            margin-bottom: {{ section.settings.heading_mb }}px;
-          "
-        >{{ section.settings.heading }}</h2>
+        <h2 class="science-process__heading">{{ section.settings.heading }}</h2>
       {%- endif -%}
       {%- if section.settings.subheading != blank -%}
-        <p
-          class="science-process__subheading"
-          style="font-size: {{ section.settings.subheading_size }}px;"
-        >{{ section.settings.subheading }}</p>
+        <p class="science-process__subheading">{{ section.settings.subheading }}</p>
       {%- endif -%}
     </div>
 
+    {%- comment -%} STEPS {%- endcomment -%}
     {%- if step_blocks.size > 0 -%}
-      <div class="science-process__steps" style="gap: {{ section.settings.step_gap }}px;">
+      <div class="science-process__steps">
+
+        {%- comment -%} Animated connector line {%- endcomment -%}
+        <div class="science-process__connector">
+          <div class="science-process__connector-track"></div>
+          <div class="science-process__connector-fill"></div>
+        </div>
+
         {%- for block in step_blocks -%}
           <div
             class="science-process__step"
-            style="
-              padding: {{ section.settings.step_padding }}px;
-              border-radius: {{ section.settings.step_radius }}px;
-            "
+            data-step-index="{{ forloop.index }}"
             {{ block.shopify_attributes }}
           >
-            <div
-              class="science-process__step-num"
-              style="
-                width: {{ section.settings.num_size }}px;
-                height: {{ section.settings.num_size }}px;
-                font-size: {{ section.settings.num_font_size }}px;
-                border-radius: 50%;
-                flex-shrink: 0;
-              "
-            >{{ forloop.index }}</div>
-
+            <div class="science-process__step-num">
+              {{ forloop.index }}
+            </div>
             <div class="science-process__step-body">
               {%- if block.settings.title != blank -%}
-                <h3
-                  class="science-process__step-title"
-                  style="font-size: {{ section.settings.step_title_size }}px; margin-bottom: {{ section.settings.step_title_mb }}px;"
-                >{{ block.settings.title }}</h3>
+                <h3 class="science-process__step-title">{{ block.settings.title }}</h3>
               {%- endif -%}
               {%- if block.settings.text != blank -%}
-                <p
-                  class="science-process__step-text"
-                  style="font-size: {{ section.settings.step_text_size }}px;"
-                >{{ block.settings.text }}</p>
+                <p class="science-process__step-text">{{ block.settings.text }}</p>
               {%- endif -%}
             </div>
           </div>
@@ -98,24 +98,29 @@
       </div>
     {%- endif -%}
 
-    {%- if section.settings.footer_text != blank -%}
-      <p
-        class="science-process__footer"
-        style="font-size: {{ section.settings.footer_text_size }}px;"
-      >{{ section.settings.footer_text }}</p>
-    {%- endif -%}
-
-    {%- if section.settings.badge_text != blank -%}
-      <div class="science-process__badges">
-        {%- assign badges = section.settings.badge_text | split: '|' -%}
-        {%- for badge in badges -%}
-          <span class="science-process__badge">{{ badge | strip }}</span>
-        {%- endfor -%}
+    {%- comment -%} FOOTER {%- endcomment -%}
+    {%- if section.settings.footer_text != blank or section.settings.badge_text != blank -%}
+      <div class="science-process__footer">
+        {%- if section.settings.footer_text != blank -%}
+          <p class="science-process__footer-text">{{ section.settings.footer_text }}</p>
+        {%- endif -%}
+        {%- if section.settings.badge_text != blank -%}
+          <div class="science-process__badges">
+            {%- assign badges = section.settings.badge_text | split: '|' -%}
+            {%- for badge in badges -%}
+              <span class="science-process__badge">{{ badge | strip }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
       </div>
     {%- endif -%}
 
   </div>
 </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="{{ 'science-process.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
@@ -123,51 +128,41 @@
   "settings": [
     {
       "type": "header",
-      "content": "Layout & Spacing"
+      "content": "Layout"
     },
     {
       "type": "range",
       "id": "padding_top",
       "label": "Padding top",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "unit": "px",
-      "default": 80
+      "min": 0, "max": 200, "step": 4, "default": 80
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "label": "Padding bottom",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "unit": "px",
-      "default": 80
+      "min": 0, "max": 200, "step": 4, "default": 80
     },
     {
       "type": "range",
       "id": "side_padding",
       "label": "Side padding",
-      "min": 0,
-      "max": 120,
-      "step": 4,
-      "unit": "px",
-      "default": 60
+      "min": 0, "max": 120, "step": 4, "default": 24
     },
     {
       "type": "range",
       "id": "content_max_width",
       "label": "Max content width",
-      "min": 600,
-      "max": 1600,
-      "step": 20,
-      "unit": "px",
-      "default": 900
+      "min": 600, "max": 1200, "step": 20, "default": 800
+    },
+    {
+      "type": "range",
+      "id": "header_mb",
+      "label": "Space below header",
+      "min": 20, "max": 80, "step": 4, "default": 48
     },
     {
       "type": "header",
-      "content": "Header Text"
+      "content": "Heading"
     },
     {
       "type": "text",
@@ -184,22 +179,21 @@
     {
       "type": "range",
       "id": "heading_size",
-      "label": "Heading size",
-      "min": 20,
-      "max": 80,
-      "step": 1,
-      "unit": "px",
-      "default": 48
+      "label": "Heading size (desktop)",
+      "min": 28, "max": 80, "step": 2, "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile)",
+      "min": 22, "max": 48, "step": 2, "default": 32
     },
     {
       "type": "range",
       "id": "heading_letter_spacing",
       "label": "Heading letter spacing",
-      "min": -10,
-      "max": 50,
-      "step": 1,
-      "default": -2,
-      "info": "Values in hundredths of an em"
+      "min": -10, "max": 50, "step": 1, "default": 2,
+      "info": "In hundredths of an em"
     },
     {
       "type": "select",
@@ -207,21 +201,17 @@
       "label": "Heading weight",
       "options": [
         { "value": "400", "label": "Regular" },
-        { "value": "600", "label": "Semi-bold" },
+        { "value": "600", "label": "Semi Bold" },
         { "value": "700", "label": "Bold" },
-        { "value": "800", "label": "Extra bold" }
+        { "value": "800", "label": "Extra Bold" }
       ],
       "default": "700"
     },
     {
       "type": "range",
       "id": "heading_mb",
-      "label": "Heading bottom spacing",
-      "min": 0,
-      "max": 60,
-      "step": 2,
-      "unit": "px",
-      "default": 16
+      "label": "Heading margin bottom",
+      "min": 0, "max": 40, "step": 4, "default": 16
     },
     {
       "type": "textarea",
@@ -233,103 +223,73 @@
       "type": "range",
       "id": "subheading_size",
       "label": "Subheading size",
-      "min": 12,
-      "max": 24,
-      "step": 1,
-      "unit": "px",
-      "default": 16
+      "min": 14, "max": 22, "step": 1, "default": 16
     },
     {
       "type": "header",
-      "content": "Steps Layout"
+      "content": "Steps"
     },
     {
       "type": "range",
       "id": "step_gap",
       "label": "Gap between steps",
-      "min": 4,
-      "max": 48,
-      "step": 2,
-      "unit": "px",
-      "default": 16
+      "min": 8, "max": 32, "step": 2, "default": 16
     },
     {
       "type": "range",
       "id": "step_padding",
-      "label": "Step inner padding",
-      "min": 12,
-      "max": 48,
-      "step": 2,
-      "unit": "px",
-      "default": 24
+      "label": "Step card padding",
+      "min": 16, "max": 40, "step": 2, "default": 24
     },
     {
       "type": "range",
       "id": "step_radius",
-      "label": "Step border radius",
-      "min": 0,
-      "max": 32,
-      "step": 2,
-      "unit": "px",
-      "default": 12
+      "label": "Step card radius",
+      "min": 0, "max": 24, "step": 2, "default": 14
+    },
+    {
+      "type": "range",
+      "id": "step_inner_gap",
+      "label": "Gap between number and text",
+      "min": 12, "max": 32, "step": 2, "default": 20
     },
     {
       "type": "header",
-      "content": "Step Number"
+      "content": "Step number"
     },
     {
       "type": "range",
       "id": "num_size",
       "label": "Number circle size",
-      "min": 28,
-      "max": 72,
-      "step": 2,
-      "unit": "px",
-      "default": 44
+      "min": 36, "max": 64, "step": 2, "default": 48
     },
     {
       "type": "range",
       "id": "num_font_size",
       "label": "Number font size",
-      "min": 12,
-      "max": 28,
-      "step": 1,
-      "unit": "px",
-      "default": 18
+      "min": 14, "max": 26, "step": 1, "default": 18
     },
     {
       "type": "header",
-      "content": "Step Typography"
+      "content": "Step typography"
     },
     {
       "type": "range",
       "id": "step_title_size",
       "label": "Step title size",
-      "min": 14,
-      "max": 32,
-      "step": 1,
-      "unit": "px",
-      "default": 18
+      "min": 16, "max": 28, "step": 1, "default": 19
     },
     {
       "type": "range",
       "id": "step_title_mb",
       "label": "Title bottom spacing",
-      "min": 0,
-      "max": 20,
-      "step": 2,
-      "unit": "px",
-      "default": 6
+      "min": 0, "max": 16, "step": 2, "default": 6
     },
     {
       "type": "range",
       "id": "step_text_size",
-      "label": "Step description size",
-      "min": 12,
-      "max": 20,
-      "step": 1,
-      "unit": "px",
-      "default": 15
+      "label": "Step text size",
+      "min": 13, "max": 18, "step": 1, "default": 15
     },
     {
       "type": "header",
@@ -338,23 +298,25 @@
     {
       "type": "textarea",
       "id": "footer_text",
-      "label": "Footer summary text",
+      "label": "Footer summary",
       "default": "No chemical synthesis. No artificial mineral blends. Just naturally concentrated sea minerals."
     },
     {
       "type": "range",
       "id": "footer_text_size",
       "label": "Footer text size",
-      "min": 12,
-      "max": 22,
-      "step": 1,
-      "unit": "px",
-      "default": 16
+      "min": 14, "max": 22, "step": 1, "default": 16
+    },
+    {
+      "type": "range",
+      "id": "footer_mt",
+      "label": "Footer margin top",
+      "min": 20, "max": 80, "step": 4, "default": 48
     },
     {
       "type": "text",
       "id": "badge_text",
-      "label": "Certification badges (separate with |)",
+      "label": "Badges (separate with |)",
       "default": "SolarSea Sport | Non-GMO | Gluten Free",
       "info": "e.g. SolarSea Sport | Non-GMO | Gluten Free"
     },
@@ -366,55 +328,86 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background",
-      "default": "#f7f9ff"
+      "default": "#1a2d5e"
     },
     {
       "type": "color",
       "id": "heading_color",
       "label": "Heading color",
-      "default": "#263d87"
+      "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "text_color",
       "label": "Body text color",
-      "default": "#444444"
+      "default": "#ffffffcc"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#61c2f4",
+      "info": "Used for eyebrow, number glow, connector fill, badge hover"
+    },
+    {
+      "type": "color",
+      "id": "glow_color",
+      "label": "Background glow color",
+      "default": "#61c2f4"
     },
     {
       "type": "color",
       "id": "step_bg_color",
       "label": "Step card background",
-      "default": "#ffffff"
+      "default": "#ffffff0d"
+    },
+    {
+      "type": "color",
+      "id": "step_border_color",
+      "label": "Step card border",
+      "default": "#ffffff14"
     },
     {
       "type": "color",
       "id": "step_num_bg",
-      "label": "Step number circle background",
-      "default": "#263d87"
+      "label": "Number circle background",
+      "default": "#61c2f4"
     },
     {
       "type": "color",
       "id": "step_num_color",
-      "label": "Step number text color",
-      "default": "#ffffff"
+      "label": "Number circle text",
+      "default": "#0f1e3d"
+    },
+    {
+      "type": "color",
+      "id": "step_num_ring",
+      "label": "Number circle ring",
+      "default": "#61c2f433"
     },
     {
       "type": "color",
       "id": "connector_color",
-      "label": "Connector line color",
-      "default": "#263d8733"
+      "label": "Connector track color",
+      "default": "#ffffff1a"
     },
     {
       "type": "color",
       "id": "badge_bg",
       "label": "Badge background",
-      "default": "#263d8714"
+      "default": "#ffffff0d"
     },
     {
       "type": "color",
       "id": "badge_color",
       "label": "Badge text color",
-      "default": "#263d87"
+      "default": "#ffffffcc"
+    },
+    {
+      "type": "color",
+      "id": "badge_border",
+      "label": "Badge border color",
+      "default": "#ffffff1a"
     }
   ],
   "blocks": [
@@ -452,35 +445,35 @@
           "type": "step",
           "settings": {
             "title": "Collected from the Source",
-            "text": "Mineral-rich water from the Great Salt Lake in Utah — one of the most mineral-dense inland bodies of water in the world — is collected."
+            "text": "Mineral-rich water from the Great Salt Lake in Utah \u2014 one of the most mineral-dense inland bodies of water in the world \u2014 is collected."
           }
         },
         {
           "type": "step",
           "settings": {
             "title": "Placed in Solar Evaporation Ponds",
-            "text": "The water is transferred into large solar evaporation ponds where the natural process begins."
+            "text": "The water is transferred into large solar evaporation ponds where the natural concentration process begins."
           }
         },
         {
           "type": "step",
           "settings": {
             "title": "Sun Concentrates the Minerals",
-            "text": "Over the course of three years, the sun naturally concentrates the minerals as water slowly evaporates."
+            "text": "Over three years, the sun naturally concentrates the minerals as water slowly evaporates."
           }
         },
         {
           "type": "step",
           "settings": {
             "title": "Minerals Rise and Crystallize",
-            "text": "As evaporation progresses, the mineral salts rise and crystallize — preserving the natural electrolyte balance found in the lake."
+            "text": "As evaporation progresses, mineral salts rise and crystallize \u2014 preserving the natural electrolyte balance."
           }
         },
         {
           "type": "step",
           "settings": {
             "title": "Harvested and Purified",
-            "text": "The mineral salts are harvested, purified, and independently lab tested to meet food-grade safety standards before going into every Hydra product."
+            "text": "The mineral salts are harvested, purified, and independently lab tested to meet food-grade safety standards."
           }
         }
       ]
