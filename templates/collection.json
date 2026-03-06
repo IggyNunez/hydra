@@ -1,1 +1,211 @@
-{"sections":{"banner":{"type":"main-collection-banner","settings":{"show_collection_description":true,"show_collection_image":false,"color_scheme":"scheme-1"}},"product-grid":{"type":"main-collection-product-grid","settings":{"products_per_page":16,"columns_desktop":3,"color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":false,"show_vendor":false,"show_rating":false,"quick_add":"standard","enable_filtering":true,"filter_type":"horizontal","enable_sorting":true,"columns_mobile":"1","padding_top":36,"padding_bottom":36}}},"order":["banner","product-grid"]}
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "benefits_image_coll": {
+      "type": "benefits-image",
+      "blocks": {
+        "benefit_JADtT8": {
+          "type": "benefit",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469001_468de2a6-791b-4ac5-b0be-66421311fdd9.png",
+            "icon_preset": "no",
+            "title": "No Added Sugar",
+            "text": "Zero added sugar, zero artificial sweeteners. Just clean hydration you can feel good about."
+          }
+        },
+        "benefit_WhEtRk": {
+          "type": "benefit",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469002_eb6c227f-c9a3-425d-b971-530ab93583d4.webp",
+            "icon_preset": "check",
+            "title": "Non-GMO & Gluten Free",
+            "text": "Clean ingredients you can trust. SolarSea Sport certified Non-GMO and gluten free — backed by independent testing."
+          }
+        },
+        "benefit_pFp3VK": {
+          "type": "benefit",
+          "settings": {
+            "icon_preset": "droplet",
+            "title": "Natural Electrolytes",
+            "text": "A naturally occurring spectrum of sodium, potassium, magnesium, chloride, and trace minerals — absorbed the way your body was designed."
+          }
+        },
+        "benefit_qVBH6L": {
+          "type": "benefit",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1980469000_ab2e3c68-fbaf-4430-88ea-cce1a1364272.png",
+            "icon_preset": "check",
+            "title": "GRAS Certified Minerals",
+            "text": "Independently lab tested. Heavy metals screened. Classified as Generally Recognized As Safe for food and beverage products."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_JADtT8",
+        "benefit_WhEtRk",
+        "benefit_pFp3VK",
+        "benefit_qVBH6L"
+      ],
+      "name": "Benefits + Image",
+      "settings": {
+        "layout": "image_right",
+        "content_alignment": "left",
+        "image_position": "center center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "side_padding": 60,
+        "bg_color": "#263d87",
+        "heading": "Real Minerals. Real Hydration.",
+        "heading_size": 74,
+        "heading_size_mobile": 38,
+        "heading_letter_spacing": 2,
+        "heading_weight": "700",
+        "heading_mb": 20,
+        "description": "<p>Most electrolyte drinks are built in labs using synthetic powders. Hydra is different. Our electrolytes come from natural sea mineral deposits sourced from the Great Salt Lake — one of the most mineral-rich inland bodies of water in the world.</p>",
+        "desc_size": 20,
+        "desc_mb": 40,
+        "grid_cols": "2",
+        "mobile_grid_cols": "1",
+        "mobile_item_align": "center",
+        "grid_gap": 36,
+        "grid_gap_h": 40,
+        "icon_size": 62,
+        "item_title_size": 28,
+        "item_text_size": 17,
+        "product_image": "shopify://shop_images/Screen_Shot_2025-11-05_at_12.29.00_PM_53563067-f5c4-47b2-ae5e-f20ab2bab606.png",
+        "btn_label": "",
+        "btn_url": "",
+        "btn2_label": "",
+        "btn2_url": "",
+        "btn_font_size": 15,
+        "btn_mt": 40,
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "icon_border_color": "#263d87",
+        "icon_bg_color": "#61c2f414",
+        "image_glow_color": "#61c2f440",
+        "btn_bg_color": "#ffffff",
+        "btn_text_color": "#334fb4",
+        "btn2_text_color": "#ffffff"
+      }
+    },
+    "faq_science_coll": {
+      "type": "faq-science",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I use Hydra?",
+            "answer": "<p>Hydra Pops: Freeze and enjoy as a hydrating popsicle, or drink straight from the pouch as a liquid shot. Hydra Drops: Add a few drops to any beverage — water, sparkling water, juice, smoothies — for an instant electrolyte boost.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What does it taste like?",
+            "answer": "<p>Hydra Pops come in three refreshing flavors — Apple, Strawberry, and Lime — made with real fruit juice. Hydra Drops are flavorless and odorless, so they blend seamlessly into any drink without changing the taste.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe?",
+            "answer": "<p>Absolutely. Our sea mineral electrolyte source (SolarSea Sport) is classified as GRAS — Generally Recognized As Safe — by the FDA. It's independently lab tested for heavy metals, microplastics, and contaminants.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this the same as sea salt?",
+            "answer": "<p>No. While both come from natural sources, Hydra uses a concentrated mineral extract from the Great Salt Lake that delivers a full spectrum of electrolytes — sodium, potassium, magnesium, chloride, and 72+ trace minerals. It's not just salt — it's a complete mineral complex.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What about microplastics?",
+            "answer": "<p>The Great Salt Lake is an inland body of water, naturally isolated from ocean plastic contamination. Our mineral source is also independently tested to confirm it's free from microplastic content.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What about toxins in the Great Salt Lake?",
+            "answer": "<p>Every batch of our sea mineral concentrate is independently tested for heavy metals, environmental contaminants, and microbial purity. The mineral extraction process concentrates beneficial electrolytes while screening out harmful substances.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6"
+      ],
+      "name": "FAQ — Science",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "side_padding": 24,
+        "content_max_width": 860,
+        "heading": "Frequently Asked Questions",
+        "heading_size": 56,
+        "heading_size_mobile": 32,
+        "heading_letter_spacing": 2,
+        "heading_weight": "700",
+        "heading_mb": 12,
+        "subheading": "",
+        "subheading_size": 16,
+        "subheading_mb": 40,
+        "question_size": 18,
+        "answer_size": 15,
+        "item_gap": 12,
+        "item_padding": 24,
+        "item_radius": 12,
+        "bg_color": "#263d87",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "question_color": "#ffffff",
+        "item_bg": "#ffffff14",
+        "border_color": "#ffffff1a",
+        "icon_color": "#61c2f4"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "benefits_image_coll",
+    "faq_science_coll"
+  ]
+}

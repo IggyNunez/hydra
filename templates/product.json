@@ -740,6 +740,168 @@
         "guarantee_color": "#ffffffbf"
       }
     },
+    "science_process_prod": {
+      "type": "science-process",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Sourced from the Great Salt Lake",
+            "text": "Our electrolytes begin as mineral-rich brine from the Great Salt Lake in Utah — one of the most concentrated inland mineral sources on Earth."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "3-Year Solar Evaporation",
+            "text": "The brine is channeled into solar evaporation ponds where it concentrates naturally over three years — no chemical processing, no shortcuts."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Full-Spectrum Mineral Harvest",
+            "text": "The result is a naturally concentrated mineral complex containing sodium, potassium, magnesium, chloride, and over 72 trace minerals."
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "title": "GRAS Certified & Lab Tested",
+            "text": "Every batch is independently tested for heavy metals, microplastics, and contaminants. Classified as Generally Recognized As Safe (GRAS) for food and beverage use."
+          }
+        },
+        "step_5": {
+          "type": "step",
+          "settings": {
+            "title": "Blended Into Every Pop & Drop",
+            "text": "These real sea minerals are blended into our Hydra Pops and Hydra Drops — delivering clean electrolyte hydration your body actually recognizes and absorbs."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4",
+        "step_5"
+      ],
+      "name": "Science Process",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "side_padding": 60,
+        "content_max_width": 900,
+        "heading": "From Lake to Label: The 3-Year Journey",
+        "heading_size": 64,
+        "heading_size_mobile": 36,
+        "heading_letter_spacing": 2,
+        "heading_weight": "700",
+        "heading_mb": 16,
+        "subheading": "Most electrolyte brands use synthetic minerals made in a lab. Hydra's electrolytes are solar-evaporated from the Great Salt Lake over 3 years — the way nature intended.",
+        "subheading_size": 16,
+        "subheading_mb": 48,
+        "step_title_size": 22,
+        "step_text_size": 15,
+        "step_gap": 40,
+        "connector_width": 2,
+        "dot_size": 14,
+        "badges": "Real Great Salt Lake minerals|Solar-evaporated for 3 years|GRAS certified|Independently lab tested",
+        "badge_size": 13,
+        "badge_mt": 48,
+        "bg_color": "#0d1b3e",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "step_title_color": "#ffffff",
+        "connector_color": "#61c2f4",
+        "dot_color": "#61c2f4",
+        "badge_bg": "#61c2f426",
+        "badge_text_color": "#ffffff"
+      }
+    },
+    "faq_science_prod": {
+      "type": "faq-science",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I use Hydra?",
+            "answer": "<p>Hydra Pops: Freeze and enjoy as a hydrating popsicle, or drink straight from the pouch as a liquid shot. Hydra Drops: Add a few drops to any beverage — water, sparkling water, juice, smoothies — for an instant electrolyte boost.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What does it taste like?",
+            "answer": "<p>Hydra Pops come in three refreshing flavors — Apple, Strawberry, and Lime — made with real fruit juice. Hydra Drops are flavorless and odorless, so they blend seamlessly into any drink without changing the taste.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe?",
+            "answer": "<p>Absolutely. Our sea mineral electrolyte source (SolarSea Sport) is classified as GRAS — Generally Recognized As Safe — by the FDA. It's independently lab tested for heavy metals, microplastics, and contaminants.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this the same as sea salt?",
+            "answer": "<p>No. While both come from natural sources, Hydra uses a concentrated mineral extract from the Great Salt Lake that delivers a full spectrum of electrolytes — sodium, potassium, magnesium, chloride, and 72+ trace minerals. It's not just salt — it's a complete mineral complex.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What about microplastics?",
+            "answer": "<p>The Great Salt Lake is an inland body of water, naturally isolated from ocean plastic contamination. Our mineral source is also independently tested to confirm it's free from microplastic content.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What about toxins in the Great Salt Lake?",
+            "answer": "<p>Every batch of our sea mineral concentrate is independently tested for heavy metals, environmental contaminants, and microbial purity. The mineral extraction process concentrates beneficial electrolytes while screening out harmful substances.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6"
+      ],
+      "name": "FAQ — Science",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "side_padding": 24,
+        "content_max_width": 860,
+        "heading": "Frequently Asked Questions",
+        "heading_size": 56,
+        "heading_size_mobile": 32,
+        "heading_letter_spacing": 2,
+        "heading_weight": "700",
+        "heading_mb": 12,
+        "subheading": "",
+        "subheading_size": 16,
+        "subheading_mb": 40,
+        "question_size": 18,
+        "answer_size": 15,
+        "item_gap": 12,
+        "item_padding": 24,
+        "item_radius": 12,
+        "bg_color": "#263d87",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "question_color": "#ffffff",
+        "item_bg": "#ffffff14",
+        "border_color": "#ffffff1a",
+        "icon_color": "#61c2f4"
+      }
+    },
     "1737097653810224b9": {
       "type": "apps",
       "blocks": {
@@ -814,6 +976,8 @@
     "benefits_image_prod",
     "ingredients_grid_prod",
     "vs_comparison_prod",
+    "science_process_prod",
+    "faq_science_prod",
     "1737097653810224b9",
     "related-products",
     "175952410047ff4b89",

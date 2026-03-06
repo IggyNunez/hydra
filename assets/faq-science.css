@@ -1,0 +1,92 @@
+.faq-science {
+  background-color: var(--faq-bg);
+  padding: var(--faq-pt) var(--faq-side) var(--faq-pb);
+}
+
+.faq-science__inner {
+  max-width: var(--faq-max-w);
+  margin: 0 auto;
+}
+
+.faq-science__heading {
+  font-size: var(--faq-heading-size);
+  font-weight: var(--faq-heading-weight);
+  letter-spacing: var(--faq-heading-ls);
+  color: var(--faq-heading-color);
+  margin: 0 0 var(--faq-heading-mb);
+  text-align: center;
+  line-height: 1.1;
+}
+
+.faq-science__sub {
+  font-size: var(--faq-sub-size);
+  color: var(--faq-text-color);
+  margin: 0 0 var(--faq-sub-mb);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.faq-science__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--faq-item-gap);
+}
+
+.faq-science__item {
+  background: var(--faq-item-bg);
+  border: 1px solid var(--faq-border-color);
+  border-radius: var(--faq-item-radius);
+  overflow: hidden;
+}
+
+.faq-science__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: var(--faq-item-padding);
+  font-size: var(--faq-q-size);
+  font-weight: 600;
+  color: var(--faq-q-color);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.faq-science__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-science__chevron {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--faq-icon-color);
+  transition: transform 0.25s ease;
+}
+
+.faq-science__item[open] .faq-science__chevron {
+  transform: rotate(180deg);
+}
+
+.faq-science__answer {
+  padding: 0 var(--faq-item-padding) var(--faq-item-padding);
+  font-size: var(--faq-a-size);
+  color: var(--faq-text-color);
+  line-height: 1.65;
+}
+
+.faq-science__answer p {
+  margin: 0;
+}
+
+@media (max-width: 749px) {
+  .faq-science__heading {
+    font-size: var(--faq-heading-size-mob);
+  }
+
+  .faq-science {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

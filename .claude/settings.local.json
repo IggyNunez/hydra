@@ -18,7 +18,8 @@
       "Bash(git add sections/hero-cta.liquid sections/hero-banner.liquid assets/hero-cta.css assets/hero-banner.css)",
       "Bash(python -c \":*)",
       "Bash(grep -l \"ingredient\\\\|science\\\\|electrolyte\\\\|how.it.work\" /d/Hydra/sections/*.liquid)",
-      "Bash(git add -A)"
+      "Bash(git add -A)",
+      "Bash(git add templates/product.json)"
     ]
   }
 }
