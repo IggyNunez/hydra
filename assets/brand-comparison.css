@@ -152,11 +152,6 @@
 
 thead .bc-col-highlight {
   background-color: var(--bc-highlight-bg, rgba(97, 194, 244, 0.1));
-  border-radius: 12px 12px 0 0;
-}
-
-tbody tr:last-child .bc-col-highlight {
-  border-radius: 0 0 12px 12px;
 }
 
 /* ── Cell values ── */
