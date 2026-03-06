@@ -395,6 +395,7 @@
         "text_HCtqWE",
         "button_JzXPDK"
       ],
+      "disabled": true,
       "settings": {
         "enable_custom_padding_mobile": true,
         "mobile_padding": "20px 0px 20px",
@@ -504,10 +505,10 @@
         "btn2_text_color": "#ffffff"
       }
     },
-    "ingredients_grid_prod": {
+    "ingredients_grid_kA3Vp9": {
       "type": "ingredients-grid",
       "blocks": {
-        "ingredient_HJDaJC": {
+        "ingredient_hY84BT": {
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/sea_minerals.png",
@@ -516,7 +517,7 @@
             "description": "Sourced from the mineral-rich Great Salt Lake in Utah via a 3-year solar evaporation process. No chemical synthesis — just naturally concentrated electrolytes your body recognizes."
           }
         },
-        "ingredient_Ymi6JR": {
+        "ingredient_FVRECE": {
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/Sodium_Mineral.png",
@@ -525,7 +526,7 @@
             "description": "The primary electrolyte lost in sweat. Sodium drives fluid balance and keeps muscles firing — essential for cellular hydration and performance."
           }
         },
-        "ingredient_pmPaML": {
+        "ingredient_3LXypE": {
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/Potasium.png",
@@ -534,7 +535,7 @@
             "description": "Works alongside sodium to maintain fluid balance, reduce muscle cramps, and support the nerve signaling your body depends on."
           }
         },
-        "ingredient_N4BHMa": {
+        "ingredient_HWCp9R": {
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/magensium.png",
@@ -543,7 +544,7 @@
             "description": "Essential for energy production and muscle recovery. Part of the naturally occurring mineral spectrum found in Great Salt Lake sea minerals."
           }
         },
-        "ingredient_4EeCTz": {
+        "ingredient_fz7Vid": {
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/vitmain-c.png",
@@ -554,22 +555,22 @@
         }
       },
       "block_order": [
-        "ingredient_HJDaJC",
-        "ingredient_Ymi6JR",
-        "ingredient_pmPaML",
-        "ingredient_N4BHMa",
-        "ingredient_4EeCTz"
+        "ingredient_hY84BT",
+        "ingredient_FVRECE",
+        "ingredient_3LXypE",
+        "ingredient_HWCp9R",
+        "ingredient_fz7Vid"
       ],
       "name": "Ingredients Grid",
       "settings": {
         "padding_top": 80,
         "padding_bottom": 88,
         "side_padding": 60,
-        "content_max_width": 1340,
-        "heading_col_width": 280,
+        "content_max_width": 1600,
+        "heading_col_width": 380,
         "layout_gap": 60,
         "heading": "What's Inside Every Pop & Drop:",
-        "heading_size": 74,
+        "heading_size": 51,
         "heading_letter_spacing": 2,
         "heading_weight": "700",
         "heading_mb": 0,
@@ -618,10 +619,106 @@
         "protip_text_color": "#1a2d6e"
       }
     },
-    "vs_comparison_prod": {
+    "science_process_xbLNBX": {
+      "type": "science-process",
+      "blocks": {
+        "step_btwDym": {
+          "type": "step",
+          "settings": {
+            "title": "Mineral-Rich Water Collected",
+            "text": "Mineral-rich Great Salt Lake water is collected from one of the most concentrated inland mineral sources on Earth."
+          }
+        },
+        "step_ehtJHH": {
+          "type": "step",
+          "settings": {
+            "title": "Solar Evaporation Ponds",
+            "text": "The water is placed into large solar evaporation ponds where sunlight slowly begins the natural concentration process."
+          }
+        },
+        "step_THQkNU": {
+          "type": "step",
+          "settings": {
+            "title": "3 Years of Natural Concentration",
+            "text": "Over the course of three years, the sun naturally concentrates the minerals. As the water evaporates, minerals rise and crystallize."
+          }
+        },
+        "step_e9xDCg": {
+          "type": "step",
+          "settings": {
+            "title": "Mineral Salts Harvested & Purified",
+            "text": "The mineral salts are carefully harvested and purified. This slow solar process preserves the natural balance of electrolytes found in the lake."
+          }
+        },
+        "step_ghXcPb": {
+          "type": "step",
+          "settings": {
+            "title": "Clean Electrolyte Hydration",
+            "text": "These sea mineral electrolytes are blended into Hydra Pops and Hydra Drops. Naturally sourced electrolytes, no artificial dyes, no artificial sweeteners, no added sugar. Just clean hydration."
+          }
+        }
+      },
+      "block_order": [
+        "step_btwDym",
+        "step_ehtJHH",
+        "step_THQkNU",
+        "step_e9xDCg",
+        "step_ghXcPb"
+      ],
+      "name": "Science Process",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "side_padding": 24,
+        "content_max_width": 900,
+        "header_mb": 48,
+        "eyebrow": "How Our Electrolytes Are Made",
+        "heading": "A 3-Year Natural Mineral Process",
+        "heading_size": 52,
+        "heading_size_mobile": 48,
+        "heading_letter_spacing": 2,
+        "heading_weight": "700",
+        "heading_mb": 16,
+        "subheading": "We don’t make our minerals in a lab — we harvest them from nature. Instead of manufacturing isolated salts, our minerals are naturally concentrated through a multi-year solar extraction process.",
+        "subheading_size": 18,
+        "header_image": "shopify://shop_images/IMG_3962.jpg",
+        "step_gap": 16,
+        "step_padding": 28,
+        "step_radius": 16,
+        "step_inner_gap": 20,
+        "num_size": 48,
+        "num_font_size": 18,
+        "step_title_size": 38,
+        "step_title_weight": "700",
+        "step_title_letter_spacing": 5,
+        "step_title_mb": 8,
+        "step_text_size": 17,
+        "step_image_size": 100,
+        "step_image_radius": 12,
+        "footer_text": "No chemical synthesis. No artificial mineral blends. Just naturally concentrated sea minerals.",
+        "footer_text_size": 16,
+        "footer_mt": 48,
+        "badge_text": "SolarSea® Sport | Non-GMO | Gluten Free | GRAS Certified | Third-Party Tested",
+        "bg_color": "#263d87",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "accent_color": "#61c2f4",
+        "glow_color": "#263d87",
+        "step_bg_color": "#ffffff0d",
+        "step_border_color": "#ffffff14",
+        "step_num_bg": "#61c2f4",
+        "step_num_color": "#0f1e3d",
+        "step_num_ring": "#61c2f433",
+        "connector_color": "#ffffff1a",
+        "badge_bg": "#ffffff0d",
+        "badge_color": "#ffffffcc",
+        "badge_border": "#ffffff1a"
+      }
+    },
+    "vs_comparison_V6tcEa": {
       "type": "vs-comparison",
       "blocks": {
-        "row_T3aPBY": {
+        "row_hV9zpN": {
           "type": "row",
           "settings": {
             "feature": "No Added Sugar",
@@ -629,7 +726,7 @@
             "they_have_it": false
           }
         },
-        "row_ccTGCM": {
+        "row_n9FFJE": {
           "type": "row",
           "settings": {
             "feature": "No Artificial Sweeteners",
@@ -637,7 +734,7 @@
             "they_have_it": false
           }
         },
-        "row_pjiEHR": {
+        "row_7V3fnr": {
           "type": "row",
           "settings": {
             "feature": "No Artificial Dyes",
@@ -645,7 +742,7 @@
             "they_have_it": false
           }
         },
-        "row_Qyi8VN": {
+        "row_TVgfRU": {
           "type": "row",
           "settings": {
             "feature": "Vegan Formula",
@@ -653,7 +750,7 @@
             "they_have_it": false
           }
         },
-        "row_YtULRz": {
+        "row_dXzLiH": {
           "type": "row",
           "settings": {
             "feature": "Non-GMO Certified",
@@ -661,7 +758,7 @@
             "they_have_it": false
           }
         },
-        "row_Bqzezt": {
+        "row_A43ywG": {
           "type": "row",
           "settings": {
             "feature": "200mg+ Electrolytes Per Serving",
@@ -669,7 +766,7 @@
             "they_have_it": false
           }
         },
-        "row_NatMin": {
+        "row_QBxyiT": {
           "type": "row",
           "settings": {
             "feature": "Natural Mineral Source (Not Synthetic)",
@@ -679,13 +776,13 @@
         }
       },
       "block_order": [
-        "row_T3aPBY",
-        "row_ccTGCM",
-        "row_pjiEHR",
-        "row_Qyi8VN",
-        "row_YtULRz",
-        "row_Bqzezt",
-        "row_NatMin"
+        "row_hV9zpN",
+        "row_n9FFJE",
+        "row_7V3fnr",
+        "row_TVgfRU",
+        "row_dXzLiH",
+        "row_A43ywG",
+        "row_QBxyiT"
       ],
       "name": "VS Comparison",
       "settings": {
@@ -699,7 +796,7 @@
         "eyebrow_size": 13,
         "eyebrow_color": "#ffffffb3",
         "heading": "Hydra Vs. The Rest",
-        "heading_size": 80,
+        "heading_size": 52,
         "heading_letter_spacing": 2,
         "heading_weight": "700",
         "heading_mb": 32,
@@ -715,7 +812,7 @@
         "vs_pill_size": 28,
         "hero_image": "shopify://shop_images/Screen_Shot_2026-01-30_at_1.16.19_PM_e2e1e2bb-84b5-43ef-83b0-7c6ba82181da.png",
         "cta_mt": 28,
-        "btn_label": "Shop Now",
+        "btn_label": "",
         "btn_url": "",
         "btn_size": 39,
         "btn_padding_v": 10,
@@ -738,104 +835,6 @@
         "btn_bg": "#61c2f4",
         "btn_text_color": "#ffffff",
         "guarantee_color": "#ffffffbf"
-      }
-    },
-    "science_process_prod": {
-      "type": "science-process",
-      "blocks": {
-        "step_1": {
-          "type": "step",
-          "settings": {
-            "title": "Mineral-Rich Water Collected",
-            "text": "Mineral-rich Great Salt Lake water is collected from one of the most concentrated inland mineral sources on Earth."
-          }
-        },
-        "step_2": {
-          "type": "step",
-          "settings": {
-            "title": "Solar Evaporation Ponds",
-            "text": "The water is placed into large solar evaporation ponds where sunlight slowly begins the natural concentration process."
-          }
-        },
-        "step_3": {
-          "type": "step",
-          "settings": {
-            "title": "3 Years of Natural Concentration",
-            "text": "Over the course of three years, the sun naturally concentrates the minerals. As the water evaporates, minerals rise and crystallize."
-          }
-        },
-        "step_4": {
-          "type": "step",
-          "settings": {
-            "title": "Mineral Salts Harvested & Purified",
-            "text": "The mineral salts are carefully harvested and purified. This slow solar process preserves the natural balance of electrolytes found in the lake."
-          }
-        },
-        "step_5": {
-          "type": "step",
-          "settings": {
-            "title": "Clean Electrolyte Hydration",
-            "text": "These sea mineral electrolytes are blended into Hydra Pops and Hydra Drops. Naturally sourced electrolytes, no artificial dyes, no artificial sweeteners, no added sugar. Just clean hydration."
-          }
-        }
-      },
-      "block_order": [
-        "step_1",
-        "step_2",
-        "step_3",
-        "step_4",
-        "step_5"
-      ],
-      "name": "Science Process",
-      "settings": {
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "side_padding": 24,
-        "content_max_width": 800,
-        "header_mb": 48,
-        "eyebrow": "How Our Electrolytes Are Made",
-        "heading": "A 3-Year Natural Mineral Process",
-        "heading_size": 48,
-        "heading_size_mobile": 32,
-        "heading_letter_spacing": 2,
-        "heading_weight": "700",
-        "heading_mb": 16,
-        "subheading": "We don\u2019t make our minerals in a lab \u2014 we harvest them from nature. Instead of manufacturing isolated salts, our minerals are naturally concentrated through a multi-year solar extraction process.",
-        "subheading_size": 16,
-        "step_gap": 16,
-        "step_padding": 24,
-        "step_radius": 14,
-        "step_inner_gap": 20,
-        "num_size": 48,
-        "num_font_size": 18,
-        "step_title_size": 22,
-        "step_title_weight": "700",
-        "step_title_letter_spacing": 2,
-        "step_title_mb": 8,
-        "step_text_size": 15,
-        "step_image_size": 100,
-        "step_image_radius": 12,
-        "step_padding": 28,
-        "step_radius": 16,
-        "content_max_width": 900,
-        "footer_text": "No chemical synthesis. No artificial mineral blends. Just naturally concentrated sea minerals.",
-        "footer_text_size": 16,
-        "footer_mt": 48,
-        "badge_text": "SolarSea\u00ae Sport | Non-GMO | Gluten Free | GRAS Certified | Third-Party Tested",
-        "bg_color": "#1a2d5e",
-        "heading_color": "#ffffff",
-        "text_color": "#ffffffcc",
-        "accent_color": "#61c2f4",
-        "glow_color": "#61c2f4",
-        "step_bg_color": "#ffffff0d",
-        "step_border_color": "#ffffff14",
-        "step_num_bg": "#61c2f4",
-        "step_num_color": "#0f1e3d",
-        "step_num_ring": "#61c2f433",
-        "connector_color": "#ffffff1a",
-        "badge_bg": "#ffffff0d",
-        "badge_color": "#ffffffcc",
-        "badge_border": "#ffffff1a"
       }
     },
     "faq_science_prod": {
@@ -992,12 +991,12 @@
     "marquee_slider_kEUnWm",
     "multicolumn_7FAKFx",
     "image_with_text_jEhVUU",
+    "ingredients_grid_kA3Vp9",
     "benefits_image_prod",
-    "ingredients_grid_prod",
-    "vs_comparison_prod",
-    "science_process_prod",
-    "faq_science_prod",
+    "science_process_xbLNBX",
+    "vs_comparison_V6tcEa",
     "1737097653810224b9",
+    "faq_science_prod",
     "related-products",
     "175952410047ff4b89",
     "17715275111f7e01fd"
