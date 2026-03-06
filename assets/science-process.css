@@ -1,5 +1,5 @@
 /* ============================================================
-   Science Process – Premium Glass-Morphism Design
+   Science Process – Premium Glass-Morphism + Images
    ============================================================ */
 
 .science-process {
@@ -45,7 +45,7 @@
   z-index: 1;
 }
 
-/* Header */
+/* ---- Header ---- */
 .science-process__header {
   text-align: center;
   margin-bottom: var(--sp-header-mb);
@@ -87,10 +87,27 @@
   margin: 0 auto;
   opacity: 0.7;
   line-height: 1.6;
-  max-width: 560px;
+  max-width: 600px;
 }
 
-/* Steps container */
+/* Header image */
+.science-process__header-img {
+  margin-top: 32px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--sp-step-border-color);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+}
+
+.science-process__header-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 360px;
+}
+
+/* ---- Steps container ---- */
 .science-process__steps {
   display: flex;
   flex-direction: column;
@@ -126,7 +143,7 @@
   transition: height 0.1s linear;
 }
 
-/* Step card */
+/* ---- Step card ---- */
 .science-process__step {
   display: flex;
   align-items: flex-start;
@@ -152,7 +169,7 @@
               0 0 0 1px var(--sp-accent-color-dim);
 }
 
-/* Step number */
+/* ---- Step number ---- */
 .science-process__step-num {
   width: var(--sp-num-size);
   height: var(--sp-num-size);
@@ -178,7 +195,7 @@
   transform: scale(1.05);
 }
 
-/* Pulse animation on number when step is in view */
+/* Pulse animation on number */
 .science-process__step-num::after {
   content: '';
   position: absolute;
@@ -194,28 +211,24 @@
 }
 
 @keyframes sp-pulse {
-  0% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.6);
-  }
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.6); }
 }
 
-/* Step content */
+/* ---- Step content ---- */
 .science-process__step-body {
   flex: 1;
   padding: 2px 0;
+  min-width: 0;
 }
 
 .science-process__step-title {
   font-size: var(--sp-step-title-size);
-  font-weight: 600;
+  font-weight: var(--sp-step-title-weight);
+  letter-spacing: var(--sp-step-title-ls);
   color: var(--sp-heading-color);
   margin: 0 0 var(--sp-step-title-mb);
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .science-process__step-text {
@@ -226,12 +239,60 @@
   opacity: 0.8;
 }
 
-/* Footer */
+/* ---- Step image ---- */
+.science-process__step-img {
+  flex-shrink: 0;
+  width: var(--sp-step-img-size);
+  height: var(--sp-step-img-size);
+  border-radius: var(--sp-step-img-radius);
+  overflow: hidden;
+  border: 1px solid var(--sp-step-border-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease;
+  align-self: center;
+}
+
+.science-process__step-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.science-process__step:hover .science-process__step-img {
+  transform: scale(1.04);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3),
+              0 0 0 1px var(--sp-accent-color-dim);
+}
+
+.science-process__step:hover .science-process__step-img img {
+  transform: scale(1.08);
+}
+
+/* ---- Footer ---- */
 .science-process__footer {
   text-align: center;
   margin-top: var(--sp-footer-mt);
   padding-top: var(--sp-footer-mt);
   position: relative;
+}
+
+/* Footer image */
+.science-process__footer-img {
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.science-process__footer-img img {
+  display: block;
+  max-width: 280px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid var(--sp-step-border-color);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
 }
 
 .science-process__footer-text {
@@ -243,7 +304,7 @@
   margin: 0 0 16px;
 }
 
-/* Badges */
+/* ---- Badges ---- */
 .science-process__badges {
   display: flex;
   justify-content: center;
@@ -271,7 +332,7 @@
   border-color: var(--sp-accent-color);
 }
 
-/* GSAP initial states (hidden before animation) */
+/* ---- GSAP initial states ---- */
 .science-process[data-gsap-ready] .science-process__header {
   opacity: 0;
   transform: translateY(30px);
@@ -287,7 +348,7 @@
   transform: translateY(20px);
 }
 
-/* Responsive */
+/* ---- Responsive ---- */
 @media screen and (max-width: 749px) {
   .science-process {
     padding-left: 16px;
@@ -303,8 +364,26 @@
   }
 
   .science-process__step {
-    gap: 16px;
+    gap: 14px;
     padding: 20px;
+    flex-wrap: wrap;
+  }
+
+  /* On mobile, image goes full width below text */
+  .science-process__step--has-image {
+    flex-wrap: wrap;
+  }
+
+  .science-process__step-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-top: 12px;
+    order: 3;
+  }
+
+  .science-process__header-img img {
+    max-height: 220px;
   }
 
   .science-process::before {
@@ -319,5 +398,9 @@
     height: 250px;
     bottom: -60px;
     left: -80px;
+  }
+
+  .science-process__step-title {
+    font-size: calc(var(--sp-step-title-size) * 0.85);
   }
 }

@@ -35,8 +35,12 @@
     --sp-num-size: {{ section.settings.num_size }}px;
     --sp-num-font-size: {{ section.settings.num_font_size }}px;
     --sp-step-title-size: {{ section.settings.step_title_size }}px;
+    --sp-step-title-weight: {{ section.settings.step_title_weight }};
+    --sp-step-title-ls: {{ section.settings.step_title_letter_spacing | divided_by: 100.0 }}em;
     --sp-step-title-mb: {{ section.settings.step_title_mb }}px;
     --sp-step-text-size: {{ section.settings.step_text_size }}px;
+    --sp-step-img-size: {{ section.settings.step_image_size }}px;
+    --sp-step-img-radius: {{ section.settings.step_image_radius }}px;
     --sp-connector-color: {{ section.settings.connector_color }};
     --sp-footer-mt: {{ section.settings.footer_mt }}px;
     --sp-footer-size: {{ section.settings.footer_text_size }}px;
@@ -64,6 +68,17 @@
       {%- if section.settings.subheading != blank -%}
         <p class="science-process__subheading">{{ section.settings.subheading }}</p>
       {%- endif -%}
+      {%- if section.settings.header_image != blank -%}
+        <div class="science-process__header-img">
+          <img
+            src="{{ section.settings.header_image | image_url: width: 1200 }}"
+            alt="{{ section.settings.header_image.alt | default: section.settings.heading | escape }}"
+            width="{{ section.settings.header_image.width }}"
+            height="{{ section.settings.header_image.height }}"
+            loading="lazy"
+          >
+        </div>
+      {%- endif -%}
     </div>
 
     {%- comment -%} STEPS {%- endcomment -%}
@@ -77,8 +92,12 @@
         </div>
 
         {%- for block in step_blocks -%}
+          {%- assign has_image = false -%}
+          {%- if block.settings.image != blank -%}
+            {%- assign has_image = true -%}
+          {%- endif -%}
           <div
-            class="science-process__step"
+            class="science-process__step{% if has_image %} science-process__step--has-image{% endif %}"
             data-step-index="{{ forloop.index }}"
             {{ block.shopify_attributes }}
           >
@@ -93,6 +112,17 @@
                 <p class="science-process__step-text">{{ block.settings.text }}</p>
               {%- endif -%}
             </div>
+            {%- if has_image -%}
+              <div class="science-process__step-img">
+                <img
+                  src="{{ block.settings.image | image_url: width: 400 }}"
+                  alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                  loading="lazy"
+                >
+              </div>
+            {%- endif -%}
           </div>
         {%- endfor -%}
       </div>
@@ -101,6 +131,17 @@
     {%- comment -%} FOOTER {%- endcomment -%}
     {%- if section.settings.footer_text != blank or section.settings.badge_text != blank -%}
       <div class="science-process__footer">
+        {%- if section.settings.footer_image != blank -%}
+          <div class="science-process__footer-img">
+            <img
+              src="{{ section.settings.footer_image | image_url: width: 800 }}"
+              alt="{{ section.settings.footer_image.alt | default: 'Process result' | escape }}"
+              width="{{ section.settings.footer_image.width }}"
+              height="{{ section.settings.footer_image.height }}"
+              loading="lazy"
+            >
+          </div>
+        {%- endif -%}
         {%- if section.settings.footer_text != blank -%}
           <p class="science-process__footer-text">{{ section.settings.footer_text }}</p>
         {%- endif -%}
@@ -152,7 +193,7 @@
       "type": "range",
       "id": "content_max_width",
       "label": "Max content width",
-      "min": 600, "max": 1200, "step": 20, "default": 800
+      "min": 600, "max": 1400, "step": 20, "default": 900
     },
     {
       "type": "range",
@@ -162,7 +203,7 @@
     },
     {
       "type": "header",
-      "content": "Heading"
+      "content": "Header"
     },
     {
       "type": "text",
@@ -226,8 +267,14 @@
       "min": 14, "max": 22, "step": 1, "default": 16
     },
     {
+      "type": "image_picker",
+      "id": "header_image",
+      "label": "Header image",
+      "info": "Optional hero/banner image displayed below the heading"
+    },
+    {
       "type": "header",
-      "content": "Steps"
+      "content": "Steps layout"
     },
     {
       "type": "range",
@@ -239,13 +286,13 @@
       "type": "range",
       "id": "step_padding",
       "label": "Step card padding",
-      "min": 16, "max": 40, "step": 2, "default": 24
+      "min": 16, "max": 48, "step": 2, "default": 28
     },
     {
       "type": "range",
       "id": "step_radius",
       "label": "Step card radius",
-      "min": 0, "max": 24, "step": 2, "default": 14
+      "min": 0, "max": 24, "step": 2, "default": 16
     },
     {
       "type": "range",
@@ -271,25 +318,66 @@
     },
     {
       "type": "header",
-      "content": "Step typography"
+      "content": "Step title"
     },
     {
       "type": "range",
       "id": "step_title_size",
       "label": "Step title size",
-      "min": 16, "max": 28, "step": 1, "default": 19
+      "min": 16, "max": 40, "step": 1, "default": 22
+    },
+    {
+      "type": "select",
+      "id": "step_title_weight",
+      "label": "Step title weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "step_title_letter_spacing",
+      "label": "Step title letter spacing",
+      "min": -10, "max": 50, "step": 1, "default": 2,
+      "info": "In hundredths of an em (e.g. 2 = 0.02em)"
     },
     {
       "type": "range",
       "id": "step_title_mb",
       "label": "Title bottom spacing",
-      "min": 0, "max": 16, "step": 2, "default": 6
+      "min": 0, "max": 20, "step": 2, "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Step text"
     },
     {
       "type": "range",
       "id": "step_text_size",
       "label": "Step text size",
       "min": 13, "max": 18, "step": 1, "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Step images"
+    },
+    {
+      "type": "range",
+      "id": "step_image_size",
+      "label": "Step image size",
+      "min": 60, "max": 200, "step": 4, "default": 100,
+      "info": "Width & height of step thumbnail images"
+    },
+    {
+      "type": "range",
+      "id": "step_image_radius",
+      "label": "Step image border radius",
+      "min": 0, "max": 24, "step": 2, "default": 12
     },
     {
       "type": "header",
@@ -312,6 +400,12 @@
       "id": "footer_mt",
       "label": "Footer margin top",
       "min": 20, "max": 80, "step": 4, "default": 48
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_image",
+      "label": "Footer image",
+      "info": "Optional image shown above the footer text (e.g. lab/certification badge)"
     },
     {
       "type": "text",
@@ -347,7 +441,7 @@
       "id": "accent_color",
       "label": "Accent color",
       "default": "#61c2f4",
-      "info": "Used for eyebrow, number glow, connector fill, badge hover"
+      "info": "Eyebrow, number glow, connector fill, badge hover"
     },
     {
       "type": "color",
@@ -426,6 +520,12 @@
           "id": "text",
           "label": "Step description",
           "default": "Describe what happens in this step of the process."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Step image",
+          "info": "Optional thumbnail image for this step"
         }
       ]
     }
