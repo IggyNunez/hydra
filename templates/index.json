@@ -916,8 +916,11 @@
             "brand_1_type": "text",
             "brand_1_text": "Freeze Pops",
             "brand_2_type": "cross",
+            "brand_2_text": "-",
             "brand_3_type": "cross",
-            "brand_4_type": "cross"
+            "brand_3_text": "-",
+            "brand_4_type": "cross",
+            "brand_4_text": "-"
           }
         },
         "bc_row_drops": {
@@ -927,8 +930,11 @@
             "brand_1_type": "text",
             "brand_1_text": "Drops",
             "brand_2_type": "cross",
+            "brand_2_text": "-",
             "brand_3_type": "cross",
-            "brand_4_type": "cross"
+            "brand_3_text": "-",
+            "brand_4_type": "cross",
+            "brand_4_text": "-"
           }
         },
         "bc_row_clean": {
@@ -936,8 +942,11 @@
           "settings": {
             "feature": "Clean Ingredients",
             "brand_1_type": "check",
+            "brand_1_text": "-",
             "brand_2_type": "cross",
+            "brand_2_text": "-",
             "brand_3_type": "cross",
+            "brand_3_text": "-",
             "brand_4_type": "text_neutral",
             "brand_4_text": "Partial"
           }
@@ -969,7 +978,7 @@
         "heading_color": "#ffffff",
         "text_color": "#ffffffcc",
         "accent_color": "#61c2f4",
-        "border_color": "#ffffff14",
+        "border_color": "#ffffff",
         "highlight_bg": "#61c2f414",
         "check_bg": "#61c2f433",
         "btn_bg": "#61c2f4",
