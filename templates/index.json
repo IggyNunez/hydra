@@ -425,8 +425,8 @@
           "settings": {
             "icon_image": "shopify://shop_images/Group_1980469001_468de2a6-791b-4ac5-b0be-66421311fdd9.png",
             "icon_preset": "droplet",
-            "title": "3-Year Solar Evaporation",
-            "text": "Our electrolytes are solar-evaporated from the Great Salt Lake over 3 years — no chemical processing, no shortcuts. Nature does the work."
+            "title": "Naturally Sourced Minerals",
+            "text": "Our electrolytes come from natural sea mineral deposits sourced from the Great Salt Lake in Utah, one of the most mineral-rich inland bodies of water in the world."
           }
         },
         "benefit_WhEtRk": {
@@ -434,16 +434,16 @@
           "settings": {
             "icon_image": "shopify://shop_images/Group_1980469002_eb6c227f-c9a3-425d-b971-530ab93583d4.webp",
             "icon_preset": "shield",
-            "title": "GRAS Certified & Lab Tested",
-            "text": "Every batch is independently tested for heavy metals and contaminants. Classified as Generally Recognized As Safe (GRAS) for food and beverage use."
+            "title": "Tested for Purity & Safety",
+            "text": "Heavy metals screened and controlled. Purity testing across multiple mineral panels. Classified as GRAS (Generally Recognized As Safe) for food and beverage use."
           }
         },
         "benefit_pFp3VK": {
           "type": "benefit",
           "settings": {
             "icon_preset": "bolt",
-            "title": "72+ Trace Minerals",
-            "text": "A full-spectrum mineral complex — sodium, potassium, magnesium, chloride, and over 72 naturally occurring trace minerals your body recognizes."
+            "title": "Full-Spectrum Electrolytes",
+            "text": "A naturally occurring spectrum of essential electrolytes including sodium, potassium, magnesium, chloride, and trace minerals — easily recognized and used by the body."
           }
         },
         "benefit_qVBH6L": {
@@ -452,7 +452,7 @@
             "icon_image": "shopify://shop_images/Group_1980469000_ab2e3c68-fbaf-4430-88ea-cce1a1364272.png",
             "icon_preset": "vegan",
             "title": "Zero Synthetics",
-            "text": "No added sugar, no artificial sweeteners, no dyes. Non-GMO and gluten free. Just clean, natural hydration in every pop and drop."
+            "text": "No added sugar. No artificial dyes. No artificial sweeteners. Clean ingredient formulas. Hydration, the way your body was designed to use it."
           }
         }
       },
@@ -479,7 +479,7 @@
         "heading_letter_spacing": 2,
         "heading_weight": "700",
         "heading_mb": 20,
-        "description": "<p>Most electrolyte brands use synthetic minerals made in a lab. Hydra is different — our electrolytes are harvested from the Great Salt Lake through a 3-year solar evaporation process, delivering a naturally concentrated mineral complex your body actually absorbs.</p>",
+        "description": "<p>Most electrolyte drinks are built in labs using synthetic powders. Hydra is different. Our electrolytes come from natural sea mineral deposits sourced from the Great Salt Lake — one of the most mineral-rich inland bodies of water in the world. Instead of manufacturing isolated salts, our minerals are naturally concentrated through a multi-year solar extraction process.</p>",
         "desc_size": 20,
         "desc_mb": 40,
         "grid_cols": "2",
@@ -513,36 +513,36 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "title": "Sourced from the Great Salt Lake",
-            "text": "Our electrolytes begin as mineral-rich brine from the Great Salt Lake in Utah — one of the most concentrated inland mineral sources on Earth."
+            "title": "Mineral-Rich Water Collected",
+            "text": "Mineral-rich Great Salt Lake water is collected from one of the most concentrated inland mineral sources on Earth."
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
-            "title": "3-Year Solar Evaporation",
-            "text": "The brine is channeled into solar evaporation ponds where it concentrates naturally over three years — no chemical processing, no shortcuts."
+            "title": "Solar Evaporation Ponds",
+            "text": "The water is placed into large solar evaporation ponds where sunlight slowly begins the natural concentration process."
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
-            "title": "Full-Spectrum Mineral Harvest",
-            "text": "The result is a naturally concentrated mineral complex containing sodium, potassium, magnesium, chloride, and over 72 trace minerals."
+            "title": "3 Years of Natural Concentration",
+            "text": "Over the course of three years, the sun naturally concentrates the minerals. As the water evaporates, minerals rise and crystallize."
           }
         },
         "step_4": {
           "type": "step",
           "settings": {
-            "title": "GRAS Certified & Lab Tested",
-            "text": "Every batch is independently tested for heavy metals, microplastics, and contaminants. Classified as Generally Recognized As Safe (GRAS) for food and beverage use."
+            "title": "Mineral Salts Harvested & Purified",
+            "text": "The mineral salts are carefully harvested and purified. This slow solar process preserves the natural balance of electrolytes found in the lake."
           }
         },
         "step_5": {
           "type": "step",
           "settings": {
-            "title": "Blended Into Every Pop & Drop",
-            "text": "These real sea minerals are blended into our Hydra Pops and Hydra Drops — delivering clean electrolyte hydration your body actually recognizes and absorbs."
+            "title": "Clean Electrolyte Hydration",
+            "text": "These sea mineral electrolytes are blended into Hydra Pops and Hydra Drops. Naturally sourced electrolytes, no artificial dyes, no artificial sweeteners, no added sugar. Just clean hydration."
           }
         }
       },
@@ -560,14 +560,14 @@
         "side_padding": 24,
         "content_max_width": 900,
         "header_mb": 48,
-        "eyebrow": "The Science",
-        "heading": "From Lake to Label: The 3-Year Journey",
+        "eyebrow": "How Our Electrolytes Are Made",
+        "heading": "A 3-Year Natural Mineral Process",
         "heading_size": 72,
         "heading_size_mobile": 46,
         "heading_letter_spacing": 2,
         "heading_weight": "700",
         "heading_mb": 16,
-        "subheading": "Most electrolyte brands use synthetic minerals made in a lab. Hydra’s electrolytes are solar-evaporated from the Great Salt Lake over 3 years — the way nature intended.",
+        "subheading": "We don’t make our minerals in a lab — we harvest them from nature. Instead of manufacturing isolated salts, our minerals are naturally concentrated through a multi-year solar extraction process.",
         "subheading_size": 18,
         "header_image": "shopify://shop_images/IMG_3962.jpg",
         "step_gap": 16,
@@ -586,7 +586,7 @@
         "footer_text": "No chemical synthesis. No artificial mineral blends. Just naturally concentrated sea minerals.",
         "footer_text_size": 16,
         "footer_mt": 48,
-        "badge_text": "SolarSea Sport | Non-GMO | Gluten Free | GRAS Certified | Lab Tested",
+        "badge_text": "SolarSea® Sport | Non-GMO | Gluten Free | GRAS Certified | Third-Party Tested",
         "bg_color": "#263d87",
         "heading_color": "#ffffff",
         "text_color": "#ffffffcc",
