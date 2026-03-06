@@ -986,7 +986,7 @@
         "heading_size": 48,
         "heading_size_mob": 32,
         "heading_weight": "700",
-        "heading_letter_spacing": -2,
+        "heading_letter_spacing": 2,
         "sub_size": 17,
         "eyebrow_size": 13,
         "cell_size": 15,
