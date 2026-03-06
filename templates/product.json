@@ -495,6 +495,8 @@
         "img_radius": 8,
         "card_inner_gap": 18,
         "card_name_size": 32,
+        "card_name_letter_spacing": 0,
+        "card_name_weight": "700",
         "card_name_mb": 10,
         "badge_size": 13,
         "badge_mb": 12,
@@ -846,10 +848,10 @@
         "guarantee_color": "#ffffffbf"
       }
     },
-    "brand_comparison_prod": {
+    "brand_comparison_4bj68f": {
       "type": "brand-comparison",
       "blocks": {
-        "bc_row_source": {
+        "row_BRmbEx": {
           "type": "row",
           "settings": {
             "feature": "Electrolyte Source",
@@ -863,7 +865,7 @@
             "brand_4_text": "Synthetic"
           }
         },
-        "bc_row_dyes": {
+        "row_FbnAHg": {
           "type": "row",
           "settings": {
             "feature": "Artificial Dyes",
@@ -877,7 +879,7 @@
             "brand_4_text": "None"
           }
         },
-        "bc_row_sweeteners": {
+        "row_HL6cet": {
           "type": "row",
           "settings": {
             "feature": "Artificial Sweeteners",
@@ -891,7 +893,7 @@
             "brand_4_text": "None"
           }
         },
-        "bc_row_sugar": {
+        "row_xUWhf8": {
           "type": "row",
           "settings": {
             "feature": "Added Sugar",
@@ -905,48 +907,57 @@
             "brand_4_text": "0g"
           }
         },
-        "bc_row_format": {
+        "row_LyTgCF": {
           "type": "row",
           "settings": {
             "feature": "Fun Hydration Format",
             "brand_1_type": "text",
             "brand_1_text": "Freeze Pops",
             "brand_2_type": "cross",
+            "brand_2_text": "-",
             "brand_3_type": "cross",
-            "brand_4_type": "cross"
+            "brand_3_text": "-",
+            "brand_4_type": "cross",
+            "brand_4_text": "-"
           }
         },
-        "bc_row_drops": {
+        "row_3fNj9a": {
           "type": "row",
           "settings": {
             "feature": "Flavor-Free Option",
             "brand_1_type": "text",
             "brand_1_text": "Drops",
             "brand_2_type": "cross",
+            "brand_2_text": "-",
             "brand_3_type": "cross",
-            "brand_4_type": "cross"
+            "brand_3_text": "-",
+            "brand_4_type": "cross",
+            "brand_4_text": "-"
           }
         },
-        "bc_row_clean": {
+        "row_JFLUK3": {
           "type": "row",
           "settings": {
             "feature": "Clean Ingredients",
             "brand_1_type": "check",
+            "brand_1_text": "-",
             "brand_2_type": "cross",
+            "brand_2_text": "-",
             "brand_3_type": "cross",
+            "brand_3_text": "-",
             "brand_4_type": "text_neutral",
             "brand_4_text": "Partial"
           }
         }
       },
       "block_order": [
-        "bc_row_source",
-        "bc_row_dyes",
-        "bc_row_sweeteners",
-        "bc_row_sugar",
-        "bc_row_format",
-        "bc_row_drops",
-        "bc_row_clean"
+        "row_BRmbEx",
+        "row_FbnAHg",
+        "row_HL6cet",
+        "row_xUWhf8",
+        "row_LyTgCF",
+        "row_3fNj9a",
+        "row_JFLUK3"
       ],
       "name": "Brand Comparison",
       "settings": {
@@ -954,38 +965,41 @@
         "heading": "Hydra vs. The Competition",
         "subheading": "See how Hydra stacks up against the leading hydration brands on the market.",
         "feature_col_label": "Feature",
-        "brand_1_name": "Hydra",
+        "brand_1_name": "Hydra Pops",
+        "brand_1_logo": "shopify://shop_images/Screen_Shot_2026-01-30_at_1.16.19_PM_e2e1e2bb-84b5-43ef-83b0-7c6ba82181da.png",
         "brand_2_name": "Liquid IV",
         "brand_3_name": "Gatorade",
         "brand_4_name": "LMNT",
         "footer_text": "Hydra delivers clean, naturally sourced hydration without the junk.",
-        "cta_text": "Try Hydra Today",
-        "cta_url": "",
+        "cta_text": "SHOP HYDRA DROPS",
+        "cta_url": "shopify://collections/bundles",
         "bg_color": "#263d87",
         "heading_color": "#ffffff",
         "text_color": "#ffffffcc",
         "accent_color": "#61c2f4",
-        "border_color": "#ffffff14",
+        "border_color": "#ffffff",
         "highlight_bg": "#61c2f414",
         "check_bg": "#61c2f433",
         "btn_bg": "#61c2f4",
         "btn_text": "#ffffff",
-        "heading_size": 48,
-        "heading_size_mob": 32,
+        "heading_size": 58,
+        "heading_size_mob": 48,
         "heading_weight": "700",
-        "heading_letter_spacing": -2,
+        "heading_letter_spacing": 2,
         "sub_size": 17,
         "eyebrow_size": 13,
         "cell_size": 15,
         "brand_name_size": 16,
-        "logo_size": 48,
+        "btn_size": 41,
+        "btn_radius": 8,
+        "logo_size": 80,
         "cell_pad_v": 14,
         "header_mb": 48,
         "footer_mt": 40,
         "max_width": 1200,
         "side_pad": 24,
-        "pad_top": 80,
-        "pad_bottom": 80,
+        "pad_top": 52,
+        "pad_bottom": 36,
         "pad_top_mob": 48,
         "pad_bottom_mob": 48
       }
@@ -1148,9 +1162,9 @@
     "benefits_image_prod",
     "science_process_xbLNBX",
     "vs_comparison_V6tcEa",
-    "brand_comparison_prod",
-    "1737097653810224b9",
+    "brand_comparison_4bj68f",
     "faq_science_prod",
+    "1737097653810224b9",
     "related-products",
     "175952410047ff4b89",
     "17715275111f7e01fd"
