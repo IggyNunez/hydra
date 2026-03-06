@@ -128,7 +128,7 @@
         "mini_feature_size": 14,
         "mini_feature_size_mobile": 13,
         "btn_label": "Shop Now",
-        "btn_url": "",
+        "btn_url": "shopify://collections/bundles",
         "btn_show_arrow": true,
         "btn_size": 38,
         "btn_padding_v": 12,
