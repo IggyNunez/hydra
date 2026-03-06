@@ -815,7 +815,7 @@
         "hero_image": "shopify://shop_images/Screen_Shot_2026-01-30_at_1.16.19_PM_e2e1e2bb-84b5-43ef-83b0-7c6ba82181da.png",
         "cta_mt": 28,
         "btn_label": "Shop Now",
-        "btn_url": "",
+        "btn_url": "shopify://collections/bundles",
         "btn_size": 39,
         "btn_padding_v": 10,
         "btn_padding_h": 24,
