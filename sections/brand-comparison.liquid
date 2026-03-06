@@ -24,6 +24,8 @@
     --bc-footer-mt: {{ section.settings.footer_mt }}px;
     --bc-max-width: {{ section.settings.max_width }}px;
     --bc-side-pad: {{ section.settings.side_pad }}px;
+    --bc-btn-size: {{ section.settings.btn_size }}px;
+    --bc-btn-radius: {{ section.settings.btn_radius }}px;
     padding-top: {{ section.settings.pad_top }}px;
     padding-bottom: {{ section.settings.pad_bottom }}px;
   }
@@ -486,6 +488,26 @@
       "max": 24,
       "step": 1,
       "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "btn_size",
+      "label": "Button font size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "btn_radius",
+      "label": "Button border radius",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 100,
       "unit": "px"
     },
     {

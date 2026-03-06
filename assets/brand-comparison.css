@@ -235,10 +235,10 @@ thead .bc-col-highlight {
   color: var(--bc-btn-text, #fff);
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-bold);
-  font-size: var(--bc-btn-size, clamp(14px, 1.1vw, 17px));
+  font-size: var(--bc-btn-size, 15px);
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  border-radius: 100px;
+  border-radius: var(--bc-btn-radius, 100px);
   text-decoration: none;
   border: none;
   cursor: pointer;
