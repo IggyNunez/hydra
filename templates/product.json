@@ -1004,26 +1004,6 @@
         "pad_bottom_mob": 48
       }
     },
-    "1737097653810224b9": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_4cqFpy": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "no_reviews",
-            "max_width": 1200,
-            "show_shop_reviews": true,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_4cqFpy"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "faq_science_prod": {
       "type": "faq-science",
       "blocks": {
@@ -1105,6 +1085,26 @@
         "item_bg": "#ffffff14",
         "border_color": "#ffffff1a",
         "icon_color": "#61c2f4"
+      }
+    },
+    "1737097653810224b9": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_4cqFpy": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "no_reviews",
+            "max_width": 1200,
+            "show_shop_reviews": true,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_4cqFpy"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "related-products": {
