@@ -417,6 +417,120 @@
         "title": "Tried, tested, and loved"
       }
     },
+    "ingredients_grid_B7qxAt": {
+      "type": "ingredients-grid",
+      "blocks": {
+        "ingredient_HJDaJC": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/sea_minerals.png",
+            "name": "Sea Minerals",
+            "badge": "Full spectrum electrolytes",
+            "description": "Sourced from the mineral-rich Great Salt Lake in Utah via a 3-year solar evaporation process. No chemical synthesis — just naturally concentrated electrolytes your body recognizes."
+          }
+        },
+        "ingredient_Ymi6JR": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Sodium_Mineral.png",
+            "name": "Sodium",
+            "badge": "Hydration & muscle function",
+            "description": "The primary electrolyte lost in sweat. Sodium drives fluid balance and keeps muscles firing — essential for cellular hydration and performance."
+          }
+        },
+        "ingredient_pmPaML": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Potasium.png",
+            "name": "Potassium",
+            "badge": "Muscle function & nerve signaling",
+            "description": "Works alongside sodium to maintain fluid balance, reduce muscle cramps, and support the nerve signaling your body depends on."
+          }
+        },
+        "ingredient_N4BHMa": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/magensium.png",
+            "name": "Magnesium",
+            "badge": "Energy & recovery",
+            "description": "Essential for energy production and muscle recovery. Part of the naturally occurring mineral spectrum found in Great Salt Lake sea minerals."
+          }
+        },
+        "ingredient_4EeCTz": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/vitmain-c.png",
+            "name": "Vitamin C",
+            "badge": "Immune support",
+            "description": "Added antioxidant protection to support your immune system and help your body recover faster."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_HJDaJC",
+        "ingredient_Ymi6JR",
+        "ingredient_pmPaML",
+        "ingredient_N4BHMa",
+        "ingredient_4EeCTz"
+      ],
+      "name": "Ingredients Grid",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 88,
+        "side_padding": 60,
+        "content_max_width": 1600,
+        "heading_col_width": 380,
+        "layout_gap": 60,
+        "heading": "What's Inside Every Pop & Drop:",
+        "heading_size": 51,
+        "heading_letter_spacing": 2,
+        "heading_weight": "700",
+        "heading_mb": 0,
+        "subheading": "Real minerals. No synthetic powders. Our electrolytes are sourced from the Great Salt Lake and naturally concentrated over three years — so your body gets them the way nature intended.",
+        "subheading_size": 15,
+        "card_cols": "2",
+        "card_gap_v": 20,
+        "card_gap_h": 20,
+        "card_padding": 20,
+        "card_radius": 12,
+        "img_size": 108,
+        "img_radius": 8,
+        "card_inner_gap": 18,
+        "card_name_size": 32,
+        "card_name_mb": 10,
+        "badge_size": 13,
+        "badge_mb": 12,
+        "card_desc_size": 14,
+        "taste_icon": "heart",
+        "taste_icon_size": 28,
+        "taste_title": "What do they taste like?",
+        "taste_title_size": 36,
+        "taste_title_mb": 10,
+        "taste_desc": "Our pops come in Apple, Strawberry, and Lime — bright, refreshing flavors with zero artificial sweeteners or aftertaste.",
+        "taste_desc_size": 14,
+        "taste_image": "shopify://shop_images/5_copy_daa0e4e3-a0a4-459e-bdf3-347f960b22a2.jpg",
+        "taste_img_height": 288,
+        "taste_mt": 32,
+        "taste_radius": 14,
+        "taste_padding": 28,
+        "protip_label": "Pro Tip:",
+        "protip_label_size": 13,
+        "protip_text": "Try adding Hydra Drops to any cold drink — sparkling water, lemonade, or straight from the bottle. A few drops go a long way.",
+        "protip_text_size": 13,
+        "protip_radius": 10,
+        "protip_padding": 18,
+        "bg_color": "#263d87",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffffcc",
+        "card_bg_color": "#ffffff14",
+        "badge_bg_color": "#61c2f426",
+        "badge_text_color": "#ffffff",
+        "taste_bg_color": "#ffffff1f",
+        "protip_bg_color": "#ffffffe6",
+        "protip_label_bg": "#263d87",
+        "protip_text_color": "#1a2d6e"
+      }
+    },
     "benefits_image_BnwnTe": {
       "type": "benefits-image",
       "blocks": {
@@ -467,7 +581,7 @@
         "layout": "image_right",
         "content_alignment": "left",
         "image_position": "center center",
-        "padding_top": 48,
+        "padding_top": 0,
         "padding_bottom": 0,
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48,
@@ -601,120 +715,6 @@
         "badge_bg": "#ffffff0d",
         "badge_color": "#ffffffcc",
         "badge_border": "#ffffff1a"
-      }
-    },
-    "ingredients_grid_B7qxAt": {
-      "type": "ingredients-grid",
-      "blocks": {
-        "ingredient_HJDaJC": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/sea_minerals.png",
-            "name": "Sea Minerals",
-            "badge": "Full spectrum electrolytes",
-            "description": "Sourced from the mineral-rich Great Salt Lake in Utah via a 3-year solar evaporation process. No chemical synthesis — just naturally concentrated electrolytes your body recognizes."
-          }
-        },
-        "ingredient_Ymi6JR": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/Sodium_Mineral.png",
-            "name": "Sodium",
-            "badge": "Hydration & muscle function",
-            "description": "The primary electrolyte lost in sweat. Sodium drives fluid balance and keeps muscles firing — essential for cellular hydration and performance."
-          }
-        },
-        "ingredient_pmPaML": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/Potasium.png",
-            "name": "Potassium",
-            "badge": "Muscle function & nerve signaling",
-            "description": "Works alongside sodium to maintain fluid balance, reduce muscle cramps, and support the nerve signaling your body depends on."
-          }
-        },
-        "ingredient_N4BHMa": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/magensium.png",
-            "name": "Magnesium",
-            "badge": "Energy & recovery",
-            "description": "Essential for energy production and muscle recovery. Part of the naturally occurring mineral spectrum found in Great Salt Lake sea minerals."
-          }
-        },
-        "ingredient_4EeCTz": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/vitmain-c.png",
-            "name": "Vitamin C",
-            "badge": "Immune support",
-            "description": "Added antioxidant protection to support your immune system and help your body recover faster."
-          }
-        }
-      },
-      "block_order": [
-        "ingredient_HJDaJC",
-        "ingredient_Ymi6JR",
-        "ingredient_pmPaML",
-        "ingredient_N4BHMa",
-        "ingredient_4EeCTz"
-      ],
-      "name": "Ingredients Grid",
-      "settings": {
-        "padding_top": 80,
-        "padding_bottom": 88,
-        "side_padding": 60,
-        "content_max_width": 1600,
-        "heading_col_width": 380,
-        "layout_gap": 60,
-        "heading": "What's Inside Every Pop & Drop:",
-        "heading_size": 51,
-        "heading_letter_spacing": 2,
-        "heading_weight": "700",
-        "heading_mb": 0,
-        "subheading": "Real minerals. No synthetic powders. Our electrolytes are sourced from the Great Salt Lake and naturally concentrated over three years — so your body gets them the way nature intended.",
-        "subheading_size": 15,
-        "card_cols": "2",
-        "card_gap_v": 20,
-        "card_gap_h": 20,
-        "card_padding": 20,
-        "card_radius": 12,
-        "img_size": 108,
-        "img_radius": 8,
-        "card_inner_gap": 18,
-        "card_name_size": 32,
-        "card_name_mb": 10,
-        "badge_size": 13,
-        "badge_mb": 12,
-        "card_desc_size": 14,
-        "taste_icon": "heart",
-        "taste_icon_size": 28,
-        "taste_title": "What do they taste like?",
-        "taste_title_size": 36,
-        "taste_title_mb": 10,
-        "taste_desc": "Our pops come in Apple, Strawberry, and Lime — bright, refreshing flavors with zero artificial sweeteners or aftertaste.",
-        "taste_desc_size": 14,
-        "taste_image": "shopify://shop_images/5_copy_daa0e4e3-a0a4-459e-bdf3-347f960b22a2.jpg",
-        "taste_img_height": 288,
-        "taste_mt": 32,
-        "taste_radius": 14,
-        "taste_padding": 28,
-        "protip_label": "Pro Tip:",
-        "protip_label_size": 13,
-        "protip_text": "Try adding Hydra Drops to any cold drink — sparkling water, lemonade, or straight from the bottle. A few drops go a long way.",
-        "protip_text_size": 13,
-        "protip_radius": 10,
-        "protip_padding": 18,
-        "bg_color": "#263d87",
-        "heading_color": "#ffffff",
-        "text_color": "#ffffffcc",
-        "card_bg_color": "#ffffff14",
-        "badge_bg_color": "#61c2f426",
-        "badge_text_color": "#ffffff",
-        "taste_bg_color": "#ffffff1f",
-        "protip_bg_color": "#ffffffe6",
-        "protip_label_bg": "#263d87",
-        "protip_text_color": "#1a2d6e"
       }
     },
     "vs_comparison_LBpmCJ": {
@@ -1284,9 +1284,9 @@
     "rich_text_NFkQja",
     "slideshow_BnVCwq",
     "product_list_VDFYCH",
+    "ingredients_grid_B7qxAt",
     "benefits_image_BnwnTe",
     "science_process_home",
-    "ingredients_grid_B7qxAt",
     "vs_comparison_LBpmCJ",
     "faq_science_home",
     "subscribe_banner_qyJ4Fm",
