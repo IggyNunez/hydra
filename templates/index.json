@@ -426,7 +426,7 @@
             "icon_image": "shopify://shop_images/Group_1980469001_468de2a6-791b-4ac5-b0be-66421311fdd9.png",
             "icon_preset": "no",
             "title": "No Added Sugar",
-            "text": "Formulated with zero added sugar and no artificial sweeteners."
+            "text": "Zero added sugar, zero artificial sweeteners. Just clean hydration you can feel good about."
           }
         },
         "benefit_WhEtRk": {
@@ -434,16 +434,16 @@
           "settings": {
             "icon_image": "shopify://shop_images/Group_1980469002_eb6c227f-c9a3-425d-b971-530ab93583d4.webp",
             "icon_preset": "check",
-            "title": "Vegan & Non-GMO",
-            "text": "Clean ingredients you can trust — vegan, gluten-free, and Non-GMO certified."
+            "title": "Non-GMO & Gluten Free",
+            "text": "Clean ingredients you can trust. SolarSea Sport certified Non-GMO and gluten free — backed by independent testing."
           }
         },
         "benefit_pFp3VK": {
           "type": "benefit",
           "settings": {
             "icon_preset": "droplet",
-            "title": "200mg+ Electrolytes",
-            "text": "Over 200mg of electrolytes per serving to keep you performing at your best."
+            "title": "Natural Electrolytes",
+            "text": "A naturally occurring spectrum of sodium, potassium, magnesium, chloride, and trace minerals — absorbed the way your body was designed."
           }
         },
         "benefit_qVBH6L": {
@@ -451,8 +451,8 @@
           "settings": {
             "icon_image": "shopify://shop_images/Group_1980469000_ab2e3c68-fbaf-4430-88ea-cce1a1364272.png",
             "icon_preset": "check",
-            "title": "No Artificial Dyes",
-            "text": "No dyes, no junk. Just clean, effective hydration in every pop or drop."
+            "title": "GRAS Certified Minerals",
+            "text": "Independently lab tested. Heavy metals screened. Classified as Generally Recognized As Safe for food and beverage products."
           }
         }
       },
@@ -473,13 +473,13 @@
         "padding_bottom_mobile": 48,
         "side_padding": 60,
         "bg_color": "#263d87",
-        "heading": "Why Hydra Works",
+        "heading": "Real Minerals. Real Hydration.",
         "heading_size": 74,
         "heading_size_mobile": 38,
         "heading_letter_spacing": 2,
         "heading_weight": "700",
         "heading_mb": 20,
-        "description": "<p>Over 200mg of electrolytes per serving. No added sugar, no artificial sweeteners, no dyes. Just pure hydration in a formula you can feel good about.</p>",
+        "description": "<p>Most electrolyte drinks are built in labs using synthetic powders. Hydra is different. Our electrolytes come from natural sea mineral deposits sourced from the Great Salt Lake — one of the most mineral-rich inland bodies of water in the world.</p>",
         "desc_size": 20,
         "desc_mb": 40,
         "grid_cols": "2",
@@ -516,7 +516,7 @@
             "image": "shopify://shop_images/sea_minerals.png",
             "name": "Sea Minerals",
             "badge": "Full spectrum electrolytes",
-            "description": "Sourced from pristine sea water, our sea mineral blend delivers a complete profile of electrolytes your body actually uses."
+            "description": "Sourced from the mineral-rich Great Salt Lake in Utah via a 3-year solar evaporation process. No chemical synthesis — just naturally concentrated electrolytes your body recognizes."
           }
         },
         "ingredient_Ymi6JR": {
@@ -525,7 +525,7 @@
             "image": "shopify://shop_images/Sodium_Mineral.png",
             "name": "Sodium",
             "badge": "Hydration & muscle function",
-            "description": "The primary electrolyte lost in sweat. Sodium drives fluid balance and keeps muscles firing at full capacity."
+            "description": "The primary electrolyte lost in sweat. Sodium drives fluid balance and keeps muscles firing — essential for cellular hydration and performance."
           }
         },
         "ingredient_pmPaML": {
@@ -533,8 +533,8 @@
           "settings": {
             "image": "shopify://shop_images/Potasium.png",
             "name": "Potassium",
-            "badge": "Reduces cramps",
-            "description": "Works alongside sodium to maintain cellular hydration, reduce muscle cramps, and support nerve signaling."
+            "badge": "Muscle function & nerve signaling",
+            "description": "Works alongside sodium to maintain fluid balance, reduce muscle cramps, and support the nerve signaling your body depends on."
           }
         },
         "ingredient_N4BHMa": {
@@ -543,7 +543,7 @@
             "image": "shopify://shop_images/magensium.png",
             "name": "Magnesium",
             "badge": "Energy & recovery",
-            "description": "Essential for energy production and muscle recovery. Most people don't get enough from diet alone."
+            "description": "Essential for energy production and muscle recovery. Part of the naturally occurring mineral spectrum found in Great Salt Lake sea minerals."
           }
         },
         "ingredient_4EeCTz": {
@@ -576,7 +576,7 @@
         "heading_letter_spacing": 2,
         "heading_weight": "700",
         "heading_mb": 0,
-        "subheading": "",
+        "subheading": "Real minerals. No synthetic powders. Our electrolytes are sourced from the Great Salt Lake and naturally concentrated over three years — so your body gets them the way nature intended.",
         "subheading_size": 15,
         "card_cols": "2",
         "card_gap_v": 20,
@@ -671,6 +671,14 @@
             "we_have_it": true,
             "they_have_it": false
           }
+        },
+        "row_NatMin": {
+          "type": "row",
+          "settings": {
+            "feature": "Natural Mineral Source (Not Synthetic)",
+            "we_have_it": true,
+            "they_have_it": false
+          }
         }
       },
       "block_order": [
@@ -679,7 +687,8 @@
         "row_pjiEHR",
         "row_Qyi8VN",
         "row_YtULRz",
-        "row_Bqzezt"
+        "row_Bqzezt",
+        "row_NatMin"
       ],
       "name": "VS Comparison",
       "settings": {

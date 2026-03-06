@@ -15,7 +15,10 @@
       "WebFetch(domain:thehydrashop.com)",
       "Bash(git add sections/hero-cta.liquid sections/benefits-image.liquid sections/ingredients-grid.liquid sections/vs-comparison.liquid)",
       "Bash(git add sections/benefits-image.liquid sections/hero-cta.liquid sections/ingredients-grid.liquid sections/vs-comparison.liquid)",
-      "Bash(git add sections/hero-cta.liquid sections/hero-banner.liquid assets/hero-cta.css assets/hero-banner.css)"
+      "Bash(git add sections/hero-cta.liquid sections/hero-banner.liquid assets/hero-cta.css assets/hero-banner.css)",
+      "Bash(python -c \":*)",
+      "Bash(grep -l \"ingredient\\\\|science\\\\|electrolyte\\\\|how.it.work\" /d/Hydra/sections/*.liquid)",
+      "Bash(git add -A)"
     ]
   }
 }

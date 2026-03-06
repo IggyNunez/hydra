@@ -1,0 +1,490 @@
+{{ 'science-process.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    --sp-bg: {{ section.settings.bg_color }};
+    --sp-heading-color: {{ section.settings.heading_color }};
+    --sp-text-color: {{ section.settings.text_color }};
+    --sp-step-bg: {{ section.settings.step_bg_color }};
+    --sp-step-num-bg: {{ section.settings.step_num_bg }};
+    --sp-step-num-color: {{ section.settings.step_num_color }};
+    --sp-connector-color: {{ section.settings.connector_color }};
+    --sp-badge-bg: {{ section.settings.badge_bg }};
+    --sp-badge-color: {{ section.settings.badge_color }};
+  }
+{% endstyle %}
+
+{%- liquid
+  assign step_blocks = section.blocks | where: 'type', 'step'
+-%}
+
+<section
+  class="science-process{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div
+    class="science-process__inner"
+    style="
+      max-width: {{ section.settings.content_max_width }}px;
+      padding-left: {{ section.settings.side_padding }}px;
+      padding-right: {{ section.settings.side_padding }}px;
+    "
+  >
+
+    <div class="science-process__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="science-process__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2
+          class="science-process__heading"
+          style="
+            font-size: {{ section.settings.heading_size }}px;
+            font-weight: {{ section.settings.heading_weight }};
+            letter-spacing: {{ section.settings.heading_letter_spacing | divided_by: 100.0 }}em;
+            margin-bottom: {{ section.settings.heading_mb }}px;
+          "
+        >{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p
+          class="science-process__subheading"
+          style="font-size: {{ section.settings.subheading_size }}px;"
+        >{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if step_blocks.size > 0 -%}
+      <div class="science-process__steps" style="gap: {{ section.settings.step_gap }}px;">
+        {%- for block in step_blocks -%}
+          <div
+            class="science-process__step"
+            style="
+              padding: {{ section.settings.step_padding }}px;
+              border-radius: {{ section.settings.step_radius }}px;
+            "
+            {{ block.shopify_attributes }}
+          >
+            <div
+              class="science-process__step-num"
+              style="
+                width: {{ section.settings.num_size }}px;
+                height: {{ section.settings.num_size }}px;
+                font-size: {{ section.settings.num_font_size }}px;
+                border-radius: 50%;
+                flex-shrink: 0;
+              "
+            >{{ forloop.index }}</div>
+
+            <div class="science-process__step-body">
+              {%- if block.settings.title != blank -%}
+                <h3
+                  class="science-process__step-title"
+                  style="font-size: {{ section.settings.step_title_size }}px; margin-bottom: {{ section.settings.step_title_mb }}px;"
+                >{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p
+                  class="science-process__step-text"
+                  style="font-size: {{ section.settings.step_text_size }}px;"
+                >{{ block.settings.text }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.footer_text != blank -%}
+      <p
+        class="science-process__footer"
+        style="font-size: {{ section.settings.footer_text_size }}px;"
+      >{{ section.settings.footer_text }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.badge_text != blank -%}
+      <div class="science-process__badges">
+        {%- assign badges = section.settings.badge_text | split: '|' -%}
+        {%- for badge in badges -%}
+          <span class="science-process__badge">{{ badge | strip }}</span>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Science Process",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout & Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "side_padding",
+      "label": "Side padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Max content width",
+      "min": 600,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 900
+    },
+    {
+      "type": "header",
+      "content": "Header Text"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "The Science"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How Our Electrolytes Are Made"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "label": "Heading letter spacing",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": -2,
+      "info": "Values in hundredths of an em"
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "heading_mb",
+      "label": "Heading bottom spacing",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "A 3-Year Natural Mineral Process"
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Steps Layout"
+    },
+    {
+      "type": "range",
+      "id": "step_gap",
+      "label": "Gap between steps",
+      "min": 4,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "step_padding",
+      "label": "Step inner padding",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "step_radius",
+      "label": "Step border radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Step Number"
+    },
+    {
+      "type": "range",
+      "id": "num_size",
+      "label": "Number circle size",
+      "min": 28,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "num_font_size",
+      "label": "Number font size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Step Typography"
+    },
+    {
+      "type": "range",
+      "id": "step_title_size",
+      "label": "Step title size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "step_title_mb",
+      "label": "Title bottom spacing",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "step_text_size",
+      "label": "Step description size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "Footer summary text",
+      "default": "No chemical synthesis. No artificial mineral blends. Just naturally concentrated sea minerals."
+    },
+    {
+      "type": "range",
+      "id": "footer_text_size",
+      "label": "Footer text size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Certification badges (separate with |)",
+      "default": "SolarSea Sport | Non-GMO | Gluten Free",
+      "info": "e.g. SolarSea Sport | Non-GMO | Gluten Free"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#f7f9ff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#263d87"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color",
+      "default": "#444444"
+    },
+    {
+      "type": "color",
+      "id": "step_bg_color",
+      "label": "Step card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "step_num_bg",
+      "label": "Step number circle background",
+      "default": "#263d87"
+    },
+    {
+      "type": "color",
+      "id": "step_num_color",
+      "label": "Step number text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "connector_color",
+      "label": "Connector line color",
+      "default": "#263d8733"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Badge background",
+      "default": "#263d8714"
+    },
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Badge text color",
+      "default": "#263d87"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Process Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step title",
+          "default": "Step Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Step description",
+          "default": "Describe what happens in this step of the process."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Science Process",
+      "settings": {
+        "eyebrow": "The Science",
+        "heading": "How Our Electrolytes Are Made",
+        "subheading": "A 3-Year Natural Mineral Process",
+        "footer_text": "No chemical synthesis. No artificial mineral blends. Just naturally concentrated sea minerals.",
+        "badge_text": "SolarSea Sport | Non-GMO | Gluten Free"
+      },
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Collected from the Source",
+            "text": "Mineral-rich water from the Great Salt Lake in Utah — one of the most mineral-dense inland bodies of water in the world — is collected."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Placed in Solar Evaporation Ponds",
+            "text": "The water is transferred into large solar evaporation ponds where the natural process begins."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Sun Concentrates the Minerals",
+            "text": "Over the course of three years, the sun naturally concentrates the minerals as water slowly evaporates."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Minerals Rise and Crystallize",
+            "text": "As evaporation progresses, the mineral salts rise and crystallize — preserving the natural electrolyte balance found in the lake."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Harvested and Purified",
+            "text": "The mineral salts are harvested, purified, and independently lab tested to meet food-grade safety standards before going into every Hydra product."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

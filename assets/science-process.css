@@ -1,0 +1,141 @@
+.science-process {
+  background-color: var(--sp-bg);
+  color: var(--sp-text-color);
+}
+
+.science-process__inner {
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.science-process__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.science-process__eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sp-step-num-bg);
+  margin: 0 0 12px;
+  opacity: 0.75;
+}
+
+.science-process__heading {
+  color: var(--sp-heading-color);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.science-process__subheading {
+  color: var(--sp-text-color);
+  margin: 12px 0 0;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+/* Steps */
+.science-process__steps {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.science-process__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: var(--sp-step-bg);
+  position: relative;
+}
+
+.science-process__step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sp-step-num-bg);
+  color: var(--sp-step-num-color);
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.science-process__step-body {
+  flex: 1;
+  padding: 4px 0;
+}
+
+.science-process__step-title {
+  color: var(--sp-heading-color);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.science-process__step-text {
+  color: var(--sp-text-color);
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* Connector line between steps */
+.science-process__steps::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 44px;
+  bottom: 44px;
+  width: 2px;
+  background-color: var(--sp-connector-color);
+  z-index: 0;
+}
+
+.science-process__step {
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer */
+.science-process__footer {
+  text-align: center;
+  margin: 40px 0 24px;
+  color: var(--sp-heading-color);
+  font-weight: 600;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Badges */
+.science-process__badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.science-process__badge {
+  background-color: var(--sp-badge-bg);
+  color: var(--sp-badge-color);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 6px 16px;
+  border-radius: 100px;
+}
+
+@media screen and (max-width: 749px) {
+  .science-process__header {
+    margin-bottom: 32px;
+  }
+
+  .science-process__steps::before {
+    left: 20px;
+    top: 40px;
+    bottom: 40px;
+  }
+}
