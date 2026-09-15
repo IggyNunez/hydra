@@ -38,19 +38,7 @@
         {% assign skip_card_product_styles = false %}
         {% for recommendation in recommendations.products %}
           <li class="grid__item">
-            {% render 'card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,]
-              skip_styles: skip_card_product_styles,
-              quick_add: section.settings.quick_add,
-              learn_more: section.settings.enable_learn_more,
-              learn_more_text: section.settings.learn_btn_text,
-              learn_more_link: section.settings.learn_btn_link
-            %}
+            {% render 'card-product', card_product: recommendation, media_aspect_ratio: section.settings.image_ratio, image_shape: section.settings.image_shape, show_secondary_image: section.settings.show_secondary_image, show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating, skip_styles: skip_card_product_styles, quick_add: section.settings.quick_add, learn_more: section.settings.enable_learn_more, learn_more_text: section.settings.learn_btn_text, learn_more_link: section.settings.learn_btn_link %}
           </li>
           {%- assign skip_card_product_styles = true -%}
         {% endfor %}
@@ -300,3 +288,32 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'card-product',
+                  card_product: recommendation,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  image_shape: section.settings.image_shape,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,]
+                  skip_styles: skip_card_product_styles,
+                  quick_add: section.settings.quick_add,
+                  learn_more: section.settings.enable_learn_more,
+                  learn_more_text: section.settings.learn_btn_text,
+                  learn_more_link: section.settings.learn_btn_link
+                %}
+  to: "{% render 'card-product', card_product: recommendation, media_aspect_ratio:
+    section.settings.image_ratio, image_shape: section.settings.image_shape, show_secondary_image:
+    section.settings.show_secondary_image, show_vendor: section.settings.show_vendor,
+    show_rating: section.settings.show_rating, skip_styles: skip_card_product_styles,
+    quick_add: section.settings.quick_add, learn_more: section.settings.enable_learn_more,
+    learn_more_text: section.settings.learn_btn_text, learn_more_link: section.settings.learn_btn_link
+    %}"
+  position: 1778..2301
+{% endcomment %}
